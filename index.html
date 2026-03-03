@@ -54,7 +54,13 @@
     "@type": "Country",
     "name": "Paraguay"
   },
-  "sameAs": []
+  "sameAs": [
+    "https://www.instagram.com/sophe.studio/",
+    "https://www.threads.com/@sophe.studio",
+    "https://www.behance.net/sophestudio"
+  ],
+  "email": "sophestudio@gmail.com",
+  "telephone": "+595992391964"
 }
 </script>
 
@@ -691,15 +697,15 @@
   }
 
   .project-card:hover { transform: scale(0.97); }
-  .project-card:hover .project-overlay { opacity: 1; }
-  .project-card:hover .project-card-name { transform: translateY(-5px); }
-  .project-card:hover .project-card-type { transform: translateY(-3px); opacity: 1; }
+  .project-card:hover .project-overlay { opacity: 1; backdrop-filter: blur(0px); }
+  .project-card:hover .project-card-name { transform: translateY(-12px); }
+  .project-card:hover .project-card-type { transform: translateY(-12px); opacity: 1; }
 
   .pc-1 { background: linear-gradient(135deg, #1a3a5c, #2a5a8c); }
-  .pc-2 { background: linear-gradient(135deg, #2a4a7c, #3a6aac); }
-  .pc-3 { background: var(--warm-black); }
-  .pc-4 { background: linear-gradient(135deg, #1a2a3c, #2a4a6c); }
-  .pc-5 { background: linear-gradient(135deg, #3a2a1a, #6a4a2a); grid-column: 1 / -1; aspect-ratio: 21/9; }
+  .pc-2 { background: linear-gradient(135deg, #2a6ab5, #3a7ac5); }
+  .pc-3 { background: linear-gradient(135deg, #111530, #161935); }
+  .pc-4 { background: linear-gradient(135deg, #2a2a2a, #3d3d3d); }
+  .pc-5 { background: linear-gradient(135deg, #065e2e, #0a7a3a); grid-column: 1 / -1; aspect-ratio: 21/9; }
 
   a.project-card { text-decoration: none; }
 
@@ -729,13 +735,16 @@
 
   .project-overlay {
     position: absolute;
-    inset: 0;
-    background: rgba(196,133,106,0.2);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.4s;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
   }
 
   .project-overlay-text {
@@ -746,12 +755,14 @@
     text-transform: uppercase;
     color: white;
     padding: 10px 24px;
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.6);
     transition: background 0.3s, border-color 0.3s;
+    backdrop-filter: blur(4px);
+    background: rgba(255,255,255,0.08);
   }
 
   .project-overlay-text:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.15);
     border-color: white;
   }
 
@@ -787,11 +798,11 @@
   .contact-label {
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 12px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 14px;
   }
 
   .contact-headline {
@@ -805,8 +816,8 @@
   .contact-sub {
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
   }
 
   .contact-form {
@@ -824,12 +835,12 @@
   .form-group label {
     display: block;
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 9px;
+    font-weight: 400;
+    font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 8px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 10px;
     transition: color 0.3s;
   }
 
@@ -839,20 +850,20 @@
 
   .form-input, .form-textarea {
     width: 100%;
-    padding: 14px 0;
+    padding: 16px 0;
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--white);
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(255,255,255,0.35);
     outline: none;
     transition: border-color 0.3s;
   }
 
   .form-input::placeholder, .form-textarea::placeholder {
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.45);
   }
 
   .form-input:focus, .form-textarea:focus {
@@ -874,12 +885,12 @@
   .submit-btn {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--white);
     background: none;
-    padding: 16px 48px;
+    padding: 18px 56px;
     border: 1px solid rgba(255,255,255,0.5);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1134,10 +1145,10 @@
   .process-step-name {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     transition: color 0.3s;
   }
 
@@ -1148,17 +1159,17 @@
   .process-step-desc {
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.8;
     color: var(--muted-gold);
   }
 
   .process-step-duration {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 12px;
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: rgba(196,133,106,0.6);
@@ -1191,17 +1202,17 @@
   .faq-label {
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 5px;
     text-transform: uppercase;
     color: var(--terracotta);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   .faq-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: 36px;
+    font-size: 42px;
     letter-spacing: 2px;
   }
 
@@ -1211,7 +1222,7 @@
   }
 
   .faq-item {
-    border-bottom: 1px solid rgba(44,41,38,0.08);
+    border-bottom: 1px solid rgba(44,41,38,0.15);
     overflow: hidden;
   }
 
@@ -1219,7 +1230,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 28px 0;
     cursor: pointer;
     gap: 16px;
     transition: color 0.3s;
@@ -1232,21 +1243,21 @@
   .faq-question-text {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
     letter-spacing: 0.5px;
   }
 
   .faq-icon {
     flex-shrink: 0;
-    width: 28px; height: 28px;
-    border: 1px solid rgba(44,41,38,0.15);
+    width: 34px; height: 34px;
+    border: 1px solid rgba(44,41,38,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 20px;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background 0.3s, color 0.3s;
   }
 
@@ -1264,17 +1275,18 @@
   }
 
   .faq-item.open .faq-answer {
-    max-height: 200px;
-    padding-bottom: 24px;
+    max-height: 300px;
+    padding-bottom: 28px;
   }
 
   .faq-answer-text {
     font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--muted-gold);
-    padding-right: 44px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--warm-black);
+    opacity: 0.7;
+    padding-right: 50px;
   }
 
   /* ===================== CURSOR ===================== */
@@ -1396,8 +1408,9 @@
     <a href="#contact" class="mobile-link">Contacto</a>
     <div class="mobile-menu-line"></div>
     <div class="mobile-menu-social">
+      <a href="https://wa.me/595992391964" target="_blank">WhatsApp</a>
+      <a href="https://www.instagram.com/sophe.studio/" target="_blank">Instagram</a>
       <a href="https://www.behance.net/sophestudio" target="_blank">Behance</a>
-      <a href="#" target="_blank">Instagram</a>
     </div>
   </div>
 
@@ -1663,9 +1676,11 @@
       <div>
         <div class="footer-col-title">Conectemos</div>
         <ul class="footer-col-links">
+          <li><a href="https://wa.me/595992391964" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/sophe.studio/" target="_blank">Instagram</a></li>
+          <li><a href="https://www.threads.com/@sophe.studio" target="_blank">Threads</a></li>
           <li><a href="https://www.behance.net/sophestudio" target="_blank">Behance</a></li>
-          <li><a href="#" target="_blank">Instagram</a></li>
-          <li><a href="mailto:hola@sophe.com">hola@sophe.com</a></li>
         </ul>
       </div>
     </div>
