@@ -1624,6 +1624,28 @@
     </div>
   </div>
 
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+      var links = document.querySelectorAll('.mobile-link');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    }
+  });
+  </script>
+
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-particles" id="particles"></div>
@@ -1719,9 +1741,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-
   <!-- PROCESS -->
   <section class="process section-reveal" id="process">
     <div class="process-header">
@@ -1773,6 +1792,15 @@
   </section>
 
   <!-- FAQ -->
+  <script>
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var wasOpen = item.classList.contains("open");
+    var items = document.querySelectorAll(".faq-item");
+    for (var i = 0; i < items.length; i++) { items[i].classList.remove("open"); }
+    if (!wasOpen) item.classList.add("open");
+  }
+  </script>
   <section class="faq parallax-section section-reveal" id="faq">
     <div class="faq-header">
       <div class="faq-label reveal">Preguntas frecuentes</div>
@@ -2004,23 +2032,7 @@
     }
   });
 
-  // ===== HAMBURGER MENU =====
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-  });
-
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+  // (hamburger definido en script independiente)
 
   // ===== SCROLL REVEAL =====
   const revealElements = document.querySelectorAll('.reveal');
@@ -2089,14 +2101,6 @@
     }
   });
 
-  // ===== FAQ ACCORDION =====
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  }
-  window.toggleFaq = toggleFaq;
 
   // ===== SMOOTH ANCHOR SCROLLING =====
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
