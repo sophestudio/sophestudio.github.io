@@ -1370,31 +1370,185 @@
     z-index: 10000;
     background: var(--warm-black);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.6s ease 0.3s, visibility 0.6s ease 0.3s;
+    gap: 24px;
+  }
+
+  .page-loader.phase2 .loader-mark { 
+    transform: scale(0.8); 
+    opacity: 0;
+  }
+  .page-loader.phase2 .loader-logo { 
+    opacity: 1; 
+    transform: translateY(0); 
+    letter-spacing: 12px;
+  }
+  .page-loader.phase2 .loader-line { 
+    width: 50px; 
+    opacity: 1; 
+  }
+  .page-loader.phase2 .loader-tagline { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 
   .page-loader.hide {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  .loader-mark {
+    width: 70px; height: 70px;
+    border: 1px solid rgba(196,133,106,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--cream);
+    animation: loaderMarkIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  @keyframes loaderMarkIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
   }
 
   .loader-logo {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-size: 28px;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--cream);
-    animation: loaderPulse 1.5s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .loader-logo .accent { font-style: italic; font-weight: 400; }
 
-  @keyframes loaderPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+  .loader-line {
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .loader-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+  }
+
+  /* ===================== TYPING ANIMATION ===================== */
+  .hero-tagline-typed {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 48px;
+    min-height: 1.4em;
+  }
+
+  .typing-cursor {
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    background: var(--terracotta);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* ===================== PARALLAX ===================== */
+  .parallax-section {
+    will-change: transform;
+  }
+
+  /* ===================== WHATSAPP FLOAT ===================== */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 900;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    animation: waFloat 3s ease-in-out infinite;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  }
+
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+  }
+
+  @keyframes waFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .whatsapp-tooltip {
+    position: absolute;
+    right: 68px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--warm-black);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+    .whatsapp-float svg { width: 24px; height: 24px; }
+    .whatsapp-tooltip { display: none; }
   }
 </style>
 </head>
@@ -1402,8 +1556,17 @@
 
   <!-- PAGE LOADER -->
   <div class="page-loader" id="pageLoader">
+    <div class="loader-mark">S</div>
     <div class="loader-logo">SOPH<span class="accent">Ē</span></div>
+    <div class="loader-line"></div>
+    <div class="loader-tagline">Design Studio</div>
   </div>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/595992391964" target="_blank" class="whatsapp-float" id="waFloat">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-tooltip">Escribime por WhatsApp</span>
+  </a>
 
   <!-- CUSTOM CURSOR -->
   <div class="custom-cursor" id="cursor"></div>
@@ -1445,7 +1608,7 @@
       <div class="hero-mark">S</div>
       <h1 class="hero-title">SOPH<span class="accent">Ē</span></h1>
       <div class="hero-divider"></div>
-      <p class="hero-tagline">Design Studio</p>
+      <p class="hero-tagline-typed" id="heroTyping"><span class="typing-cursor"></span></p>
       <a href="#contact" class="hero-cta">Trabajemos juntos</a>
     </div>
     <a href="#about" class="hero-scroll">
@@ -1455,7 +1618,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="about" id="about">
+  <section class="about parallax-section" id="about">
     <div class="about-inner">
       <div class="about-label reveal">Sobre el estudio</div>
       <h2 class="about-headline reveal reveal-delay-1">Diseño con <em>intención</em>,<br>marcas con <em>propósito</em></h2>
@@ -1499,7 +1662,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="projects" id="work">
+  <section class="projects parallax-section" id="work">
     <div class="projects-header">
       <div class="about-label reveal">Proyectos</div>
       <h2 class="about-headline reveal reveal-delay-1">Trabajo <em>seleccionado</em></h2>
@@ -1587,7 +1750,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq" id="faq">
+  <section class="faq parallax-section" id="faq">
     <div class="faq-header">
       <div class="faq-label reveal">Preguntas frecuentes</div>
       <h2 class="faq-title reveal reveal-delay-1">FAQ</h2>
@@ -1650,27 +1813,29 @@
         <p class="contact-sub reveal reveal-delay-2">Contame tu idea y creemos algo memorable juntos.</p>
       </div>
 
-      <div class="contact-form reveal reveal-delay-3" id="contactForm">
+      <form class="contact-form reveal reveal-delay-3" id="contactForm" action="https://formspree.io/f/meelbrdz" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde Sophē Studio">
+        <input type="text" name="_gotcha" style="display:none">
         <div class="form-group">
           <label for="name">Nombre</label>
-          <input type="text" id="name" class="form-input" placeholder="Tu nombre" required>
+          <input type="text" name="name" id="name" class="form-input" placeholder="Tu nombre" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+          <input type="email" name="email" id="email" class="form-input" placeholder="tu@email.com" required>
         </div>
         <div class="form-group full">
           <label for="service">Servicio</label>
-          <input type="text" id="service" class="form-input" placeholder="¿Qué servicio te interesa?">
+          <input type="text" name="service" id="service" class="form-input" placeholder="¿Qué servicio te interesa?">
         </div>
         <div class="form-group full">
           <label for="message">Mensaje</label>
-          <textarea id="message" class="form-textarea" placeholder="Contame sobre tu proyecto..."></textarea>
+          <textarea name="message" id="message" class="form-textarea" placeholder="Contame sobre tu proyecto..."></textarea>
         </div>
         <div class="form-submit">
-          <button type="button" class="submit-btn" id="submitBtn">Enviar mensaje</button>
+          <button type="submit" class="submit-btn" id="submitBtn">Enviar mensaje</button>
         </div>
-      </div>
+      </form>
 
       <div class="form-success" id="formSuccess">
         <div class="form-success-icon">✓</div>
@@ -1715,12 +1880,54 @@
   </footer>
 
 <script>
-  // ===== PAGE LOADER =====
+  // ===== PAGE LOADER (Motion Branding) =====
   window.addEventListener('load', () => {
+    const loader = document.getElementById('pageLoader');
+    // Phase 2: show full logo
+    setTimeout(() => loader.classList.add('phase2'), 600);
+    // Hide loader
     setTimeout(() => {
-      document.getElementById('pageLoader').classList.add('hide');
-    }, 800);
+      loader.classList.add('hide');
+      // Start typing after loader hides
+      setTimeout(startTyping, 400);
+    }, 2000);
   });
+
+  // ===== TYPING ANIMATION =====
+  function startTyping() {
+    const el = document.getElementById('heroTyping');
+    const phrases = ['Design Studio', 'Branding & Identidad', 'Marcas con Propósito'];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let speed = 100;
+
+    function type() {
+      const current = phrases[phraseIndex];
+      
+      if (isDeleting) {
+        el.innerHTML = current.substring(0, charIndex - 1) + '<span class="typing-cursor"></span>';
+        charIndex--;
+        speed = 50;
+      } else {
+        el.innerHTML = current.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+        charIndex++;
+        speed = 100;
+      }
+
+      if (!isDeleting && charIndex === current.length) {
+        speed = 2500; // pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        speed = 400; // pause before next word
+      }
+
+      setTimeout(type, speed);
+    }
+    type();
+  }
 
   // ===== CUSTOM CURSOR =====
   const cursor = document.getElementById('cursor');
@@ -1745,16 +1952,41 @@
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
 
-  // ===== NAV SCROLL =====
-  let lastScroll = 0;
+  // ===== NAV SCROLL + PARALLAX =====
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('nav');
-    if (window.scrollY > 60) {
+    const scrollY = window.scrollY;
+
+    // Nav shrink
+    if (scrollY > 60) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
-    lastScroll = window.scrollY;
+
+    // Parallax effect
+    document.querySelectorAll('.parallax-section').forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const speed = 0.05;
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const yPos = -(rect.top * speed);
+        section.style.transform = `translateY(${yPos}px)`;
+      }
+    });
+
+    // Hide WhatsApp button when at contact section
+    const contact = document.getElementById('contact');
+    const waFloat = document.getElementById('waFloat');
+    if (contact) {
+      const cRect = contact.getBoundingClientRect();
+      if (cRect.top < window.innerHeight && cRect.bottom > 0) {
+        waFloat.style.opacity = '0';
+        waFloat.style.pointerEvents = 'none';
+      } else {
+        waFloat.style.opacity = '1';
+        waFloat.style.pointerEvents = 'all';
+      }
+    }
   });
 
   // ===== HAMBURGER MENU =====
@@ -1777,7 +2009,6 @@
 
   // ===== SCROLL REVEAL =====
   const revealElements = document.querySelectorAll('.reveal');
-
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1785,18 +2016,12 @@
         revealObserver.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   revealElements.forEach(el => revealObserver.observe(el));
 
   // ===== PARTICLES =====
   const particlesContainer = document.getElementById('particles');
-  const particleCount = 15;
-
-  for (let i = 0; i < particleCount; i++) {
+  for (let i = 0; i < 15; i++) {
     const p = document.createElement('div');
     p.classList.add('particle');
     p.style.left = Math.random() * 100 + '%';
@@ -1806,60 +2031,50 @@
     particlesContainer.appendChild(p);
   }
 
-  // ===== FORM HANDLING =====
-  document.getElementById('submitBtn').addEventListener('click', () => {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+  // ===== FORM HANDLING (Formspree) =====
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+    
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
 
-    if (!name || !email) {
-      // Simple validation shake
-      const form = document.getElementById('contactForm');
-      form.style.animation = 'none';
-      form.offsetHeight; // trigger reflow
-      form.style.animation = 'formShake 0.4s ease';
-      return;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      } else {
+        btn.textContent = 'Error — intentá de nuevo';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Enviar mensaje'; }, 3000);
+      }
+    } catch (err) {
+      btn.textContent = 'Error — intentá de nuevo';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = 'Enviar mensaje'; }, 3000);
     }
-
-    // Show success
-    document.getElementById('contactForm').style.display = 'none';
-    const success = document.getElementById('formSuccess');
-    success.classList.add('show');
   });
-
-  // Shake animation
-  const shakeStyle = document.createElement('style');
-  shakeStyle.textContent = `
-    @keyframes formShake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-8px); }
-      40% { transform: translateX(8px); }
-      60% { transform: translateX(-4px); }
-      80% { transform: translateX(4px); }
-    }
-  `;
-  document.head.appendChild(shakeStyle);
 
   // ===== FAQ ACCORDION =====
   function toggleFaq(el) {
     const item = el.parentElement;
     const wasOpen = item.classList.contains('open');
-    
-    // Close all
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    
-    // Open clicked if it wasn't open
     if (!wasOpen) item.classList.add('open');
   }
-
-  // Expose to global scope for onclick
   window.toggleFaq = toggleFaq;
 
   // ===== SMOOTH ANCHOR SCROLLING =====
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      // Solo interceptar anchors internos, no links externos
       if (!href || href === '#' || this.target === '_blank') return;
       const target = document.querySelector(href);
       if (target) {
