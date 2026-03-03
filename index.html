@@ -64,7 +64,7 @@
   "sameAs": [
     "https://www.instagram.com/sophe.studio/",
     "https://www.threads.com/@sophe.studio",
-    "https://www.behance.net/sophestudio"
+    "https://www.behance.net/sophe_studio"
   ],
   "email": "sophestudio@gmail.com",
   "telephone": "+595992391964"
@@ -494,14 +494,34 @@
   .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: revealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-play-state: paused;
   }
 
   .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation-play-state: running;
   }
+
+  /* Fallback: si JS no agrega .visible, se muestra igual después de 2s */
+  @media screen {
+    .reveal { animation: revealFallback 0.8s ease 2s forwards; }
+    .reveal.visible { animation: revealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  }
+
+  @keyframes revealIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes revealFallback {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal.visible.reveal-delay-1 { animation-delay: 0.1s; }
+  .reveal.visible.reveal-delay-2 { animation-delay: 0.2s; }
+  .reveal.visible.reveal-delay-3 { animation-delay: 0.3s; }
+  .reveal.visible.reveal-delay-4 { animation-delay: 0.4s; }
 
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
@@ -1363,7 +1383,91 @@
     .project-card { aspect-ratio: 16/10; }
   }
 
-  /* loader removed */
+  /* ===================== SMOOTH PAGE LOAD ===================== */
+  /* ===================== SMOOTH PAGE LOAD (CSS only) ===================== */
+  .page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--warm-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    animation: loaderFadeOut 0.6s ease 2.2s forwards;
+    pointer-events: none;
+  }
+
+  @keyframes loaderFadeOut {
+    to { opacity: 0; visibility: hidden; }
+  }
+
+  .loader-mark {
+    width: 70px; height: 70px;
+    border: 1px solid rgba(196,133,106,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--cream);
+    animation: loaderMarkIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+               loaderMarkOut 0.5s ease 1s forwards;
+  }
+
+  @keyframes loaderMarkIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes loaderMarkOut {
+    to { transform: scale(0.8); opacity: 0; }
+  }
+
+  .loader-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0;
+    animation: loaderTextIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+  }
+
+  .loader-logo .accent { font-style: italic; font-weight: 400; }
+
+  .loader-line {
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    opacity: 0;
+    animation: loaderLineIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+  }
+
+  @keyframes loaderLineIn {
+    to { width: 50px; opacity: 1; }
+  }
+
+  .loader-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    opacity: 0;
+    animation: loaderTextIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+  }
+
+  @keyframes loaderTextIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   /* ===================== TYPING ANIMATION ===================== */
   .hero-tagline-typed {
@@ -1464,7 +1568,13 @@
 </head>
 <body>
 
-  <!-- loader removed -->
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-mark">S</div>
+    <div class="loader-logo">SOPH<span class="accent">Ē</span></div>
+    <div class="loader-line"></div>
+    <div class="loader-tagline">Design Studio</div>
+  </div>
 
   <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/595992391964" target="_blank" class="whatsapp-float" id="waFloat">
@@ -1501,7 +1611,7 @@
     <div class="mobile-menu-social">
       <a href="https://wa.me/595992391964" target="_blank">WhatsApp</a>
       <a href="https://www.instagram.com/sophe.studio/" target="_blank">Instagram</a>
-      <a href="https://www.behance.net/sophestudio" target="_blank">Behance</a>
+      <a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a>
     </div>
   </div>
 
@@ -1512,7 +1622,7 @@
       <div class="hero-mark">S</div>
       <h1 class="hero-title">SOPH<span class="accent">Ē</span></h1>
       <div class="hero-divider"></div>
-      <p class="hero-tagline-typed" id="heroTyping"><span class="typing-cursor"></span></p>
+      <p class="hero-tagline-typed" id="heroTyping">Design Studio<span class="typing-cursor"></span></p>
       <a href="#contact" class="hero-cta">Trabajemos juntos</a>
     </div>
     <a href="#about" class="hero-scroll">
@@ -1773,7 +1883,7 @@
           <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
           <li><a href="https://www.instagram.com/sophe.studio/" target="_blank">Instagram</a></li>
           <li><a href="https://www.threads.com/@sophe.studio" target="_blank">Threads</a></li>
-          <li><a href="https://www.behance.net/sophestudio" target="_blank">Behance</a></li>
+          <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
         </ul>
       </div>
     </div>
