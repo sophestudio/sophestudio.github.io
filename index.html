@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Primary -->
+<title>Sophē Design Studio — Diseño Gráfico & Branding en Ciudad del Este, Paraguay</title>
+<meta name="description" content="Sophē Design Studio: estudio de diseño gráfico y branding en Ciudad del Este, Paraguay. Identidades visuales, diseño web, editorial y social media para marcas con propósito.">
+<meta name="keywords" content="diseño gráfico, branding, identidad visual, diseño web, Ciudad del Este, Paraguay, estudio de diseño, logo, marca, Sophē">
+<meta name="author" content="Sophē Design Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sophe.design">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sophe.design">
+<meta property="og:title" content="Sophē Design Studio — Diseño Gráfico & Branding">
+<meta property="og:description" content="Estudio de diseño especializado en identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.">
+<meta property="og:locale" content="es_PY">
+<meta property="og:site_name" content="Sophē Design Studio">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sophē Design Studio — Diseño Gráfico & Branding">
+<meta name="twitter:description" content="Estudio de diseño especializado en identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.">
+
+<!-- Geo / Local SEO -->
+<meta name="geo.region" content="PY-10">
+<meta name="geo.placename" content="Ciudad del Este">
+<meta name="geo.position" content="-25.5097;-54.6114">
+<meta name="ICBM" content="-25.5097, -54.6114">
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Sophē Design Studio",
+  "description": "Estudio de diseño gráfico y branding especializado en identidades visuales para marcas con propósito.",
+  "url": "https://sophe.design",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ciudad del Este",
+    "addressCountry": "PY"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -25.5097,
+    "longitude": -54.6114
+  },
+  "serviceType": ["Diseño Gráfico", "Branding", "Diseño Web", "Diseño Editorial", "Social Media"],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Paraguay"
+  },
+  "sameAs": []
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-black: #2c2926;
+    --cream: #f5f0eb;
+    --sand: #e8dfd6;
+    --terracotta: #c4856a;
+    --sage: #8a9a7b;
+    --deep-olive: #4a5240;
+    --muted-gold: #b8a088;
+    --light-gray: #d4cdc6;
+    --white: #faf8f6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--warm-black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===================== NAV ===================== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(44,41,38,0.95);
+    backdrop-filter: blur(16px);
+    transition: padding 0.4s ease, background 0.4s ease;
+  }
+
+  .nav.scrolled {
+    padding: 14px 48px;
+    background: rgba(44,41,38,0.98);
+    box-shadow: 0 1px 30px rgba(0,0,0,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .nav-logo .accent { font-style: italic; font-weight: 400; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 8px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--cream);
+    transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+    transform-origin: center;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4.5px, 4.5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4.5px, -4.5px);
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(44,41,38,0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 16px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s;
+  }
+
+  .mobile-menu.open a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-menu.open a:nth-child(2) { transition-delay: 0.18s; }
+  .mobile-menu.open a:nth-child(3) { transition-delay: 0.26s; }
+  .mobile-menu.open a:nth-child(4) { transition-delay: 0.34s; }
+  .mobile-menu.open a:nth-child(5) { transition-delay: 0.42s; }
+
+  .mobile-menu a:hover { color: var(--terracotta); }
+
+  .mobile-menu-line {
+    width: 40px;
+    height: 1px;
+    background: var(--terracotta);
+    margin: 24px 0;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.4s;
+  }
+
+  .mobile-menu.open .mobile-menu-line { opacity: 1; }
+
+  .mobile-menu-social {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.5s;
+  }
+
+  .mobile-menu.open .mobile-menu-social { opacity: 1; }
+
+  .mobile-menu-social a {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 10px !important;
+    letter-spacing: 3px !important;
+    color: var(--muted-gold) !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    min-height: 100vh;
+    background: var(--warm-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 25% 45%, rgba(196,133,106,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 55%, rgba(138,154,123,0.06) 0%, transparent 50%);
+    animation: heroBgShift 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroBgShift {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+
+  .hero::after {
+    content: 'Sē';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: min(40vw, 500px);
+    color: rgba(245,240,235,0.015);
+    pointer-events: none;
+    animation: ghostFloat 8s ease-in-out infinite;
+  }
+
+  @keyframes ghostFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+  }
+
+  /* Floating particles */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(184,160,136,0.15);
+    border-radius: 50%;
+    animation: particleDrift linear infinite;
+  }
+
+  @keyframes particleDrift {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-mark {
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(184,160,136,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36px;
+    color: var(--cream);
+    margin: 0 auto 32px;
+    animation: markPulse 4s ease-in-out infinite, heroItemUp 1s ease 0.2s both;
+  }
+
+  @keyframes markPulse {
+    0%, 100% { border-color: rgba(184,160,136,0.25); transform: scale(1); }
+    50% { border-color: rgba(184,160,136,0.5); transform: scale(1.03); }
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 8vw, 80px);
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    animation: heroItemUp 1s ease 0.4s both;
+  }
+
+  .hero-title .accent { font-style: italic; font-weight: 400; }
+
+  .hero-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--terracotta);
+    margin: 24px auto;
+    animation: heroItemUp 1s ease 0.6s both;
+    position: relative;
+  }
+
+  .hero-divider::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: dividerDotPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes dividerDotPulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.3); }
+  }
+
+  .hero-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 48px;
+    animation: heroItemUp 1s ease 0.8s both;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 14px 40px;
+    border: 1px solid rgba(184,160,136,0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: heroItemUp 1s ease 1s both;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--terracotta);
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+  }
+
+  .hero-cta:hover::before { left: 0; }
+  .hero-cta:hover { border-color: var(--terracotta); }
+
+  @keyframes heroItemUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .hero-scroll-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,235,0.25);
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(196,133,106,0.4), transparent);
+    animation: scrollLinePulse 2s ease infinite;
+  }
+
+  @keyframes scrollLinePulse {
+    0%, 100% { opacity: 0.3; height: 30px; }
+    50% { opacity: 1; height: 40px; }
+  }
+
+  /* ===================== REVEAL ANIMATION ===================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ===================== ABOUT ===================== */
+  .about {
+    padding: 140px 48px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: 60px; right: 10%;
+    width: 200px; height: 200px;
+    border: 1px solid rgba(196,133,106,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .about-inner {
+    max-width: 680px;
+    text-align: center;
+  }
+
+  .about-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+  }
+
+  .about-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+
+  .about-headline em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .about-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--muted-gold);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ===================== SERVICES ===================== */
+  .services {
+    padding: 120px 48px;
+    background: var(--warm-black);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(196,133,106,0.04), transparent 70%);
+    pointer-events: none;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .services-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+
+  .services-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .services-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .service-item {
+    padding: 40px 32px;
+    border: 1px solid rgba(245,240,235,0.06);
+    border-radius: 6px;
+    transition: border-color 0.4s, transform 0.4s, background 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 120%, rgba(196,133,106,0.06), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .service-item:hover {
+    border-color: rgba(196,133,106,0.35);
+    transform: translateY(-4px);
+  }
+
+  .service-item:hover::before { opacity: 1; }
+
+  .service-item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .service-item-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .service-item-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted-gold);
+    position: relative;
+  }
+
+  .service-item.full-width {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: rgba(196,133,106,0.05);
+  }
+
+  /* ===================== PROJECTS ===================== */
+  .projects {
+    padding: 120px 48px;
+  }
+
+  .projects-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .projects-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    aspect-ratio: 4/3;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-card:hover { transform: scale(0.97); }
+  .project-card:hover .project-overlay { opacity: 1; }
+  .project-card:hover .project-card-name { transform: translateY(-5px); }
+  .project-card:hover .project-card-type { transform: translateY(-3px); opacity: 1; }
+
+  .pc-1 { background: linear-gradient(135deg, #1a3a5c, #2a5a8c); }
+  .pc-2 { background: linear-gradient(135deg, #2a4a7c, #3a6aac); }
+  .pc-3 { background: var(--warm-black); }
+  .pc-4 { background: linear-gradient(135deg, #1a2a3c, #2a4a6c); }
+
+  .project-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: white;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-card-type {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+  }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(196,133,106,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .project-overlay-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .project-overlay-text:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+  }
+
+  /* ===================== CONTACT FORM ===================== */
+  .contact {
+    padding: 120px 48px;
+    background: var(--terracotta);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.08) 0%, transparent 50%);
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .contact-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 12px;
+  }
+
+  .contact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .contact-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+
+  .form-group:focus-within label {
+    color: var(--white);
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 14px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--white);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--white);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .submit-btn {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: none;
+    padding: 16px 48px;
+    border: 1px solid rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+  }
+
+  .submit-btn:hover { color: var(--terracotta); border-color: var(--white); }
+  .submit-btn:hover::before { transform: scaleX(1); }
+
+  /* Success message */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .form-success.show { display: block; }
+
+  .form-success-icon {
+    width: 60px; height: 60px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes successPop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+  .form-success-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .form-success-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ===================== FOOTER ===================== */
+  .footer {
+    background: var(--warm-black);
+    color: var(--cream);
+    padding: 60px 48px 32px;
+  }
+
+  .footer-top {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(245,240,235,0.06);
+  }
+
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand-name .accent { font-style: italic; font-weight: 400; }
+
+  .footer-brand-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted-gold);
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+  }
+
+  .footer-col-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--muted-gold);
+    text-decoration: none;
+    transition: color 0.3s, padding-left 0.3s;
+  }
+
+  .footer-col-links a:hover { 
+    color: var(--cream); 
+    padding-left: 6px;
+  }
+
+  .footer-bottom {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    color: rgba(245,240,235,0.2);
+    letter-spacing: 1px;
+  }
+
+  .footer-back-top {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,235,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-back-top:hover { color: var(--terracotta); }
+
+  /* ===================== PROCESS ===================== */
+  .process {
+    padding: 120px 48px;
+    background: var(--warm-black);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .process::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(138,154,123,0.04), transparent 70%);
+    pointer-events: none;
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .process-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+
+  .process-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .process-timeline {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(196,133,106,0.3) 10%, rgba(196,133,106,0.3) 90%, transparent);
+  }
+
+  .process-step {
+    display: flex;
+    gap: 32px;
+    padding: 32px 0;
+    position: relative;
+  }
+
+  .process-step-marker {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(196,133,106,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--terracotta);
+    background: var(--warm-black);
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.4s, background 0.4s, color 0.4s;
+  }
+
+  .process-step:hover .process-step-marker {
+    border-color: var(--terracotta);
+    background: var(--terracotta);
+    color: var(--white);
+  }
+
+  .process-step-content {
+    padding-top: 8px;
+  }
+
+  .process-step-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+
+  .process-step:hover .process-step-name {
+    color: var(--terracotta);
+  }
+
+  .process-step-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted-gold);
+  }
+
+  .process-step-duration {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(196,133,106,0.6);
+    padding: 4px 10px;
+    border: 1px solid rgba(196,133,106,0.15);
+    border-radius: 20px;
+  }
+
+  /* ===================== FAQ ===================== */
+  .faq {
+    padding: 120px 48px;
+    position: relative;
+  }
+
+  .faq::before {
+    content: '';
+    position: absolute;
+    top: 40px; left: 8%;
+    width: 160px; height: 160px;
+    border: 1px solid rgba(196,133,106,0.06);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .faq-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+
+  .faq-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .faq-list {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(44,41,38,0.08);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    cursor: pointer;
+    gap: 16px;
+    transition: color 0.3s;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .faq-question:hover { color: var(--terracotta); }
+
+  .faq-question-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border: 1px solid rgba(44,41,38,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 18px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background 0.3s, color 0.3s;
+  }
+
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: white;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding-bottom: 24px;
+  }
+
+  .faq-answer-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted-gold);
+    padding-right: 44px;
+  }
+
+  /* ===================== CURSOR ===================== */
+  .custom-cursor {
+    position: fixed;
+    width: 20px; height: 20px;
+    border: 1px solid var(--terracotta);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    mix-blend-mode: difference;
+  }
+
+  .custom-cursor.visible { opacity: 1; }
+  .custom-cursor.hover {
+    width: 40px; height: 40px;
+    border-color: var(--cream);
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 768px) {
+    .nav { padding: 16px 24px; }
+    .nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .hero { padding: 0 24px; }
+    .about { padding: 80px 24px; }
+    .services { padding: 80px 24px; }
+    .projects { padding: 80px 24px; }
+    .process { padding: 80px 24px; }
+    .faq { padding: 80px 24px; }
+    .contact { padding: 80px 24px; }
+    .contact-form { grid-template-columns: 1fr; }
+    .custom-cursor { display: none; }
+    .about::before { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { letter-spacing: 6px; }
+    .hero-mark { width: 64px; height: 64px; font-size: 28px; }
+    .about-headline { font-size: 28px; }
+    .services-title { font-size: 28px; }
+    .contact-headline { font-size: 28px; }
+    .project-card { aspect-ratio: 16/10; }
+  }
+
+  /* ===================== SMOOTH PAGE LOAD ===================== */
+  .page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--warm-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease 0.3s, visibility 0.6s ease 0.3s;
+  }
+
+  .page-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .loader-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--cream);
+    animation: loaderPulse 1.5s ease-in-out infinite;
+  }
+
+  .loader-logo .accent { font-style: italic; font-weight: 400; }
+
+  @keyframes loaderPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">SOPH<span class="accent">Ē</span></div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">SOPH<span class="accent">Ē</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#process">Proceso</a></li>
+      <li><a href="#work">Proyectos</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">Sobre mí</a>
+    <a href="#services" class="mobile-link">Servicios</a>
+    <a href="#process" class="mobile-link">Proceso</a>
+    <a href="#work" class="mobile-link">Proyectos</a>
+    <a href="#contact" class="mobile-link">Contacto</a>
+    <div class="mobile-menu-line"></div>
+    <div class="mobile-menu-social">
+      <a href="#">Behance</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-mark">S</div>
+      <h1 class="hero-title">SOPH<span class="accent">Ē</span></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Design Studio</p>
+      <a href="#contact" class="hero-cta">Trabajemos juntos</a>
+    </div>
+    <a href="#about" class="hero-scroll">
+      <span class="hero-scroll-text">Scroll</span>
+      <span class="hero-scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-label reveal">Sobre el estudio</div>
+      <h2 class="about-headline reveal reveal-delay-1">Diseño con <em>intención</em>,<br>marcas con <em>propósito</em></h2>
+      <p class="about-text reveal reveal-delay-2">Soy Sofía, diseñadora gráfica y directora creativa detrás de Sophē. Creo identidades visuales para empresas y emprendedores que quieren comunicar con claridad, autenticidad y elegancia. Cada proyecto es una oportunidad de contar una historia que conecte.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <div class="services-label reveal">Lo que hago</div>
+      <h2 class="services-title reveal reveal-delay-1">Servicios</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-item reveal">
+        <div class="service-item-num">01</div>
+        <div class="service-item-name">Branding</div>
+        <div class="service-item-desc">Identidades visuales completas que transmiten la esencia de tu marca en cada punto de contacto.</div>
+      </div>
+      <div class="service-item reveal reveal-delay-1">
+        <div class="service-item-num">02</div>
+        <div class="service-item-name">Diseño Web</div>
+        <div class="service-item-desc">Sitios web y landing pages que combinan estética impecable con funcionalidad estratégica.</div>
+      </div>
+      <div class="service-item reveal reveal-delay-2">
+        <div class="service-item-num">03</div>
+        <div class="service-item-name">Editorial</div>
+        <div class="service-item-desc">Catálogos, presentaciones y piezas editoriales con diseño que respira y comunica.</div>
+      </div>
+      <div class="service-item reveal reveal-delay-3">
+        <div class="service-item-num">04</div>
+        <div class="service-item-name">Social Media</div>
+        <div class="service-item-desc">Sistemas visuales para redes sociales que mantienen tu marca consistente y memorable.</div>
+      </div>
+      <div class="service-item full-width reveal reveal-delay-4">
+        <div class="service-item-num">05</div>
+        <div class="service-item-name">Consultoría de Marca</div>
+        <div class="service-item-desc">Sesiones estratégicas donde analizamos tu marca actual y creamos un plan de acción para profesionalizarla.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="work">
+    <div class="projects-header">
+      <div class="about-label reveal">Proyectos</div>
+      <h2 class="about-headline reveal reveal-delay-1">Trabajo <em>seleccionado</em></h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card pc-1 reveal">
+        <div class="project-card-name">Klik</div>
+        <div class="project-card-type">Agencia Creativa — Branding</div>
+        <div class="project-overlay"><div class="project-overlay-text">Ver proyecto</div></div>
+      </div>
+      <div class="project-card pc-2 reveal reveal-delay-1">
+        <div class="project-card-name">Ellaphant</div>
+        <div class="project-card-type">Branding & Identidad</div>
+        <div class="project-overlay"><div class="project-overlay-text">Ver proyecto</div></div>
+      </div>
+      <div class="project-card pc-3 reveal reveal-delay-2">
+        <div class="project-card-name">Conversa</div>
+        <div class="project-card-type">Manual de Marca</div>
+        <div class="project-overlay"><div class="project-overlay-text">Ver proyecto</div></div>
+      </div>
+      <div class="project-card pc-4 reveal reveal-delay-3">
+        <div class="project-card-name">Kapta</div>
+        <div class="project-card-type">By Ellaphant — Branding</div>
+        <div class="project-overlay"><div class="project-overlay-text">Ver proyecto</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="process-header">
+      <div class="process-label reveal">Cómo trabajo</div>
+      <h2 class="process-title reveal reveal-delay-1">Mi proceso</h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step reveal">
+        <div class="process-step-marker">1</div>
+        <div class="process-step-content">
+          <div class="process-step-name">Descubrimiento</div>
+          <div class="process-step-desc">Nos conocemos. Entiendo tu visión, tus valores y tus objetivos. Investigamos juntos tu mercado, tu audiencia y lo que hace única a tu marca.</div>
+          <div class="process-step-duration">Semana 1</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step-marker">2</div>
+        <div class="process-step-content">
+          <div class="process-step-name">Estrategia & Concepto</div>
+          <div class="process-step-desc">Defino la dirección creativa. Creo moodboards, paletas de color y conceptos visuales que reflejen la personalidad de tu marca.</div>
+          <div class="process-step-duration">Semana 2</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-step-marker">3</div>
+        <div class="process-step-content">
+          <div class="process-step-name">Diseño & Desarrollo</div>
+          <div class="process-step-desc">Doy vida al concepto. Diseño cada pieza con atención al detalle y te presento opciones para que elijas la que más te represente.</div>
+          <div class="process-step-duration">Semanas 3–4</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-step-marker">4</div>
+        <div class="process-step-content">
+          <div class="process-step-name">Refinamiento</div>
+          <div class="process-step-desc">Ajustamos juntos los detalles finales. Rondas de revisión hasta que todo esté perfecto y alineado con tu visión.</div>
+          <div class="process-step-duration">Semana 5</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-step-marker">5</div>
+        <div class="process-step-content">
+          <div class="process-step-name">Entrega Final</div>
+          <div class="process-step-desc">Recibís todos los archivos organizados, guías de uso de marca y soporte post-entrega para que puedas implementar todo con confianza.</div>
+          <div class="process-step-duration">Semana 6</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-header">
+      <div class="faq-label reveal">Preguntas frecuentes</div>
+      <h2 class="faq-title reveal reveal-delay-1">FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">¿Cuánto cuesta un proyecto de branding?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-text">Cada proyecto es único, por lo que los precios varían según el alcance y la complejidad. Después de nuestra primera conversación, te envío una propuesta detallada con inversión y tiempos. Mis paquetes arrancan desde branding básico hasta identidades visuales completas.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">¿Cuánto tiempo toma un proyecto?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-text">Un proyecto de branding completo generalmente toma entre 4 y 6 semanas. Proyectos más pequeños como diseño de piezas para redes sociales pueden estar listos en 1-2 semanas. Siempre respeto los plazos acordados.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">¿Trabajás con clientes fuera de Paraguay?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-text">¡Sí! Trabajo de forma remota con clientes de toda Latinoamérica y el mundo. Nos comunicamos por videollamada, email y WhatsApp. La distancia no es un problema para crear algo increíble juntos.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-3">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">¿Qué incluye un paquete de identidad visual?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-text">Incluye logo principal y variaciones, paleta de colores, tipografías, elementos gráficos, manual de marca con guías de uso, y todos los archivos en formatos editables y listos para imprimir o usar en digital.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-4">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">¿Cuántas revisiones incluís?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-text">Todos mis paquetes incluyen entre 2 y 3 rondas de revisiones. Mi objetivo es que quedes 100% conforme con el resultado, así que trabajo de cerca con vos en cada etapa del proceso.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-header">
+        <div class="contact-label reveal">Hablemos</div>
+        <h2 class="contact-headline reveal reveal-delay-1">¿Tenés un proyecto en mente?</h2>
+        <p class="contact-sub reveal reveal-delay-2">Contame tu idea y creemos algo memorable juntos.</p>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-3" id="contactForm">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" class="form-input" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+        <div class="form-group full">
+          <label for="service">Servicio</label>
+          <input type="text" id="service" class="form-input" placeholder="¿Qué servicio te interesa?">
+        </div>
+        <div class="form-group full">
+          <label for="message">Mensaje</label>
+          <textarea id="message" class="form-textarea" placeholder="Contame sobre tu proyecto..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="button" class="submit-btn" id="submitBtn">Enviar mensaje</button>
+        </div>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✓</div>
+        <div class="form-success-text">¡Mensaje enviado!</div>
+        <div class="form-success-sub">Te responderé lo antes posible. Gracias por contactarme.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">SOPH<span class="accent">Ē</span></div>
+        <div class="footer-brand-desc">Estudio de diseño especializado en crear identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegación</div>
+        <ul class="footer-col-links">
+          <li><a href="#about">Sobre mí</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#process">Proceso</a></li>
+          <li><a href="#work">Proyectos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Conectemos</div>
+        <ul class="footer-col-links">
+          <li><a href="#">Behance</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="mailto:hola@sophe.com">hola@sophe.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Sophē Design Studio. Todos los derechos reservados.</div>
+      <a href="#home" class="footer-back-top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+<script>
+  // ===== PAGE LOADER =====
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('pageLoader').classList.add('hide');
+    }, 800);
+  });
+
+  // ===== CUSTOM CURSOR =====
+  const cursor = document.getElementById('cursor');
+  let cursorVisible = false;
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    if (!cursorVisible) {
+      cursor.classList.add('visible');
+      cursorVisible = true;
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursor.classList.remove('visible');
+    cursorVisible = false;
+  });
+
+  document.querySelectorAll('a, button, .project-card, .service-item, .faq-question, .process-step').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  // ===== NAV SCROLL =====
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    lastScroll = window.scrollY;
+  });
+
+  // ===== HAMBURGER MENU =====
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ===== SCROLL REVEAL =====
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // ===== PARTICLES =====
+  const particlesContainer = document.getElementById('particles');
+  const particleCount = 15;
+
+  for (let i = 0; i < particleCount; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
+    particlesContainer.appendChild(p);
+  }
+
+  // ===== FORM HANDLING =====
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email) {
+      // Simple validation shake
+      const form = document.getElementById('contactForm');
+      form.style.animation = 'none';
+      form.offsetHeight; // trigger reflow
+      form.style.animation = 'formShake 0.4s ease';
+      return;
+    }
+
+    // Show success
+    document.getElementById('contactForm').style.display = 'none';
+    const success = document.getElementById('formSuccess');
+    success.classList.add('show');
+  });
+
+  // Shake animation
+  const shakeStyle = document.createElement('style');
+  shakeStyle.textContent = `
+    @keyframes formShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+  `;
+  document.head.appendChild(shakeStyle);
+
+  // ===== FAQ ACCORDION =====
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    
+    // Open clicked if it wasn't open
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Expose to global scope for onclick
+  window.toggleFaq = toggleFaq;
+
+  // ===== SMOOTH ANCHOR SCROLLING =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
