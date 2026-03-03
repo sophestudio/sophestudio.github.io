@@ -493,40 +493,49 @@
   /* ===================== REVEAL ANIMATION ===================== */
   .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    animation: revealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-play-state: paused;
+    clip-path: inset(10% 5% 10% 5%);
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.visible {
-    animation-play-state: running;
+    opacity: 1;
+    clip-path: inset(0% 0% 0% 0%);
+    transform: translateY(0) scale(1);
   }
 
-  /* Fallback: si JS no agrega .visible, se muestra igual después de 2s */
-  @media screen {
-    .reveal { animation: revealFallback 0.8s ease 2s forwards; }
-    .reveal.visible { animation: revealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-  }
-
-  @keyframes revealIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  /* Fallback: si JS no agrega .visible, se muestra igual después de 2.5s */
   @keyframes revealFallback {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; clip-path: inset(0% 0% 0% 0%); transform: translateY(0) scale(1); }
   }
-
-  .reveal.visible.reveal-delay-1 { animation-delay: 0.1s; }
-  .reveal.visible.reveal-delay-2 { animation-delay: 0.2s; }
-  .reveal.visible.reveal-delay-3 { animation-delay: 0.3s; }
-  .reveal.visible.reveal-delay-4 { animation-delay: 0.4s; }
+  .reveal:not(.visible) {
+    animation: revealFallback 0.8s ease 2.5s forwards;
+  }
 
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ===================== SECTION OPENING EFFECT ===================== */
+  .section-reveal {
+    clip-path: inset(100% 0% 0% 0%);
+    transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .section-reveal.section-visible {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+
+  .section-reveal:not(.section-visible) {
+    animation: sectionOpen 1.2s cubic-bezier(0.77, 0, 0.175, 1) 3s forwards;
+  }
+
+  @keyframes sectionOpen {
+    to { clip-path: inset(0% 0% 0% 0%); }
+  }
 
   /* ===================== ABOUT ===================== */
   .about {
@@ -1632,7 +1641,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="about parallax-section" id="about">
+  <section class="about parallax-section section-reveal" id="about">
     <div class="about-inner">
       <div class="about-label reveal">Sobre el estudio</div>
       <h2 class="about-headline reveal reveal-delay-1">Diseño con <em>intención</em>,<br>marcas con <em>propósito</em></h2>
@@ -1641,7 +1650,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="services" id="services">
+  <section class="services section-reveal" id="services">
     <div class="services-header">
       <div class="services-label reveal">Lo que hago</div>
       <h2 class="services-title reveal reveal-delay-1">Servicios</h2>
@@ -1676,7 +1685,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="projects parallax-section" id="work">
+  <section class="projects parallax-section section-reveal" id="work">
     <div class="projects-header">
       <div class="about-label reveal">Proyectos</div>
       <h2 class="about-headline reveal reveal-delay-1">Trabajo <em>seleccionado</em></h2>
@@ -1714,7 +1723,7 @@
   <section class="contact" id="contact">
 
   <!-- PROCESS -->
-  <section class="process" id="process">
+  <section class="process section-reveal" id="process">
     <div class="process-header">
       <div class="process-label reveal">Cómo trabajo</div>
       <h2 class="process-title reveal reveal-delay-1">Mi proceso</h2>
@@ -1764,7 +1773,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq parallax-section" id="faq">
+  <section class="faq parallax-section section-reveal" id="faq">
     <div class="faq-header">
       <div class="faq-label reveal">Preguntas frecuentes</div>
       <h2 class="faq-title reveal reveal-delay-1">FAQ</h2>
@@ -2024,6 +2033,18 @@
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   revealElements.forEach(el => revealObserver.observe(el));
+
+  // ===== SECTION OPENING =====
+  const sectionElements = document.querySelectorAll('.section-reveal');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-visible');
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+  sectionElements.forEach(el => sectionObserver.observe(el));
 
   // ===== PARTICLES =====
   const particlesContainer = document.getElementById('particles');
