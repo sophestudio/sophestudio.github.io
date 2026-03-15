@@ -31,11 +31,11 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 .nav-logo:hover{opacity:0.6}
 .nav-logo .accent{font-style:italic;font-weight:400}
 .nav-menu{display:flex;gap:44px;list-style:none}
-.nav-menu a{font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
+.nav-menu a{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
 .nav-menu a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--terracotta);transition:width 0.3s}
 .nav-menu a:hover::after{width:100%}
 .nav-menu a:hover{color:var(--terracotta)}
-.nav-cta{font-family:'Jost',sans-serif;font-weight:400;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:10px 24px;background:var(--warm-black);transition:all 0.3s}
+.nav-cta{font-family:'Jost',sans-serif;font-weight:400;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:12px 28px;background:var(--warm-black);transition:all 0.3s}
 .nav-cta:hover{background:var(--terracotta)}
 
 /* HAMBURGER */
@@ -47,14 +47,14 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(196,133,106,0.04) 0%,transparent 50%),radial-gradient(ellipse at 20% 80%,rgba(138,154,123,0.03) 0%,transparent 50%)}
 .hero-ghost{position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:min(40vw,500px);color:rgba(44,41,38,0.015);pointer-events:none;user-select:none;right:-5%;top:50%;transform:translateY(-50%)}
 .hero-content{max-width:900px;text-align:center;position:relative;z-index:1}
-.hero-eyebrow{font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:36px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-weight:200;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:36px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards}
 .hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,7.5vw,88px);line-height:1.1;letter-spacing:2px;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s ease 0.4s forwards}
 .hero-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
-.hero-sub{font-size:17px;line-height:1.8;color:var(--muted-gold);max-width:540px;margin:0 auto 48px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards}
+.hero-sub{font-size:20px;line-height:1.8;color:var(--muted-gold);max-width:540px;margin:0 auto 48px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards}
 .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s ease 0.8s forwards}
-.btn-primary{font-family:'Jost',sans-serif;font-weight:400;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:16px 44px;background:var(--warm-black);transition:all 0.4s;border:1px solid var(--warm-black)}
+.btn-primary{font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:18px 48px;background:var(--warm-black);transition:all 0.4s;border:1px solid var(--warm-black)}
 .btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta)}
-.btn-secondary{font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;padding:16px 44px;border:1px solid rgba(44,41,38,0.2);transition:all 0.4s}
+.btn-secondary{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;padding:18px 48px;border:1px solid rgba(44,41,38,0.2);transition:all 0.4s}
 .btn-secondary:hover{border-color:var(--terracotta);color:var(--terracotta)}
 .hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.8s ease 1.2s forwards}
 .hero-scroll span{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted-gold)}
@@ -65,28 +65,30 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 /* SECTION COMMON */
 .section{padding:140px 64px;position:relative}
 .section-header{max-width:1100px;margin:0 auto 72px;text-align:center}
-.section-eyebrow{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--terracotta);margin-bottom:20px}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,5vw,52px);line-height:1.2;margin-bottom:20px}
+.section-eyebrow{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--terracotta);margin-bottom:20px}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5vw,56px);line-height:1.2;margin-bottom:20px}
 .section-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
-.section-desc{font-size:15px;line-height:1.8;color:var(--muted-gold);max-width:580px;margin:0 auto}
+.section-desc{font-size:18px;line-height:1.8;color:var(--muted-gold);max-width:620px;margin:0 auto}
 
 /* ABOUT */
 .about{background:var(--cream)}
 .about-content{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .about-image{aspect-ratio:4/5;background:var(--sand);border-radius:2px;position:relative;overflow:hidden;background-image:url('sofia-portrait.jpg');background-size:cover;background-position:center top}
-.about-text p{font-size:15px;line-height:1.9;color:var(--warm-black);margin-bottom:24px}
+.about-text p{font-size:17px;line-height:1.9;color:var(--warm-black);margin-bottom:24px}
 .about-sig{margin-top:40px;padding-top:40px;border-top:1px solid rgba(44,41,38,0.1)}
-.sig-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:20px;letter-spacing:1px;margin-bottom:4px}
-.sig-role{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta)}
+.sig-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;letter-spacing:1px;margin-bottom:4px}
+.sig-role{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta)}
 
 /* SERVICES */
 .services{background:var(--white)}
 .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(44,41,38,0.06);border:1px solid rgba(44,41,38,0.06)}
-.svc-card{background:var(--white);padding:52px 44px;position:relative;transition:all 0.4s;cursor:default}
+.svc-card{background:var(--white);padding:56px 48px;position:relative;transition:all 0.4s;cursor:default}
 .svc-card:hover{background:var(--cream)}
-.svc-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--terracotta);opacity:0.35;margin-bottom:18px}
-.svc-name{font-family:'Jost',sans-serif;font-weight:400;font-size:17px;letter-spacing:1px;margin-bottom:14px}
-.svc-desc{font-size:14px;line-height:1.8;color:var(--muted-gold)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:36px;color:var(--terracotta);opacity:0.35;margin-bottom:20px}
+.svc-name{font-family:'Jost',sans-serif;font-weight:400;font-size:20px;letter-spacing:1px;margin-bottom:16px}
+.svc-desc{font-size:16px;line-height:1.8;color:var(--muted-gold)}
+.svc-desde{margin-top:20px;font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--warm-black)}
+.svc-desde small{font-family:'Jost',sans-serif;font-weight:200;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-gold);margin-right:6px}
 .svc-desde{margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--warm-black)}
 .svc-desde small{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-gold);margin-right:6px}
 .svc-card.span-2{grid-column:span 2}
@@ -112,15 +114,13 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 
 /* WORK */
 .work{background:var(--white)}
-.work-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(44,41,38,0.04)}
-.work-item{aspect-ratio:16/10;background:var(--sand);position:relative;overflow:hidden;cursor:pointer}
-.work-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,41,38,0.7) 0%,transparent 60%);opacity:0;transition:opacity 0.5s}
-.work-item:hover .work-item-overlay{opacity:1}
-.work-item-content{position:absolute;bottom:0;left:0;right:0;padding:36px;transform:translateY(10px);opacity:0;transition:all 0.5s}
-.work-item:hover .work-item-content{transform:translateY(0);opacity:1}
-.work-item-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--cream);margin-bottom:4px}
-.work-item-cat{font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta)}
-.work-item::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:80px;color:rgba(44,41,38,0.04)}
+.work-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+.work-item{aspect-ratio:16/10;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.5s,box-shadow 0.5s;border-radius:4px}
+.work-item:hover{transform:scale(1.02);box-shadow:0 12px 40px rgba(0,0,0,0.15)}
+.work-item-content{text-align:center;position:relative;z-index:1}
+.work-item-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;color:var(--cream);margin-bottom:8px}
+.work-item-cat{font-family:'Jost',sans-serif;font-weight:200;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,235,0.5)}
+.work-full{grid-column:1/-1}
 
 /* APPROACH */
 .approach{background:var(--warm-black);color:var(--cream)}
@@ -128,16 +128,16 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 .approach-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,160,136,0.06);position:relative;z-index:1}
 .approach-item{background:var(--warm-black);padding:56px 44px;text-align:center;transition:background 0.4s}
 .approach-item:hover{background:rgba(58,53,48,0.4)}
-.approach-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:48px;color:var(--terracotta);opacity:0.3;margin-bottom:20px}
-.approach-name{font-family:'Jost',sans-serif;font-weight:400;font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-.approach-desc{font-size:14px;line-height:1.8;color:var(--muted-gold)}
+.approach-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:52px;color:var(--terracotta);opacity:0.3;margin-bottom:20px}
+.approach-name{font-family:'Jost',sans-serif;font-weight:400;font-size:18px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.approach-desc{font-size:16px;line-height:1.8;color:var(--muted-gold)}
 
 /* CONTACT */
 .contact{background:var(--cream);text-align:center}
 .contact-content{max-width:700px;margin:0 auto}
 .contact-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5vw,56px);line-height:1.2;margin-bottom:20px}
 .contact-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
-.contact-desc{font-size:16px;line-height:1.8;color:var(--muted-gold);margin-bottom:40px}
+.contact-desc{font-size:18px;line-height:1.8;color:var(--muted-gold);margin-bottom:40px}
 .contact-email{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,4vw,36px);color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
 .contact-email:hover{color:var(--terracotta)}
 .contact-email::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--terracotta);transform:scaleX(0);transition:transform 0.4s}
@@ -147,6 +147,24 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 .contact-link-label{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:4px}
 .contact-link-value{font-size:14px;color:var(--warm-black);transition:color 0.3s}
 .contact-link:hover .contact-link-value{color:var(--terracotta)}
+
+/* CONTACT FORM */
+.contact-form{max-width:600px;margin:0 auto;text-align:left}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:8px}
+.form-input,.form-textarea{width:100%;padding:16px 20px;background:var(--white);border:1px solid var(--sand);border-radius:4px;color:var(--warm-black);font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;transition:border-color 0.3s;outline:none}
+.form-input:focus,.form-textarea:focus{border-color:var(--terracotta)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--muted-gold);opacity:0.5}
+.form-textarea{height:120px;resize:none}
+.submit-btn{display:block;width:100%;padding:18px;background:var(--warm-black);border:none;font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--white);cursor:pointer;transition:all 0.4s;margin-top:8px}
+.submit-btn:hover{background:var(--terracotta)}
+.form-success{display:none;text-align:center;padding:60px 0}
+.form-success.show{display:block;animation:fadeUp 0.6s ease}
+.form-success-icon{font-size:48px;color:var(--terracotta);margin-bottom:16px}
+.form-success-text{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;margin-bottom:8px}
+.form-success-sub{font-size:16px;color:var(--muted-gold)}
+@media(max-width:768px){.form-row{grid-template-columns:1fr}}
 
 /* FOOTER */
 .footer{background:var(--warm-black);color:var(--cream);padding:80px 64px 32px}
@@ -160,6 +178,19 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
 .footer-links a{font-size:14px;color:rgba(245,240,235,0.5);text-decoration:none;transition:color 0.3s}
 .footer-links a:hover{color:var(--terracotta)}
 .footer-bottom{max-width:1100px;margin:0 auto;padding-top:32px;border-top:1px solid rgba(184,160,136,0.08);display:flex;justify-content:space-between;font-size:12px;color:rgba(184,160,136,0.3)}
+
+/* FAQ */
+.faq{background:var(--white)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(44,41,38,0.06)}
+.faq-question{padding:28px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color 0.3s}
+.faq-question:hover{color:var(--terracotta)}
+.faq-question-text{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px}
+.faq-icon{font-family:'Jost',sans-serif;font-weight:200;font-size:28px;color:var(--terracotta);transition:transform 0.3s;flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.faq-item.open .faq-answer{max-height:200px}
+.faq-answer-text{padding:0 0 28px;font-size:17px;line-height:1.8;color:var(--muted-gold)}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -291,32 +322,34 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
     <p class="section-desc">Una muestra de proyectos recientes donde estrategia y diseño se encuentran</p>
   </div>
   <div class="work-grid fade-in">
-    <div class="work-item">
-      <div class="work-item-overlay"></div>
-      <div class="work-item-content">
+    <div class="work-item" style="background:#2c4a6e">
+      <div class="work-item-content work-visible">
         <h3 class="work-item-title">Klik</h3>
         <p class="work-item-cat">Agencia Creativa — Branding</p>
       </div>
     </div>
-    <div class="work-item">
-      <div class="work-item-overlay"></div>
-      <div class="work-item-content">
-        <h3 class="work-item-title">Kapta</h3>
-        <p class="work-item-cat">By Ellaphant — Branding</p>
-      </div>
-    </div>
-    <div class="work-item">
-      <div class="work-item-overlay"></div>
-      <div class="work-item-content">
+    <div class="work-item" style="background:#4a8ad4">
+      <div class="work-item-content work-visible">
         <h3 class="work-item-title">Ellaphant</h3>
-        <p class="work-item-cat">Identidad Visual Completa</p>
+        <p class="work-item-cat">Actualización de Línea Gráfica</p>
       </div>
     </div>
-    <div class="work-item">
-      <div class="work-item-overlay"></div>
-      <div class="work-item-content">
+    <div class="work-item" style="background:#1a1a3e">
+      <div class="work-item-content work-visible">
         <h3 class="work-item-title">Conversa</h3>
-        <p class="work-item-cat">Manual de Marca</p>
+        <p class="work-item-cat">Creación de Identidad</p>
+      </div>
+    </div>
+    <div class="work-item" style="background:#3a3a3a">
+      <div class="work-item-content work-visible">
+        <h3 class="work-item-title">Kapta</h3>
+        <p class="work-item-cat">By Ellaphant — Línea Gráfica</p>
+      </div>
+    </div>
+    <div class="work-item work-full" style="background:#0a6e3a">
+      <div class="work-item-content work-visible">
+        <h3 class="work-item-title">Instituto Supremo</h3>
+        <p class="work-item-cat">Línea Gráfica</p>
       </div>
     </div>
   </div>
@@ -405,14 +438,106 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="section-header fade-in">
+    <div class="section-eyebrow">Preguntas frecuentes</div>
+    <h2 class="section-title"><span class="accent">FAQ</span></h2>
+  </div>
+  <div class="faq-list fade-in">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">¿Cuánta experiencia tenés?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">Llevo más de 3 años trabajando en diseño gráfico y branding. Fui nombrada senior en 2 agencias y actualmente trabajo como freelancer con clientes directos y agencias que tercerizan sus proyectos de diseño.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">¿Cuánto cuesta un proyecto de branding?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">Cada proyecto es único, por lo que los precios varían según el alcance y la complejidad. Después de nuestra primera conversación, te envío una propuesta detallada con inversión y tiempos. Podés usar nuestro simulador de presupuesto para tener un estimado al instante.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">¿Cuánto tiempo toma un proyecto?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">Un proyecto de branding completo generalmente toma entre 4 y 6 semanas. Proyectos más pequeños como diseño de piezas para redes sociales pueden estar listos en 1-2 semanas. Siempre respeto los plazos acordados.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">¿Trabajás con clientes fuera de Paraguay?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">¡Sí! Trabajo de forma remota con clientes de toda Latinoamérica y el mundo. Nos comunicamos por videollamada, email y WhatsApp. La distancia no es un problema para crear algo increíble juntos.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">¿Qué incluye un paquete de identidad visual?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">Incluye logo principal y variaciones, paleta de colores, tipografías, elementos gráficos, manual de marca con guías de uso, y todos los archivos en formatos editables y listos para imprimir o usar en digital.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">¿Cuántas revisiones incluís?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-text">Todos mis paquetes incluyen entre 2 y 3 rondas de revisiones. Mi objetivo es que quedes 100% conforme con el resultado, así que trabajo de cerca con vos en cada etapa del proceso.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section contact" id="contact">
   <div class="contact-content fade-in">
     <div class="section-eyebrow">Conversemos</div>
     <h2 class="contact-title">Tenés un proyecto en <span class="accent">mente</span></h2>
-    <p class="contact-desc">Ya sea un branding completo, un rediseño o una consultoría estratégica, me encantaría conocer tu proyecto y explorar cómo podemos trabajar juntos.</p>
-    <a href="mailto:sophestudio@gmail.com" class="contact-email">sophestudio@gmail.com</a>
-    <div class="contact-links">
+    <p class="contact-desc">Contame tu idea y creemos algo memorable juntos.</p>
+
+    <div class="contact-form fade-in" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="c-name" class="form-input" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="c-email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Servicio</label>
+        <input type="text" id="c-service" class="form-input" placeholder="¿Qué servicio te interesa?">
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje</label>
+        <textarea id="c-message" class="form-textarea" placeholder="Contame sobre tu proyecto..."></textarea>
+      </div>
+      <button type="button" class="submit-btn" id="submitBtn">Enviar mensaje</button>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">✦</div>
+      <div class="form-success-text">¡Mensaje enviado!</div>
+      <div class="form-success-sub">Te responderé lo antes posible. Gracias por contactarme.</div>
+    </div>
+
+    <div class="contact-links" style="margin-top:48px">
       <a href="https://www.behance.net/sophe_studio" class="contact-link" target="_blank">
         <div class="contact-link-label">Behance</div>
         <div class="contact-link-value">behance.net/sophe_studio</div>
@@ -420,6 +545,10 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
       <a href="#" class="contact-link">
         <div class="contact-link-label">Instagram</div>
         <div class="contact-link-value">@sophe.studio</div>
+      </a>
+      <a href="mailto:sophestudio@gmail.com" class="contact-link">
+        <div class="contact-link-label">Email</div>
+        <div class="contact-link-value">sophestudio@gmail.com</div>
       </a>
     </div>
   </div>
@@ -471,6 +600,43 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
   });
 });
+
+// FAQ toggle
+function toggleFaq(el){
+  const item=el.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+// Form handler
+document.getElementById('submitBtn').addEventListener('click',()=>{
+  const name=document.getElementById('c-name').value.trim();
+  const email=document.getElementById('c-email').value.trim();
+  const service=document.getElementById('c-service').value.trim();
+  const message=document.getElementById('c-message').value.trim();
+  if(!name||!email){
+    const form=document.getElementById('contactForm');
+    form.style.animation='none';
+    form.offsetHeight;
+    form.style.animation='formShake 0.4s ease';
+    return;
+  }
+  // Build WhatsApp message
+  let msg=`Hola! Soy ${name} (${email}), te contacto desde la web de Sophē.\n`;
+  if(service)msg+=`\nServicio: ${service}`;
+  if(message)msg+=`\nMensaje: ${message}`;
+  const wa=`https://wa.me/595?text=${encodeURIComponent(msg)}`;
+  // Show success
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+  setTimeout(()=>window.open(wa,'_blank'),1000);
+});
+
+// Shake animation
+const ss=document.createElement('style');
+ss.textContent='@keyframes formShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}';
+document.head.appendChild(ss);
 
 // Intersection Observer for fade-in
 const obs=new IntersectionObserver((entries)=>{
