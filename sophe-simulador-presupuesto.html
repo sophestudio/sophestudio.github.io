@@ -20,6 +20,54 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* SIM NAV */
+  .sim-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 24px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(44,41,38,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,160,136,0.06);
+  }
+
+  .sim-nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .sim-nav-logo:hover { opacity: 0.6; }
+  .sim-nav-logo .accent { font-style: italic; font-weight: 400; }
+
+  .sim-nav-back {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .sim-nav-back:hover { color: var(--terracotta); }
+
+  @media (max-width: 768px) {
+    .sim-nav { padding: 20px 24px; }
+    .sim-nav-back { font-size: 10px; }
+  }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -715,7 +763,13 @@
 
 <div class="ambient"></div>
 
-<header>
+<!-- NAV -->
+<nav class="sim-nav">
+  <a href="index.html" class="sim-nav-logo">SOPH<span class="accent">Ē</span></a>
+  <a href="index.html" class="sim-nav-back">← Volver al inicio</a>
+</nav>
+
+<header style="padding-top:120px;">
   <div class="logo">SOPH<span class="accent">Ē</span></div>
   <div class="subtitle">Design Studio</div>
   <h1>Simulá tu <em>presupuesto</em></h1>
