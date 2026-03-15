@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sophē — Simulador de Presupuesto</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>✦</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-black: #2c2926;
+    --cream: #f5f0eb;
+    --sand: #e8dfd6;
+    --terracotta: #c4856a;
+    --sage: #8a9a7b;
+    --deep-olive: #4a5240;
+    --muted-gold: #b8a088;
+    --white: #faf8f6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-black);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---- GRAIN OVERLAY ---- */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- AMBIENT GLOWS ---- */
+  .ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(196,133,106,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(138,154,123,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(184,160,136,0.03) 0%, transparent 40%);
+  }
+
+  /* ---- HEADER ---- */
+  header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px 24px 60px;
+    border-bottom: 1px solid rgba(184,160,136,0.08);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .logo .accent { font-style: italic; font-weight: 400; }
+
+  header .subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 40px;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 6vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  header h1 em { font-style: italic; color: var(--terracotta); }
+
+  header p {
+    font-size: 16px;
+    color: var(--muted-gold);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ---- MAIN LAYOUT ---- */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px 120px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+    .sidebar { position: static !important; }
+  }
+
+  /* ---- CATEGORIES ---- */
+  .category {
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .category:nth-child(1) { animation-delay: 0.1s; }
+  .category:nth-child(2) { animation-delay: 0.2s; }
+  .category:nth-child(3) { animation-delay: 0.3s; }
+  .category:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .category-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--terracotta);
+    opacity: 0.4;
+  }
+
+  .category-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .category-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(184,160,136,0.15), transparent);
+  }
+
+  /* ---- SERVICE CARDS ---- */
+  .service {
+    background: rgba(58,53,48,0.4);
+    border: 1px solid rgba(184,160,136,0.08);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,133,106,0.04) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .service:hover {
+    border-color: rgba(196,133,106,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+
+  .service:hover::before { opacity: 1; }
+
+  .service.selected {
+    border-color: var(--terracotta);
+    background: rgba(196,133,106,0.08);
+  }
+
+  .service.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 14px;
+    color: var(--terracotta);
+    width: 24px;
+    height: 24px;
+    background: rgba(196,133,106,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-info { position: relative; z-index: 1; }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 4px;
+    color: var(--cream);
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--muted-gold);
+    line-height: 1.5;
+  }
+
+  .service-price {
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .service-desde {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 2px;
+  }
+
+  .service-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--cream);
+  }
+
+  .service-amount .currency {
+    font-size: 16px;
+    color: var(--muted-gold);
+  }
+
+  /* ---- QUANTITY CONTROL ---- */
+  .qty-row {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(184,160,136,0.08);
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .qty-label {
+    font-size: 13px;
+    color: var(--muted-gold);
+  }
+
+  .qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid rgba(184,160,136,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .qty-btn {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    color: var(--cream);
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .qty-btn:hover { background: rgba(196,133,106,0.1); }
+
+  .qty-value {
+    width: 44px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--cream);
+    background: rgba(184,160,136,0.05);
+    border: none;
+    border-left: 1px solid rgba(184,160,136,0.1);
+    border-right: 1px solid rgba(184,160,136,0.1);
+    height: 36px;
+  }
+
+  .qty-subtotal {
+    margin-left: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--terracotta);
+  }
+
+  /* ---- SIDEBAR ---- */
+  .sidebar {
+    position: sticky;
+    top: 32px;
+    animation: fadeUp 0.6s ease 0.5s forwards;
+    opacity: 0;
+  }
+
+  .summary-card {
+    background: rgba(58,53,48,0.5);
+    border: 1px solid rgba(184,160,136,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    backdrop-filter: blur(8px);
+  }
+
+  .summary-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 24px;
+  }
+
+  .summary-empty {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--muted-gold);
+    font-size: 14px;
+    opacity: 0.5;
+  }
+
+  .summary-empty-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 36px;
+    color: var(--terracotta);
+    opacity: 0.2;
+    margin-bottom: 12px;
+  }
+
+  .summary-items { margin-bottom: 24px; }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(184,160,136,0.06);
+    gap: 12px;
+  }
+
+  .summary-item-name {
+    font-size: 14px;
+    color: var(--cream);
+    flex: 1;
+  }
+
+  .summary-item-qty {
+    font-size: 12px;
+    color: var(--muted-gold);
+  }
+
+  .summary-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    white-space: nowrap;
+  }
+
+  .summary-item .remove-btn {
+    background: none;
+    border: none;
+    color: var(--muted-gold);
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.2s;
+    padding: 0 4px;
+  }
+
+  .summary-item .remove-btn:hover { opacity: 1; color: var(--terracotta); }
+
+  /* Discount */
+  .discount-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(184,160,136,0.06);
+  }
+
+  .discount-label {
+    font-size: 13px;
+    color: var(--sage);
+  }
+
+  .discount-badge {
+    display: inline-block;
+    background: rgba(138,154,123,0.12);
+    color: var(--sage);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+  }
+
+  .discount-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--sage);
+  }
+
+  /* Total */
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 0 0;
+    margin-top: 8px;
+  }
+
+  .total-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+  }
+
+  .total-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--cream);
+  }
+
+  .total-amount .currency {
+    font-size: 20px;
+    color: var(--muted-gold);
+  }
+
+  .total-note {
+    font-size: 11px;
+    color: var(--muted-gold);
+    opacity: 0.5;
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  .iva-note {
+    font-size: 12px;
+    color: var(--muted-gold);
+    text-align: right;
+    margin-top: 2px;
+    opacity: 0.6;
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 16px 24px;
+    background: var(--terracotta);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-btn:hover { background: #b5775d; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,133,106,0.25); }
+  .cta-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  .cta-secondary {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 24px;
+    background: transparent;
+    border: 1px solid rgba(184,160,136,0.2);
+    border-radius: 8px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .cta-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .cta-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* ---- CONTACT MODAL ---- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(44,41,38,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--warm-black);
+    border: 1px solid rgba(184,160,136,0.12);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    animation: modalIn 0.3s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--muted-gold);
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
+  .modal-close:hover { opacity: 1; }
+
+  .modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 6px;
+  }
+
+  .modal h2 em { font-style: italic; color: var(--terracotta); }
+
+  .modal .modal-sub {
+    font-size: 14px;
+    color: var(--muted-gold);
+    margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(58,53,48,0.5);
+    border: 1px solid rgba(184,160,136,0.12);
+    border-radius: 8px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--terracotta); }
+
+  .form-group textarea { height: 80px; resize: none; }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--muted-gold); opacity: 0.35; }
+
+  .modal-summary {
+    background: rgba(58,53,48,0.4);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--muted-gold);
+    line-height: 1.8;
+  }
+
+  .modal-summary strong { color: var(--cream); font-weight: 400; }
+
+  .modal-send {
+    width: 100%;
+    padding: 16px;
+    background: var(--terracotta);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .modal-send:hover { background: #b5775d; }
+
+  /* ---- SUCCESS STATE ---- */
+  .success-msg {
+    text-align: center;
+    padding: 32px 0;
+  }
+
+  .success-msg .check { font-size: 48px; margin-bottom: 16px; }
+
+  .success-msg h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .success-msg p { font-size: 14px; color: var(--muted-gold); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(184,160,136,0.06);
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--muted-gold);
+    opacity: 0.4;
+  }
+
+  footer .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    opacity: 0.2;
+    margin-bottom: 8px;
+  }
+
+  footer .footer-brand .accent { font-style: italic; font-weight: 400; }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header>
+  <div class="logo">SOPH<span class="accent">Ē</span></div>
+  <div class="subtitle">Design Studio</div>
+  <h1>Simulá tu <em>presupuesto</em></h1>
+  <p>Seleccioná los servicios que necesitás y obtené un estimado al instante. Los precios son referenciales — cada proyecto es único.</p>
+</header>
+
+<main>
+  <div class="services-col" id="services">
+    <!-- Categories rendered by JS -->
+  </div>
+
+  <div class="sidebar">
+    <div class="summary-card">
+      <div class="summary-title">Tu presupuesto</div>
+      <div id="summary-content">
+        <div class="summary-empty">
+          <div class="summary-empty-icon">S</div>
+          Seleccioná servicios para<br>armar tu presupuesto
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modal-body">
+      <h2>Solicitar <em>presupuesto</em></h2>
+      <p class="modal-sub">Completá tus datos y te contactamos en menos de 24hs.</p>
+      <div class="modal-summary" id="modal-summary"></div>
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" id="f-name" placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label>WhatsApp o email</label>
+        <input type="text" id="f-contact" placeholder="+595 ... o tu@email.com">
+      </div>
+      <div class="form-group">
+        <label>Contanos sobre tu proyecto</label>
+        <textarea id="f-details" placeholder="¿Qué necesitás? ¿Para cuándo?"></textarea>
+      </div>
+      <button class="modal-send" onclick="sendRequest()">Enviar solicitud</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">SOPH<span class="accent">Ē</span></div>
+  <p>Ciudad del Este, Paraguay · sophestudio@gmail.com</p>
+</footer>
+
+<script>
+const SERVICES = [
+  {
+    category: "Branding & Identidad",
+    num: "01",
+    items: [
+      { id: "branding", name: "Branding completo", desc: "Logo + paleta + tipografías + manual de marca", price: 2200000, hasQty: false },
+      { id: "rebranding", name: "Rebranding", desc: "Rediseño de identidad visual existente", price: 1750000, hasQty: false },
+      { id: "subbranding", name: "Sub-branding", desc: "Extensión de marca para línea o producto", price: 1000000, hasQty: false },
+      { id: "manual", name: "Mini manual de marca", desc: "Guía básica de uso de identidad visual", price: 700000, hasQty: false },
+    ]
+  },
+  {
+    category: "Producto & Packaging",
+    num: "02",
+    items: [
+      { id: "etiqueta", name: "Etiqueta de producto", desc: "Diseño original listo para impresión", price: 800000, hasQty: true, qtyLabel: "Cantidad de diseños originales" },
+      { id: "etiqueta-adapt", name: "Adaptación de etiqueta", desc: "Variación de sabor, color o presentación", price: 175000, hasQty: true, qtyLabel: "Cantidad de adaptaciones" },
+      { id: "packaging", name: "Packaging / Exhibidor POP", desc: "Diseño estructural + aplicación de marca", price: 1000000, hasQty: false },
+    ]
+  },
+  {
+    category: "Editorial & Corporativo",
+    num: "03",
+    items: [
+      { id: "menu-basico", name: "Menú básico", desc: "Hasta 8 páginas, diseño editorial completo", price: 800000, hasQty: false },
+      { id: "menu-premium", name: "Menú premium", desc: "12+ páginas con fotografía y composición editorial", price: 1300000, hasQty: false },
+      { id: "catalogo", name: "Catálogo corporativo", desc: "Diseño editorial extenso con sistema visual", price: 2200000, hasQty: false },
+      { id: "triptico", name: "Tríptico / Flyer", desc: "Pieza impresa promocional o informativa", price: 400000, hasQty: true, qtyLabel: "Cantidad de diseños" },
+    ]
+  },
+  {
+    category: "Contenido Digital",
+    num: "04",
+    items: [
+      { id: "pieza", name: "Pieza individual", desc: "Post, story o carrusel para redes sociales", price: 80000, hasQty: true, qtyLabel: "Cantidad de piezas" },
+      { id: "plan-8", name: "Plan mensual — 8 piezas", desc: "Diseño de contenido mensual para redes", price: 570000, hasQty: false },
+      { id: "plan-12", name: "Plan mensual — 12 piezas", desc: "Diseño + línea gráfica mensual", price: 850000, hasQty: false },
+      { id: "plan-16", name: "Plan mensual — 16 piezas", desc: "Gestión visual completa de redes", price: 1100000, hasQty: false },
+    ]
+  }
+];
+
+let selected = {};
+
+function formatGs(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function render() {
+  const col = document.getElementById('services');
+  col.innerHTML = '';
+
+  SERVICES.forEach(cat => {
+    const div = document.createElement('div');
+    div.className = 'category';
+    div.innerHTML = `
+      <div class="category-header">
+        <span class="category-num">${cat.num}</span>
+        <span class="category-title">${cat.category}</span>
+        <span class="category-line"></span>
+      </div>
+    `;
+
+    cat.items.forEach(item => {
+      const isSelected = !!selected[item.id];
+      const qty = selected[item.id]?.qty || 1;
+
+      const card = document.createElement('div');
+      card.className = `service${isSelected ? ' selected' : ''}`;
+      card.innerHTML = `
+        <div class="service-info">
+          <div class="service-name">${item.name}</div>
+          <div class="service-desc">${item.desc}</div>
+        </div>
+        <div class="service-price">
+          <div class="service-desde">Desde</div>
+          <div class="service-amount"><span class="currency">Gs</span> ${formatGs(item.price)}</div>
+        </div>
+        ${isSelected && item.hasQty ? `
+          <div class="qty-row">
+            <span class="qty-label">${item.qtyLabel}:</span>
+            <div class="qty-controls">
+              <button class="qty-btn" data-id="${item.id}" data-action="dec">−</button>
+              <div class="qty-value">${qty}</div>
+              <button class="qty-btn" data-id="${item.id}" data-action="inc">+</button>
+            </div>
+            <span class="qty-subtotal">Gs ${formatGs(item.price * qty)}</span>
+          </div>
+        ` : ''}
+      `;
+
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.qty-btn')) return;
+        toggleService(item);
+      });
+
+      div.appendChild(card);
+    });
+
+    col.appendChild(div);
+  });
+
+  // Quantity buttons
+  document.querySelectorAll('.qty-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id;
+      const action = btn.dataset.action;
+      if (action === 'inc') selected[id].qty++;
+      if (action === 'dec' && selected[id].qty > 1) selected[id].qty--;
+      render();
+    });
+  });
+
+  renderSummary();
+}
+
+function toggleService(item) {
+  if (selected[item.id]) {
+    delete selected[item.id];
+  } else {
+    selected[item.id] = { ...item, qty: 1 };
+  }
+  render();
+}
+
+function removeService(id) {
+  delete selected[id];
+  render();
+}
+
+function getDiscount() {
+  const count = Object.keys(selected).length;
+  if (count >= 4) return { pct: 15, label: '15% por paquete completo' };
+  if (count >= 3) return { pct: 10, label: '10% por 3+ servicios' };
+  if (count >= 2) return { pct: 5, label: '5% por 2 servicios' };
+  return null;
+}
+
+function getSubtotal() {
+  let total = 0;
+  Object.values(selected).forEach(s => {
+    total += s.price * (s.qty || 1);
+  });
+  return total;
+}
+
+function renderSummary() {
+  const content = document.getElementById('summary-content');
+  const items = Object.values(selected);
+
+  if (items.length === 0) {
+    content.innerHTML = `
+      <div class="summary-empty">
+        <div class="summary-empty-icon">S</div>
+        Seleccioná servicios para<br>armar tu presupuesto
+      </div>
+    `;
+    return;
+  }
+
+  const subtotal = getSubtotal();
+  const discount = getDiscount();
+  const discountAmount = discount ? Math.round(subtotal * discount.pct / 100) : 0;
+  const total = subtotal - discountAmount;
+
+  let html = '<div class="summary-items">';
+  items.forEach(s => {
+    const qty = s.qty || 1;
+    html += `
+      <div class="summary-item">
+        <div>
+          <div class="summary-item-name">${s.name}</div>
+          ${qty > 1 ? `<div class="summary-item-qty">× ${qty} unidades</div>` : ''}
+        </div>
+        <div class="summary-item-price">Gs ${formatGs(s.price * qty)}</div>
+        <button class="remove-btn" onclick="event.stopPropagation(); removeService('${s.id}')">×</button>
+      </div>
+    `;
+  });
+  html += '</div>';
+
+  if (discount) {
+    html += `
+      <div class="discount-row">
+        <div class="discount-label">Descuento <span class="discount-badge">${discount.label}</span></div>
+        <div class="discount-amount">- Gs ${formatGs(discountAmount)}</div>
+      </div>
+    `;
+  }
+
+  html += `
+    <div class="summary-total">
+      <div>
+        <div class="total-label">Estimado desde</div>
+      </div>
+      <div>
+        <div class="total-amount"><span class="currency">Gs</span> ${formatGs(total)}</div>
+        <div class="iva-note">+ IVA</div>
+      </div>
+    </div>
+    <div class="total-note">*Precio referencial sujeto a proyecto</div>
+    <button class="cta-btn" onclick="openModal()">Solicitar presupuesto</button>
+    <button class="cta-secondary" onclick="clearAll()">Limpiar selección</button>
+  `;
+
+  content.innerHTML = html;
+}
+
+function openModal() {
+  const items = Object.values(selected);
+  if (items.length === 0) return;
+
+  const subtotal = getSubtotal();
+  const discount = getDiscount();
+  const discountAmount = discount ? Math.round(subtotal * discount.pct / 100) : 0;
+  const total = subtotal - discountAmount;
+
+  let summary = '<strong>Servicios seleccionados:</strong><br>';
+  items.forEach(s => {
+    const qty = s.qty || 1;
+    summary += `• ${s.name}${qty > 1 ? ` (×${qty})` : ''}<br>`;
+  });
+  summary += `<br><strong>Estimado desde: Gs ${formatGs(total)}</strong>`;
+  if (discount) summary += ` <small>(${discount.label})</small>`;
+
+  document.getElementById('modal-summary').innerHTML = summary;
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function sendRequest() {
+  const name = document.getElementById('f-name').value;
+  const contact = document.getElementById('f-contact').value;
+  const details = document.getElementById('f-details').value;
+
+  if (!name || !contact) {
+    alert('Por favor completá tu nombre y contacto.');
+    return;
+  }
+
+  // Build WhatsApp message
+  const items = Object.values(selected);
+  const subtotal = getSubtotal();
+  const discount = getDiscount();
+  const discountAmount = discount ? Math.round(subtotal * discount.pct / 100) : 0;
+  const total = subtotal - discountAmount;
+
+  let msg = `Hola! Soy ${name}, te contacto desde el simulador de Sophē.\n\n`;
+  msg += `*Servicios que me interesan:*\n`;
+  items.forEach(s => {
+    const qty = s.qty || 1;
+    msg += `• ${s.name}${qty > 1 ? ` (×${qty})` : ''} — Gs ${formatGs(s.price * qty)}\n`;
+  });
+  if (discount) msg += `\nDescuento: ${discount.label}\n`;
+  msg += `\n*Estimado desde: Gs ${formatGs(total)}*\n`;
+  if (details) msg += `\n*Sobre mi proyecto:*\n${details}\n`;
+  msg += `\nContacto: ${contact}`;
+
+  const encoded = encodeURIComponent(msg);
+  const whatsappURL = `https://wa.me/595?text=${encoded}`;
+
+  // Show success
+  document.getElementById('modal-body').innerHTML = `
+    <div class="success-msg">
+      <div class="check">✦</div>
+      <h3>¡Solicitud lista!</h3>
+      <p>Te redirigimos a WhatsApp para enviar tu consulta.</p>
+    </div>
+  `;
+
+  setTimeout(() => {
+    window.open(whatsappURL, '_blank');
+  }, 1200);
+
+  setTimeout(() => {
+    closeModal();
+    document.getElementById('modal-body').innerHTML = ''; // reset
+    location.reload();
+  }, 3000);
+}
+
+function clearAll() {
+  selected = {};
+  render();
+}
+
+// Init
+render();
+</script>
+
+</body>
+</html>
