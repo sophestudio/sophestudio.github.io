@@ -322,36 +322,42 @@ body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-
     <p class="section-desc">Una muestra de proyectos recientes donde estrategia y diseño se encuentran</p>
   </div>
   <div class="work-grid fade-in">
-    <div class="work-item" style="background:#2c4a6e">
-      <div class="work-item-content work-visible">
+    <a href="https://www.behance.net/gallery/243457355/Branding-Linea-grafica-Klik-Agencia-Creativa" target="_blank" class="work-item" style="background:#2B3A8C;text-decoration:none">
+      <div class="work-item-content">
         <h3 class="work-item-title">Klik</h3>
         <p class="work-item-cat">Agencia Creativa — Branding</p>
       </div>
-    </div>
-    <div class="work-item" style="background:#4a8ad4">
-      <div class="work-item-content work-visible">
+    </a>
+    <a href="https://www.behance.net/gallery/243456857/Actualizacion-de-linea-grafica-Ellaphant-PY" target="_blank" class="work-item" style="background:#3B7DD8;text-decoration:none">
+      <div class="work-item-content">
         <h3 class="work-item-title">Ellaphant</h3>
         <p class="work-item-cat">Actualización de Línea Gráfica</p>
       </div>
-    </div>
-    <div class="work-item" style="background:#1a1a3e">
-      <div class="work-item-content work-visible">
-        <h3 class="work-item-title">Conversa</h3>
-        <p class="work-item-cat">Creación de Identidad</p>
-      </div>
-    </div>
-    <div class="work-item" style="background:#3a3a3a">
-      <div class="work-item-content work-visible">
+    </a>
+    <a href="https://www.behance.net/gallery/243456701/Linea-grafica-Kapta-by-Ellaphant" target="_blank" class="work-item" style="background:#2a2a2a;text-decoration:none">
+      <div class="work-item-content">
         <h3 class="work-item-title">Kapta</h3>
         <p class="work-item-cat">By Ellaphant — Línea Gráfica</p>
       </div>
-    </div>
-    <div class="work-item work-full" style="background:#0a6e3a">
-      <div class="work-item-content work-visible">
+    </a>
+    <a href="https://www.behance.net/gallery/243456563/Linea-grafica-Instituto-Supremo" target="_blank" class="work-item" style="background:#0d8a3f;text-decoration:none">
+      <div class="work-item-content">
         <h3 class="work-item-title">Instituto Supremo</h3>
         <p class="work-item-cat">Línea Gráfica</p>
       </div>
-    </div>
+    </a>
+    <a href="https://www.behance.net/gallery/243456069/Linea-grafica-Sales-System" target="_blank" class="work-item" style="background:#f0ebe5;text-decoration:none">
+      <div class="work-item-content">
+        <h3 class="work-item-title" style="color:#2c2926">Sales System</h3>
+        <p class="work-item-cat" style="color:rgba(44,41,38,0.4)">Línea Gráfica</p>
+      </div>
+    </a>
+    <a href="https://www.behance.net/gallery/231858263/Creacion-de-identidad" target="_blank" class="work-item" style="background:#1a1a3e;text-decoration:none">
+      <div class="work-item-content">
+        <h3 class="work-item-title">Conversa</h3>
+        <p class="work-item-cat">Creación de Identidad</p>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -610,7 +616,7 @@ function toggleFaq(el){
 }
 
 // Form handler
-document.getElementById('submitBtn').addEventListener('click',()=>{
+document.getElementById('submitBtn').addEventListener('click',async()=>{
   const name=document.getElementById('c-name').value.trim();
   const email=document.getElementById('c-email').value.trim();
   const service=document.getElementById('c-service').value.trim();
@@ -622,15 +628,27 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     form.style.animation='formShake 0.4s ease';
     return;
   }
-  // Build WhatsApp message
-  let msg=`Hola! Soy ${name} (${email}), te contacto desde la web de Sophē.\n`;
-  if(service)msg+=`\nServicio: ${service}`;
-  if(message)msg+=`\nMensaje: ${message}`;
-  const wa=`https://wa.me/595?text=${encodeURIComponent(msg)}`;
-  // Show success
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('formSuccess').classList.add('show');
-  setTimeout(()=>window.open(wa,'_blank'),1000);
+  // Send to Formspree
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Enviando...';
+  btn.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/meelbrdz',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name,email,service,message})
+    });
+    if(res.ok){
+      document.getElementById('contactForm').style.display='none';
+      document.getElementById('formSuccess').classList.add('show');
+    }else{
+      btn.textContent='Error — Intentá de nuevo';
+      btn.disabled=false;
+    }
+  }catch(e){
+    btn.textContent='Error — Intentá de nuevo';
+    btn.disabled=false;
+  }
 });
 
 // Shake animation
