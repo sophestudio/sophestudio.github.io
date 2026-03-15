@@ -3,2196 +3,483 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="google-site-verification" content="kVkTqH4ja-ii_SXEyuO25FD-mQTkexWxr368-GGKyAI" />
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-<!-- SEO Primary -->
-<title>Sophē Design Studio — Diseño Gráfico & Branding en Ciudad del Este, Paraguay</title>
-<meta name="description" content="Sophē Design Studio: estudio de diseño gráfico y branding en Ciudad del Este, Paraguay. Identidades visuales, diseño web, editorial y social media para marcas con propósito.">
-<meta name="keywords" content="diseño gráfico, branding, identidad visual, diseño web, Ciudad del Este, Paraguay, estudio de diseño, logo, marca, Sophē">
-<meta name="author" content="Sophē Design Studio">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://sophe.design">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sophe.design">
-<meta property="og:title" content="Sophē Design Studio — Diseño Gráfico & Branding">
-<meta property="og:description" content="Estudio de diseño especializado en identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.">
-<meta property="og:locale" content="es_PY">
-<meta property="og:site_name" content="Sophē Design Studio">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sophē Design Studio — Diseño Gráfico & Branding">
-<meta name="twitter:description" content="Estudio de diseño especializado en identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.">
-
-<!-- Geo / Local SEO -->
-<meta name="geo.region" content="PY-10">
-<meta name="geo.placename" content="Ciudad del Este">
-<meta name="geo.position" content="-25.5097;-54.6114">
-<meta name="ICBM" content="-25.5097, -54.6114">
-
-<!-- Schema.org Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Sophē Design Studio",
-  "description": "Estudio de diseño gráfico y branding especializado en identidades visuales para marcas con propósito.",
-  "url": "https://sophe.design",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Ciudad del Este",
-    "addressCountry": "PY"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -25.5097,
-    "longitude": -54.6114
-  },
-  "serviceType": ["Diseño Gráfico", "Branding", "Diseño Web", "Diseño Editorial", "Social Media"],
-  "areaServed": {
-    "@type": "Country",
-    "name": "Paraguay"
-  },
-  "sameAs": [
-    "https://www.instagram.com/sophe.studio/",
-    "https://www.threads.com/@sophe.studio",
-    "https://www.behance.net/sophe_studio"
-  ],
-  "email": "sophestudio@gmail.com",
-  "telephone": "+595992391964"
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Sophē — Design Studio</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>✦</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --warm-black: #2c2926;
-    --cream: #f5f0eb;
-    --sand: #e8dfd6;
-    --terracotta: #c4856a;
-    --sage: #8a9a7b;
-    --deep-olive: #4a5240;
-    --muted-gold: #b8a088;
-    --light-gray: #d4cdc6;
-    --white: #faf8f6;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--cream);
-    color: var(--warm-black);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  /* ===================== NAV ===================== */
-  .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    padding: 20px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(44,41,38,0.95);
-    backdrop-filter: blur(16px);
-    transition: padding 0.4s ease, background 0.4s ease;
-  }
-
-  .nav.scrolled {
-    padding: 14px 48px;
-    background: rgba(44,41,38,0.98);
-    box-shadow: 0 1px 30px rgba(0,0,0,0.15);
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 20px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cream);
-    text-decoration: none;
-    position: relative;
-    z-index: 1001;
-  }
-
-  .nav-logo .accent { font-style: italic; font-weight: 400; }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s;
-  }
-
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--terracotta);
-    transition: width 0.3s ease;
-  }
-
-  .nav-links a:hover { color: var(--cream); }
-  .nav-links a:hover::after { width: 100%; }
-
-  /* Hamburger */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1001;
-    padding: 8px;
-    background: none;
-    border: none;
-  }
-
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 1.5px;
-    background: var(--cream);
-    transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
-    transform-origin: center;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(4.5px, 4.5px);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(4.5px, -4.5px);
-  }
-
-  /* Mobile menu overlay */
-  .mobile-menu {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background: rgba(44,41,38,0.98);
-    backdrop-filter: blur(20px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-  }
-
-  .mobile-menu.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .mobile-menu a {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 36px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cream);
-    text-decoration: none;
-    padding: 16px 0;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s;
-  }
-
-  .mobile-menu.open a {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
-  .mobile-menu.open a:nth-child(2) { transition-delay: 0.18s; }
-  .mobile-menu.open a:nth-child(3) { transition-delay: 0.26s; }
-  .mobile-menu.open a:nth-child(4) { transition-delay: 0.34s; }
-  .mobile-menu.open a:nth-child(5) { transition-delay: 0.42s; }
-
-  .mobile-menu a:hover { color: var(--terracotta); }
-
-  .mobile-menu-line {
-    width: 40px;
-    height: 1px;
-    background: var(--terracotta);
-    margin: 24px 0;
-    opacity: 0;
-    transition: opacity 0.4s ease 0.4s;
-  }
-
-  .mobile-menu.open .mobile-menu-line { opacity: 1; }
-
-  .mobile-menu-social {
-    display: flex;
-    gap: 24px;
-    margin-top: 8px;
-    opacity: 0;
-    transition: opacity 0.4s ease 0.5s;
-  }
-
-  .mobile-menu.open .mobile-menu-social { opacity: 1; }
-
-  .mobile-menu-social a {
-    font-family: 'Jost', sans-serif !important;
-    font-size: 13px !important;
-    letter-spacing: 3px !important;
-    color: var(--muted-gold) !important;
-    padding: 0 !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  /* ===================== HERO ===================== */
-  .hero {
-    min-height: 100vh;
-    background: var(--warm-black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 25% 45%, rgba(196,133,106,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 75% 55%, rgba(138,154,123,0.06) 0%, transparent 50%);
-    animation: heroBgShift 12s ease-in-out infinite alternate;
-  }
-
-  @keyframes heroBgShift {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; }
-    100% { opacity: 1; }
-  }
-
-  .hero::after {
-    content: 'Sē';
-    position: absolute;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: min(40vw, 500px);
-    color: rgba(245,240,235,0.015);
-    pointer-events: none;
-    animation: ghostFloat 8s ease-in-out infinite;
-  }
-
-  @keyframes ghostFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(1deg); }
-  }
-
-  /* Floating particles */
-  .hero-particles {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: rgba(184,160,136,0.15);
-    border-radius: 50%;
-    animation: particleDrift linear infinite;
-  }
-
-  @keyframes particleDrift {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-mark {
-    width: 80px;
-    height: 80px;
-    border: 1px solid rgba(184,160,136,0.25);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 36px;
-    color: var(--cream);
-    margin: 0 auto 32px;
-    animation: markPulse 4s ease-in-out infinite, heroItemUp 1s ease 0.2s both;
-  }
-
-  @keyframes markPulse {
-    0%, 100% { border-color: rgba(184,160,136,0.25); transform: scale(1); }
-    50% { border-color: rgba(184,160,136,0.5); transform: scale(1.03); }
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(48px, 8vw, 80px);
-    letter-spacing: 12px;
-    text-transform: uppercase;
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 16px;
-    animation: heroItemUp 1s ease 0.4s both;
-  }
-
-  .hero-title .accent { font-style: italic; font-weight: 400; }
-
-  .hero-divider {
-    width: 50px;
-    height: 1px;
-    background: var(--terracotta);
-    margin: 24px auto;
-    animation: heroItemUp 1s ease 0.6s both;
-    position: relative;
-  }
-
-  .hero-divider::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 6px;
-    height: 6px;
-    background: var(--terracotta);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: dividerDotPulse 3s ease-in-out infinite;
-  }
-
-  @keyframes dividerDotPulse {
-    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.3); }
-  }
-
-  .hero-tagline {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 16px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
-    margin-bottom: 48px;
-    animation: heroItemUp 1s ease 0.8s both;
-  }
-
-  .hero-cta {
-    display: inline-block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cream);
-    text-decoration: none;
-    padding: 14px 40px;
-    border: 1px solid rgba(184,160,136,0.3);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation: heroItemUp 1s ease 1s both;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-cta::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: var(--terracotta);
-    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: -1;
-  }
-
-  .hero-cta:hover::before { left: 0; }
-  .hero-cta:hover { border-color: var(--terracotta); }
-
-  @keyframes heroItemUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-  }
-
-  .hero-scroll-text {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(245,240,235,0.25);
-  }
-
-  .hero-scroll-line {
-    width: 1px;
-    height: 30px;
-    background: linear-gradient(to bottom, rgba(196,133,106,0.4), transparent);
-    animation: scrollLinePulse 2s ease infinite;
-  }
-
-  @keyframes scrollLinePulse {
-    0%, 100% { opacity: 0.3; height: 30px; }
-    50% { opacity: 1; height: 40px; }
-  }
-
-  /* ===================== REVEAL ANIMATION ===================== */
-  .reveal {
-    opacity: 0;
-    clip-path: inset(10% 5% 10% 5%);
-    transform: translateY(30px) scale(0.98);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    clip-path: inset(0% 0% 0% 0%);
-    transform: translateY(0) scale(1);
-  }
-
-  /* Fallback: si JS no agrega .visible, se muestra igual después de 2.5s */
-  @keyframes revealFallback {
-    to { opacity: 1; clip-path: inset(0% 0% 0% 0%); transform: translateY(0) scale(1); }
-  }
-  .reveal:not(.visible) {
-    animation: revealFallback 0.8s ease 2.5s forwards;
-  }
-
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* ===================== SECTION OPENING EFFECT ===================== */
-  .section-reveal {
-    clip-path: inset(100% 0% 0% 0%);
-    transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-  }
-
-  .section-reveal.section-visible {
-    clip-path: inset(0% 0% 0% 0%);
-  }
-
-  .section-reveal:not(.section-visible) {
-    animation: sectionOpen 1.2s cubic-bezier(0.77, 0, 0.175, 1) 3s forwards;
-  }
-
-  @keyframes sectionOpen {
-    to { clip-path: inset(0% 0% 0% 0%); }
-  }
-
-  /* ===================== ABOUT ===================== */
-  .about {
-    padding: 140px 48px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-
-  .about::before {
-    content: '';
-    position: absolute;
-    top: 60px; right: 10%;
-    width: 200px; height: 200px;
-    border: 1px solid rgba(196,133,106,0.08);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .about-inner {
-    max-width: 680px;
-    text-align: center;
-  }
-
-  .about-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 24px;
-  }
-
-  .about-headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 1.4;
-    margin-bottom: 24px;
-  }
-
-  .about-headline em {
-    font-style: italic;
-    color: var(--terracotta);
-  }
-
-  .about-text {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.9;
-    color: var(--muted-gold);
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  /* ===================== SERVICES ===================== */
-  .services {
-    padding: 120px 48px;
-    background: var(--warm-black);
-    color: var(--cream);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .services::before {
-    content: '';
-    position: absolute;
-    top: -100px; left: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(196,133,106,0.04), transparent 70%);
-    pointer-events: none;
-  }
-
-  .services-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .services-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 12px;
-  }
-
-  .services-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 36px;
-    letter-spacing: 2px;
-  }
-
-  .services-grid {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .service-item {
-    padding: 40px 32px;
-    border: 1px solid rgba(245,240,235,0.06);
-    border-radius: 6px;
-    transition: border-color 0.4s, transform 0.4s, background 0.4s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .service-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 120%, rgba(196,133,106,0.06), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-
-  .service-item:hover {
-    border-color: rgba(196,133,106,0.35);
-    transform: translateY(-4px);
-  }
-
-  .service-item:hover::before { opacity: 1; }
-
-  .service-item-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 24px;
-    color: var(--terracotta);
-    margin-bottom: 12px;
-    position: relative;
-  }
-
-  .service-item-name {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    position: relative;
-  }
-
-  .service-item-desc {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--muted-gold);
-    position: relative;
-  }
-
-  .service-item.full-width {
-    grid-column: 1 / -1;
-    text-align: center;
-    background: rgba(196,133,106,0.05);
-  }
-
-  /* ===================== PROJECTS ===================== */
-  .projects {
-    padding: 120px 48px;
-  }
-
-  .projects-header {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-
-  .projects-grid {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .project-card {
-    aspect-ratio: 4/3;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .project-card:hover { transform: scale(0.97); }
-  .project-card:hover .project-overlay { opacity: 1; backdrop-filter: blur(0px); }
-  .project-card:hover .project-card-name { transform: translateY(-12px); }
-  .project-card:hover .project-card-type { transform: translateY(-12px); opacity: 1; }
-
-  .pc-1 { background: linear-gradient(135deg, #1a3a5c, #2a5a8c); }
-  .pc-2 { background: linear-gradient(135deg, #2a6ab5, #3a7ac5); }
-  .pc-3 { background: linear-gradient(135deg, #111530, #161935); }
-  .pc-4 { background: linear-gradient(135deg, #2a2a2a, #3d3d3d); }
-  .pc-5 { background: linear-gradient(135deg, #065e2e, #0a7a3a); grid-column: 1 / -1; aspect-ratio: 21/9; }
-
-  a.project-card { text-decoration: none; }
-
-  .project-card-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 28px;
-    color: white;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .project-card-type {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 16px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-top: 6px;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
-  }
-
-  .project-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-  }
-
-  .project-overlay-text {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: white;
-    padding: 10px 24px;
-    border: 1px solid rgba(255,255,255,0.6);
-    transition: background 0.3s, border-color 0.3s;
-    backdrop-filter: blur(4px);
-    background: rgba(255,255,255,0.08);
-  }
-
-  .project-overlay-text:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: white;
-  }
-
-  /* ===================== CONTACT FORM ===================== */
-  .contact {
-    padding: 120px 48px;
-    background: var(--terracotta);
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.08) 0%, transparent 50%);
-  }
-
-  .contact-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .contact-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .contact-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 14px;
-  }
-
-  .contact-headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.3;
-    margin-bottom: 12px;
-  }
-
-  .contact-sub {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: rgba(255,255,255,0.85);
-  }
-
-  .contact-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .form-group {
-    position: relative;
-  }
-
-  .form-group.full { grid-column: 1 / -1; }
-
-  .form-group label {
-    display: block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 10px;
-    transition: color 0.3s;
-  }
-
-  .form-group:focus-within label {
-    color: var(--white);
-  }
-
-  .form-input, .form-textarea {
-    width: 100%;
-    padding: 16px 0;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: var(--white);
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.35);
-    outline: none;
-    transition: border-color 0.3s;
-  }
-
-  .form-input::placeholder, .form-textarea::placeholder {
-    color: rgba(255,255,255,0.45);
-  }
-
-  .form-input:focus, .form-textarea:focus {
-    border-color: var(--white);
-  }
-
-  .form-textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  .form-submit {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .submit-btn {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--white);
-    background: none;
-    padding: 18px 56px;
-    border: 1px solid rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .submit-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--white);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: -1;
-  }
-
-  .submit-btn:hover { color: var(--terracotta); border-color: var(--white); }
-  .submit-btn:hover::before { transform: scaleX(1); }
-
-  /* Success message */
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 40px 0;
-  }
-
-  .form-success.show { display: block; }
-
-  .form-success-icon {
-    width: 60px; height: 60px;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 24px;
-    animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  @keyframes successPop {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-  }
-
-  .form-success-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-
-  .form-success-sub {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-  }
-
-  /* ===================== FOOTER ===================== */
-  .footer {
-    background: var(--warm-black);
-    color: var(--cream);
-    padding: 72px 48px 36px;
-    width: 100%;
-    margin: 0;
-    position: relative;
-    z-index: 2;
-  }
-
-  .footer-top {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(245,240,235,0.06);
-  }
-
-  .footer-brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 28px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .footer-brand-name .accent { font-style: italic; font-weight: 400; }
-
-  .footer-brand-desc {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--muted-gold);
-    max-width: 300px;
-  }
-
-  .footer-col-title {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 18px;
-  }
-
-  .footer-col-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-col-links a {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: var(--muted-gold);
-    text-decoration: none;
-    transition: color 0.3s, padding-left 0.3s;
-    position: relative;
-    z-index: 10;
-    cursor: pointer;
-  }
-
-  .footer-col-links a:hover { 
-    color: var(--cream); 
-    padding-left: 6px;
-  }
-
-  .footer-col-links li {
-    position: relative;
-    z-index: 10;
-  }
-
-  .footer-bottom {
-    max-width: 900px;
-    margin: 0 auto;
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-copy {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: rgba(245,240,235,0.3);
-    letter-spacing: 1px;
-  }
-
-  .footer-back-top {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(245,240,235,0.4);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-back-top:hover { color: var(--terracotta); }
-
-  /* Ensure no gaps anywhere */
-  section, footer { margin: 0; }
-  body { margin: 0; padding: 0; }
-
-  /* ===================== PROCESS ===================== */
-  .process {
-    padding: 120px 48px;
-    background: var(--warm-black);
-    color: var(--cream);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .process::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(138,154,123,0.04), transparent 70%);
-    pointer-events: none;
-  }
-
-  .process-header {
-    text-align: center;
-    margin-bottom: 72px;
-  }
-
-  .process-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 12px;
-  }
-
-  .process-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 36px;
-    letter-spacing: 2px;
-  }
-
-  .process-timeline {
-    max-width: 720px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .process-timeline::before {
-    content: '';
-    position: absolute;
-    left: 28px;
-    top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(196,133,106,0.3) 10%, rgba(196,133,106,0.3) 90%, transparent);
-  }
-
-  .process-step {
-    display: flex;
-    gap: 32px;
-    padding: 32px 0;
-    position: relative;
-  }
-
-  .process-step-marker {
-    flex-shrink: 0;
-    width: 56px;
-    height: 56px;
-    border: 1px solid rgba(196,133,106,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 22px;
-    color: var(--terracotta);
-    background: var(--warm-black);
-    position: relative;
-    z-index: 1;
-    transition: border-color 0.4s, background 0.4s, color 0.4s;
-  }
-
-  .process-step:hover .process-step-marker {
-    border-color: var(--terracotta);
-    background: var(--terracotta);
-    color: var(--white);
-  }
-
-  .process-step-content {
-    padding-top: 8px;
-  }
-
-  .process-step-name {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    transition: color 0.3s;
-  }
-
-  .process-step:hover .process-step-name {
-    color: var(--terracotta);
-  }
-
-  .process-step-desc {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.8;
-    color: var(--muted-gold);
-  }
-
-  .process-step-duration {
-    display: inline-block;
-    margin-top: 12px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(196,133,106,0.6);
-    padding: 4px 10px;
-    border: 1px solid rgba(196,133,106,0.15);
-    border-radius: 20px;
-  }
-
-  /* ===================== FAQ ===================== */
-  .faq {
-    padding: 120px 48px;
-    position: relative;
-  }
-
-  .faq::before {
-    content: '';
-    position: absolute;
-    top: 40px; left: 8%;
-    width: 160px; height: 160px;
-    border: 1px solid rgba(196,133,106,0.06);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .faq-header {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-
-  .faq-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 14px;
-  }
-
-  .faq-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 42px;
-    letter-spacing: 2px;
-  }
-
-  .faq-list {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid rgba(44,41,38,0.15);
-    overflow: hidden;
-  }
-
-  .faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 0;
-    cursor: pointer;
-    gap: 16px;
-    transition: color 0.3s;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  .faq-question:hover { color: var(--terracotta); }
-
-  .faq-question-text {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-  }
-
-  .faq-icon {
-    flex-shrink: 0;
-    width: 34px; height: 34px;
-    border: 1px solid rgba(44,41,38,0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 20px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background 0.3s, color 0.3s;
-  }
-
-  .faq-item.open .faq-icon {
-    transform: rotate(45deg);
-    background: var(--terracotta);
-    border-color: var(--terracotta);
-    color: white;
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 300px;
-    padding-bottom: 28px;
-  }
-
-  .faq-answer-text {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.9;
-    color: var(--warm-black);
-    opacity: 0.7;
-    padding-right: 50px;
-  }
-
-  /* ===================== CURSOR ===================== */
-  .custom-cursor {
-    position: fixed;
-    width: 20px; height: 20px;
-    border: 1px solid var(--terracotta);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    mix-blend-mode: difference;
-  }
-
-  .custom-cursor.visible { opacity: 1; }
-  .custom-cursor.hover {
-    width: 40px; height: 40px;
-    border-color: var(--cream);
-  }
-
-  /* ===================== STATS ===================== */
-  .stats {
-    padding: 60px 8vw;
-    background: var(--cream);
-  }
-  .stats-grid {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
-  .stat-item {
-    text-align: center;
-    min-width: 140px;
-  }
-  .stat-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(42px, 6vw, 64px);
-    color: var(--terracotta);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .stat-number .stat-plus {
-    font-size: 0.6em;
-    vertical-align: super;
-    margin-left: 2px;
-  }
-  .stat-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
-  }
-  .stat-divider {
-    width: 1px;
-    background: var(--sand);
-    align-self: stretch;
-  }
-
-  /* ===================== RESPONSIVE ===================== */
-  @media (max-width: 768px) {
-    .nav { padding: 16px 24px; }
-    .nav.scrolled { padding: 12px 24px; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .services-grid { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
-    .footer { padding: 60px 24px 32px; }
-    .hero { padding: 0 24px; }
-    .about { padding: 80px 24px; }
-    .services { padding: 80px 24px; }
-    .projects { padding: 80px 24px; }
-    .process { padding: 80px 24px; }
-    .faq { padding: 80px 24px; }
-    .contact { padding: 80px 24px; }
-    .contact-form { grid-template-columns: 1fr; }
-    .custom-cursor { display: none; }
-    .about::before { display: none; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title { letter-spacing: 6px; }
-    .hero-mark { width: 64px; height: 64px; font-size: 28px; }
-    .about-headline { font-size: 28px; }
-    .services-title { font-size: 28px; }
-    .contact-headline { font-size: 28px; }
-    .project-card { aspect-ratio: 16/10; }
-    .stats { padding: 48px 24px; }
-    .stats-grid { gap: 32px; }
-    .stat-divider { display: none; }
-  }
-
-  /* ===================== SMOOTH PAGE LOAD ===================== */
-  /* ===================== SMOOTH PAGE LOAD (CSS only) ===================== */
-  .page-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background: var(--warm-black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    animation: loaderFadeOut 0.6s ease 2.2s forwards;
-    pointer-events: none;
-  }
-
-  @keyframes loaderFadeOut {
-    to { opacity: 0; visibility: hidden; }
-  }
-
-  .loader-mark {
-    width: 70px; height: 70px;
-    border: 1px solid rgba(196,133,106,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 32px;
-    color: var(--cream);
-    animation: loaderMarkIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-               loaderMarkOut 0.5s ease 1s forwards;
-  }
-
-  @keyframes loaderMarkIn {
-    from { transform: scale(0); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-
-  @keyframes loaderMarkOut {
-    to { transform: scale(0.8); opacity: 0; }
-  }
-
-  .loader-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 28px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cream);
-    opacity: 0;
-    animation: loaderTextIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
-  }
-
-  .loader-logo .accent { font-style: italic; font-weight: 400; }
-
-  .loader-line {
-    width: 0;
-    height: 1px;
-    background: var(--terracotta);
-    opacity: 0;
-    animation: loaderLineIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
-  }
-
-  @keyframes loaderLineIn {
-    to { width: 50px; opacity: 1; }
-  }
-
-  .loader-tagline {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 17px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
-    opacity: 0;
-    animation: loaderTextIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
-  }
-
-  @keyframes loaderTextIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ===================== TYPING ANIMATION ===================== */
-  .hero-tagline-typed {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 16px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
-    margin-bottom: 48px;
-    min-height: 1.4em;
-  }
-
-  .typing-cursor {
-    display: inline-block;
-    width: 1px;
-    height: 1em;
-    background: var(--terracotta);
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    animation: blink 0.8s step-end infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  /* ===================== PARALLAX ===================== */
-  .parallax-section {
-    will-change: transform;
-  }
-
-  /* ===================== WHATSAPP FLOAT ===================== */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 900;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #25D366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
-    animation: waFloat 3s ease-in-out infinite;
-  }
-
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
-  }
-
-  .whatsapp-float svg {
-    width: 28px;
-    height: 28px;
-    fill: white;
-  }
-
-  @keyframes waFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-  }
-
-  .whatsapp-tooltip {
-    position: absolute;
-    right: 68px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--warm-black);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    padding: 8px 14px;
-    border-radius: 6px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-  }
-
-  .whatsapp-float:hover .whatsapp-tooltip {
-    opacity: 1;
-  }
-
-  @media (max-width: 768px) {
-    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
-    .whatsapp-float svg { width: 24px; height: 24px; }
-    .whatsapp-tooltip { display: none; }
-  }
+:root {
+  --warm-black: #2c2926;
+  --cream: #f5f0eb;
+  --sand: #e8dfd6;
+  --terracotta: #c4856a;
+  --sage: #8a9a7b;
+  --deep-olive: #4a5240;
+  --muted-gold: #b8a088;
+  --white: #faf8f6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* GRAIN */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:28px 64px;display:flex;justify-content:space-between;align-items:center;background:transparent;transition:all 0.4s}
+.nav.scrolled{background:rgba(250,248,246,0.95);backdrop-filter:blur(12px);padding:18px 64px;box-shadow:0 1px 0 rgba(44,41,38,0.04)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:18px;letter-spacing:5px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;transition:opacity 0.3s}
+.nav-logo:hover{opacity:0.6}
+.nav-logo .accent{font-style:italic;font-weight:400}
+.nav-menu{display:flex;gap:44px;list-style:none}
+.nav-menu a{font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
+.nav-menu a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--terracotta);transition:width 0.3s}
+.nav-menu a:hover::after{width:100%}
+.nav-menu a:hover{color:var(--terracotta)}
+.nav-cta{font-family:'Jost',sans-serif;font-weight:400;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:10px 24px;background:var(--warm-black);transition:all 0.3s}
+.nav-cta:hover{background:var(--terracotta)}
+
+/* HAMBURGER */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--warm-black);margin:5px 0;transition:all 0.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 64px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(196,133,106,0.04) 0%,transparent 50%),radial-gradient(ellipse at 20% 80%,rgba(138,154,123,0.03) 0%,transparent 50%)}
+.hero-ghost{position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:min(40vw,500px);color:rgba(44,41,38,0.015);pointer-events:none;user-select:none;right:-5%;top:50%;transform:translateY(-50%)}
+.hero-content{max-width:900px;text-align:center;position:relative;z-index:1}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:36px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards}
+.hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,7.5vw,88px);line-height:1.1;letter-spacing:2px;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s ease 0.4s forwards}
+.hero-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
+.hero-sub{font-size:17px;line-height:1.8;color:var(--muted-gold);max-width:540px;margin:0 auto 48px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s ease 0.8s forwards}
+.btn-primary{font-family:'Jost',sans-serif;font-weight:400;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:16px 44px;background:var(--warm-black);transition:all 0.4s;border:1px solid var(--warm-black)}
+.btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta)}
+.btn-secondary{font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;padding:16px 44px;border:1px solid rgba(44,41,38,0.2);transition:all 0.4s}
+.btn-secondary:hover{border-color:var(--terracotta);color:var(--terracotta)}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.8s ease 1.2s forwards}
+.hero-scroll span{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted-gold)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--muted-gold),transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3}50%{opacity:0.8}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTION COMMON */
+.section{padding:140px 64px;position:relative}
+.section-header{max-width:1100px;margin:0 auto 72px;text-align:center}
+.section-eyebrow{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--terracotta);margin-bottom:20px}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,5vw,52px);line-height:1.2;margin-bottom:20px}
+.section-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
+.section-desc{font-size:15px;line-height:1.8;color:var(--muted-gold);max-width:580px;margin:0 auto}
+
+/* ABOUT */
+.about{background:var(--cream)}
+.about-content{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-image{aspect-ratio:4/5;background:var(--sand);border-radius:2px;position:relative;overflow:hidden;background-image:url('sofia-portrait.jpg');background-size:cover;background-position:center top}
+.about-text p{font-size:15px;line-height:1.9;color:var(--warm-black);margin-bottom:24px}
+.about-sig{margin-top:40px;padding-top:40px;border-top:1px solid rgba(44,41,38,0.1)}
+.sig-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:20px;letter-spacing:1px;margin-bottom:4px}
+.sig-role{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta)}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(44,41,38,0.06);border:1px solid rgba(44,41,38,0.06)}
+.svc-card{background:var(--white);padding:52px 44px;position:relative;transition:all 0.4s;cursor:default}
+.svc-card:hover{background:var(--cream)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--terracotta);opacity:0.35;margin-bottom:18px}
+.svc-name{font-family:'Jost',sans-serif;font-weight:400;font-size:17px;letter-spacing:1px;margin-bottom:14px}
+.svc-desc{font-size:14px;line-height:1.8;color:var(--muted-gold)}
+.svc-desde{margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--warm-black)}
+.svc-desde small{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-gold);margin-right:6px}
+.svc-card.span-2{grid-column:span 2}
+
+/* MINI SIMULATOR PREVIEW */
+.sim-preview{background:var(--warm-black);position:relative;overflow:hidden}
+.sim-preview::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(196,133,106,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(138,154,123,0.04) 0%,transparent 50%)}
+.sim-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sim-text .section-eyebrow{color:var(--terracotta)}
+.sim-text .section-title{color:var(--cream)}
+.sim-text .section-desc{color:var(--muted-gold);text-align:left;margin:0 0 36px}
+.sim-text .btn-sim{display:inline-flex;align-items:center;gap:10px;font-family:'Jost',sans-serif;font-weight:400;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);background:var(--terracotta);text-decoration:none;padding:16px 40px;transition:all 0.4s}
+.sim-text .btn-sim:hover{background:#b5775d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,133,106,0.3)}
+.sim-cards{display:flex;flex-direction:column;gap:12px}
+.sim-card{background:rgba(58,53,48,0.4);border:1px solid rgba(184,160,136,0.08);border-radius:12px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;transition:all 0.3s}
+.sim-card:hover{border-color:rgba(196,133,106,0.2);transform:translateX(4px)}
+.sim-card-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:20px;color:var(--cream)}
+.sim-card-sub{font-size:12px;color:var(--muted-gold);margin-top:2px}
+.sim-card-price{text-align:right}
+.sim-card-desde{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold)}
+.sim-card-amount{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream)}
+.sim-card-amount .cur{font-size:14px;color:var(--muted-gold)}
+
+/* WORK */
+.work{background:var(--white)}
+.work-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(44,41,38,0.04)}
+.work-item{aspect-ratio:16/10;background:var(--sand);position:relative;overflow:hidden;cursor:pointer}
+.work-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,41,38,0.7) 0%,transparent 60%);opacity:0;transition:opacity 0.5s}
+.work-item:hover .work-item-overlay{opacity:1}
+.work-item-content{position:absolute;bottom:0;left:0;right:0;padding:36px;transform:translateY(10px);opacity:0;transition:all 0.5s}
+.work-item:hover .work-item-content{transform:translateY(0);opacity:1}
+.work-item-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--cream);margin-bottom:4px}
+.work-item-cat{font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta)}
+.work-item::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:80px;color:rgba(44,41,38,0.04)}
+
+/* APPROACH */
+.approach{background:var(--warm-black);color:var(--cream)}
+.approach::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(196,133,106,0.04) 0%,transparent 60%)}
+.approach-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,160,136,0.06);position:relative;z-index:1}
+.approach-item{background:var(--warm-black);padding:56px 44px;text-align:center;transition:background 0.4s}
+.approach-item:hover{background:rgba(58,53,48,0.4)}
+.approach-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:48px;color:var(--terracotta);opacity:0.3;margin-bottom:20px}
+.approach-name{font-family:'Jost',sans-serif;font-weight:400;font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.approach-desc{font-size:14px;line-height:1.8;color:var(--muted-gold)}
+
+/* CONTACT */
+.contact{background:var(--cream);text-align:center}
+.contact-content{max-width:700px;margin:0 auto}
+.contact-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5vw,56px);line-height:1.2;margin-bottom:20px}
+.contact-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
+.contact-desc{font-size:16px;line-height:1.8;color:var(--muted-gold);margin-bottom:40px}
+.contact-email{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,4vw,36px);color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
+.contact-email:hover{color:var(--terracotta)}
+.contact-email::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--terracotta);transform:scaleX(0);transition:transform 0.4s}
+.contact-email:hover::after{transform:scaleX(1)}
+.contact-links{display:flex;gap:40px;justify-content:center;margin-top:40px}
+.contact-link{text-decoration:none}
+.contact-link-label{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:4px}
+.contact-link-value{font-size:14px;color:var(--warm-black);transition:color 0.3s}
+.contact-link:hover .contact-link-value{color:var(--terracotta)}
+
+/* FOOTER */
+.footer{background:var(--warm-black);color:var(--cream);padding:80px 64px 32px}
+.footer-main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;margin-bottom:64px}
+.footer-logo-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:20px;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px}
+.footer-logo-text .accent{font-style:italic;font-weight:400}
+.footer-brand-desc{font-size:14px;line-height:1.7;color:var(--muted-gold);max-width:320px}
+.footer-col-title{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:20px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:12px}
+.footer-links a{font-size:14px;color:rgba(245,240,235,0.5);text-decoration:none;transition:color 0.3s}
+.footer-links a:hover{color:var(--terracotta)}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:32px;border-top:1px solid rgba(184,160,136,0.08);display:flex;justify-content:space-between;font-size:12px;color:rgba(184,160,136,0.3)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .nav,.section{padding-left:40px;padding-right:40px}
+  .hero{padding:100px 40px 60px}
+  .about-content,.sim-inner{grid-template-columns:1fr;gap:48px}
+  .services-grid{grid-template-columns:1fr}
+  .svc-card.span-2{grid-column:span 1}
+  .work-grid{grid-template-columns:1fr}
+  .approach-grid{grid-template-columns:1fr;gap:1px}
+  .footer-main{grid-template-columns:1fr;gap:40px}
+  .contact-links{flex-direction:column;gap:24px}
+}
+@media(max-width:768px){
+  .nav{padding:20px 24px}
+  .nav.scrolled{padding:16px 24px}
+  .nav-menu,.nav-cta{display:none}
+  .hamburger{display:block}
+  .section{padding:80px 24px}
+  .hero{padding:80px 24px 40px}
+  .hero-actions{flex-direction:column;align-items:center}
+  .footer{padding:60px 24px 24px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+
+/* SCROLL ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-  <!-- PAGE LOADER -->
-  <div class="page-loader" id="pageLoader">
-    <div class="loader-mark">S</div>
-    <div class="loader-logo">SOPH<span class="accent">Ē</span></div>
-    <div class="loader-line"></div>
-    <div class="loader-tagline">Design Studio</div>
-  </div>
+<div class="grain"></div>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/595992391964" target="_blank" class="whatsapp-float" id="waFloat">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    <span class="whatsapp-tooltip">Escribime por WhatsApp</span>
-  </a>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">SOPH<span class="accent">Ē</span></a>
+  <ul class="nav-menu">
+    <li><a href="#about">Acerca</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#work">Trabajo</a></li>
+    <li><a href="#presupuesto">Presupuesto</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <a href="sophe-simulador-presupuesto.html" class="nav-cta">Simulá tu presupuesto</a>
+  <button class="hamburger" onclick="this.classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <!-- CUSTOM CURSOR -->
-  <div class="custom-cursor" id="cursor"></div>
-
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <a href="#" class="nav-logo">SOPH<span class="accent">Ē</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#process">Proceso</a></li>
-      <li><a href="#work">Proyectos</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" class="mobile-link">Sobre mí</a>
-    <a href="#services" class="mobile-link">Servicios</a>
-    <a href="#process" class="mobile-link">Proceso</a>
-    <a href="#work" class="mobile-link">Proyectos</a>
-    <a href="#contact" class="mobile-link">Contacto</a>
-    <div class="mobile-menu-line"></div>
-    <div class="mobile-menu-social">
-      <a href="https://wa.me/595992391964" target="_blank">WhatsApp</a>
-      <a href="https://www.instagram.com/sophe.studio/" target="_blank">Instagram</a>
-      <a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-ghost">Sophē</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Design Studio — Ciudad del Este</div>
+    <h1 class="hero-title">
+      Diseño con propósito,<br>marcas con <span class="accent">alma</span>
+    </h1>
+    <p class="hero-sub">
+      Creo identidades visuales que comunican con claridad y conectan con autenticidad
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Iniciar un proyecto</a>
+      <a href="sophe-simulador-presupuesto.html" class="btn-secondary">Simulá tu presupuesto →</a>
     </div>
   </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-      });
-      var links = document.querySelectorAll('.mobile-link');
-      for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', function() {
-          hamburger.classList.remove('active');
-          mobileMenu.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      }
-    }
-  });
-  </script>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-particles" id="particles"></div>
-    <div class="hero-content">
-      <div class="hero-mark">S</div>
-      <h1 class="hero-title">SOPH<span class="accent">Ē</span></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-tagline-typed" id="heroTyping">Design Studio<span class="typing-cursor"></span></p>
-      <a href="#contact" class="hero-cta">Trabajemos juntos</a>
-    </div>
-    <a href="#about" class="hero-scroll">
-      <span class="hero-scroll-text">Scroll</span>
-      <span class="hero-scroll-line"></span>
-    </a>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about parallax-section section-reveal" id="about">
-    <div class="about-inner">
-      <div class="about-label reveal">Sobre el estudio</div>
-      <h2 class="about-headline reveal reveal-delay-1">Diseño con <em>intención</em>,<br>marcas con <em>propósito</em></h2>
-      <p class="about-text reveal reveal-delay-2">Soy Sofía, diseñadora gráfica y directora creativa detrás de Sophē. Creo identidades visuales para empresas y emprendedores que quieren comunicar con claridad, autenticidad y elegancia. Con más de 7 años diseñando y experiencia en agencias creativas, cada proyecto es una oportunidad de contar una historia que conecte.</p>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="stats section-reveal" id="stats">
-    <div class="stats-grid">
-      <div class="stat-item reveal">
-        <div class="stat-number"><span class="stat-counter" data-target="55">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Proyectos</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-number"><span class="stat-counter" data-target="20">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Clientes</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-number"><span class="stat-counter" data-target="3">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Agencias</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-number"><span class="stat-counter" data-target="7">0</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Años diseñando</div>
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="about-content">
+    <div class="about-image fade-in"></div>
+    <div class="about-text fade-in">
+      <div class="section-eyebrow">Sobre el estudio</div>
+      <h2 class="section-title">Cada marca tiene una historia que merece ser <span class="accent">contada</span></h2>
+      <p>Soy Sofía Cabañas, diseñadora gráfica y directora creativa. Desde Ciudad del Este, Paraguay, trabajo con marcas que buscan más que un logo bonito: quieren una identidad visual que comunique quiénes son y qué representan.</p>
+      <p>Mi enfoque combina estrategia de marca con diseño intencional. Cada proyecto comienza con preguntas, no con tendencias. El resultado son identidades visuales que funcionan, resuenan y perduran.</p>
+      <div class="about-sig">
+        <div class="sig-name">Sofía Cabañas</div>
+        <div class="sig-role">Directora Creativa</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="services section-reveal" id="services">
-    <div class="services-header">
-      <div class="services-label reveal">Lo que hago</div>
-      <h2 class="services-title reveal reveal-delay-1">Servicios</h2>
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-header fade-in">
+    <div class="section-eyebrow">Servicios</div>
+    <h2 class="section-title">Cómo puedo <span class="accent">ayudarte</span></h2>
+  </div>
+  <div class="services-grid fade-in">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <h3 class="svc-name">Identidad de Marca</h3>
+      <p class="svc-desc">Desarrollo completo de identidad visual: logo, paleta cromática, tipografía, sistema de marca y aplicaciones.</p>
+      <div class="svc-desde"><small>Desde</small> Gs 1.000.000</div>
     </div>
-    <div class="services-grid">
-      <div class="service-item reveal">
-        <div class="service-item-num">01</div>
-        <div class="service-item-name">Branding</div>
-        <div class="service-item-desc">Identidades visuales completas que transmiten la esencia de tu marca en cada punto de contacto.</div>
-      </div>
-      <div class="service-item reveal reveal-delay-1">
-        <div class="service-item-num">02</div>
-        <div class="service-item-name">Diseño Web</div>
-        <div class="service-item-desc">Sitios web y landing pages que combinan estética impecable con funcionalidad estratégica.</div>
-      </div>
-      <div class="service-item reveal reveal-delay-2">
-        <div class="service-item-num">03</div>
-        <div class="service-item-name">Editorial</div>
-        <div class="service-item-desc">Catálogos, presentaciones y piezas editoriales con diseño que respira y comunica.</div>
-      </div>
-      <div class="service-item reveal reveal-delay-3">
-        <div class="service-item-num">04</div>
-        <div class="service-item-name">Social Media</div>
-        <div class="service-item-desc">Sistemas visuales para redes sociales que mantienen tu marca consistente y memorable.</div>
-      </div>
-      <div class="service-item full-width reveal reveal-delay-4">
-        <div class="service-item-num">05</div>
-        <div class="service-item-name">Consultoría de Marca</div>
-        <div class="service-item-desc">Sesiones estratégicas donde analizamos tu marca actual y creamos un plan de acción para profesionalizarla.</div>
-      </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <h3 class="svc-name">Producto & Packaging</h3>
+      <p class="svc-desc">Etiquetas de producto, packaging y exhibidores POP listos para impresión profesional.</p>
+      <div class="svc-desde"><small>Desde</small> Gs 800.000</div>
     </div>
-  </section>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <h3 class="svc-name">Diseño Editorial</h3>
+      <p class="svc-desc">Catálogos, menús, presentaciones y piezas editoriales con diseño que respira.</p>
+      <div class="svc-desde"><small>Desde</small> Gs 400.000</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <h3 class="svc-name">Contenido Digital</h3>
+      <p class="svc-desc">Sistemas visuales para redes sociales que mantienen tu marca consistente y memorable.</p>
+      <div class="svc-desde"><small>Desde</small> Gs 80.000 / pieza</div>
+    </div>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section class="projects parallax-section section-reveal" id="work">
-    <div class="projects-header">
-      <div class="about-label reveal">Proyectos</div>
-      <h2 class="about-headline reveal reveal-delay-1">Trabajo <em>seleccionado</em></h2>
+<!-- WORK -->
+<section class="section work" id="work">
+  <div class="section-header fade-in">
+    <div class="section-eyebrow">Proyectos</div>
+    <h2 class="section-title">Trabajo <span class="accent">seleccionado</span></h2>
+    <p class="section-desc">Una muestra de proyectos recientes donde estrategia y diseño se encuentran</p>
+  </div>
+  <div class="work-grid fade-in">
+    <div class="work-item">
+      <div class="work-item-overlay"></div>
+      <div class="work-item-content">
+        <h3 class="work-item-title">Klik</h3>
+        <p class="work-item-cat">Agencia Creativa — Branding</p>
+      </div>
     </div>
-    <div class="projects-grid">
-      <a href="https://www.behance.net/gallery/243457355/Branding-Linea-grafica-Klik-Agencia-Creativa" target="_blank" class="project-card pc-1 reveal">
-        <div class="project-card-name">Klik</div>
-        <div class="project-card-type">Agencia Creativa — Branding</div>
-        <div class="project-overlay"><div class="project-overlay-text">Ver en Behance</div></div>
+    <div class="work-item">
+      <div class="work-item-overlay"></div>
+      <div class="work-item-content">
+        <h3 class="work-item-title">Kapta</h3>
+        <p class="work-item-cat">By Ellaphant — Branding</p>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-item-overlay"></div>
+      <div class="work-item-content">
+        <h3 class="work-item-title">Ellaphant</h3>
+        <p class="work-item-cat">Identidad Visual Completa</p>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-item-overlay"></div>
+      <div class="work-item-content">
+        <h3 class="work-item-title">Conversa</h3>
+        <p class="work-item-cat">Manual de Marca</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section approach">
+  <div class="section-header fade-in">
+    <div class="section-eyebrow" style="color:var(--terracotta)">Metodología</div>
+    <h2 class="section-title" style="color:var(--cream)">Mi proceso de <span class="accent">trabajo</span></h2>
+    <p class="section-desc" style="color:rgba(245,240,235,0.4)">Un enfoque estructurado que garantiza resultados que funcionan</p>
+  </div>
+  <div class="approach-grid fade-in">
+    <div class="approach-item">
+      <div class="approach-num">1</div>
+      <h3 class="approach-name">Descubrimiento</h3>
+      <p class="approach-desc">Entendemos tu marca, tu audiencia y tus objetivos a través de un brief estratégico.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">2</div>
+      <h3 class="approach-name">Conceptualización</h3>
+      <p class="approach-desc">Desarrollo de conceptos visuales alineados con la estrategia definida.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">3</div>
+      <h3 class="approach-name">Refinamiento</h3>
+      <p class="approach-desc">Iteraciones y ajustes hasta alcanzar la solución perfecta para tu marca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATOR PREVIEW -->
+<section class="section sim-preview" id="presupuesto">
+  <div class="sim-inner">
+    <div class="sim-text fade-in">
+      <div class="section-eyebrow">Presupuesto instantáneo</div>
+      <h2 class="section-title">Simulá tu <span class="accent">presupuesto</span></h2>
+      <p class="section-desc">Seleccioná los servicios que necesitás y obtené un estimado al instante. Cada proyecto es único — los precios son referenciales.</p>
+      <a href="sophe-simulador-presupuesto.html" class="btn-sim">Abrir simulador →</a>
+    </div>
+    <div class="sim-cards fade-in">
+      <div class="sim-card">
+        <div>
+          <div class="sim-card-name">Branding completo</div>
+          <div class="sim-card-sub">Logo + paleta + manual</div>
+        </div>
+        <div class="sim-card-price">
+          <div class="sim-card-desde">Desde</div>
+          <div class="sim-card-amount"><span class="cur">Gs</span> 2.200.000</div>
+        </div>
+      </div>
+      <div class="sim-card">
+        <div>
+          <div class="sim-card-name">Etiqueta de producto</div>
+          <div class="sim-card-sub">Diseño para impresión</div>
+        </div>
+        <div class="sim-card-price">
+          <div class="sim-card-desde">Desde</div>
+          <div class="sim-card-amount"><span class="cur">Gs</span> 800.000</div>
+        </div>
+      </div>
+      <div class="sim-card">
+        <div>
+          <div class="sim-card-name">Plan 12 piezas</div>
+          <div class="sim-card-sub">Contenido mensual</div>
+        </div>
+        <div class="sim-card-price">
+          <div class="sim-card-desde">Desde</div>
+          <div class="sim-card-amount"><span class="cur">Gs</span> 850.000</div>
+        </div>
+      </div>
+      <div class="sim-card">
+        <div>
+          <div class="sim-card-name">Menú premium</div>
+          <div class="sim-card-sub">12+ páginas editorial</div>
+        </div>
+        <div class="sim-card-price">
+          <div class="sim-card-desde">Desde</div>
+          <div class="sim-card-amount"><span class="cur">Gs</span> 1.300.000</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:8px">
+        <a href="sophe-simulador-presupuesto.html" style="font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);text-decoration:none;transition:opacity 0.3s">Ver todos los servicios →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="contact-content fade-in">
+    <div class="section-eyebrow">Conversemos</div>
+    <h2 class="contact-title">Tenés un proyecto en <span class="accent">mente</span></h2>
+    <p class="contact-desc">Ya sea un branding completo, un rediseño o una consultoría estratégica, me encantaría conocer tu proyecto y explorar cómo podemos trabajar juntos.</p>
+    <a href="mailto:sophestudio@gmail.com" class="contact-email">sophestudio@gmail.com</a>
+    <div class="contact-links">
+      <a href="https://www.behance.net/sophe_studio" class="contact-link" target="_blank">
+        <div class="contact-link-label">Behance</div>
+        <div class="contact-link-value">behance.net/sophe_studio</div>
       </a>
-      <a href="https://www.behance.net/gallery/243456857/Actualizacion-de-linea-grafica-Ellaphant-PY" target="_blank" class="project-card pc-2 reveal reveal-delay-1">
-        <div class="project-card-name">Ellaphant</div>
-        <div class="project-card-type">Actualización de Línea Gráfica</div>
-        <div class="project-overlay"><div class="project-overlay-text">Ver en Behance</div></div>
-      </a>
-      <a href="https://www.behance.net/gallery/231858263/Creacion-de-identidad" target="_blank" class="project-card pc-3 reveal reveal-delay-2">
-        <div class="project-card-name">Conversa</div>
-        <div class="project-card-type">Creación de Identidad</div>
-        <div class="project-overlay"><div class="project-overlay-text">Ver en Behance</div></div>
-      </a>
-      <a href="https://www.behance.net/gallery/243456701/Linea-grafica-Kapta-by-Ellaphant" target="_blank" class="project-card pc-4 reveal reveal-delay-3">
-        <div class="project-card-name">Kapta</div>
-        <div class="project-card-type">By Ellaphant — Línea Gráfica</div>
-        <div class="project-overlay"><div class="project-overlay-text">Ver en Behance</div></div>
-      </a>
-      <a href="https://www.behance.net/gallery/243456563/Linea-grafica-Instituto-Supremo" target="_blank" class="project-card pc-5 reveal">
-        <div class="project-card-name">Instituto Supremo</div>
-        <div class="project-card-type">Línea Gráfica</div>
-        <div class="project-overlay"><div class="project-overlay-text">Ver en Behance</div></div>
+      <a href="#" class="contact-link">
+        <div class="contact-link-label">Instagram</div>
+        <div class="contact-link-value">@sophe.studio</div>
       </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROCESS -->
-  <section class="process section-reveal" id="process">
-    <div class="process-header">
-      <div class="process-label reveal">Cómo trabajo</div>
-      <h2 class="process-title reveal reveal-delay-1">Mi proceso</h2>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo-text">SOPH<span class="accent">Ē</span></div>
+      <p class="footer-brand-desc">Estudio de diseño gráfico especializado en crear identidades visuales con propósito. Ciudad del Este, Paraguay.</p>
     </div>
-    <div class="process-timeline">
-      <div class="process-step reveal">
-        <div class="process-step-marker">1</div>
-        <div class="process-step-content">
-          <div class="process-step-name">Descubrimiento</div>
-          <div class="process-step-desc">Nos conocemos. Entiendo tu visión, tus valores y tus objetivos. Investigamos juntos tu mercado, tu audiencia y lo que hace única a tu marca.</div>
-          <div class="process-step-duration">Semana 1</div>
-        </div>
-      </div>
-      <div class="process-step reveal reveal-delay-1">
-        <div class="process-step-marker">2</div>
-        <div class="process-step-content">
-          <div class="process-step-name">Estrategia & Concepto</div>
-          <div class="process-step-desc">Defino la dirección creativa. Creo moodboards, paletas de color y conceptos visuales que reflejen la personalidad de tu marca.</div>
-          <div class="process-step-duration">Semana 2</div>
-        </div>
-      </div>
-      <div class="process-step reveal reveal-delay-2">
-        <div class="process-step-marker">3</div>
-        <div class="process-step-content">
-          <div class="process-step-name">Diseño & Desarrollo</div>
-          <div class="process-step-desc">Doy vida al concepto. Diseño cada pieza con atención al detalle y te presento opciones para que elijas la que más te represente.</div>
-          <div class="process-step-duration">Semanas 3–4</div>
-        </div>
-      </div>
-      <div class="process-step reveal reveal-delay-3">
-        <div class="process-step-marker">4</div>
-        <div class="process-step-content">
-          <div class="process-step-name">Refinamiento</div>
-          <div class="process-step-desc">Ajustamos juntos los detalles finales. Rondas de revisión hasta que todo esté perfecto y alineado con tu visión.</div>
-          <div class="process-step-duration">Semana 5</div>
-        </div>
-      </div>
-      <div class="process-step reveal reveal-delay-4">
-        <div class="process-step-marker">5</div>
-        <div class="process-step-content">
-          <div class="process-step-name">Entrega Final</div>
-          <div class="process-step-desc">Recibís todos los archivos organizados, guías de uso de marca y soporte post-entrega para que puedas implementar todo con confianza.</div>
-          <div class="process-step-duration">Semana 6</div>
-        </div>
-      </div>
+    <div>
+      <div class="footer-col-title">Navegación</div>
+      <ul class="footer-links">
+        <li><a href="#about">Acerca</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#work">Trabajo</a></li>
+        <li><a href="sophe-simulador-presupuesto.html">Simulador</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- FAQ -->
-  <script>
-  function toggleFaq(el) {
-    var item = el.parentElement;
-    var wasOpen = item.classList.contains("open");
-    var items = document.querySelectorAll(".faq-item");
-    for (var i = 0; i < items.length; i++) { items[i].classList.remove("open"); }
-    if (!wasOpen) item.classList.add("open");
-  }
-  </script>
-  <section class="faq parallax-section section-reveal" id="faq">
-    <div class="faq-header">
-      <div class="faq-label reveal">Preguntas frecuentes</div>
-      <h2 class="faq-title reveal reveal-delay-1">FAQ</h2>
+    <div>
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
+        <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
     </div>
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Cuánto cuesta un proyecto de branding?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-text">Cada proyecto es único, por lo que los precios varían según el alcance y la complejidad. Después de nuestra primera conversación, te envío una propuesta detallada con inversión y tiempos. Mis paquetes arrancan desde branding básico hasta identidades visuales completas.</div>
-        </div>
-      </div>
-      <div class="faq-item reveal reveal-delay-1">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Cuánto tiempo toma un proyecto?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-text">Un proyecto de branding completo generalmente toma entre 4 y 6 semanas. Proyectos más pequeños como diseño de piezas para redes sociales pueden estar listos en 1-2 semanas. Siempre respeto los plazos acordados.</div>
-        </div>
-      </div>
-      <div class="faq-item reveal reveal-delay-2">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Trabajás con clientes fuera de Paraguay?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-text">¡Sí! Trabajo de forma remota con clientes de toda Latinoamérica y el mundo. Nos comunicamos por videollamada, email y WhatsApp. La distancia no es un problema para crear algo increíble juntos.</div>
-        </div>
-      </div>
-      <div class="faq-item reveal reveal-delay-3">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Qué incluye un paquete de identidad visual?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-text">Incluye logo principal y variaciones, paleta de colores, tipografías, elementos gráficos, manual de marca con guías de uso, y todos los archivos en formatos editables y listos para imprimir o usar en digital.</div>
-        </div>
-      </div>
-      <div class="faq-item reveal reveal-delay-4">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Cuántas revisiones incluís?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-text">Todos mis paquetes incluyen entre 2 y 3 rondas de revisiones. Mi objetivo es que quedes 100% conforme con el resultado, así que trabajo de cerca con vos en cada etapa del proceso.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="contact-header">
-        <div class="contact-label reveal">Hablemos</div>
-        <h2 class="contact-headline reveal reveal-delay-1">¿Tenés un proyecto en mente?</h2>
-        <p class="contact-sub reveal reveal-delay-2">Contame tu idea y creemos algo memorable juntos.</p>
-      </div>
-
-      <form class="contact-form reveal reveal-delay-3" id="contactForm" action="https://formspree.io/f/meelbrdz" method="POST">
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde Sophē Studio">
-        <input type="text" name="_gotcha" style="display:none">
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" name="name" id="name" class="form-input" placeholder="Tu nombre" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" class="form-input" placeholder="tu@email.com" required>
-        </div>
-        <div class="form-group full">
-          <label for="service">Servicio</label>
-          <input type="text" name="service" id="service" class="form-input" placeholder="¿Qué servicio te interesa?">
-        </div>
-        <div class="form-group full">
-          <label for="message">Mensaje</label>
-          <textarea name="message" id="message" class="form-textarea" placeholder="Contame sobre tu proyecto..."></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="submit-btn" id="submitBtn">Enviar mensaje</button>
-        </div>
-      </form>
-
-      <div class="form-success" id="formSuccess">
-        <div class="form-success-icon">✓</div>
-        <div class="form-success-text">¡Gracias por escribirme!</div>
-        <div class="form-success-sub">Recibí tu mensaje y te voy a responder lo antes posible. ¡Estemos en contacto!</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">SOPH<span class="accent">Ē</span></div>
-        <div class="footer-brand-desc">Estudio de diseño especializado en crear identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.</div>
-      </div>
-      <div>
-        <div class="footer-col-title">Navegación</div>
-        <ul class="footer-col-links">
-          <li><a href="#about">Sobre mí</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#process">Proceso</a></li>
-          <li><a href="#work">Proyectos</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Conectemos</div>
-        <ul class="footer-col-links">
-          <li><a href="https://wa.me/595992391964" target="_blank">WhatsApp</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#770418071f12040302131e1837101a161e1b5914181a"><span class="__cf_email__" data-cfemail="c1b2aeb1a9a4b2b5b4a5a8ae81a6aca0a8adefa2aeac">[email&#160;protected]</span></a></li>
-          <li><a href="https://www.instagram.com/sophe.studio/" target="_blank">Instagram</a></li>
-          <li><a href="https://www.threads.com/@sophe.studio" target="_blank">Threads</a></li>
-          <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Sophē Design Studio. Todos los derechos reservados.</div>
-      <a href="#home" class="footer-back-top">Volver arriba ↑</a>
-    </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Sophē Design Studio</div>
+    <div>Diseñado con intención</div>
+  </div>
+</footer>
 
 <script>
-  // ===== START TYPING ON LOAD =====
-  window.addEventListener('load', () => {
-    startTyping();
-  });
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
+});
 
-  // ===== TYPING ANIMATION =====
-  function startTyping() {
-    const el = document.getElementById('heroTyping');
-    const phrases = ['Design Studio', 'Branding & Identidad', 'Marcas con Propósito'];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let speed = 100;
-
-    function type() {
-      const current = phrases[phraseIndex];
-      
-      if (isDeleting) {
-        el.innerHTML = current.substring(0, charIndex - 1) + '<span class="typing-cursor"></span>';
-        charIndex--;
-        speed = 50;
-      } else {
-        el.innerHTML = current.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
-        charIndex++;
-        speed = 100;
-      }
-
-      if (!isDeleting && charIndex === current.length) {
-        speed = 2500; // pause at end
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        speed = 400; // pause before next word
-      }
-
-      setTimeout(type, speed);
-    }
-    type();
-  }
-
-  // ===== CUSTOM CURSOR =====
-  const cursor = document.getElementById('cursor');
-  let cursorVisible = false;
-
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    if (!cursorVisible) {
-      cursor.classList.add('visible');
-      cursorVisible = true;
-    }
-  });
-
-  document.addEventListener('mouseleave', () => {
-    cursor.classList.remove('visible');
-    cursorVisible = false;
-  });
-
-  document.querySelectorAll('a, button, .project-card, .service-item, .faq-question, .process-step').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-  });
-
-  // ===== NAV SCROLL + PARALLAX =====
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    const scrollY = window.scrollY;
-
-    // Nav shrink
-    if (scrollY > 60) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-
-    // Parallax effect
-    document.querySelectorAll('.parallax-section').forEach(section => {
-      const rect = section.getBoundingClientRect();
-      const speed = 0.05;
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const yPos = -(rect.top * speed);
-        section.style.transform = `translateY(${yPos}px)`;
-      }
-    });
-
-    // Hide WhatsApp button when at contact section
-    const contact = document.getElementById('contact');
-    const waFloat = document.getElementById('waFloat');
-    if (contact) {
-      const cRect = contact.getBoundingClientRect();
-      if (cRect.top < window.innerHeight && cRect.bottom > 0) {
-        waFloat.style.opacity = '0';
-        waFloat.style.pointerEvents = 'none';
-      } else {
-        waFloat.style.opacity = '1';
-        waFloat.style.pointerEvents = 'all';
-      }
-    }
-  });
-
-  // (hamburger definido en script independiente)
-
-  // ===== SCROLL REVEAL =====
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // ===== SECTION OPENING =====
-  const sectionElements = document.querySelectorAll('.section-reveal');
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('section-visible');
-        sectionObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-  sectionElements.forEach(el => sectionObserver.observe(el));
-
-  // ===== PARTICLES =====
-  const particlesContainer = document.getElementById('particles');
-  for (let i = 0; i < 15; i++) {
-    const p = document.createElement('div');
-    p.classList.add('particle');
-    p.style.left = Math.random() * 100 + '%';
-    p.style.animationDuration = (8 + Math.random() * 12) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
-    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
-    particlesContainer.appendChild(p);
-  }
-
-  // ===== STATS COUNTER ANIMATION =====
-  const counters = document.querySelectorAll('.stat-counter');
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000;
-        const startT = performance.now();
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startT;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          counter.textContent = Math.round(eased * target);
-          if (progress < 1) requestAnimationFrame(updateCounter);
-        }
-        requestAnimationFrame(updateCounter);
-        statsObserver.unobserve(counter);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => statsObserver.observe(c));
-
-  // ===== FORM HANDLING (Formspree) =====
-  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
     e.preventDefault();
-    const form = e.target;
-    const btn = document.getElementById('submitBtn');
-    
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        form.style.display = 'none';
-        document.getElementById('formSuccess').classList.add('show');
-      } else {
-        btn.textContent = 'Error — intentá de nuevo';
-        btn.disabled = false;
-        setTimeout(() => { btn.textContent = 'Enviar mensaje'; }, 3000);
-      }
-    } catch (err) {
-      btn.textContent = 'Error — intentá de nuevo';
-      btn.disabled = false;
-      setTimeout(() => { btn.textContent = 'Enviar mensaje'; }, 3000);
-    }
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
   });
+});
+
+// Intersection Observer for fade-in
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  });
+},{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
+
 </body>
 </html>
