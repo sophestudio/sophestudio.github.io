@@ -373,6 +373,11 @@
     height: 36px;
   }
 
+  .slides-row { margin-top: 4px; }
+  .slides-selector { display: flex; gap: 6px; flex-wrap: wrap; }
+  .slide-opt { background: rgba(245,240,235,0.08); border: 1px solid rgba(245,240,235,0.15); color: var(--cream); font-family: 'Jost',sans-serif; font-size: 11px; padding: 4px 10px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+  .slide-opt.active { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+  .cotizar-tag { font-family: 'Jost',sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); padding-top: 4px; }
   .qty-subtotal {
     margin-left: auto;
     font-family: 'Cormorant Garamond', serif;
@@ -823,10 +828,10 @@
 
 <footer>
   <div class="footer-brand">SOPH<span class="accent">Ē</span></div>
-  <p>Ciudad del Este, Paraguay · sophestudio@gmail.com</p>
+  <p>Ciudad del Este, Paraguay · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ae9f5eaf2ffe9eeeffef3f5dafdf7fbf3f6b4f9f5f7">[email&#160;protected]</a></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const SERVICES = [
   {
     category: "Branding & Identidad",
@@ -861,10 +866,10 @@ const SERVICES = [
     category: "Contenido Digital",
     num: "04",
     items: [
-      { id: "pieza", name: "Pieza individual", desc: "Post, story o carrusel para redes sociales", price: 80000, hasQty: true, qtyLabel: "Cantidad de piezas" },
-      { id: "plan-8", name: "Plan mensual — 8 piezas", desc: "Diseño de contenido mensual para redes", price: 570000, hasQty: false },
-      { id: "plan-12", name: "Plan mensual — 12 piezas", desc: "Diseño + línea gráfica mensual", price: 850000, hasQty: false },
-      { id: "plan-16", name: "Plan mensual — 16 piezas", desc: "Gestión visual completa de redes", price: 1100000, hasQty: false },
+      { id: "flyer", name: "Flyer / Post", desc: "Post o story individual para redes sociales", price: 85000, hasQty: true, qtyLabel: "Cantidad de piezas" },
+      { id: "carrusel", name: "Carrusel", desc: "Contenido educativo o storytelling deslizable. Precio: base 60.000 + 10.000 por slide.", price: 60000, hasQty: true, hasSlides: true, qtyLabel: "Cantidad de carruseles" },
+      { id: "historia", name: "Historia / Story", desc: "Diseño para formato vertical de Instagram Stories", price: 60000, hasQty: true, qtyLabel: "Cantidad de historias" },
+      { id: "plan-mensual", name: "Plan mensual de contenido", desc: "Contenido mensual para redes sociales — cantidad y tipo de piezas a coordinar", price: 0, hasQty: false, cotizar: true },
     ]
   }
 ];
@@ -902,10 +907,17 @@ function render() {
           <div class="service-desc">${item.desc}</div>
         </div>
         <div class="service-price">
-          <div class="service-desde">Desde</div>
-          <div class="service-amount"><span class="currency">Gs</span> ${formatGs(item.price)}</div>
+          ${item.cotizar
+            ? `<div class="service-amount cotizar-tag">A cotizar</div>`
+            : `<div class="service-desde">Precio:</div>
+               <div class="service-amount"><span class="currency">Gs</span> ${formatGs(item.price)}</div>`
+          }
         </div>
-        ${isSelected && item.hasQty ? `
+        ${isSelected && item.hasQty ? (() => {
+          const slides = selected[item.id]?.slides || 6;
+          const carruselUnitPrice = item.hasSlides ? (60000 + slides * 10000) : item.price;
+          const subtotal = carruselUnitPrice * qty;
+          return `
           <div class="qty-row">
             <span class="qty-label">${item.qtyLabel}:</span>
             <div class="qty-controls">
@@ -913,9 +925,16 @@ function render() {
               <div class="qty-value">${qty}</div>
               <button class="qty-btn" data-id="${item.id}" data-action="inc">+</button>
             </div>
-            <span class="qty-subtotal">Gs ${formatGs(item.price * qty)}</span>
+            <span class="qty-subtotal">Gs ${formatGs(subtotal)}</span>
           </div>
-        ` : ''}
+          ${item.hasSlides ? `
+          <div class="qty-row slides-row">
+            <span class="qty-label">Slides por carrusel:</span>
+            <div class="slides-selector">
+              ${[4,5,6,7,8,9,10].map(n => `<button class="slide-opt${slides===n?' active':''}" data-id="${item.id}" data-slides="${n}">${n}</button>`).join('')}
+            </div>
+          </div>` : ''}
+        `})() : ''}
       `;
 
       card.addEventListener('click', (e) => {
@@ -940,15 +959,26 @@ function render() {
       render();
     });
   });
+  // Slides selector buttons
+  document.querySelectorAll('.slide-opt').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id;
+      const slides = parseInt(btn.dataset.slides);
+      if (selected[id]) selected[id].slides = slides;
+      render();
+    });
+  });
 
   renderSummary();
 }
 
 function toggleService(item) {
+  if (item.cotizar) return; // cotizar items not selectable for price calc
   if (selected[item.id]) {
     delete selected[item.id];
   } else {
-    selected[item.id] = { ...item, qty: 1 };
+    selected[item.id] = { ...item, qty: 1, slides: item.hasSlides ? 6 : undefined };
   }
   render();
 }
@@ -958,18 +988,42 @@ function removeService(id) {
   render();
 }
 
+function getTotalPieces() {
+  const digitalIds = ['flyer', 'carrusel', 'historia', 'etiqueta', 'etiqueta-adapt', 'triptico'];
+  let pieces = 0;
+  Object.values(selected).forEach(s => {
+    if (digitalIds.includes(s.id)) pieces += (s.qty || 1);
+  });
+  return pieces;
+}
+
 function getDiscount() {
-  const count = Object.keys(selected).length;
-  if (count >= 4) return { pct: 15, label: '15% por paquete completo' };
-  if (count >= 3) return { pct: 10, label: '10% por 3+ servicios' };
-  if (count >= 2) return { pct: 5, label: '5% por 2 servicios' };
+  const pieces = getTotalPieces();
+  const serviceCount = Object.keys(selected).length;
+  // Volume discount by pieces
+  if (pieces >= 15) return { pct: 15, label: '15% · volumen 15+ piezas' };
+  if (pieces >= 10) return { pct: 10, label: '10% · volumen 10+ piezas' };
+  if (pieces >= 5)  return { pct: 5,  label: '5% · volumen 5+ piezas' };
+  // Fallback: discount by number of different services
+  if (serviceCount >= 4) return { pct: 10, label: '10% · paquete múltiple' };
+  if (serviceCount >= 2) return { pct: 5,  label: '5% · combo de servicios' };
   return null;
+}
+
+function getCarruselPrice(s) {
+  const slides = s.slides || 6;
+  return (60000 + slides * 10000) * (s.qty || 1);
 }
 
 function getSubtotal() {
   let total = 0;
   Object.values(selected).forEach(s => {
-    total += s.price * (s.qty || 1);
+    if (s.cotizar) return;
+    if (s.hasSlides) {
+      total += getCarruselPrice(s);
+    } else {
+      total += s.price * (s.qty || 1);
+    }
   });
   return total;
 }
@@ -1107,21 +1161,11 @@ function sendRequest() {
     window.open(whatsappURL, '_blank');
   }, 1200);
 
-  setTimeout(() => {
-    closeModal();
-    document.getElementById('modal-body').innerHTML = ''; // reset
-    location.reload();
-  }, 3000);
-}
-
-function clearAll() {
-  selected = {};
-  render();
+  setTimeout(() => { modal.remove(); }, 3000);
 }
 
 // Init
-render();
+document.addEventListener('DOMContentLoaded', () => { render(); });
 </script>
-
 </body>
 </html>
