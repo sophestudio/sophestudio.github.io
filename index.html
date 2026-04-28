@@ -3,715 +3,1564 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sophē Design Studio — Diseño Gráfico & Branding en Ciudad del Este, Paraguay</title>
-<meta name="description" content="Sophē Design Studio: estudio de diseño gráfico y branding en Ciudad del Este, Paraguay. Identidades visuales, diseño web, editorial y social media para marcas con propósito.">
-<meta name="keywords" content="diseño gráfico, branding, identidad visual, diseño web, Ciudad del Este, Paraguay, estudio de diseño, logo, marca, Sophē">
-<meta name="author" content="Sophē Design Studio">
-<meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="kVkTqH4ja-ii_SXEyuO25FD-mQTkexWxr368-GGKyAI">
+<title>Sophē — Diseño que envejece bien</title>
+<meta name="description" content="Estudio de diseño y branding en Ciudad del Este, Paraguay. Identidad visual, web, editorial y dirección creativa para marcas que quieren durar.">
+<meta property="og:title" content="Sophē — Diseño que envejece bien">
+<meta property="og:description" content="Estudio de diseño y branding en CDE. Marcas que duran.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sophē Design Studio — Diseño Gráfico & Branding">
-<meta property="og:description" content="Estudio de diseño especializado en identidades visuales que conectan y comunican. Ciudad del Este, Paraguay.">
-<meta property="og:locale" content="es_PY">
-<meta property="og:site_name" content="Sophē Design Studio">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sophē Design Studio — Diseño Gráfico & Branding">
-<meta name="geo.region" content="PY-10">
-<meta name="geo.placename" content="Ciudad del Este">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sophē Design Studio","description":"Estudio de diseño gráfico y branding especializado en identidades visuales para marcas con propósito.","address":{"@type":"PostalAddress","addressLocality":"Ciudad del Este","addressCountry":"PY"},"serviceType":["Diseño Gráfico","Branding","Diseño Web","Diseño Editorial","Social Media"],"sameAs":["https://www.instagram.com/sophe.studio/","https://www.behance.net/sophe_studio"],"email":"sophestudio@gmail.com","telephone":"+595992391964"}</script>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --warm-black: #2c2926;
-  --cream: #f5f0eb;
-  --sand: #e8dfd6;
-  --terracotta: #c4856a;
-  --sage: #8a9a7b;
-  --deep-olive: #4a5240;
-  --muted-gold: #b8a088;
-  --white: #faf8f6;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--white);color:var(--warm-black);font-family:'DM Sans',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
 
-/* PAGE LOADER */
-.page-loader{position:fixed;inset:0;z-index:10000;background:var(--warm-black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;animation:loaderFadeOut 0.6s ease 2.4s forwards;pointer-events:none}
-@keyframes loaderFadeOut{to{opacity:0;visibility:hidden}}
-.loader-mark{width:70px;height:70px;border:1px solid rgba(196,133,106,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:32px;color:var(--cream);animation:loaderMarkIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards,loaderMarkOut 0.5s ease 1s forwards}
-@keyframes loaderMarkIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
-@keyframes loaderMarkOut{to{transform:scale(0.8);opacity:0}}
-.loader-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:28px;letter-spacing:4px;text-transform:uppercase;color:var(--cream);opacity:0;animation:loaderTextIn 0.6s cubic-bezier(0.16,1,0.3,1) 1.2s forwards}
-.loader-logo .accent{font-style:italic;font-weight:400}
-.loader-line{width:0;height:1px;background:var(--terracotta);opacity:0;animation:loaderLineIn 0.5s cubic-bezier(0.16,1,0.3,1) 1.4s forwards}
-@keyframes loaderLineIn{to{width:50px;opacity:1}}
-.loader-tagline{font-family:'Jost',sans-serif;font-weight:200;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--muted-gold);opacity:0;animation:loaderTextIn 0.5s cubic-bezier(0.16,1,0.3,1) 1.6s forwards}
-@keyframes loaderTextIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #2B2B2B;
+    --bone: #EDE8DD;
+    --bone-soft: #E5DFD2;
+    --clay: #C04A2B;
+    --clay-soft: #A53D22;
+    --mute: #7A7670;
+    --mute-soft: #9C988F;
+    --line: rgba(26,26,26,0.1);
+    --line-on-ink: rgba(237,232,221,0.12);
+  }
 
-/* WHATSAPP FLOAT */
-.wa-float{position:fixed;bottom:28px;right:28px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,0.3);transition:all 0.3s;text-decoration:none;opacity:0;transform:scale(0);animation:waIn 0.4s ease 2.8s forwards}
-.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,0.4)}
-.wa-float svg{width:28px;height:28px;fill:white}
-@keyframes waIn{to{opacity:1;transform:scale(1)}}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: 'Switzer', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* GRAIN */
-.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  ::selection { background: var(--clay); color: var(--bone); }
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:28px 64px;display:flex;justify-content:space-between;align-items:center;background:transparent;transition:all 0.4s}
-.nav.scrolled{background:rgba(250,248,246,0.95);backdrop-filter:blur(12px);padding:18px 64px;box-shadow:0 1px 0 rgba(44,41,38,0.04)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:18px;letter-spacing:5px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;transition:opacity 0.3s}
-.nav-logo:hover{opacity:0.6}
-.nav-logo .accent{font-style:italic;font-weight:400}
-.nav-menu{display:flex;gap:44px;list-style:none}
-.nav-menu a{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
-.nav-menu a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--terracotta);transition:width 0.3s}
-.nav-menu a:hover::after{width:100%}
-.nav-menu a:hover{color:var(--terracotta)}
-.nav-cta{font-family:'Jost',sans-serif;font-weight:400;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:12px 28px;background:var(--warm-black);transition:all 0.3s}
-.nav-cta:hover{background:var(--terracotta)}
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: difference;
+    color: var(--bone);
+  }
+  nav .logo {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: var(--bone);
+    display: inline-flex;
+    align-items: center;
+  }
+  nav .logo svg { display: block; }
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+  nav ul a {
+    color: var(--bone);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  nav ul a:hover { opacity: 0.6; }
+  nav .nav-cta {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 18px;
+    border: 1px solid var(--bone);
+    text-decoration: none;
+    color: var(--bone);
+    transition: background 0.3s, color 0.3s;
+  }
+  nav .nav-cta:hover { background: var(--bone); color: var(--ink); }
 
-/* HAMBURGER */
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{display:block;width:24px;height:1.5px;background:var(--warm-black);margin:5px 0;transition:all 0.3s}
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    nav ul { display: none; }
+  }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 64px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(196,133,106,0.04) 0%,transparent 50%),radial-gradient(ellipse at 20% 80%,rgba(138,154,123,0.03) 0%,transparent 50%)}
-.hero-ghost{position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:min(40vw,500px);color:rgba(44,41,38,0.015);pointer-events:none;user-select:none;right:-5%;top:50%;transform:translateY(-50%)}
-.hero-content{max-width:900px;text-align:center;position:relative;z-index:1}
-.hero-eyebrow{font-family:'Jost',sans-serif;font-weight:200;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:36px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards}
-.hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,7.5vw,88px);line-height:1.1;letter-spacing:2px;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s ease 0.4s forwards}
-.hero-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
-.hero-sub{font-size:20px;line-height:1.8;color:var(--muted-gold);max-width:540px;margin:0 auto 48px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards}
-.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s ease 0.8s forwards}
-.btn-primary{font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;padding:18px 48px;background:var(--warm-black);transition:all 0.4s;border:1px solid var(--warm-black)}
-.btn-primary:hover{background:var(--terracotta);border-color:var(--terracotta)}
-.btn-secondary{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);text-decoration:none;padding:18px 48px;border:1px solid rgba(44,41,38,0.2);transition:all 0.4s}
-.btn-secondary:hover{border-color:var(--terracotta);color:var(--terracotta)}
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.8s ease 1.2s forwards}
-.hero-scroll span{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted-gold)}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--muted-gold),transparent);animation:scrollPulse 2s ease infinite}
-@keyframes scrollPulse{0%,100%{opacity:0.3}50%{opacity:0.8}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    color: var(--bone);
+    padding: 120px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 32px; left: 32px;
+    width: 24px; height: 24px;
+    border-top: 1px solid var(--line-on-ink);
+    border-left: 1px solid var(--line-on-ink);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 32px; right: 32px;
+    width: 24px; height: 24px;
+    border-bottom: 1px solid var(--line-on-ink);
+    border-right: 1px solid var(--line-on-ink);
+    pointer-events: none;
+  }
+  .hero-frame {
+    position: absolute;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(237,232,221,0.4);
+  }
+  .hero-frame.tl { top: 80px; left: 60px; }
+  .hero-frame.tr { top: 80px; right: 60px; text-align: right; }
+  .hero-frame.bl { bottom: 36px; left: 60px; }
+  .hero-frame.br { bottom: 36px; right: 60px; text-align: right; }
 
-/* SECTION COMMON */
-.section{padding:140px 64px;position:relative}
-.section-header{max-width:1100px;margin:0 auto 72px;text-align:center}
-.section-eyebrow{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--terracotta);margin-bottom:20px}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5vw,56px);line-height:1.2;margin-bottom:20px}
-.section-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
-.section-desc{font-size:18px;line-height:1.8;color:var(--muted-gold);max-width:620px;margin:0 auto}
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.5);
+    font-weight: 500;
+    margin-top: auto;
+  }
+  .hero-meta-item strong { color: var(--bone); font-weight: 700; }
 
-/* ABOUT */
-.about{background:var(--cream)}
-.about-content{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-image{aspect-ratio:4/5;background:var(--sand);border-radius:2px;position:relative;overflow:hidden;background-image:url('sofia-portrait.jpg');background-size:cover;background-position:center top}
-.about-text p{font-size:17px;line-height:1.9;color:var(--warm-black);margin-bottom:24px}
-.about-sig{margin-top:40px;padding-top:40px;border-top:1px solid rgba(44,41,38,0.1)}
-.sig-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;letter-spacing:1px;margin-bottom:4px}
-.sig-role{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta)}
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--clay);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--clay);
+    display: inline-block;
+  }
+  .hero h1 {
+    font-weight: 500;
+    font-size: clamp(48px, 9vw, 156px);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    margin-bottom: 48px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--clay);
+  }
+  .hero-sub {
+    max-width: 540px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: rgba(237,232,221,0.75);
+    margin-bottom: 40px;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-secondary {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 18px 32px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn-primary {
+    background: var(--clay);
+    color: var(--bone);
+  }
+  .btn-primary:hover { background: var(--clay-soft); }
+  .btn-secondary {
+    border: 1px solid rgba(237,232,221,0.3);
+    color: var(--bone);
+  }
+  .btn-secondary:hover { border-color: var(--bone); }
+  .arrow {
+    transition: transform 0.3s;
+  }
+  .btn-primary:hover .arrow,
+  .btn-secondary:hover .arrow { transform: translateX(4px); }
 
-/* SERVICES */
-.services{background:var(--white)}
-.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(44,41,38,0.06);border:1px solid rgba(44,41,38,0.06)}
-.svc-card{background:var(--white);padding:56px 48px;position:relative;transition:all 0.4s;cursor:default}
-.svc-card:hover{background:var(--cream)}
-.svc-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:36px;color:var(--terracotta);opacity:0.35;margin-bottom:20px}
-.svc-name{font-family:'Jost',sans-serif;font-weight:400;font-size:20px;letter-spacing:1px;margin-bottom:16px}
-.svc-desc{font-size:16px;line-height:1.8;color:var(--muted-gold)}
-.svc-desde{margin-top:20px;font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--warm-black)}
-.svc-desde small{font-family:'Jost',sans-serif;font-weight:200;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-gold);margin-right:6px}
-.svc-desde{margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--warm-black)}
-.svc-desde small{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-gold);margin-right:6px}
-.svc-card.span-2{grid-column:span 2}
+  @media (max-width: 768px) {
+    .hero { padding: 100px 24px 32px; }
+    .hero::before, .hero::after,
+    .hero-frame { display: none; }
+    .hero h1 { font-size: 56px; margin-bottom: 32px; }
+    .hero-sub { font-size: 16px; }
+    .hero-meta { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
 
-/* MINI SIMULATOR PREVIEW */
-.sim-preview{background:var(--warm-black);position:relative;overflow:hidden}
-.sim-preview::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(196,133,106,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(138,154,123,0.04) 0%,transparent 50%)}
-.sim-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.sim-text .section-eyebrow{color:var(--terracotta)}
-.sim-text .section-title{color:var(--cream)}
-.sim-text .section-desc{color:var(--muted-gold);text-align:left;margin:0 0 36px}
-.sim-text .btn-sim{display:inline-flex;align-items:center;gap:10px;font-family:'Jost',sans-serif;font-weight:400;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-black);background:var(--terracotta);text-decoration:none;padding:16px 40px;transition:all 0.4s}
-.sim-text .btn-sim:hover{background:#b5775d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,133,106,0.3)}
-.sim-cards{display:flex;flex-direction:column;gap:12px}
-.sim-card{background:rgba(58,53,48,0.4);border:1px solid rgba(184,160,136,0.08);border-radius:12px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;transition:all 0.3s}
-.sim-card:hover{border-color:rgba(196,133,106,0.2);transform:translateX(4px)}
-.sim-card-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:20px;color:var(--cream)}
-.sim-card-sub{font-size:12px;color:var(--muted-gold);margin-top:2px}
-.sim-card-price{text-align:right}
-.sim-card-desde{font-family:'Jost',sans-serif;font-weight:200;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold)}
-.sim-card-amount{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream)}
-.sim-card-amount .cur{font-size:14px;color:var(--muted-gold)}
+  /* ============ MARQUEE ============ */
+  .marquee {
+    background: var(--bone);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    padding: 24px 0;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 80px;
+    animation: scroll 40s linear infinite;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .marquee-item {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+  .marquee-item::after {
+    content: '✦';
+    color: var(--clay);
+    font-size: 12px;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 
-/* WORK */
-.work{background:var(--white)}
-.work-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
-.work-item{aspect-ratio:16/10;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.5s,box-shadow 0.5s;border-radius:4px}
-.work-item:hover{transform:scale(1.02);box-shadow:0 12px 40px rgba(0,0,0,0.15)}
-.work-item-content{text-align:center;position:relative;z-index:1}
-.work-item-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;color:var(--cream);margin-bottom:8px}
-.work-item-cat{font-family:'Jost',sans-serif;font-weight:200;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,235,0.5)}
-.work-full{grid-column:1/-1}
+  /* ============ INDEX / SECTION HEADER ============ */
+  .index-header {
+    padding: 100px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  .index-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 80px;
+    gap: 40px;
+    align-items: end;
+  }
+  .index-num {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--clay);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .index-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--mute);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .index-title {
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .index-title em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--clay);
+  }
 
-/* APPROACH */
-.approach{background:var(--warm-black);color:var(--cream)}
-.approach::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(196,133,106,0.04) 0%,transparent 60%)}
-.approach-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,160,136,0.06);position:relative;z-index:1}
-.approach-item{background:var(--warm-black);padding:56px 44px;text-align:center;transition:background 0.4s}
-.approach-item:hover{background:rgba(58,53,48,0.4)}
-.approach-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:52px;color:var(--terracotta);opacity:0.3;margin-bottom:20px}
-.approach-name{font-family:'Jost',sans-serif;font-weight:400;font-size:18px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-.approach-desc{font-size:16px;line-height:1.8;color:var(--muted-gold)}
+  @media (max-width: 768px) {
+    .index-header { padding: 60px 24px 24px; }
+    .index-row { grid-template-columns: 1fr; gap: 16px; }
+  }
 
-/* CONTACT */
-.contact{background:var(--cream);text-align:center}
-.contact-content{max-width:700px;margin:0 auto}
-.contact-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5vw,56px);line-height:1.2;margin-bottom:20px}
-.contact-title .accent{font-style:italic;font-weight:400;color:var(--terracotta)}
-.contact-desc{font-size:18px;line-height:1.8;color:var(--muted-gold);margin-bottom:40px}
-.contact-email{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,4vw,36px);color:var(--warm-black);text-decoration:none;position:relative;transition:color 0.3s}
-.contact-email:hover{color:var(--terracotta)}
-.contact-email::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--terracotta);transform:scaleX(0);transition:transform 0.4s}
-.contact-email:hover::after{transform:scaleX(1)}
-.contact-links{display:flex;gap:40px;justify-content:center;margin-top:40px}
-.contact-link{text-decoration:none}
-.contact-link-label{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:4px}
-.contact-link-value{font-size:14px;color:var(--warm-black);transition:color 0.3s}
-.contact-link:hover .contact-link-value{color:var(--terracotta)}
+  /* ============ ABOUT ============ */
+  .about {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+  }
+  .about-meta {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--mute);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .about-statement {
+    font-weight: 400;
+    font-size: clamp(24px, 2.5vw, 36px);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+  .about-statement em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--clay);
+  }
+  .about-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 540px;
+  }
+  .about-body p { margin-bottom: 20px; }
+  .about-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .credential-num {
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .credential-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 
-/* CONTACT FORM */
-.contact-form{max-width:600px;margin:0 auto;text-align:left}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.form-group{margin-bottom:20px}
-.form-group label{display:block;font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:8px}
-.form-input,.form-textarea{width:100%;padding:16px 20px;background:var(--white);border:1px solid var(--sand);border-radius:4px;color:var(--warm-black);font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;transition:border-color 0.3s;outline:none}
-.form-input:focus,.form-textarea:focus{border-color:var(--terracotta)}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--muted-gold);opacity:0.5}
-.form-textarea{height:120px;resize:none}
-.submit-btn{display:block;width:100%;padding:18px;background:var(--warm-black);border:none;font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--white);cursor:pointer;transition:all 0.4s;margin-top:8px}
-.submit-btn:hover{background:var(--terracotta)}
-.form-success{display:none;text-align:center;padding:60px 0}
-.form-success.show{display:block;animation:fadeUp 0.6s ease}
-.form-success-icon{font-size:48px;color:var(--terracotta);margin-bottom:16px}
-.form-success-text{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;margin-bottom:8px}
-.form-success-sub{font-size:16px;color:var(--muted-gold)}
-@media(max-width:768px){.form-row{grid-template-columns:1fr}}
+  @media (max-width: 768px) {
+    .about { padding: 60px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
 
-/* FOOTER */
-.footer{background:var(--warm-black);color:var(--cream);padding:80px 64px 32px}
-.footer-main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;margin-bottom:64px}
-.footer-logo-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:20px;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px}
-.footer-logo-text .accent{font-style:italic;font-weight:400}
-.footer-brand-desc{font-size:14px;line-height:1.7;color:var(--muted-gold);max-width:320px}
-.footer-col-title{font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted-gold);margin-bottom:20px}
-.footer-links{list-style:none}
-.footer-links li{margin-bottom:12px}
-.footer-links a{font-size:14px;color:rgba(245,240,235,0.5);text-decoration:none;transition:color 0.3s}
-.footer-links a:hover{color:var(--terracotta)}
-.footer-bottom{max-width:1100px;margin:0 auto;padding-top:32px;border-top:1px solid rgba(184,160,136,0.08);display:flex;justify-content:space-between;font-size:12px;color:rgba(184,160,136,0.3)}
+  /* ============ WORK ============ */
+  .work {
+    background: var(--bone);
+    padding: 60px 40px 0;
+  }
+  .work-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid var(--line);
+  }
+  .work-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 1.2fr 200px 80px;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding 0.4s ease, background 0.4s ease;
+    position: relative;
+  }
+  .work-item:hover {
+    padding-left: 24px;
+    padding-right: 24px;
+    background: var(--bone-soft);
+  }
+  .work-num {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--mute);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .work-name {
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .work-name em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--clay);
+  }
+  .work-desc {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+  .work-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    color: var(--ink);
+  }
+  .work-arrow {
+    text-align: right;
+    font-size: 18px;
+    color: var(--clay);
+    transition: transform 0.3s ease;
+  }
+  .work-item:hover .work-arrow { transform: translateX(8px); }
 
-/* FAQ */
-.faq{background:var(--white)}
-.faq-list{max-width:800px;margin:0 auto}
-.faq-item{border-bottom:1px solid rgba(44,41,38,0.06)}
-.faq-question{padding:28px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color 0.3s}
-.faq-question:hover{color:var(--terracotta)}
-.faq-question-text{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px}
-.faq-icon{font-family:'Jost',sans-serif;font-weight:200;font-size:28px;color:var(--terracotta);transition:transform 0.3s;flex-shrink:0;margin-left:16px}
-.faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
-.faq-item.open .faq-answer{max-height:200px}
-.faq-answer-text{padding:0 0 28px;font-size:17px;line-height:1.8;color:var(--muted-gold)}
+  @media (max-width: 900px) {
+    .work-item {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 32px 0;
+    }
+    .work-item:hover { padding-left: 0; padding-right: 0; }
+    .work-arrow { display: none; }
+  }
 
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .nav,.section{padding-left:40px;padding-right:40px}
-  .hero{padding:100px 40px 60px}
-  .about-content,.sim-inner{grid-template-columns:1fr;gap:48px}
-  .services-grid{grid-template-columns:1fr}
-  .svc-card.span-2{grid-column:span 1}
-  .work-grid{grid-template-columns:1fr}
-  .approach-grid{grid-template-columns:1fr;gap:1px}
-  .footer-main{grid-template-columns:1fr;gap:40px}
-  .contact-links{flex-direction:column;gap:24px}
-}
-@media(max-width:768px){
-  .nav{padding:20px 24px}
-  .nav.scrolled{padding:16px 24px}
-  .nav-menu,.nav-cta{display:none}
-  .hamburger{display:block}
-  .section{padding:80px 24px}
-  .hero{padding:80px 24px 40px}
-  .hero-actions{flex-direction:column;align-items:center}
-  .footer{padding:60px 24px 24px}
-  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
-}
+  /* ============ SERVICES ============ */
+  .services {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 100px 40px;
+  }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 80px;
+    gap: 40px;
+    align-items: end;
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--line-on-ink);
+  }
+  .services-header .index-num { color: var(--clay); }
+  .services-header .index-label { color: rgba(237,232,221,0.5); }
+  .services-header .index-title { color: var(--bone); }
 
-/* SCROLL ANIMATIONS */
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-on-ink);
+    border: 1px solid var(--line-on-ink);
+  }
+  .service {
+    background: var(--ink);
+    padding: 48px 40px;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service:hover { background: var(--ink-soft); }
+  .service-num {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--clay);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .service-name {
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .service-desc {
+    font-size: 14px;
+    color: rgba(237,232,221,0.6);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-on-ink);
+  }
+  .service-from {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(237,232,221,0.5);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .service-price {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    color: var(--bone);
+  }
+  .service-includes {
+    font-size: 12px;
+    color: rgba(237,232,221,0.55);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    border-left: 1px solid var(--clay);
+  }
+
+  @media (max-width: 768px) {
+    .services { padding: 60px 24px; }
+    .services-header { grid-template-columns: 1fr; gap: 16px; padding-bottom: 32px; margin-bottom: 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service { padding: 32px 24px; }
+    .service-name { font-size: 24px; }
+  }
+
+  /* ============ PROCESS ============ */
+  .process {
+    padding: 100px 40px;
+    background: var(--bone);
+  }
+  .process-inner { max-width: 1200px; margin: 0 auto; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .step {
+    padding-top: 24px;
+    border-top: 1px solid var(--ink);
+    position: relative;
+  }
+  .step-num {
+    font-weight: 700;
+    font-size: 64px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--clay);
+    margin-bottom: 16px;
+    font-style: normal;
+  }
+  .step-title {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+  .step-time {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute-soft);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .process { padding: 60px 24px; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .step-num { font-size: 48px; }
+  }
+  @media (max-width: 480px) {
+    .process-steps { grid-template-columns: 1fr; }
+  }
+
+  /* ============ MANIFESTO ============ */
+  .manifesto {
+    background: var(--clay);
+    color: var(--bone);
+    padding: 140px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto::before {
+    content: '';
+    position: absolute;
+    top: 32px; left: 32px;
+    width: 24px; height: 24px;
+    border-top: 1px solid rgba(237,232,221,0.3);
+    border-left: 1px solid rgba(237,232,221,0.3);
+  }
+  .manifesto::after {
+    content: '';
+    position: absolute;
+    bottom: 32px; right: 32px;
+    width: 24px; height: 24px;
+    border-bottom: 1px solid rgba(237,232,221,0.3);
+    border-right: 1px solid rgba(237,232,221,0.3);
+  }
+  .manifesto-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .manifesto-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: rgba(237,232,221,0.7);
+  }
+  .manifesto-text {
+    font-weight: 500;
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+  .manifesto-text em {
+    font-style: normal;
+    font-weight: 700;
+  }
+  .manifesto-sig {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 60px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(237,232,221,0.7);
+  }
+  .manifesto-sig::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: rgba(237,232,221,0.5);
+  }
+
+  @media (max-width: 768px) {
+    .manifesto { padding: 80px 24px; }
+  }
+
+  /* ============ FAQ ============ */
+  .faq {
+    padding: 100px 40px;
+    background: var(--bone);
+  }
+  .faq-inner { max-width: 1200px; margin: 0 auto; }
+  .faq-list {
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: 0;
+    padding: 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    color: var(--ink);
+    transition: padding 0.3s;
+  }
+  .faq-q:hover { padding-left: 12px; }
+  .faq-q-text {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    flex: 1;
+    padding-right: 24px;
+  }
+  .faq-q-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clay);
+    font-weight: 500;
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+  }
+  .faq-item.open .faq-q-icon {
+    transform: rotate(45deg);
+    background: var(--clay);
+    color: var(--bone);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+  }
+  .faq-a-inner {
+    padding: 0 60px 32px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 720px;
+  }
+
+  @media (max-width: 768px) {
+    .faq { padding: 60px 24px; }
+    .faq-q-text { font-size: 16px; }
+  }
+
+  /* ============ CONTACT ============ */
+  .contact {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 100px 40px;
+  }
+  .contact-inner { max-width: 1200px; margin: 0 auto; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+  }
+  .contact-statement {
+    font-weight: 500;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .contact-statement em { font-style: normal; font-weight: 700; color: var(--clay); }
+  .contact-info {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line-on-ink);
+  }
+  .contact-info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--line-on-ink);
+  }
+  .contact-info-item:last-child { border-bottom: 0; }
+  .contact-info-label {
+    color: rgba(237,232,221,0.5);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .contact-info-value a {
+    color: var(--bone);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .contact-info-value a:hover { border-color: var(--clay); }
+
+  .form-field {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--line-on-ink);
+    transition: border-color 0.2s;
+  }
+  .form-field:focus-within { border-color: var(--clay); }
+  .form-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.5);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    color: var(--bone);
+    font-family: inherit;
+    font-size: 16px;
+    padding: 8px 0 16px;
+    outline: none;
+    resize: none;
+  }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: rgba(237,232,221,0.3);
+  }
+  .form-field select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23EDE8DD' stroke-opacity='0.5' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  .form-field select option { background: var(--ink); color: var(--bone); }
+
+  .form-submit {
+    background: var(--clay);
+    color: var(--bone);
+    border: 0;
+    padding: 20px 40px;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .form-submit:hover { background: var(--clay-soft); }
+
+  @media (max-width: 900px) {
+    .contact { padding: 60px 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 60px 40px 32px;
+    border-top: 1px solid var(--line-on-ink);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--line-on-ink);
+  }
+  .footer-brand {
+    grid-column: span 2;
+  }
+  .footer-logo {
+    font-weight: 500;
+    font-size: 48px;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    line-height: 1;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-tag {
+    font-size: 14px;
+    color: rgba(237,232,221,0.6);
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-col a {
+    color: rgba(237,232,221,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--bone); }
+  .footer-bottom {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.4);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    footer { padding: 40px 24px 24px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-brand { grid-column: span 2; }
+    .footer-logo { font-size: 36px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* ============ WHATSAPP FLOAT ============ */
+  .wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--clay);
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 99;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 20px rgba(192, 74, 43, 0.3);
+  }
+  .wa-float:hover {
+    transform: scale(1.08);
+    background: var(--clay-soft);
+  }
+  .wa-float svg { width: 24px; height: 24px; }
+
+  /* ============ FADE IN ON SCROLL ============ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* WORDMARK helper para SVG inline */
+  .wm-text {
+    font-family: 'Switzer', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
 </style>
 </head>
 <body>
 
-<div class="grain"></div>
-
-<!-- PAGE LOADER -->
-<div class="page-loader" id="pageLoader">
-  <div class="loader-mark">S</div>
-  <div class="loader-logo">SOPH<span class="accent">Ē</span></div>
-  <div class="loader-line"></div>
-  <div class="loader-tagline">Design Studio</div>
-</div>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/595992391964" target="_blank" class="wa-float">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <a href="#home" class="nav-logo">SOPH<span class="accent">Ē</span></a>
-  <ul class="nav-menu">
-    <li><a href="#about">Acerca</a></li>
-    <li><a href="#services">Servicios</a></li>
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="#" class="logo" aria-label="Sophē — inicio">
+    <svg width="80" height="22" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="130" class="wm-text" font-size="160" fill="currentColor" letter-spacing="-7">sophē</text>
+      <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+    </svg>
+  </a>
+  <ul>
     <li><a href="#work">Trabajo</a></li>
-    <li><a href="#presupuesto">Presupuesto</a></li>
-    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#process">Proceso</a></li>
+    <li><a href="#about">Estudio</a></li>
   </ul>
-  <a href="sophe-simulador-presupuesto.html" class="nav-cta">Simulá tu presupuesto</a>
-  <button class="hamburger" onclick="this.classList.toggle('active')">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="nav-cta">Iniciar proyecto</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-ghost">Sophē</div>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-frame tl">SOPHĒ ✦ DESIGN STUDIO</div>
+  <div class="hero-frame bl">SOFÍA CABAÑAS<br>FOUNDER · CREATIVE DIR.</div>
+  <div class="hero-frame br">PARAGUAY · LATAM<br>WORLDWIDE REMOTE</div>
+
   <div class="hero-content">
-    <div class="hero-eyebrow">Design Studio — Ciudad del Este</div>
-    <h1 class="hero-title">
-      Diseño con propósito,<br>marcas con <span class="accent">alma</span>
-    </h1>
-    <p class="hero-sub">
-      Creo identidades visuales que comunican con claridad y conectan con autenticidad
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Iniciar un proyecto</a>
-      <a href="sophe-simulador-presupuesto.html" class="btn-secondary">Simulá tu presupuesto →</a>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section about" id="about">
-  <div class="about-content">
-    <div class="about-image fade-in"></div>
-    <div class="about-text fade-in">
-      <div class="section-eyebrow">Sobre el estudio</div>
-      <h2 class="section-title">Cada marca tiene una historia que merece ser <span class="accent">contada</span></h2>
-      <p>Soy Sofía Cabañas, diseñadora gráfica y directora creativa. Desde Ciudad del Este, Paraguay, trabajo con marcas que buscan más que un logo bonito: quieren una identidad visual que comunique quiénes son y qué representan.</p>
-      <p>Mi enfoque combina estrategia de marca con diseño intencional. Cada proyecto comienza con preguntas, no con tendencias. El resultado son identidades visuales que funcionan, resuenan y perduran.</p>
-      <div class="about-sig">
-        <div class="sig-name">Sofía Cabañas</div>
-        <div class="sig-role">Directora Creativa</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section services" id="services">
-  <div class="section-header fade-in">
-    <div class="section-eyebrow">Servicios</div>
-    <h2 class="section-title">Cómo puedo <span class="accent">ayudarte</span></h2>
-  </div>
-  <div class="services-grid fade-in">
-    <div class="svc-card">
-      <div class="svc-num">01</div>
-      <h3 class="svc-name">Identidad de Marca</h3>
-      <p class="svc-desc">Desarrollo completo de identidad visual: logo, paleta cromática, tipografía, sistema de marca y aplicaciones.</p>
-      <div class="svc-desde"><small>Desde</small> Gs 1.000.000</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-num">02</div>
-      <h3 class="svc-name">Producto & Packaging</h3>
-      <p class="svc-desc">Etiquetas de producto, packaging y exhibidores POP listos para impresión profesional.</p>
-      <div class="svc-desde"><small>Desde</small> Gs 800.000</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-num">03</div>
-      <h3 class="svc-name">Diseño Editorial</h3>
-      <p class="svc-desc">Catálogos, menús, presentaciones y piezas editoriales con diseño que respira.</p>
-      <div class="svc-desde"><small>Desde</small> Gs 400.000</div>
-    </div>
-    <div class="svc-card">
-      <div class="svc-num">04</div>
-      <h3 class="svc-name">Contenido Digital</h3>
-      <p class="svc-desc">Sistemas visuales para redes sociales que mantienen tu marca consistente y memorable.</p>
-      <div class="svc-desde"><small>Desde</small> Gs 80.000 / pieza</div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK -->
-<section class="section work" id="work">
-  <div class="section-header fade-in">
-    <div class="section-eyebrow">Proyectos</div>
-    <h2 class="section-title">Trabajo <span class="accent">seleccionado</span></h2>
-    <p class="section-desc">Una muestra de proyectos recientes donde estrategia y diseño se encuentran</p>
-  </div>
-  <div class="work-grid fade-in">
-    <a href="https://www.behance.net/gallery/243457355/Branding-Linea-grafica-Klik-Agencia-Creativa" target="_blank" class="work-item" style="background:#2B3A8C;text-decoration:none">
-      <div class="work-item-content">
-        <h3 class="work-item-title">Klik</h3>
-        <p class="work-item-cat">Agencia Creativa — Branding</p>
-      </div>
-    </a>
-    <a href="https://www.behance.net/gallery/243456857/Actualizacion-de-linea-grafica-Ellaphant-PY" target="_blank" class="work-item" style="background:#3B7DD8;text-decoration:none">
-      <div class="work-item-content">
-        <h3 class="work-item-title">Ellaphant</h3>
-        <p class="work-item-cat">Actualización de Línea Gráfica</p>
-      </div>
-    </a>
-    <a href="https://www.behance.net/gallery/243456701/Linea-grafica-Kapta-by-Ellaphant" target="_blank" class="work-item" style="background:#2a2a2a;text-decoration:none">
-      <div class="work-item-content">
-        <h3 class="work-item-title">Kapta</h3>
-        <p class="work-item-cat">By Ellaphant — Línea Gráfica</p>
-      </div>
-    </a>
-    <a href="https://www.behance.net/gallery/243456563/Linea-grafica-Instituto-Supremo" target="_blank" class="work-item" style="background:#0d8a3f;text-decoration:none">
-      <div class="work-item-content">
-        <h3 class="work-item-title">Instituto Supremo</h3>
-        <p class="work-item-cat">Línea Gráfica</p>
-      </div>
-    </a>
-    <a href="https://www.behance.net/gallery/243456069/Linea-grafica-Sales-System" target="_blank" class="work-item" style="background:#f0ebe5;text-decoration:none">
-      <div class="work-item-content">
-        <h3 class="work-item-title" style="color:#2c2926">Sales System</h3>
-        <p class="work-item-cat" style="color:rgba(44,41,38,0.4)">Línea Gráfica</p>
-      </div>
-    </a>
-    <a href="https://www.behance.net/gallery/231858263/Creacion-de-identidad" target="_blank" class="work-item" style="background:#1a1a3e;text-decoration:none">
-      <div class="work-item-content">
-        <h3 class="work-item-title">Conversa</h3>
-        <p class="work-item-cat">Creación de Identidad</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- APPROACH -->
-<section class="section approach">
-  <div class="section-header fade-in">
-    <div class="section-eyebrow" style="color:var(--terracotta)">Metodología</div>
-    <h2 class="section-title" style="color:var(--cream)">Mi proceso de <span class="accent">trabajo</span></h2>
-    <p class="section-desc" style="color:rgba(245,240,235,0.4)">Un enfoque estructurado que garantiza resultados que funcionan</p>
-  </div>
-  <div class="approach-grid fade-in">
-    <div class="approach-item">
-      <div class="approach-num">1</div>
-      <h3 class="approach-name">Descubrimiento</h3>
-      <p class="approach-desc">Entendemos tu marca, tu audiencia y tus objetivos a través de un brief estratégico.</p>
-    </div>
-    <div class="approach-item">
-      <div class="approach-num">2</div>
-      <h3 class="approach-name">Conceptualización</h3>
-      <p class="approach-desc">Desarrollo de conceptos visuales alineados con la estrategia definida.</p>
-    </div>
-    <div class="approach-item">
-      <div class="approach-num">3</div>
-      <h3 class="approach-name">Refinamiento</h3>
-      <p class="approach-desc">Iteraciones y ajustes hasta alcanzar la solución perfecta para tu marca.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SIMULATOR PREVIEW -->
-<section class="section sim-preview" id="presupuesto">
-  <div class="sim-inner">
-    <div class="sim-text fade-in">
-      <div class="section-eyebrow">Presupuesto instantáneo</div>
-      <h2 class="section-title">Simulá tu <span class="accent">presupuesto</span></h2>
-      <p class="section-desc">Seleccioná los servicios que necesitás y obtené un estimado al instante. Cada proyecto es único — los precios son referenciales.</p>
-      <a href="sophe-simulador-presupuesto.html" class="btn-sim">Abrir simulador →</a>
-    </div>
-    <div class="sim-cards fade-in">
-      <div class="sim-card">
-        <div>
-          <div class="sim-card-name">Branding completo</div>
-          <div class="sim-card-sub">Logo + paleta + manual</div>
-        </div>
-        <div class="sim-card-price">
-          <div class="sim-card-desde">Desde</div>
-          <div class="sim-card-amount"><span class="cur">Gs</span> 2.200.000</div>
-        </div>
-      </div>
-      <div class="sim-card">
-        <div>
-          <div class="sim-card-name">Etiqueta de producto</div>
-          <div class="sim-card-sub">Diseño para impresión</div>
-        </div>
-        <div class="sim-card-price">
-          <div class="sim-card-desde">Desde</div>
-          <div class="sim-card-amount"><span class="cur">Gs</span> 800.000</div>
-        </div>
-      </div>
-      <div class="sim-card">
-        <div>
-          <div class="sim-card-name">Plan 12 piezas</div>
-          <div class="sim-card-sub">Contenido mensual</div>
-        </div>
-        <div class="sim-card-price">
-          <div class="sim-card-desde">Desde</div>
-          <div class="sim-card-amount"><span class="cur">Gs</span> 850.000</div>
-        </div>
-      </div>
-      <div class="sim-card">
-        <div>
-          <div class="sim-card-name">Menú premium</div>
-          <div class="sim-card-sub">12+ páginas editorial</div>
-        </div>
-        <div class="sim-card-price">
-          <div class="sim-card-desde">Desde</div>
-          <div class="sim-card-amount"><span class="cur">Gs</span> 1.300.000</div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:8px">
-        <a href="sophe-simulador-presupuesto.html" style="font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);text-decoration:none;transition:opacity 0.3s">Ver todos los servicios →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section faq" id="faq">
-  <div class="section-header fade-in">
-    <div class="section-eyebrow">Preguntas frecuentes</div>
-    <h2 class="section-title"><span class="accent">FAQ</span></h2>
-  </div>
-  <div class="faq-list fade-in">
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        <span class="faq-question-text">¿Cuánta experiencia tenés?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-answer">
-        <div class="faq-answer-text">Llevo más de 3 años trabajando en diseño gráfico y branding. Fui nombrada senior en 2 agencias y actualmente trabajo como freelancer con clientes directos y agencias que tercerizan sus proyectos de diseño.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        <span class="faq-question-text">¿Cuánto cuesta un proyecto de branding?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-answer">
-        <div class="faq-answer-text">Cada proyecto es único, por lo que los precios varían según el alcance y la complejidad. Después de nuestra primera conversación, te envío una propuesta detallada con inversión y tiempos. Podés usar nuestro simulador de presupuesto para tener un estimado al instante.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        <span class="faq-question-text">¿Cuánto tiempo toma un proyecto?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-answer">
-        <div class="faq-answer-text">Un proyecto de branding completo generalmente toma entre 4 y 6 semanas. Proyectos más pequeños como diseño de piezas para redes sociales pueden estar listos en 1-2 semanas. Siempre respeto los plazos acordados.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        <span class="faq-question-text">¿Trabajás con clientes fuera de Paraguay?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-answer">
-        <div class="faq-answer-text">¡Sí! Trabajo de forma remota con clientes de toda Latinoamérica y el mundo. Nos comunicamos por videollamada, email y WhatsApp. La distancia no es un problema para crear algo increíble juntos.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        <span class="faq-question-text">¿Qué incluye un paquete de identidad visual?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-answer">
-        <div class="faq-answer-text">Incluye logo principal y variaciones, paleta de colores, tipografías, elementos gráficos, manual de marca con guías de uso, y todos los archivos en formatos editables y listos para imprimir o usar en digital.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">
-        <span class="faq-question-text">¿Cuántas revisiones incluís?</span>
-        <span class="faq-icon">+</span>
-      </div>
-      <div class="faq-answer">
-        <div class="faq-answer-text">Todos mis paquetes incluyen entre 2 y 3 rondas de revisiones. Mi objetivo es que quedes 100% conforme con el resultado, así que trabajo de cerca con vos en cada etapa del proceso.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section contact" id="contact">
-  <div class="contact-content fade-in">
-    <div class="section-eyebrow">Conversemos</div>
-    <h2 class="contact-title">Tenés un proyecto en <span class="accent">mente</span></h2>
-    <p class="contact-desc">Contame tu idea y creemos algo memorable juntos.</p>
-
-    <div class="contact-form fade-in" id="contactForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" id="c-name" class="form-input" placeholder="Tu nombre" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="c-email" class="form-input" placeholder="tu@email.com" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="service">Servicio</label>
-        <input type="text" id="c-service" class="form-input" placeholder="¿Qué servicio te interesa?">
-      </div>
-      <div class="form-group">
-        <label for="message">Mensaje</label>
-        <textarea id="c-message" class="form-textarea" placeholder="Contame sobre tu proyecto..."></textarea>
-      </div>
-      <button type="button" class="submit-btn" id="submitBtn">Enviar mensaje</button>
-    </div>
-
-    <div class="form-success" id="formSuccess">
-      <div class="form-success-icon">✦</div>
-      <div class="form-success-text">¡Mensaje enviado!</div>
-      <div class="form-success-sub">Te responderé lo antes posible. Gracias por contactarme.</div>
-    </div>
-
-    <div class="contact-links" style="margin-top:48px">
-      <a href="https://www.behance.net/sophe_studio" class="contact-link" target="_blank">
-        <div class="contact-link-label">Behance</div>
-        <div class="contact-link-value">behance.net/sophe_studio</div>
+    <div class="hero-eyebrow">Estudio de diseño · Branding · Editorial</div>
+    <h1>Marcas que <em>envejecen bien</em>.</h1>
+    <p class="hero-sub">Estudio independiente de identidad visual. Trabajamos con marcas que entienden que el diseño es decisión de negocio.</p>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">
+        Iniciar proyecto <span class="arrow">→</span>
       </a>
-      <a href="#" class="contact-link">
-        <div class="contact-link-label">Instagram</div>
-        <div class="contact-link-value">@sophe.studio</div>
+      <a href="#work" class="btn-secondary">
+        Ver portfolio <span class="arrow">↓</span>
       </a>
-      <a href="mailto:sophestudio@gmail.com" class="contact-link">
-        <div class="contact-link-label">Email</div>
-        <div class="contact-link-value">sophestudio@gmail.com</div>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <strong>+ 3 años</strong> · Experiencia
+    </div>
+    <div class="hero-meta-item">
+      <strong>15+ marcas</strong> · Construidas
+    </div>
+    <div class="hero-meta-item">
+      <strong>2 agencias</strong> · Senior in-house
+    </div>
+    <div class="hero-meta-item">
+      <strong>Disponible</strong> · Q2 2026
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Identidad visual</span>
+    <span class="marquee-item">Diseño editorial</span>
+    <span class="marquee-item">Packaging</span>
+    <span class="marquee-item">Web design</span>
+    <span class="marquee-item">Dirección creativa</span>
+    <span class="marquee-item">Sub-branding</span>
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Identidad visual</span>
+    <span class="marquee-item">Diseño editorial</span>
+    <span class="marquee-item">Packaging</span>
+    <span class="marquee-item">Web design</span>
+    <span class="marquee-item">Dirección creativa</span>
+    <span class="marquee-item">Sub-branding</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="index-header" id="about">
+  <div class="index-row">
+    <div class="index-num">01</div>
+    <div class="index-label">Estudio<br>· Sobre Sophē</div>
+    <h2 class="index-title">No diseñamos para <em>impresionar</em>.<br>Diseñamos para <em>sostener</em>.</h2>
+    <div class="index-label" style="text-align: right;">VOL.02<br>2026</div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-grid">
+    <div>
+      <div class="about-meta">El estudio</div>
+      <p class="about-statement">Sophē es <em>Sofía Cabañas</em>. Diseñadora gráfica con base en Ciudad del Este. +3 años, 2 agencias como Senior In-House.</p>
+
+      <div class="about-credentials">
+        <div>
+          <div class="credential-num">+3</div>
+          <div class="credential-label">Años de experiencia</div>
+        </div>
+        <div>
+          <div class="credential-num">15+</div>
+          <div class="credential-label">Proyectos entregados</div>
+        </div>
+        <div>
+          <div class="credential-num">2</div>
+          <div class="credential-label">Senior In-House</div>
+        </div>
+        <div>
+          <div class="credential-num">100%</div>
+          <div class="credential-label">Cliente directo</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="about-meta">Filosofía</div>
+      <div class="about-body">
+        <p>Hay marcas que se explican. Y hay marcas que se sienten.</p>
+        <p>Trabajamos con criterio editorial. Sistemas que funcionan en góndola, en pantalla y en cinco años. Sin atajos, sin templates, sin tendencias prestadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="index-header" id="work">
+  <div class="index-row">
+    <div class="index-num">02</div>
+    <div class="index-label">Portfolio<br>· Trabajos seleccionados</div>
+    <h2 class="index-title">Proyectos <em>recientes</em></h2>
+    <div class="index-label" style="text-align: right;">2024<br>—2026</div>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work-list">
+    <a href="https://www.behance.net/gallery/243457355/Branding-Linea-grafica-Klik-Agencia-Creativa" target="_blank" rel="noopener" class="work-item">
+      <div class="work-num">— 001</div>
+      <div>
+        <div class="work-name">Klik Agencia <em>Creativa</em></div>
+      </div>
+      <div class="work-desc">Rebranding y línea gráfica completa para una agencia creativa con visión propia.</div>
+      <div><span class="work-tag">Rebranding · Línea gráfica</span></div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/243456857/Actualizacion-de-linea-grafica-Ellaphant-PY" target="_blank" rel="noopener" class="work-item">
+      <div class="work-num">— 002</div>
+      <div>
+        <div class="work-name">Ellaphant <em>PY</em></div>
+      </div>
+      <div class="work-desc">Línea gráfica que ordena y consolida la presencia visual de la marca.</div>
+      <div><span class="work-tag">Línea gráfica</span></div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/243456701/Linea-grafica-Kapta-by-Ellaphant" target="_blank" rel="noopener" class="work-item">
+      <div class="work-num">— 003</div>
+      <div>
+        <div class="work-name">Kapta <em>by Ellaphant</em></div>
+      </div>
+      <div class="work-desc">Branding y línea gráfica para una sub-marca con identidad propia.</div>
+      <div><span class="work-tag">Branding · Línea gráfica</span></div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/243456563/Linea-grafica-Instituto-Supremo" target="_blank" rel="noopener" class="work-item">
+      <div class="work-num">— 004</div>
+      <div>
+        <div class="work-name">Instituto <em>Supremo</em></div>
+      </div>
+      <div class="work-desc">Línea gráfica para una institución educativa con autoridad y calidez.</div>
+      <div><span class="work-tag">Línea gráfica</span></div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/243456069/Linea-grafica-Sales-System" target="_blank" rel="noopener" class="work-item">
+      <div class="work-num">— 005</div>
+      <div>
+        <div class="work-name">Sales <em>System</em></div>
+      </div>
+      <div class="work-desc">Línea gráfica B2B aplicada a múltiples canales y formatos comerciales.</div>
+      <div><span class="work-tag">Línea gráfica</span></div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/231858263/Creacion-de-identidad" target="_blank" rel="noopener" class="work-item">
+      <div class="work-num">— 006</div>
+      <div>
+        <div class="work-name">Conversa</div>
+      </div>
+      <div class="work-desc">Branding, naming, identidad y línea gráfica desde cero.</div>
+      <div><span class="work-tag">Branding · Naming · Identidad</span></div>
+      <div class="work-arrow">→</div>
+    </a>
+  </div>
+  <div style="max-width: 1200px; margin: 60px auto 0; padding-bottom: 60px; text-align: center;">
+    <a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener" class="btn-primary" style="background: var(--ink); color: var(--bone);">
+      Ver todos los proyectos en Behance <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="index-num">03</div>
+      <div class="index-label">Servicios<br>· Áreas de práctica</div>
+      <h2 class="index-title">Cuatro <em>territorios</em>.<br>Una sola <em>obsesión</em>.</h2>
+      <div class="index-label" style="text-align: right;">DESDE<br>GS</div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-num">— 01</div>
+        <h3 class="service-name">Branding & <em style="font-style: normal; font-weight: 700; color: var(--clay);">identidad visual</em></h3>
+        <p class="service-desc">Construcción de marca desde cero o rediseño profundo.</p>
+        <div class="service-includes">Logo + variantes · Paleta · Tipografía · Manual · Papelería</div>
+        <div class="service-meta">
+          <span class="service-from">Desde</span>
+          <span class="service-price">Gs 2.200.000</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 02</div>
+        <h3 class="service-name">Producto & <em style="font-style: normal; font-weight: 700; color: var(--clay);">packaging</em></h3>
+        <p class="service-desc">Diseño que funciona en góndola.</p>
+        <div class="service-includes">Etiquetas · Packaging · Exhibidores POP · Punto de venta</div>
+        <div class="service-meta">
+          <span class="service-from">Desde</span>
+          <span class="service-price">Gs 800.000</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 03</div>
+        <h3 class="service-name">Editorial & <em style="font-style: normal; font-weight: 700; color: var(--clay);">corporativo</em></h3>
+        <p class="service-desc">Diagramación con criterio.</p>
+        <div class="service-includes">Menú · Catálogo · Tríptico · Presentación · Manual</div>
+        <div class="service-meta">
+          <span class="service-from">Desde</span>
+          <span class="service-price">Gs 400.000</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 04</div>
+        <h3 class="service-name">Contenido <em style="font-style: normal; font-weight: 700; color: var(--clay);">digital</em></h3>
+        <p class="service-desc">Planes mensuales para redes.</p>
+        <div class="service-includes">Pieza individual · Plan 8 / 12 / 16 · Templates · Stories</div>
+        <div class="service-meta">
+          <span class="service-from">Desde</span>
+          <span class="service-price">Gs 80.000</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--line-on-ink); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div style="font-size: 13px; color: rgba(237,232,221,0.7); max-width: 600px; line-height: 1.6;">
+        Descuento por volumen — <span style="color: var(--clay); font-weight: 700;">5% / 10% / 15%</span>.
+      </div>
+      <a href="sophe-simulador-presupuesto.html" class="btn-primary">
+        Calcular tu presupuesto <span class="arrow">→</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-main">
-    <div>
-      <div class="footer-logo-text">SOPH<span class="accent">Ē</span></div>
-      <p class="footer-brand-desc">Estudio de diseño gráfico especializado en crear identidades visuales con propósito. Ciudad del Este, Paraguay.</p>
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="index-row" style="grid-template-columns: 80px 1fr 1fr 80px; gap: 40px; align-items: end; padding-bottom: 40px;">
+      <div class="index-num">04</div>
+      <div class="index-label">Proceso<br>· Cómo trabajamos</div>
+      <h2 class="index-title">De brief <em>a entrega</em>.</h2>
+      <div class="index-label" style="text-align: right;">04<br>FASES</div>
     </div>
-    <div>
-      <div class="footer-col-title">Navegación</div>
-      <ul class="footer-links">
-        <li><a href="#about">Acerca</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#work">Trabajo</a></li>
-        <li><a href="sophe-simulador-presupuesto.html">Simulador</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
+
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Descubrimiento</h3>
+        <p class="step-desc">Brief profundo. Antes de diseñar — entender.</p>
+        <span class="step-time">Sem 1</span>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Estrategia</h3>
+        <p class="step-desc">Investigación, moodboards, dirección creativa.</p>
+        <span class="step-time">Sem 1—2</span>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Diseño</h3>
+        <p class="step-desc">Sistema completo. Dos rondas de revisión.</p>
+        <span class="step-time">Sem 2—4</span>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3 class="step-title">Entrega</h3>
+        <p class="step-desc">Archivos finales, manual y soporte.</p>
+        <span class="step-time">Sem 4—5</span>
+      </div>
     </div>
-    <div>
-      <div class="footer-col-title">Contacto</div>
-      <ul class="footer-links">
-        <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
-        <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
+
+    <div style="margin-top: 60px; padding: 32px; background: var(--ink); color: var(--bone); display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div>
+        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Pago</div>
+        <div style="font-size: 14px; line-height: 1.5;">50% adelanto<br>50% contra entrega</div>
+      </div>
+      <div>
+        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Revisiones</div>
+        <div style="font-size: 14px; line-height: 1.5;">2 rondas<br>incluidas</div>
+      </div>
+      <div>
+        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Derechos</div>
+        <div style="font-size: 14px; line-height: 1.5;">Transferidos al<br>completar pago</div>
+      </div>
+      <div>
+        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Propuesta</div>
+        <div style="font-size: 14px; line-height: 1.5;">Válida por<br>15 días</div>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div>© 2026 Sophē Design Studio</div>
-    <div>Diseñado con intención</div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-eyebrow">Manifiesto · 01</div>
+    <p class="manifesto-text">No diseñamos marcas que estén <em>de moda</em>.<br>Diseñamos marcas que <em>envejezcan bien</em>.</p>
+    <div class="manifesto-sig">Sophē — desde CDE, 2024</div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="index-row" style="grid-template-columns: 80px 1fr 1fr 80px; gap: 40px; align-items: end; padding-bottom: 0;">
+      <div class="index-num">05</div>
+      <div class="index-label">FAQ<br>· Preguntas frecuentes</div>
+      <h2 class="index-title">Antes de <em>escribirnos</em>.</h2>
+      <div class="index-label" style="text-align: right;">06<br>QS</div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">¿Cuánto tarda un proyecto de branding completo?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Branding completo: 5—6 semanas. Rebranding: 3—4 semanas. Sub-marca: 2—3 semanas. Plazos confirmados al firmar el adelanto.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">¿Trabajan con clientes fuera de Paraguay?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sí. Trabajo 100% remoto con clientes en distintos países. Cobramos en guaraníes con conversión al USD del día.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">¿Qué formatos finales entregan?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Vectoriales editables (AI, SVG), web (PNG, JPG), impresión (PDF CMYK), favicon, avatares y manual de uso.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">¿Hacen también el contenido de las redes después del branding?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sí. Planes mensuales: 8, 12 o 16 piezas/mes. La mayoría de clientes de branding después contrata contenido — el resultado es 10x más coherente.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">¿Qué pasa si no me convencen las primeras propuestas?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Tenés dos rondas de revisión. La primera ajusta rumbo, la segunda refina detalles. Si seguimos sin alinear, hablamos con honestidad.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">¿Por qué los precios son "Desde"?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Es el piso para un proyecto estándar. Naming, investigación o aplicaciones especiales se cotizan aparte. Sin sorpresas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="index-row" style="grid-template-columns: 80px 1fr 1fr 80px; gap: 40px; align-items: end; padding-bottom: 0; border-bottom: 1px solid var(--line-on-ink); padding-bottom: 40px;">
+      <div class="index-num" style="color: var(--clay);">06</div>
+      <div class="index-label" style="color: rgba(237,232,221,0.5);">Contacto<br>· Iniciar proyecto</div>
+      <h2 class="index-title" style="color: var(--bone);">Hablemos del <em>tuyo</em>.</h2>
+      <div class="index-label" style="text-align: right; color: rgba(237,232,221,0.5);">RESP.<br>≤ 24H</div>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <p class="contact-statement">Si llegaste hasta acá, hay buenas chances de que tengamos algo en <em>común</em>.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: rgba(237,232,221,0.7); max-width: 480px;">Contame qué estás construyendo. Respondemos en menos de 24 horas hábiles.</p>
+
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <span class="contact-info-label">Email</span>
+            <span class="contact-info-value"><a href="mailto:hola@sophe.studio">hola@sophe.studio</a></span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">WhatsApp</span>
+            <span class="contact-info-value"><a href="https://wa.me/595992391964">+595 992 391 964</a></span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Behance</span>
+            <span class="contact-info-value"><a href="https://www.behance.net/sophe_studio" target="_blank">@sophe_studio</a></span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Instagram</span>
+            <span class="contact-info-value"><a href="https://instagram.com/sophe.studio" target="_blank">@sophe.studio</a></span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Ubicación</span>
+            <span class="contact-info-value">Ciudad del Este, PY</span>
+          </div>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/meelbrdz" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Cómo te llamás" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="service">Servicio</label>
+          <select id="service" name="service" required>
+            <option value="">Seleccionar servicio</option>
+            <option>Branding completo</option>
+            <option>Rebranding</option>
+            <option>Sub-branding</option>
+            <option>Etiqueta / Packaging</option>
+            <option>Catálogo / Editorial</option>
+            <option>Plan de contenido digital</option>
+            <option>Otro / Quiero conversarlo</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">Sobre tu proyecto</label>
+          <textarea id="message" name="message" rows="4" placeholder="Contame brevemente qué necesitás y cuándo querés arrancar" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Enviar mensaje <span class="arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="180" height="50" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="130" class="wm-text" font-size="160" fill="#EDE8DD" letter-spacing="-7">sophē</text>
+            <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+          </svg>
+        </div>
+        <p class="footer-tag">Marcas que envejecen bien.<br>Desde Ciudad del Este.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#about">Estudio</a></li>
+          <li><a href="#work">Trabajo</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#process">Proceso</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Conectar</h4>
+        <ul>
+          <li><a href="https://instagram.com/sophe.studio" target="_blank">Instagram</a></li>
+          <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
+          <li><a href="https://wa.me/595992391964">WhatsApp</a></li>
+          <li><a href="mailto:hola@sophe.studio">Email</a></li>
+          <li><a href="sophe-simulador-presupuesto.html">Simulador</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Sophē Design Studio</span>
+      <span>CDE · Paraguay</span>
+      <span>Marcas que envejecen bien</span>
+    </div>
   </div>
 </footer>
 
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/595992391964?text=Hola%20Sophē%2C%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
-// Navbar scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
-});
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    e.preventDefault();
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
-
-// FAQ toggle
-function toggleFaq(el){
-  const item=el.parentElement;
-  const wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen)item.classList.add('open');
-}
-
-// Form handler
-document.getElementById('submitBtn').addEventListener('click',async()=>{
-  const name=document.getElementById('c-name').value.trim();
-  const email=document.getElementById('c-email').value.trim();
-  const service=document.getElementById('c-service').value.trim();
-  const message=document.getElementById('c-message').value.trim();
-  if(!name||!email){
-    const form=document.getElementById('contactForm');
-    form.style.animation='none';
-    form.offsetHeight;
-    form.style.animation='formShake 0.4s ease';
-    return;
-  }
-  // Send to Formspree
-  const btn=document.getElementById('submitBtn');
-  btn.textContent='Enviando...';
-  btn.disabled=true;
-  try{
-    const res=await fetch('https://formspree.io/f/meelbrdz',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({name,email,service,message})
+  // Fade in on scroll (lightweight)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
     });
-    if(res.ok){
-      document.getElementById('contactForm').style.display='none';
-      document.getElementById('formSuccess').classList.add('show');
-    }else{
-      btn.textContent='Error — Intentá de nuevo';
-      btn.disabled=false;
-    }
-  }catch(e){
-    btn.textContent='Error — Intentá de nuevo';
-    btn.disabled=false;
-  }
-});
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
 
-// Shake animation
-const ss=document.createElement('style');
-ss.textContent='@keyframes formShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}';
-document.head.appendChild(ss);
-
-// Intersection Observer for fade-in
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-  });
-},{threshold:0.15});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
 </body>
