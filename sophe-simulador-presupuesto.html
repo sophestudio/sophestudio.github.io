@@ -3,1169 +3,1385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sophē — Simulador de Presupuesto</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<title>Simulador de presupuesto — Sophē Design Studio</title>
+<meta name="description" content="Calculá el presupuesto de tu proyecto de diseño en Sophē. Branding, packaging, editorial y contenido digital con descuento por volumen.">
 <style>
-  :root {
-    --warm-black: #2c2926;
-    --cream: #f5f0eb;
-    --sand: #e8dfd6;
-    --terracotta: #c4856a;
-    --sage: #8a9a7b;
-    --deep-olive: #4a5240;
-    --muted-gold: #b8a088;
-    --white: #faf8f6;
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Medium.woff2') format('woff2');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('Switzer-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
   }
 
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #2B2B2B;
+    --bone: #EDE8DD;
+    --bone-soft: #E5DFD2;
+    --clay: #C04A2B;
+    --clay-soft: #A53D22;
+    --mute: #7A7670;
+    --mute-soft: #9C988F;
+    --line: rgba(26,26,26,0.1);
+    --line-on-ink: rgba(237,232,221,0.12);
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: 'Switzer', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--clay); color: var(--bone); }
+  a { color: inherit; text-decoration: none; }
 
-  /* SIM NAV */
-  .sim-nav {
-    position: fixed;
+  /* ============ NAV ============ */
+  nav {
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 24px 64px;
+    z-index: 100;
+    background: var(--bone);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(44,41,38,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(184,160,136,0.06);
   }
-
-  .sim-nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 18px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--cream);
-    text-decoration: none;
-    transition: opacity 0.3s;
+  nav .logo {
+    display: inline-flex;
+    align-items: center;
   }
-
-  .sim-nav-logo:hover { opacity: 0.6; }
-  .sim-nav-logo .accent { font-style: italic; font-weight: 400; }
-
-  .sim-nav-back {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .sim-nav-back:hover { color: var(--terracotta); }
-
-  @media (max-width: 768px) {
-    .sim-nav { padding: 20px 24px; }
-    .sim-nav-back { font-size: 10px; }
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--warm-black);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  /* ---- GRAIN OVERLAY ---- */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  /* ---- AMBIENT GLOWS ---- */
-  .ambient {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background:
-      radial-gradient(ellipse at 15% 20%, rgba(196,133,106,0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, rgba(138,154,123,0.04) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 100%, rgba(184,160,136,0.03) 0%, transparent 40%);
-  }
-
-  /* ---- HEADER ---- */
-  header {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 80px 24px 60px;
-    border-bottom: 1px solid rgba(184,160,136,0.08);
-  }
-
-  .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 28px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 8px;
-  }
-
-  .logo .accent { font-style: italic; font-weight: 400; }
-
-  header .subtitle {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
+  nav .logo svg { display: block; }
+  nav .back {
     font-size: 11px;
-    letter-spacing: 5px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 40px;
+    font-weight: 700;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  nav .back:hover { color: var(--clay); }
+  nav .back .arr { transition: transform 0.3s; }
+  nav .back:hover .arr { transform: translateX(-4px); }
+
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    nav .back .label { display: none; }
   }
 
-  header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(36px, 6vw, 60px);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  header h1 em { font-style: italic; color: var(--terracotta); }
-
-  header p {
-    font-size: 16px;
-    color: var(--muted-gold);
-    max-width: 500px;
+  /* ============ HEADER ============ */
+  .header {
+    padding: 80px 32px 60px;
+    max-width: 1300px;
     margin: 0 auto;
-    line-height: 1.7;
+    border-bottom: 1px solid var(--line);
+  }
+  .header-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 80px;
+    gap: 32px;
+    align-items: end;
+  }
+  .header-num {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--clay);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--mute);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .header-title {
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .header-title em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--clay);
+  }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    text-align: right;
+    font-weight: 500;
   }
 
-  /* ---- MAIN LAYOUT ---- */
-  main {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
+  @media (max-width: 900px) {
+    .header { padding: 48px 24px 32px; }
+    .header-row { grid-template-columns: 1fr; gap: 16px; }
+    .header-meta { text-align: left; }
+  }
+
+  /* ============ LAYOUT ============ */
+  .layout {
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 60px 24px 120px;
+    padding: 60px 32px 120px;
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: 48px;
     align-items: start;
   }
 
-  @media (max-width: 900px) {
-    main { grid-template-columns: 1fr; }
-    .sidebar { position: static !important; }
+  @media (max-width: 1024px) {
+    .layout {
+      grid-template-columns: 1fr;
+      padding: 32px 24px 100px;
+      gap: 32px;
+    }
   }
 
-  /* ---- CATEGORIES ---- */
+  /* ============ CATEGORIES ============ */
+  .categories { display: flex; flex-direction: column; gap: 32px; }
+
   .category {
-    margin-bottom: 48px;
-    animation: fadeUp 0.6s ease forwards;
-    opacity: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
   }
+  .category:first-child { border-top: 0; padding-top: 0; }
 
-  .category:nth-child(1) { animation-delay: 0.1s; }
-  .category:nth-child(2) { animation-delay: 0.2s; }
-  .category:nth-child(3) { animation-delay: 0.3s; }
-  .category:nth-child(4) { animation-delay: 0.4s; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .category-header {
+  .cat-header {
     display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
-
-  .category-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 32px;
-    color: var(--terracotta);
-    opacity: 0.4;
+  .cat-name {
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
-
-  .category-title {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 4px;
+  .cat-name em { font-style: normal; font-weight: 700; color: var(--clay); }
+  .cat-num {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--mute);
     text-transform: uppercase;
-    color: var(--cream);
+    font-weight: 700;
   }
 
-  .category-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, rgba(184,160,136,0.15), transparent);
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  /* ---- SERVICE CARDS ---- */
   .service {
-    background: rgba(58,53,48,0.4);
-    border: 1px solid rgba(184,160,136,0.08);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 12px;
+    background: var(--bone);
+    border: 1px solid var(--line);
+    padding: 20px 24px;
     cursor: pointer;
-    transition: all 0.35s ease;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 24px 1fr auto;
     gap: 16px;
     align-items: center;
-    position: relative;
-    overflow: hidden;
   }
-
-  .service::before {
+  .service:hover {
+    border-color: var(--ink);
+    background: var(--bone-soft);
+  }
+  .service.active {
+    border-color: var(--clay);
+    background: var(--bone-soft);
+  }
+  .service.active::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(196,133,106,0.04) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.35s;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--clay);
   }
-
-  .service:hover {
-    border-color: rgba(196,133,106,0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-  }
-
-  .service:hover::before { opacity: 1; }
-
-  .service.selected {
-    border-color: var(--terracotta);
-    background: rgba(196,133,106,0.08);
-  }
-
-  .service.selected::after {
-    content: '✓';
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 14px;
-    color: var(--terracotta);
-    width: 24px;
-    height: 24px;
-    background: rgba(196,133,106,0.15);
+  .check {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--mute);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
   }
-
-  .service-info { position: relative; z-index: 1; }
-
-  .service-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 22px;
-    margin-bottom: 4px;
-    color: var(--cream);
+  .service.active .check {
+    border-color: var(--clay);
+    background: var(--clay);
   }
-
-  .service-desc {
-    font-size: 13px;
-    color: var(--muted-gold);
-    line-height: 1.5;
+  .check svg {
+    width: 10px; height: 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
   }
+  .service.active .check svg { opacity: 1; }
 
+  .service-info {
+    min-width: 0;
+  }
+  .service-title {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .service-meta {
+    font-size: 12px;
+    color: var(--mute);
+    line-height: 1.4;
+  }
   .service-price {
-    position: relative;
-    z-index: 1;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
     text-align: right;
     white-space: nowrap;
   }
-
-  .service-desde {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 10px;
-    letter-spacing: 3px;
+  .service-price small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--muted-gold);
+    color: var(--mute);
+    font-weight: 500;
     margin-bottom: 2px;
   }
 
-  .service-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 26px;
-    color: var(--cream);
-  }
-
-  .service-amount .currency {
-    font-size: 16px;
-    color: var(--muted-gold);
-  }
-
-  /* ---- QUANTITY CONTROL ---- */
+  /* QUANTITY (when active and applicable) */
   .qty-row {
     grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: none;
+    margin-top: 16px;
     padding-top: 16px;
-    border-top: 1px solid rgba(184,160,136,0.08);
-    margin-top: 12px;
-    position: relative;
-    z-index: 1;
+    border-top: 1px dashed var(--line);
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
   }
-
+  .service.active.has-qty .qty-row { display: flex; }
   .qty-label {
-    font-size: 13px;
-    color: var(--muted-gold);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
   }
-
-  .qty-controls {
+  .qty-control {
     display: flex;
     align-items: center;
     gap: 0;
-    border: 1px solid rgba(184,160,136,0.15);
-    border-radius: 8px;
-    overflow: hidden;
+    border: 1px solid var(--ink);
   }
-
   .qty-btn {
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: none;
-    color: var(--cream);
-    font-size: 18px;
+    width: 36px; height: 36px;
+    background: var(--bone);
+    border: 0;
     cursor: pointer;
-    transition: background 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .qty-btn:hover { background: rgba(196,133,106,0.1); }
-
-  .qty-value {
-    width: 44px;
-    text-align: center;
-    font-family: 'DM Sans', sans-serif;
+    font-family: inherit;
     font-size: 16px;
-    color: var(--cream);
-    background: rgba(184,160,136,0.05);
-    border: none;
-    border-left: 1px solid rgba(184,160,136,0.1);
-    border-right: 1px solid rgba(184,160,136,0.1);
+    font-weight: 500;
+    color: var(--ink);
+    transition: background 0.2s;
+  }
+  .qty-btn:hover { background: var(--clay); color: var(--bone); }
+  .qty-input {
+    width: 60px;
     height: 36px;
+    border: 0;
+    border-left: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+    text-align: center;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    background: var(--bone);
+    color: var(--ink);
+    -moz-appearance: textfield;
   }
-
-  .slides-row { margin-top: 4px; }
-  .slides-selector { display: flex; gap: 6px; flex-wrap: wrap; }
-  .slide-opt { background: rgba(245,240,235,0.08); border: 1px solid rgba(245,240,235,0.15); color: var(--cream); font-family: 'Jost',sans-serif; font-size: 11px; padding: 4px 10px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
-  .slide-opt.active { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
-  .cotizar-tag { font-family: 'Jost',sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); padding-top: 4px; }
+  .qty-input::-webkit-outer-spin-button,
+  .qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
   .qty-subtotal {
-    margin-left: auto;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    color: var(--terracotta);
+    font-size: 12px;
+    color: var(--mute);
+  }
+  .qty-subtotal strong {
+    color: var(--ink);
+    font-weight: 700;
   }
 
-  /* ---- SIDEBAR ---- */
+  @media (max-width: 600px) {
+    .service { padding: 16px 18px; gap: 12px; }
+    .service-title { font-size: 14px; }
+    .service-price { font-size: 13px; }
+  }
+
+  /* ============ SIDEBAR ============ */
   .sidebar {
     position: sticky;
-    top: 32px;
-    animation: fadeUp 0.6s ease 0.5s forwards;
-    opacity: 0;
-  }
-
-  .summary-card {
-    background: rgba(58,53,48,0.5);
-    border: 1px solid rgba(184,160,136,0.1);
-    border-radius: 16px;
+    top: 80px;
+    background: var(--ink);
+    color: var(--bone);
     padding: 32px;
-    backdrop-filter: blur(8px);
   }
 
-  .summary-title {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
+  @media (max-width: 1024px) {
+    .sidebar { position: static; }
+  }
+
+  .sb-header {
+    padding-bottom: 24px;
     margin-bottom: 24px;
+    border-bottom: 1px solid var(--line-on-ink);
+  }
+  .sb-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--clay);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .sb-title {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
   }
 
-  .summary-empty {
+  .sb-empty {
     text-align: center;
-    padding: 40px 0;
-    color: var(--muted-gold);
-    font-size: 14px;
-    opacity: 0.5;
+    padding: 32px 0;
+    font-size: 13px;
+    color: rgba(237,232,221,0.5);
+    line-height: 1.6;
+  }
+  .sb-empty svg {
+    margin: 0 auto 16px;
+    display: block;
+    opacity: 0.3;
   }
 
-  .summary-empty-icon {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 36px;
-    color: var(--terracotta);
-    opacity: 0.2;
-    margin-bottom: 12px;
-  }
-
-  .summary-items { margin-bottom: 24px; }
-
-  .summary-item {
+  .sb-list {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+    margin-bottom: 16px;
+  }
+  .sb-list::-webkit-scrollbar { width: 4px; }
+  .sb-list::-webkit-scrollbar-track { background: transparent; }
+  .sb-list::-webkit-scrollbar-thumb { background: rgba(237,232,221,0.2); border-radius: 2px; }
+
+  .sb-item {
     padding: 12px 0;
-    border-bottom: 1px solid rgba(184,160,136,0.06);
+    border-bottom: 1px solid var(--line-on-ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
     gap: 12px;
   }
-
-  .summary-item-name {
-    font-size: 14px;
-    color: var(--cream);
-    flex: 1;
+  .sb-item:last-child { border-bottom: 0; }
+  .sb-item-name {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
   }
-
-  .summary-item-qty {
-    font-size: 12px;
-    color: var(--muted-gold);
+  .sb-item-qty {
+    font-size: 11px;
+    color: rgba(237,232,221,0.5);
+    margin-top: 2px;
   }
-
-  .summary-item-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--cream);
+  .sb-item-price {
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
     white-space: nowrap;
   }
-
-  .summary-item .remove-btn {
+  .sb-item-remove {
     background: none;
-    border: none;
-    color: var(--muted-gold);
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 0.4;
-    transition: all 0.2s;
-    padding: 0 4px;
-  }
-
-  .summary-item .remove-btn:hover { opacity: 1; color: var(--terracotta); }
-
-  /* Discount */
-  .discount-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(184,160,136,0.06);
-  }
-
-  .discount-label {
-    font-size: 13px;
-    color: var(--sage);
-  }
-
-  .discount-badge {
-    display: inline-block;
-    background: rgba(138,154,123,0.12);
-    color: var(--sage);
+    border: 0;
+    color: rgba(237,232,221,0.4);
     font-size: 11px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 2px;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-left: 6px;
+    font-family: inherit;
+    transition: color 0.2s;
   }
+  .sb-item-remove:hover { color: var(--clay); }
 
-  .discount-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--sage);
+  /* SUMMARY */
+  .sb-summary {
+    border-top: 1px solid var(--line-on-ink);
+    padding-top: 20px;
   }
-
-  /* Total */
-  .summary-total {
+  .sum-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 20px 0 0;
-    margin-top: 8px;
+    padding: 8px 0;
+    font-size: 13px;
   }
-
-  .total-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--muted-gold);
+  .sum-row.discount {
+    color: var(--clay);
+    font-weight: 700;
   }
-
-  .total-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 36px;
-    color: var(--cream);
-  }
-
-  .total-amount .currency {
-    font-size: 20px;
-    color: var(--muted-gold);
-  }
-
-  .total-note {
-    font-size: 11px;
-    color: var(--muted-gold);
-    opacity: 0.5;
-    margin-top: 4px;
-    text-align: right;
-  }
-
-  .iva-note {
-    font-size: 12px;
-    color: var(--muted-gold);
-    text-align: right;
-    margin-top: 2px;
-    opacity: 0.6;
-  }
-
-  /* CTA Button */
-  .cta-btn {
-    display: block;
-    width: 100%;
-    margin-top: 28px;
-    padding: 16px 24px;
-    background: var(--terracotta);
-    border: none;
-    border-radius: 8px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: white;
-    cursor: pointer;
-    transition: all 0.35s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-btn:hover { background: #b5775d; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,133,106,0.25); }
-  .cta-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; }
-
-  .cta-secondary {
-    display: block;
-    width: 100%;
+  .sum-row.total {
+    border-top: 1px solid var(--line-on-ink);
     margin-top: 12px;
-    padding: 14px 24px;
-    background: transparent;
-    border: 1px solid rgba(184,160,136,0.2);
-    border-radius: 8px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
+    padding-top: 16px;
+    font-size: 14px;
+  }
+  .sum-row .label {
+    color: rgba(237,232,221,0.65);
+    font-weight: 500;
+  }
+  .sum-row.total .label {
     font-size: 11px;
-    letter-spacing: 3px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--muted-gold);
-    cursor: pointer;
-    transition: all 0.3s;
+    color: var(--bone);
+    font-weight: 700;
+  }
+  .sum-row .val {
+    font-weight: 700;
+    color: var(--bone);
+  }
+  .sum-row.total .val {
+    font-size: 28px;
+    letter-spacing: -0.02em;
   }
 
-  .cta-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
-  .cta-secondary:disabled { opacity: 0.3; cursor: not-allowed; }
+  .sb-cta {
+    display: block;
+    background: var(--clay);
+    color: var(--bone);
+    padding: 18px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 24px;
+    transition: background 0.3s;
+    cursor: pointer;
+    border: 0;
+    width: 100%;
+    font-family: inherit;
+  }
+  .sb-cta:hover { background: var(--clay-soft); }
+  .sb-cta:disabled {
+    background: rgba(237,232,221,0.1);
+    color: rgba(237,232,221,0.3);
+    cursor: not-allowed;
+  }
+  .sb-cta:disabled:hover { background: rgba(237,232,221,0.1); }
 
-  /* ---- CONTACT MODAL ---- */
-  .modal-overlay {
+  .sb-note {
+    margin-top: 16px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(237,232,221,0.5);
+    text-align: center;
+  }
+
+  /* ============ MOBILE FLOATING SUMMARY ============ */
+  .mobile-summary {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--ink);
+    color: var(--bone);
+    padding: 16px 20px;
+    border-top: 1px solid var(--line-on-ink);
+    z-index: 99;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+  }
+  .mobile-summary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mobile-summary-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.5);
+    font-weight: 700;
+  }
+  .mobile-summary-total {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .mobile-summary-cta {
+    background: var(--clay);
+    color: var(--bone);
+    border: 0;
+    padding: 14px 20px;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-summary { display: grid; }
+    body { padding-bottom: 80px; }
+    .sidebar .sb-cta { margin-bottom: 0; }
+  }
+
+  /* ============ MODAL ============ */
+  .modal-bg {
     position: fixed;
     inset: 0;
-    background: rgba(44,41,38,0.85);
+    background: rgba(26,26,26,0.7);
     backdrop-filter: blur(8px);
-    z-index: 1000;
+    z-index: 200;
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
   }
-
-  .modal-overlay.active { display: flex; }
-
+  .modal-bg.open { display: flex; }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
   .modal {
-    background: var(--warm-black);
-    border: 1px solid rgba(184,160,136,0.12);
-    border-radius: 16px;
-    padding: 40px;
-    max-width: 520px;
+    background: var(--bone);
+    max-width: 480px;
     width: 100%;
+    padding: 40px 32px;
     position: relative;
-    animation: modalIn 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
   }
-
-  @keyframes modalIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
   .modal-close {
     position: absolute;
-    top: 16px;
-    right: 20px;
+    top: 16px; right: 16px;
     background: none;
-    border: none;
-    color: var(--muted-gold);
-    font-size: 24px;
+    border: 0;
     cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.2s;
+    padding: 8px;
+    color: var(--mute);
+    transition: color 0.2s;
   }
-
-  .modal-close:hover { opacity: 1; }
-
-  .modal h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 32px;
-    margin-bottom: 6px;
-  }
-
-  .modal h2 em { font-style: italic; color: var(--terracotta); }
-
-  .modal .modal-sub {
-    font-size: 14px;
-    color: var(--muted-gold);
-    margin-bottom: 28px;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .form-group label {
-    display: block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
+  .modal-close:hover { color: var(--clay); }
+  .modal-eyebrow {
     font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 0.3em;
+    color: var(--clay);
     text-transform: uppercase;
-    color: var(--muted-gold);
-    margin-bottom: 6px;
+    font-weight: 700;
+    margin-bottom: 12px;
   }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    background: rgba(58,53,48,0.5);
-    border: 1px solid rgba(184,160,136,0.12);
-    border-radius: 8px;
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-    transition: border-color 0.2s;
-    outline: none;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus { border-color: var(--terracotta); }
-
-  .form-group textarea { height: 80px; resize: none; }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: var(--muted-gold); opacity: 0.35; }
-
-  .modal-summary {
-    background: rgba(58,53,48,0.4);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    font-size: 13px;
-    color: var(--muted-gold);
-    line-height: 1.8;
-  }
-
-  .modal-summary strong { color: var(--cream); font-weight: 400; }
-
-  .modal-send {
-    width: 100%;
-    padding: 16px;
-    background: var(--terracotta);
-    border: none;
-    border-radius: 8px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .modal-send:hover { background: #b5775d; }
-
-  /* ---- SUCCESS STATE ---- */
-  .success-msg {
-    text-align: center;
-    padding: 32px 0;
-  }
-
-  .success-msg .check { font-size: 48px; margin-bottom: 16px; }
-
-  .success-msg h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
+  .modal-title {
+    font-weight: 500;
     font-size: 28px;
-    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 24px;
   }
+  .modal-title em { font-style: normal; font-weight: 700; color: var(--clay); }
 
-  .success-msg p { font-size: 14px; color: var(--muted-gold); }
-
-  /* ---- FOOTER ---- */
-  footer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 40px 24px;
-    border-top: 1px solid rgba(184,160,136,0.06);
+  .modal-form-field {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.2s;
   }
-
-  footer p {
-    font-size: 12px;
-    color: var(--muted-gold);
-    opacity: 0.4;
-  }
-
-  footer .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 14px;
-    letter-spacing: 3px;
+  .modal-form-field:focus-within { border-color: var(--clay); }
+  .modal-form-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--muted-gold);
-    opacity: 0.2;
-    margin-bottom: 8px;
+    color: var(--mute);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .modal-form-field input,
+  .modal-form-field textarea {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 15px;
+    padding: 4px 0 12px;
+    outline: none;
+    resize: none;
+  }
+  .modal-form-field input::placeholder,
+  .modal-form-field textarea::placeholder {
+    color: var(--mute-soft);
+  }
+  .modal-cta {
+    background: var(--ink);
+    color: var(--bone);
+    border: 0;
+    width: 100%;
+    padding: 18px;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .modal-cta:hover { background: var(--clay); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 60px 32px 32px;
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-logo svg { display: block; }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(237,232,221,0.6);
+  }
+  .footer-links a:hover { color: var(--bone); }
+  .footer-copy {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.4);
+    font-weight: 500;
   }
 
-  footer .footer-brand .accent { font-style: italic; font-weight: 400; }
+  @media (max-width: 600px) {
+    footer { padding: 40px 20px 24px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
 
-<div class="ambient"></div>
-
-<!-- NAV -->
-<nav class="sim-nav">
-  <a href="index.html" class="sim-nav-logo">SOPH<span class="accent">Ē</span></a>
-  <a href="index.html" class="sim-nav-back">← Volver al inicio</a>
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="index.html" class="logo" aria-label="Sophē — inicio">
+    <svg width="80" height="22" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="130" font-family="Switzer, sans-serif" font-weight="500" font-size="160" fill="#1A1A1A" letter-spacing="-7">sophē</text>
+      <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+    </svg>
+  </a>
+  <a href="index.html" class="back">
+    <span class="arr">←</span>
+    <span class="label">Volver al inicio</span>
+  </a>
 </nav>
 
-<header style="padding-top:120px;">
-  <div class="logo">SOPH<span class="accent">Ē</span></div>
-  <div class="subtitle">Design Studio</div>
-  <h1>Simulá tu <em>presupuesto</em></h1>
-  <p>Seleccioná los servicios que necesitás y obtené un estimado al instante. Los precios son referenciales — cada proyecto es único.</p>
-</header>
-
-<main>
-  <div class="services-col" id="services">
-    <!-- Categories rendered by JS -->
-  </div>
-
-  <div class="sidebar">
-    <div class="summary-card">
-      <div class="summary-title">Tu presupuesto</div>
-      <div id="summary-content">
-        <div class="summary-empty">
-          <div class="summary-empty-icon">S</div>
-          Seleccioná servicios para<br>armar tu presupuesto
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<!-- Contact Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <div id="modal-body">
-      <h2>Solicitar <em>presupuesto</em></h2>
-      <p class="modal-sub">Completá tus datos y te contactamos en menos de 24hs.</p>
-      <div class="modal-summary" id="modal-summary"></div>
-      <div class="form-group">
-        <label>Nombre completo</label>
-        <input type="text" id="f-name" placeholder="Tu nombre">
-      </div>
-      <div class="form-group">
-        <label>WhatsApp o email</label>
-        <input type="text" id="f-contact" placeholder="+595 ... o tu@email.com">
-      </div>
-      <div class="form-group">
-        <label>Contanos sobre tu proyecto</label>
-        <textarea id="f-details" placeholder="¿Qué necesitás? ¿Para cuándo?"></textarea>
-      </div>
-      <button class="modal-send" onclick="sendRequest()">Enviar solicitud</button>
-    </div>
+<!-- ============ HEADER ============ -->
+<div class="header">
+  <div class="header-row">
+    <div class="header-num">— 01</div>
+    <div class="header-label">Simulador<br>· Presupuesto</div>
+    <h1 class="header-title">Calculá tu <em>proyecto</em>.</h1>
+    <div class="header-meta">PRECIOS<br>EN GS</div>
   </div>
 </div>
 
+<!-- ============ LAYOUT ============ -->
+<div class="layout">
+
+  <!-- CATEGORIES -->
+  <div class="categories">
+
+    <!-- BRANDING -->
+    <div class="category">
+      <div class="cat-header">
+        <h2 class="cat-name">Branding & <em>identidad visual</em></h2>
+        <span class="cat-num">— 01</span>
+      </div>
+      <div class="services-list">
+
+        <div class="service" data-id="branding" data-price="2200000" data-name="Branding completo">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Branding completo</div>
+            <div class="service-meta">Logo · Paleta · Tipografía · Manual · Papelería</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 2.200.000
+          </div>
+        </div>
+
+        <div class="service" data-id="rebranding" data-price="1750000" data-name="Rebranding">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Rebranding</div>
+            <div class="service-meta">Renovación de marca existente</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 1.750.000
+          </div>
+        </div>
+
+        <div class="service" data-id="subbranding" data-price="1000000" data-name="Sub-branding">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Sub-branding</div>
+            <div class="service-meta">Marca derivada con identidad propia</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 1.000.000
+          </div>
+        </div>
+
+        <div class="service" data-id="manual" data-price="700000" data-name="Mini manual de marca">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Mini manual de marca</div>
+            <div class="service-meta">Guía de uso esencial</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 700.000
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PACKAGING -->
+    <div class="category">
+      <div class="cat-header">
+        <h2 class="cat-name">Producto & <em>packaging</em></h2>
+        <span class="cat-num">— 02</span>
+      </div>
+      <div class="services-list">
+
+        <div class="service has-qty" data-id="etiqueta" data-price="800000" data-name="Etiqueta de producto">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Etiqueta de producto</div>
+            <div class="service-meta">Diseño original</div>
+          </div>
+          <div class="service-price">
+            <small>Por unidad desde</small>
+            Gs 800.000
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Cantidad</span>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" data-action="dec">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="50">
+              <button type="button" class="qty-btn" data-action="inc">+</button>
+            </div>
+            <div class="qty-subtotal">Subtotal: <strong class="qty-sub">Gs 800.000</strong></div>
+          </div>
+        </div>
+
+        <div class="service has-qty" data-id="adaptacion" data-price="175000" data-name="Adaptación de etiqueta">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Adaptación de etiqueta</div>
+            <div class="service-meta">Variantes sobre diseño base</div>
+          </div>
+          <div class="service-price">
+            <small>Por unidad desde</small>
+            Gs 175.000
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Cantidad</span>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" data-action="dec">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="50">
+              <button type="button" class="qty-btn" data-action="inc">+</button>
+            </div>
+            <div class="qty-subtotal">Subtotal: <strong class="qty-sub">Gs 175.000</strong></div>
+          </div>
+        </div>
+
+        <div class="service" data-id="packaging" data-price="1000000" data-name="Packaging / Exhibidor POP">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Packaging / Exhibidor POP</div>
+            <div class="service-meta">Material punto de venta</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 1.000.000
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EDITORIAL -->
+    <div class="category">
+      <div class="cat-header">
+        <h2 class="cat-name">Editorial & <em>corporativo</em></h2>
+        <span class="cat-num">— 03</span>
+      </div>
+      <div class="services-list">
+
+        <div class="service" data-id="menu-basico" data-price="800000" data-name="Menú básico">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Menú básico</div>
+            <div class="service-meta">Hasta 8 páginas</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 800.000
+          </div>
+        </div>
+
+        <div class="service" data-id="menu-premium" data-price="1300000" data-name="Menú premium">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Menú premium</div>
+            <div class="service-meta">12 páginas o más</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 1.300.000
+          </div>
+        </div>
+
+        <div class="service" data-id="catalogo" data-price="2200000" data-name="Catálogo corporativo">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Catálogo corporativo</div>
+            <div class="service-meta">Diagramación editorial completa</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 2.200.000
+          </div>
+        </div>
+
+        <div class="service has-qty" data-id="triptico" data-price="400000" data-name="Tríptico / Flyer">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Tríptico / Flyer</div>
+            <div class="service-meta">Pieza promocional</div>
+          </div>
+          <div class="service-price">
+            <small>Por unidad desde</small>
+            Gs 400.000
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Cantidad</span>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" data-action="dec">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="50">
+              <button type="button" class="qty-btn" data-action="inc">+</button>
+            </div>
+            <div class="qty-subtotal">Subtotal: <strong class="qty-sub">Gs 400.000</strong></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DIGITAL -->
+    <div class="category">
+      <div class="cat-header">
+        <h2 class="cat-name">Contenido <em>digital</em></h2>
+        <span class="cat-num">— 04</span>
+      </div>
+      <div class="services-list">
+
+        <div class="service has-qty" data-id="pieza" data-price="80000" data-name="Pieza individual">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Pieza individual</div>
+            <div class="service-meta">Post o story para redes</div>
+          </div>
+          <div class="service-price">
+            <small>Por pieza desde</small>
+            Gs 80.000
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Cantidad</span>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" data-action="dec">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="50">
+              <button type="button" class="qty-btn" data-action="inc">+</button>
+            </div>
+            <div class="qty-subtotal">Subtotal: <strong class="qty-sub">Gs 80.000</strong></div>
+          </div>
+        </div>
+
+        <div class="service" data-id="plan-8" data-price="570000" data-name="Plan 8 piezas/mes">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Plan 8 piezas/mes</div>
+            <div class="service-meta">Contenido recurrente mensual</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 570.000
+          </div>
+        </div>
+
+        <div class="service" data-id="plan-12" data-price="850000" data-name="Plan 12 piezas/mes">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Plan 12 piezas/mes</div>
+            <div class="service-meta">Contenido recurrente mensual</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 850.000
+          </div>
+        </div>
+
+        <div class="service" data-id="plan-16" data-price="1100000" data-name="Plan 16 piezas/mes">
+          <div class="check">
+            <svg viewBox="0 0 12 10" fill="none">
+              <path d="M1 5l3.5 3.5L11 1" stroke="#EDE8DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-info">
+            <div class="service-title">Plan 16 piezas/mes</div>
+            <div class="service-meta">Contenido recurrente mensual</div>
+          </div>
+          <div class="service-price">
+            <small>Desde</small>
+            Gs 1.100.000
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-header">
+      <div class="sb-eyebrow">Tu presupuesto</div>
+      <h3 class="sb-title">Resumen <em style="font-style: normal; font-weight: 700; color: var(--clay);">en vivo</em></h3>
+    </div>
+
+    <div class="sb-empty" id="sb-empty">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Seleccioná los servicios<br>que necesitás para tu proyecto.
+    </div>
+
+    <div class="sb-list" id="sb-list" style="display: none;"></div>
+
+    <div class="sb-summary" id="sb-summary" style="display: none;">
+      <div class="sum-row">
+        <span class="label">Subtotal</span>
+        <span class="val" id="sub-subtotal">Gs 0</span>
+      </div>
+      <div class="sum-row discount" id="sb-discount-row" style="display: none;">
+        <span class="label">Descuento por volumen <span id="sub-discpct"></span></span>
+        <span class="val" id="sub-discount">— Gs 0</span>
+      </div>
+      <div class="sum-row total">
+        <span class="label">Total estimado</span>
+        <span class="val" id="sub-total">Gs 0</span>
+      </div>
+    </div>
+
+    <button class="sb-cta" id="cta-btn" disabled>
+      Solicitar propuesta →
+    </button>
+
+    <p class="sb-note">
+      Precios "Desde". El presupuesto final se confirma en la propuesta formal.
+    </p>
+  </aside>
+
+</div>
+
+<!-- ============ MOBILE FLOATING SUMMARY ============ -->
+<div class="mobile-summary" id="mobile-summary" style="display: none;">
+  <div class="mobile-summary-info">
+    <span class="mobile-summary-label">Total estimado</span>
+    <span class="mobile-summary-total" id="mob-total">Gs 0</span>
+  </div>
+  <button class="mobile-summary-cta" onclick="openModal()">
+    Solicitar →
+  </button>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="modal-eyebrow">Solicitar propuesta</div>
+    <h3 class="modal-title">Hablemos de <em>tu proyecto</em>.</h3>
+
+    <div class="modal-form-field">
+      <label class="modal-form-label">Nombre</label>
+      <input type="text" id="m-name" placeholder="Tu nombre">
+    </div>
+    <div class="modal-form-field">
+      <label class="modal-form-label">WhatsApp o email</label>
+      <input type="text" id="m-contact" placeholder="+595... o tu@correo.com">
+    </div>
+    <div class="modal-form-field">
+      <label class="modal-form-label">Notas (opcional)</label>
+      <textarea id="m-notes" rows="2" placeholder="Algo que sumar al brief"></textarea>
+    </div>
+
+    <button class="modal-cta" onclick="sendWhatsApp()">
+      Enviar por WhatsApp <span>→</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="footer-brand">SOPH<span class="accent">Ē</span></div>
-  <p>Ciudad del Este, Paraguay · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ae9f5eaf2ffe9eeeffef3f5dafdf7fbf3f6b4f9f5f7">[email&#160;protected]</a></p>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <svg width="100" height="28" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="130" font-family="Switzer, sans-serif" font-weight="500" font-size="160" fill="#EDE8DD" letter-spacing="-7">sophē</text>
+        <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+      </svg>
+    </a>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#work">Trabajo</a>
+      <a href="index.html#services">Servicios</a>
+      <a href="index.html#contact">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2026 Sophē · CDE</div>
+  </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const SERVICES = [
-  {
-    category: "Branding & Identidad",
-    num: "01",
-    items: [
-      { id: "branding", name: "Branding completo", desc: "Logo + paleta + tipografías + manual de marca", price: 2200000, hasQty: false },
-      { id: "rebranding", name: "Rebranding", desc: "Rediseño de identidad visual existente", price: 1750000, hasQty: false },
-      { id: "subbranding", name: "Sub-branding", desc: "Extensión de marca para línea o producto", price: 1000000, hasQty: false },
-      { id: "manual", name: "Mini manual de marca", desc: "Guía básica de uso de identidad visual", price: 700000, hasQty: false },
-    ]
-  },
-  {
-    category: "Producto & Packaging",
-    num: "02",
-    items: [
-      { id: "etiqueta", name: "Etiqueta de producto", desc: "Diseño original listo para impresión", price: 800000, hasQty: true, qtyLabel: "Cantidad de diseños originales" },
-      { id: "etiqueta-adapt", name: "Adaptación de etiqueta", desc: "Variación de sabor, color o presentación", price: 175000, hasQty: true, qtyLabel: "Cantidad de adaptaciones" },
-      { id: "packaging", name: "Packaging / Exhibidor POP", desc: "Diseño estructural + aplicación de marca", price: 1000000, hasQty: false },
-    ]
-  },
-  {
-    category: "Editorial & Corporativo",
-    num: "03",
-    items: [
-      { id: "menu-basico", name: "Menú básico", desc: "Hasta 8 páginas, diseño editorial completo", price: 800000, hasQty: false },
-      { id: "menu-premium", name: "Menú premium", desc: "12+ páginas con fotografía y composición editorial", price: 1300000, hasQty: false },
-      { id: "catalogo", name: "Catálogo corporativo", desc: "Diseño editorial extenso con sistema visual", price: 2200000, hasQty: false },
-      { id: "triptico", name: "Tríptico / Flyer", desc: "Pieza impresa promocional o informativa", price: 400000, hasQty: true, qtyLabel: "Cantidad de diseños" },
-    ]
-  },
-  {
-    category: "Contenido Digital",
-    num: "04",
-    items: [
-      { id: "flyer", name: "Flyer / Post", desc: "Post o story individual para redes sociales", price: 85000, hasQty: true, qtyLabel: "Cantidad de piezas" },
-      { id: "carrusel", name: "Carrusel", desc: "Contenido educativo o storytelling deslizable. Precio: base 60.000 + 10.000 por slide.", price: 60000, hasQty: true, hasSlides: true, qtyLabel: "Cantidad de carruseles" },
-      { id: "historia", name: "Historia / Story", desc: "Diseño para formato vertical de Instagram Stories", price: 60000, hasQty: true, qtyLabel: "Cantidad de historias" },
-      { id: "plan-mensual", name: "Plan mensual de contenido", desc: "Contenido mensual para redes sociales — cantidad y tipo de piezas a coordinar", price: 0, hasQty: false, cotizar: true },
-    ]
+<script>
+  // STATE
+  const state = {
+    items: {} // { id: { id, name, price, qty } }
+  };
+
+  const formatGs = (n) => 'Gs ' + n.toLocaleString('es-PY').replace(/,/g, '.');
+
+  function getDiscount(itemCount) {
+    if (itemCount >= 4) return 0.15;
+    if (itemCount >= 3) return 0.10;
+    if (itemCount >= 2) return 0.05;
+    return 0;
   }
-];
 
-let selected = {};
+  function calcTotals() {
+    const items = Object.values(state.items);
+    const subtotal = items.reduce((s, i) => s + (i.price * i.qty), 0);
+    const itemCount = items.length;
+    const discPct = getDiscount(itemCount);
+    const discount = Math.round(subtotal * discPct);
+    const total = subtotal - discount;
+    return { items, subtotal, itemCount, discPct, discount, total };
+  }
 
-function formatGs(n) {
-  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
+  function render() {
+    const { items, subtotal, discPct, discount, total } = calcTotals();
+    const empty = document.getElementById('sb-empty');
+    const list = document.getElementById('sb-list');
+    const summary = document.getElementById('sb-summary');
+    const cta = document.getElementById('cta-btn');
+    const mobileSum = document.getElementById('mobile-summary');
 
-function render() {
-  const col = document.getElementById('services');
-  col.innerHTML = '';
+    if (items.length === 0) {
+      empty.style.display = 'block';
+      list.style.display = 'none';
+      summary.style.display = 'none';
+      cta.disabled = true;
+      mobileSum.style.display = 'none';
+      return;
+    }
 
-  SERVICES.forEach(cat => {
-    const div = document.createElement('div');
-    div.className = 'category';
-    div.innerHTML = `
-      <div class="category-header">
-        <span class="category-num">${cat.num}</span>
-        <span class="category-title">${cat.category}</span>
-        <span class="category-line"></span>
+    empty.style.display = 'none';
+    list.style.display = 'flex';
+    summary.style.display = 'block';
+    cta.disabled = false;
+    if (window.innerWidth <= 1024) mobileSum.style.display = 'grid';
+
+    list.innerHTML = items.map(it => `
+      <div class="sb-item">
+        <div>
+          <div class="sb-item-name">${it.name}</div>
+          ${it.qty > 1 ? `<div class="sb-item-qty">${it.qty} × ${formatGs(it.price)}</div>` : ''}
+        </div>
+        <div>
+          <div class="sb-item-price">${formatGs(it.price * it.qty)}</div>
+          <button class="sb-item-remove" onclick="removeItem('${it.id}')">Quitar</button>
+        </div>
       </div>
-    `;
+    `).join('');
 
-    cat.items.forEach(item => {
-      const isSelected = !!selected[item.id];
-      const qty = selected[item.id]?.qty || 1;
+    document.getElementById('sub-subtotal').textContent = formatGs(subtotal);
+    document.getElementById('sub-total').textContent = formatGs(total);
+    document.getElementById('mob-total').textContent = formatGs(total);
 
-      const card = document.createElement('div');
-      card.className = `service${isSelected ? ' selected' : ''}`;
-      card.innerHTML = `
-        <div class="service-info">
-          <div class="service-name">${item.name}</div>
-          <div class="service-desc">${item.desc}</div>
-        </div>
-        <div class="service-price">
-          ${item.cotizar
-            ? `<div class="service-amount cotizar-tag">A cotizar</div>`
-            : `<div class="service-desde">Precio:</div>
-               <div class="service-amount"><span class="currency">Gs</span> ${formatGs(item.price)}</div>`
-          }
-        </div>
-        ${isSelected && item.hasQty ? (() => {
-          const slides = selected[item.id]?.slides || 6;
-          const carruselUnitPrice = item.hasSlides ? (60000 + slides * 10000) : item.price;
-          const subtotal = carruselUnitPrice * qty;
-          return `
-          <div class="qty-row">
-            <span class="qty-label">${item.qtyLabel}:</span>
-            <div class="qty-controls">
-              <button class="qty-btn" data-id="${item.id}" data-action="dec">−</button>
-              <div class="qty-value">${qty}</div>
-              <button class="qty-btn" data-id="${item.id}" data-action="inc">+</button>
-            </div>
-            <span class="qty-subtotal">Gs ${formatGs(subtotal)}</span>
-          </div>
-          ${item.hasSlides ? `
-          <div class="qty-row slides-row">
-            <span class="qty-label">Slides por carrusel:</span>
-            <div class="slides-selector">
-              ${[4,5,6,7,8,9,10].map(n => `<button class="slide-opt${slides===n?' active':''}" data-id="${item.id}" data-slides="${n}">${n}</button>`).join('')}
-            </div>
-          </div>` : ''}
-        `})() : ''}
-      `;
+    const discRow = document.getElementById('sb-discount-row');
+    if (discount > 0) {
+      discRow.style.display = 'flex';
+      document.getElementById('sub-discount').textContent = '— ' + formatGs(discount);
+      document.getElementById('sub-discpct').textContent = `(${(discPct*100).toFixed(0)}%)`;
+    } else {
+      discRow.style.display = 'none';
+    }
+  }
 
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('.qty-btn')) return;
-        toggleService(item);
-      });
+  function toggleService(el) {
+    const id = el.dataset.id;
+    if (state.items[id]) {
+      delete state.items[id];
+      el.classList.remove('active');
+    } else {
+      state.items[id] = {
+        id,
+        name: el.dataset.name,
+        price: parseInt(el.dataset.price),
+        qty: 1
+      };
+      el.classList.add('active');
+      const input = el.querySelector('.qty-input');
+      if (input) input.value = 1;
+    }
+    updateSubtotalLabel(el);
+    render();
+  }
 
-      div.appendChild(card);
+  function updateSubtotalLabel(el) {
+    const sub = el.querySelector('.qty-sub');
+    if (!sub) return;
+    const id = el.dataset.id;
+    if (state.items[id]) {
+      sub.textContent = formatGs(state.items[id].price * state.items[id].qty);
+    }
+  }
+
+  function removeItem(id) {
+    delete state.items[id];
+    document.querySelector(`.service[data-id="${id}"]`)?.classList.remove('active');
+    render();
+  }
+
+  // Event listeners
+  document.querySelectorAll('.service').forEach(el => {
+    el.addEventListener('click', (e) => {
+      // Skip clicks on quantity controls
+      if (e.target.closest('.qty-row')) return;
+      toggleService(el);
     });
-
-    col.appendChild(div);
   });
 
-  // Quantity buttons
   document.querySelectorAll('.qty-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const id = btn.dataset.id;
-      const action = btn.dataset.action;
-      if (action === 'inc') selected[id].qty++;
-      if (action === 'dec' && selected[id].qty > 1) selected[id].qty--;
-      render();
-    });
-  });
-  // Slides selector buttons
-  document.querySelectorAll('.slide-opt').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const id = btn.dataset.id;
-      const slides = parseInt(btn.dataset.slides);
-      if (selected[id]) selected[id].slides = slides;
-      render();
+      const service = btn.closest('.service');
+      const input = service.querySelector('.qty-input');
+      const id = service.dataset.id;
+      let val = parseInt(input.value) || 1;
+
+      if (btn.dataset.action === 'inc' && val < 50) val++;
+      if (btn.dataset.action === 'dec' && val > 1) val--;
+      input.value = val;
+
+      if (state.items[id]) {
+        state.items[id].qty = val;
+        updateSubtotalLabel(service);
+        render();
+      }
     });
   });
 
-  renderSummary();
-}
+  document.querySelectorAll('.qty-input').forEach(input => {
+    input.addEventListener('click', e => e.stopPropagation());
+    input.addEventListener('input', (e) => {
+      const service = e.target.closest('.service');
+      const id = service.dataset.id;
+      let val = parseInt(e.target.value) || 1;
+      if (val < 1) val = 1;
+      if (val > 50) val = 50;
+      e.target.value = val;
+      if (state.items[id]) {
+        state.items[id].qty = val;
+        updateSubtotalLabel(service);
+        render();
+      }
+    });
+  });
 
-function toggleService(item) {
-  if (item.cotizar) return; // cotizar items not selectable for price calc
-  if (selected[item.id]) {
-    delete selected[item.id];
-  } else {
-    selected[item.id] = { ...item, qty: 1, slides: item.hasSlides ? 6 : undefined };
+  // CTA
+  document.getElementById('cta-btn').addEventListener('click', openModal);
+
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  render();
-}
-
-function removeService(id) {
-  delete selected[id];
-  render();
-}
-
-function getTotalPieces() {
-  const digitalIds = ['flyer', 'carrusel', 'historia', 'etiqueta', 'etiqueta-adapt', 'triptico'];
-  let pieces = 0;
-  Object.values(selected).forEach(s => {
-    if (digitalIds.includes(s.id)) pieces += (s.qty || 1);
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal').addEventListener('click', (e) => {
+    if (e.target.id === 'modal') closeModal();
   });
-  return pieces;
-}
 
-function getDiscount() {
-  const pieces = getTotalPieces();
-  const serviceCount = Object.keys(selected).length;
-  // Volume discount by pieces
-  if (pieces >= 15) return { pct: 15, label: '15% · volumen 15+ piezas' };
-  if (pieces >= 10) return { pct: 10, label: '10% · volumen 10+ piezas' };
-  if (pieces >= 5)  return { pct: 5,  label: '5% · volumen 5+ piezas' };
-  // Fallback: discount by number of different services
-  if (serviceCount >= 4) return { pct: 10, label: '10% · paquete múltiple' };
-  if (serviceCount >= 2) return { pct: 5,  label: '5% · combo de servicios' };
-  return null;
-}
+  function sendWhatsApp() {
+    const name = document.getElementById('m-name').value.trim();
+    const contact = document.getElementById('m-contact').value.trim();
+    const notes = document.getElementById('m-notes').value.trim();
+    const { items, subtotal, discPct, discount, total } = calcTotals();
 
-function getCarruselPrice(s) {
-  const slides = s.slides || 6;
-  return (60000 + slides * 10000) * (s.qty || 1);
-}
+    if (!name) { alert('Decime tu nombre'); return; }
 
-function getSubtotal() {
-  let total = 0;
-  Object.values(selected).forEach(s => {
-    if (s.cotizar) return;
-    if (s.hasSlides) {
-      total += getCarruselPrice(s);
+    let msg = `Hola Sophē, soy ${name}.\n\n`;
+    msg += `*Servicios seleccionados:*\n`;
+    items.forEach(it => {
+      msg += `• ${it.name}${it.qty > 1 ? ` × ${it.qty}` : ''} — ${formatGs(it.price * it.qty)}\n`;
+    });
+    msg += `\n*Subtotal:* ${formatGs(subtotal)}`;
+    if (discount > 0) {
+      msg += `\n*Descuento:* — ${formatGs(discount)} (${(discPct*100).toFixed(0)}%)`;
+    }
+    msg += `\n*Total estimado:* ${formatGs(total)}`;
+    if (contact) msg += `\n\nMi contacto: ${contact}`;
+    if (notes) msg += `\n\nNotas: ${notes}`;
+
+    const wa = 'https://wa.me/595992391964?text=' + encodeURIComponent(msg);
+    window.open(wa, '_blank');
+  }
+
+  // Resize listener for mobile summary
+  window.addEventListener('resize', () => {
+    const items = Object.values(state.items);
+    const mobileSum = document.getElementById('mobile-summary');
+    if (items.length > 0 && window.innerWidth <= 1024) {
+      mobileSum.style.display = 'grid';
     } else {
-      total += s.price * (s.qty || 1);
+      mobileSum.style.display = 'none';
     }
   });
-  return total;
-}
-
-function renderSummary() {
-  const content = document.getElementById('summary-content');
-  const items = Object.values(selected);
-
-  if (items.length === 0) {
-    content.innerHTML = `
-      <div class="summary-empty">
-        <div class="summary-empty-icon">S</div>
-        Seleccioná servicios para<br>armar tu presupuesto
-      </div>
-    `;
-    return;
-  }
-
-  const subtotal = getSubtotal();
-  const discount = getDiscount();
-  const discountAmount = discount ? Math.round(subtotal * discount.pct / 100) : 0;
-  const total = subtotal - discountAmount;
-
-  let html = '<div class="summary-items">';
-  items.forEach(s => {
-    const qty = s.qty || 1;
-    html += `
-      <div class="summary-item">
-        <div>
-          <div class="summary-item-name">${s.name}</div>
-          ${qty > 1 ? `<div class="summary-item-qty">× ${qty} unidades</div>` : ''}
-        </div>
-        <div class="summary-item-price">Gs ${formatGs(s.price * qty)}</div>
-        <button class="remove-btn" onclick="event.stopPropagation(); removeService('${s.id}')">×</button>
-      </div>
-    `;
-  });
-  html += '</div>';
-
-  if (discount) {
-    html += `
-      <div class="discount-row">
-        <div class="discount-label">Descuento <span class="discount-badge">${discount.label}</span></div>
-        <div class="discount-amount">- Gs ${formatGs(discountAmount)}</div>
-      </div>
-    `;
-  }
-
-  html += `
-    <div class="summary-total">
-      <div>
-        <div class="total-label">Estimado desde</div>
-      </div>
-      <div>
-        <div class="total-amount"><span class="currency">Gs</span> ${formatGs(total)}</div>
-        <div class="iva-note">+ IVA</div>
-      </div>
-    </div>
-    <div class="total-note">*Precio referencial sujeto a proyecto</div>
-    <button class="cta-btn" onclick="openModal()">Solicitar presupuesto</button>
-    <button class="cta-secondary" onclick="clearAll()">Limpiar selección</button>
-  `;
-
-  content.innerHTML = html;
-}
-
-function openModal() {
-  const items = Object.values(selected);
-  if (items.length === 0) return;
-
-  const subtotal = getSubtotal();
-  const discount = getDiscount();
-  const discountAmount = discount ? Math.round(subtotal * discount.pct / 100) : 0;
-  const total = subtotal - discountAmount;
-
-  let summary = '<strong>Servicios seleccionados:</strong><br>';
-  items.forEach(s => {
-    const qty = s.qty || 1;
-    summary += `• ${s.name}${qty > 1 ? ` (×${qty})` : ''}<br>`;
-  });
-  summary += `<br><strong>Estimado desde: Gs ${formatGs(total)}</strong>`;
-  if (discount) summary += ` <small>(${discount.label})</small>`;
-
-  document.getElementById('modal-summary').innerHTML = summary;
-  document.getElementById('modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-function sendRequest() {
-  const name = document.getElementById('f-name').value;
-  const contact = document.getElementById('f-contact').value;
-  const details = document.getElementById('f-details').value;
-
-  if (!name || !contact) {
-    alert('Por favor completá tu nombre y contacto.');
-    return;
-  }
-
-  // Build WhatsApp message
-  const items = Object.values(selected);
-  const subtotal = getSubtotal();
-  const discount = getDiscount();
-  const discountAmount = discount ? Math.round(subtotal * discount.pct / 100) : 0;
-  const total = subtotal - discountAmount;
-
-  let msg = `Hola! Soy ${name}, te contacto desde el simulador de Sophē.\n\n`;
-  msg += `*Servicios que me interesan:*\n`;
-  items.forEach(s => {
-    const qty = s.qty || 1;
-    msg += `• ${s.name}${qty > 1 ? ` (×${qty})` : ''} — Gs ${formatGs(s.price * qty)}\n`;
-  });
-  if (discount) msg += `\nDescuento: ${discount.label}\n`;
-  msg += `\n*Estimado desde: Gs ${formatGs(total)}*\n`;
-  if (details) msg += `\n*Sobre mi proyecto:*\n${details}\n`;
-  msg += `\nContacto: ${contact}`;
-
-  const encoded = encodeURIComponent(msg);
-  const whatsappURL = `https://wa.me/595?text=${encoded}`;
-
-  // Show success
-  document.getElementById('modal-body').innerHTML = `
-    <div class="success-msg">
-      <div class="check">✦</div>
-      <h3>¡Solicitud lista!</h3>
-      <p>Te redirigimos a WhatsApp para enviar tu consulta.</p>
-    </div>
-  `;
-
-  setTimeout(() => {
-    window.open(whatsappURL, '_blank');
-  }, 1200);
-
-  setTimeout(() => { modal.remove(); }, 3000);
-}
-
-// Init
-document.addEventListener('DOMContentLoaded', () => { render(); });
 </script>
+
 </body>
 </html>
