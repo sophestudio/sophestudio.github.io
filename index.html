@@ -9,6 +9,11 @@
 <meta property="og:description" content="Estudio de diseño y branding en CDE. Marcas que duran.">
 <meta property="og:type" content="website">
 
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<meta name="theme-color" content="#1A1A1A">
+
 <style>
   @font-face {
     font-family: 'Switzer';
@@ -352,8 +357,97 @@
   }
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* PORTRAIT */
+  .about-portrait {
+    position: relative;
+  }
+  .portrait-frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .portrait-frame::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px;
+    width: 16px; height: 16px;
+    border-top: 1px solid rgba(237,232,221,0.3);
+    border-left: 1px solid rgba(237,232,221,0.3);
+    z-index: 3;
+  }
+  .portrait-frame::after {
+    content: '';
+    position: absolute;
+    bottom: 16px; right: 16px;
+    width: 16px; height: 16px;
+    border-bottom: 1px solid rgba(237,232,221,0.3);
+    border-right: 1px solid rgba(237,232,221,0.3);
+    z-index: 3;
+  }
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.05) saturate(0.95);
+  }
+  .portrait-fallback {
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--bone);
+  }
+  .portrait-frame.no-image img { display: none; }
+  .portrait-frame.no-image .portrait-fallback { display: flex; }
+  .fallback-letter {
+    font-weight: 500;
+    font-size: 200px;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    position: relative;
+    color: var(--bone);
+  }
+  .fallback-letter::before {
+    content: '';
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 6px;
+    background: var(--clay);
+  }
+  .portrait-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 24px 24px;
+    background: linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0) 100%);
+    color: var(--bone);
+    z-index: 2;
+  }
+  .portrait-name {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .portrait-role {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
   }
   .about-meta {
     font-size: 11px;
@@ -1014,9 +1108,177 @@
     font-weight: 500;
     letter-spacing: -0.04em;
   }
+  /* ============ INTRO ANIMATION ============ */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .intro-overlay.gone {
+    transform: translateY(-100%);
+    transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  /* Esquinitas que se dibujan */
+  .intro-corner {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.1s;
+  }
+  .intro-corner.show { opacity: 1; }
+  .intro-corner.tl { top: 32px; left: 32px; border-top: 1px solid var(--line-on-ink); border-left: 1px solid var(--line-on-ink); }
+  .intro-corner.tr { top: 32px; right: 32px; border-top: 1px solid var(--line-on-ink); border-right: 1px solid var(--line-on-ink); }
+  .intro-corner.bl { bottom: 32px; left: 32px; border-bottom: 1px solid var(--line-on-ink); border-left: 1px solid var(--line-on-ink); }
+  .intro-corner.br { bottom: 32px; right: 32px; border-bottom: 1px solid var(--line-on-ink); border-right: 1px solid var(--line-on-ink); }
+
+  .intro-meta {
+    position: absolute;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.4);
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.6s ease 0.3s;
+  }
+  .intro-meta.show { opacity: 1; }
+  .intro-meta.tl { top: 56px; left: 70px; }
+  .intro-meta.br { bottom: 56px; right: 70px; text-align: right; }
+
+  .intro-mark {
+    text-align: center;
+    position: relative;
+  }
+  .intro-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+  }
+  .intro-eyebrow.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .intro-wordmark {
+    font-weight: 500;
+    font-size: clamp(64px, 12vw, 160px);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: var(--bone);
+    display: inline-block;
+    position: relative;
+  }
+  .intro-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .intro-letter.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Macron sobre la e con animación de "escritura" */
+  .intro-macron {
+    position: absolute;
+    background: var(--clay);
+    height: 5px;
+    width: 0;
+    transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  .intro-macron.show { width: var(--macron-width, 60px); }
+
+  .intro-tag {
+    margin-top: 24px;
+    font-size: 12px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.4);
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.6s ease 0.2s;
+  }
+  .intro-tag.show { opacity: 1; }
+
+  /* Body lock during intro */
+  body.intro-active {
+    overflow: hidden;
+  }
+  body.intro-active main,
+  body.intro-active nav,
+  body.intro-active section,
+  body.intro-active footer,
+  body.intro-active .wa-float {
+    opacity: 0;
+  }
+  body.intro-done main,
+  body.intro-done nav,
+  body.intro-done section,
+  body.intro-done footer,
+  body.intro-done .wa-float {
+    opacity: 1;
+    transition: opacity 0.6s ease 0.4s;
+  }
+
+  @media (max-width: 600px) {
+    .intro-corner { width: 20px; height: 20px; top: 20px; left: 20px; }
+    .intro-corner.tr { right: 20px; left: auto; top: 20px; }
+    .intro-corner.bl { bottom: 20px; left: 20px; top: auto; }
+    .intro-corner.br { bottom: 20px; right: 20px; top: auto; left: auto; }
+    .intro-meta { display: none; }
+  }
+
+  /* Si el user prefiere reducir movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .intro-overlay,
+    .intro-corner,
+    .intro-meta,
+    .intro-letter,
+    .intro-eyebrow,
+    .intro-tag,
+    .intro-macron {
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      width: var(--macron-width, 60px) !important;
+    }
+    .intro-overlay { display: none; }
+  }
+
 </style>
 </head>
-<body>
+<body class="intro-active">
+
+<!-- ============ INTRO ANIMATION ============ -->
+<div class="intro-overlay" id="intro">
+  <div class="intro-corner tl" id="ic-tl"></div>
+  <div class="intro-corner tr" id="ic-tr"></div>
+  <div class="intro-corner bl" id="ic-bl"></div>
+  <div class="intro-corner br" id="ic-br"></div>
+
+  <div class="intro-meta tl" id="im-tl">SOPHĒ ✦ DESIGN STUDIO</div>
+  <div class="intro-meta br" id="im-br">CDE · 2026</div>
+
+  <div class="intro-mark">
+    <div class="intro-eyebrow" id="ie-1">— Estudio de diseño —</div>
+    <div class="intro-wordmark" id="iw">
+      <span class="intro-letter" id="il-1">s</span><span class="intro-letter" id="il-2">o</span><span class="intro-letter" id="il-3">p</span><span class="intro-letter" id="il-4">h</span><span class="intro-letter" id="il-5" style="position: relative;">e<span class="intro-macron" id="im-macron"></span></span>
+    </div>
+    <div class="intro-tag" id="it-1">Marcas que envejecen bien</div>
+  </div>
+</div>
 
 <!-- ============ NAV ============ -->
 <nav>
@@ -1102,9 +1364,26 @@
 
 <section class="about">
   <div class="about-grid">
+    <div class="about-portrait">
+      <div class="portrait-frame">
+        <img src="sofia-portrait.jpg" alt="Sofía Cabañas — Founder y Creative Director de Sophē Design Studio" onerror="this.parentElement.classList.add('no-image')">
+        <div class="portrait-fallback">
+          <span class="fallback-letter">s</span>
+        </div>
+        <div class="portrait-overlay">
+          <div class="portrait-name">Sofía Cabañas</div>
+          <div class="portrait-role">Founder · Creative Director</div>
+        </div>
+      </div>
+    </div>
     <div>
       <div class="about-meta">El estudio</div>
       <p class="about-statement">Sophē es <em>Sofía Cabañas</em>. Diseñadora gráfica con base en Ciudad del Este. +3 años, 2 agencias como Senior In-House.</p>
+
+      <div class="about-body" style="margin-bottom: 32px;">
+        <p>Hay marcas que se explican. Y hay marcas que se sienten.</p>
+        <p>Trabajamos con criterio editorial. Sistemas que funcionan en góndola, en pantalla y en cinco años. Sin atajos, sin templates, sin tendencias prestadas.</p>
+      </div>
 
       <div class="about-credentials">
         <div>
@@ -1123,13 +1402,6 @@
           <div class="credential-num">100%</div>
           <div class="credential-label">Cliente directo</div>
         </div>
-      </div>
-    </div>
-    <div>
-      <div class="about-meta">Filosofía</div>
-      <div class="about-body">
-        <p>Hay marcas que se explican. Y hay marcas que se sienten.</p>
-        <p>Trabajamos con criterio editorial. Sistemas que funcionan en góndola, en pantalla y en cinco años. Sin atajos, sin templates, sin tendencias prestadas.</p>
       </div>
     </div>
   </div>
@@ -1272,7 +1544,7 @@
 
     <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--line-on-ink); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
       <div style="font-size: 13px; color: rgba(237,232,221,0.7); max-width: 600px; line-height: 1.6;">
-        Descuento por volumen — <span style="color: var(--clay); font-weight: 700;">5% / 10% / 15%</span>.
+        Cotizamos como sistema, no como suma de partes. Para proyectos que combinan varios servicios, <span style="color: var(--clay); font-weight: 700;">armamos una propuesta integral</span>.
       </div>
       <a href="sophe-simulador-presupuesto.html" class="btn-primary">
         Calcular tu presupuesto <span class="arrow">→</span>
@@ -1440,7 +1712,7 @@
         <div class="contact-info">
           <div class="contact-info-item">
             <span class="contact-info-label">Email</span>
-            <span class="contact-info-value"><a href="mailto:hola@sophe.studio">hola@sophe.studio</a></span>
+            <span class="contact-info-value"><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></span>
           </div>
           <div class="contact-info-item">
             <span class="contact-info-label">WhatsApp</span>
@@ -1526,7 +1798,7 @@
           <li><a href="https://instagram.com/sophe.studio" target="_blank">Instagram</a></li>
           <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
           <li><a href="https://wa.me/595992391964">WhatsApp</a></li>
-          <li><a href="mailto:hola@sophe.studio">Email</a></li>
+          <li><a href="mailto:sophestudio@gmail.com">Email</a></li>
           <li><a href="sophe-simulador-presupuesto.html">Simulador</a></li>
         </ul>
       </div>
@@ -1548,7 +1820,73 @@
 </a>
 
 <script>
-  // Fade in on scroll (lightweight)
+  // ============ INTRO ANIMATION ============
+  (function intro() {
+    const overlay = document.getElementById('intro');
+    if (!overlay) return;
+
+    // Skip animation on subsequent visits within session
+    if (sessionStorage.getItem('sophe_intro_seen')) {
+      overlay.style.display = 'none';
+      document.body.classList.remove('intro-active');
+      document.body.classList.add('intro-done');
+      return;
+    }
+
+    // Calculate macron width based on the "e" letter
+    setTimeout(() => {
+      const eLetter = document.getElementById('il-5');
+      const macron = document.getElementById('im-macron');
+      if (eLetter && macron) {
+        const width = eLetter.offsetWidth * 0.7;
+        macron.style.setProperty('--macron-width', width + 'px');
+        macron.style.left = ((eLetter.offsetWidth - width) / 2) + 'px';
+        macron.style.top = '0.14em';
+      }
+    }, 50);
+
+    const steps = [
+      // 1. Esquinitas técnicas
+      [100, () => {
+        document.getElementById('ic-tl').classList.add('show');
+        document.getElementById('ic-tr').classList.add('show');
+        document.getElementById('ic-bl').classList.add('show');
+        document.getElementById('ic-br').classList.add('show');
+      }],
+      // 2. Metadata corners
+      [300, () => {
+        document.getElementById('im-tl').classList.add('show');
+        document.getElementById('im-br').classList.add('show');
+      }],
+      // 3. Eyebrow
+      [400, () => document.getElementById('ie-1').classList.add('show')],
+      // 4. Letras del wordmark, una por una
+      [600, () => document.getElementById('il-1').classList.add('show')],
+      [700, () => document.getElementById('il-2').classList.add('show')],
+      [800, () => document.getElementById('il-3').classList.add('show')],
+      [900, () => document.getElementById('il-4').classList.add('show')],
+      [1000, () => document.getElementById('il-5').classList.add('show')],
+      // 5. Macron en clay (el momento clave)
+      [1300, () => document.getElementById('im-macron').classList.add('show')],
+      // 6. Tagline
+      [1700, () => document.getElementById('it-1').classList.add('show')],
+      // 7. Salida
+      [2400, () => {
+        overlay.classList.add('gone');
+        document.body.classList.remove('intro-active');
+        document.body.classList.add('intro-done');
+        sessionStorage.setItem('sophe_intro_seen', '1');
+      }],
+      // 8. Cleanup
+      [3500, () => {
+        overlay.style.display = 'none';
+      }]
+    ];
+
+    steps.forEach(([delay, fn]) => setTimeout(fn, delay));
+  })();
+
+  // ============ FADE IN ON SCROLL ============
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

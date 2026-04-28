@@ -512,6 +512,50 @@
   }
   .sb-cta:disabled:hover { background: rgba(237,232,221,0.1); }
 
+  .sb-clear {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--line-on-ink);
+    color: rgba(237,232,221,0.6);
+    padding: 14px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .sb-clear:hover {
+    border-color: var(--clay);
+    color: var(--clay);
+  }
+
+  /* Suggestion banner */
+  .suggestion {
+    background: rgba(192,74,43,0.12);
+    border-left: 2px solid var(--clay);
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--bone);
+    display: none;
+  }
+  .suggestion.show { display: block; }
+  .suggestion strong {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
   .sb-note {
     margin-top: 16px;
     font-size: 11px;
@@ -1088,13 +1132,18 @@
 
     <div class="sb-list" id="sb-list" style="display: none;"></div>
 
+    <div class="suggestion" id="suggestion">
+      <strong>Sugerencia</strong>
+      <span id="suggestion-text"></span>
+    </div>
+
     <div class="sb-summary" id="sb-summary" style="display: none;">
       <div class="sum-row">
         <span class="label">Subtotal</span>
         <span class="val" id="sub-subtotal">Gs 0</span>
       </div>
       <div class="sum-row discount" id="sb-discount-row" style="display: none;">
-        <span class="label">Descuento por volumen <span id="sub-discpct"></span></span>
+        <span class="label">Desc. en piezas <span id="sub-discpct"></span></span>
         <span class="val" id="sub-discount">— Gs 0</span>
       </div>
       <div class="sum-row total">
@@ -1108,7 +1157,7 @@
     </button>
 
     <p class="sb-note">
-      Precios "Desde". El presupuesto final se confirma en la propuesta formal.
+      Precios "Desde". Descuento aplicado solo en piezas individuales (5+ piezas: 5%, 8+ piezas: 10%).
     </p>
   </aside>
 
@@ -1183,25 +1232,61 @@
 
   const formatGs = (n) => 'Gs ' + n.toLocaleString('es-PY').replace(/,/g, '.');
 
-  function getDiscount(itemCount) {
-    if (itemCount >= 4) return 0.15;
-    if (itemCount >= 3) return 0.10;
-    if (itemCount >= 2) return 0.05;
+  function getPiezaDiscount(qty) {
+    if (qty >= 8) return 0.10;
+    if (qty >= 5) return 0.05;
     return 0;
   }
 
   function calcTotals() {
     const items = Object.values(state.items);
-    const subtotal = items.reduce((s, i) => s + (i.price * i.qty), 0);
-    const itemCount = items.length;
-    const discPct = getDiscount(itemCount);
-    const discount = Math.round(subtotal * discPct);
+    let subtotal = 0;
+    let discount = 0;
+    let piezaItem = null;
+
+    items.forEach(it => {
+      const itemSubtotal = it.price * it.qty;
+      subtotal += itemSubtotal;
+
+      // Discount applies ONLY to "pieza" individual
+      if (it.id === 'pieza') {
+        const discPct = getPiezaDiscount(it.qty);
+        discount += Math.round(itemSubtotal * discPct);
+        piezaItem = it;
+      }
+    });
+
     const total = subtotal - discount;
-    return { items, subtotal, itemCount, discPct, discount, total };
+    const piezaDiscPct = piezaItem ? getPiezaDiscount(piezaItem.qty) : 0;
+
+    return { items, subtotal, discount, total, piezaItem, piezaDiscPct };
+  }
+
+  function updateSuggestion(items) {
+    const sug = document.getElementById('suggestion');
+    const sugText = document.getElementById('suggestion-text');
+    const pieza = items.find(i => i.id === 'pieza');
+    const hasPlan = items.some(i => i.id === 'plan-8' || i.id === 'plan-12' || i.id === 'plan-16');
+
+    if (!pieza || hasPlan) {
+      sug.classList.remove('show');
+      return;
+    }
+
+    // Sugerencia: si tiene 8+ piezas individuales, conviene plan
+    if (pieza.qty >= 8) {
+      sugText.textContent = `Con ${pieza.qty} piezas individuales te conviene el Plan 8 piezas/mes (Gs 570.000) — pagás menos por pieza.`;
+      sug.classList.add('show');
+    } else if (pieza.qty >= 6) {
+      sugText.textContent = `Si vas a publicar mensualmente, mirá el Plan 8 piezas — sale más conveniente.`;
+      sug.classList.add('show');
+    } else {
+      sug.classList.remove('show');
+    }
   }
 
   function render() {
-    const { items, subtotal, discPct, discount, total } = calcTotals();
+    const { items, subtotal, discount, total, piezaDiscPct } = calcTotals();
     const empty = document.getElementById('sb-empty');
     const list = document.getElementById('sb-list');
     const summary = document.getElementById('sb-summary');
@@ -1214,6 +1299,7 @@
       summary.style.display = 'none';
       cta.disabled = true;
       mobileSum.style.display = 'none';
+      document.getElementById('suggestion').classList.remove('show');
       return;
     }
 
@@ -1244,10 +1330,12 @@
     if (discount > 0) {
       discRow.style.display = 'flex';
       document.getElementById('sub-discount').textContent = '— ' + formatGs(discount);
-      document.getElementById('sub-discpct').textContent = `(${(discPct*100).toFixed(0)}%)`;
+      document.getElementById('sub-discpct').textContent = `(${(piezaDiscPct*100).toFixed(0)}%)`;
     } else {
       discRow.style.display = 'none';
     }
+
+    updateSuggestion(items);
   }
 
   function toggleService(el) {
@@ -1350,7 +1438,7 @@
     const name = document.getElementById('m-name').value.trim();
     const contact = document.getElementById('m-contact').value.trim();
     const notes = document.getElementById('m-notes').value.trim();
-    const { items, subtotal, discPct, discount, total } = calcTotals();
+    const { items, subtotal, discount, total, piezaDiscPct } = calcTotals();
 
     if (!name) { alert('Decime tu nombre'); return; }
 
@@ -1361,7 +1449,7 @@
     });
     msg += `\n*Subtotal:* ${formatGs(subtotal)}`;
     if (discount > 0) {
-      msg += `\n*Descuento:* — ${formatGs(discount)} (${(discPct*100).toFixed(0)}%)`;
+      msg += `\n*Desc. en piezas (${(piezaDiscPct*100).toFixed(0)}%):* — ${formatGs(discount)}`;
     }
     msg += `\n*Total estimado:* ${formatGs(total)}`;
     if (contact) msg += `\n\nMi contacto: ${contact}`;
