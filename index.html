@@ -477,22 +477,26 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+    z-index: 2;
   }
+  /* Fallback: oculto por defecto, solo visible si .no-image */
   .studio-portrait .portrait-fallback {
     position: absolute;
     inset: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background: var(--ink);
+    overflow: hidden;
+    z-index: 1;
   }
-  .studio-portrait img[src=""] + .portrait-fallback,
   .studio-portrait.no-image .portrait-fallback {
     display: flex;
   }
   .fallback-letter {
     color: var(--bone);
-    font-size: 180px;
+    font-size: clamp(120px, 18vw, 180px);
     font-weight: 500;
     letter-spacing: -0.05em;
     line-height: 1;
@@ -503,8 +507,8 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 30px;
-    width: 50px;
+    left: 16%;
+    width: 36%;
     height: 6px;
     background: var(--clay);
   }
@@ -627,7 +631,7 @@
     <li><a href="trabajo.html">Trabajo</a></li>
     <li><a href="servicios.html">Servicios</a></li>
     <li><a href="estudio.html">Estudio</a></li>
-    <li><a href="cotizar.html">Cotizar</a></li>
+    <li><a href="sophe-simulador-presupuesto.html">Cotizar</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Conversemos <span class="arr">→</span></a>
 </nav>
@@ -779,7 +783,7 @@
   <div class="services-foot">
     <p>Cotizo como sistema, no como suma de partes. Para proyectos que combinan varios servicios, <em>armo una propuesta integral</em>.</p>
     <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-      <a href="cotizar.html" class="btn btn-ink">Calcular presupuesto <span class="arr">→</span></a>
+      <a href="sophe-simulador-presupuesto.html" class="btn btn-ink">Calcular presupuesto <span class="arr">→</span></a>
       <a href="servicios.html" class="btn-link">Ver detalle de servicios <span class="arr">→</span></a>
     </div>
   </div>
@@ -837,7 +841,7 @@
           <li><a href="trabajo.html">Trabajo</a></li>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="estudio.html">Estudio</a></li>
-          <li><a href="cotizar.html">Cotizar</a></li>
+          <li><a href="sophe-simulador-presupuesto.html">Cotizar</a></li>
         </ul>
       </div>
       <div class="footer-col">

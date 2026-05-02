@@ -6,6 +6,10 @@
    ============================================================ */
 
 /* ----- FUENTES ----- */
+/* Switzer es la fuente oficial. Si por algún motivo no carga,
+   Inter funciona como fallback decente (proporciones similares). */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 @font-face {
   font-family: 'Switzer';
   src: url('Switzer-Regular.woff2') format('woff2');
@@ -55,7 +59,7 @@
   --space-16: 128px;
 
   /* Tipografía */
-  --font: 'Switzer', system-ui, -apple-system, sans-serif;
+  --font: 'Switzer', 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Capa */
   --z-nav: 100;

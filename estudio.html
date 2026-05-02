@@ -81,24 +81,26 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+    z-index: 2;
   }
-  .portrait-frame.no-image .portrait-fallback {
-    display: flex;
-  }
+  /* Fallback: oculto por defecto, solo visible si .no-image */
   .portrait-fallback {
     position: absolute;
     inset: 0;
     background: var(--ink);
+    display: none;
     align-items: center;
     justify-content: center;
-    display: flex;
+    overflow: hidden;
+    z-index: 1;
   }
-  .portrait-frame .portrait-fallback {
+  .portrait-frame.no-image .portrait-fallback {
     display: flex;
   }
   .fallback-letter {
     color: var(--bone);
-    font-size: 220px;
+    font-size: clamp(140px, 22vw, 220px);
     font-weight: 500;
     letter-spacing: -0.05em;
     line-height: 1;
@@ -109,9 +111,9 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 36px;
-    width: 60px;
-    height: 7px;
+    left: 16%;
+    width: 36%;
+    height: 6px;
     background: var(--clay);
   }
   .portrait-meta {
@@ -166,7 +168,7 @@
   @media (max-width: 880px) {
     .sofia-grid { grid-template-columns: 1fr; gap: var(--space-4); }
     .sofia-portrait { position: static; max-width: 360px; }
-    .fallback-letter { font-size: 180px; }
+    .fallback-letter { font-size: clamp(120px, 30vw, 180px); }
   }
 
   /* ============ CONVERSA — práctica propia ============ */
@@ -498,7 +500,7 @@
     <li><a href="trabajo.html">Trabajo</a></li>
     <li><a href="servicios.html">Servicios</a></li>
     <li><a href="estudio.html" class="active">Estudio</a></li>
-    <li><a href="cotizar.html">Cotizar</a></li>
+    <li><a href="sophe-simulador-presupuesto.html">Cotizar</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Conversemos <span class="arr">→</span></a>
 </nav>
@@ -724,7 +726,7 @@
           <li><a href="trabajo.html">Trabajo</a></li>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="estudio.html">Estudio</a></li>
-          <li><a href="cotizar.html">Cotizar</a></li>
+          <li><a href="sophe-simulador-presupuesto.html">Cotizar</a></li>
         </ul>
       </div>
       <div class="footer-col">
