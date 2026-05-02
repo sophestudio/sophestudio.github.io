@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabajo — Sophē Design Studio</title>
+<meta name="description" content="Seis proyectos. Tres roles. 2024—2026. El archivo completo de Sophē Design Studio en Ciudad del Este, Paraguay.">
+<meta property="og:title" content="Trabajo — Sophē Design Studio">
+<meta property="og:description" content="Seis proyectos con contexto. Branding, packaging, línea gráfica.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#1A1A1A">
+
+<link rel="stylesheet" href="sophe.css">
+
+<style>
+  /* ============ HEADER DE PÁGINA ============ */
+  .page-header {
+    background: var(--ink);
+    color: var(--bone);
+    padding: var(--space-16) var(--space-4) var(--space-10);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .page-header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-header-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--clay);
+  }
+  .page-header h1 {
+    max-width: 16ch;
+    margin-bottom: var(--space-3);
+  }
+  .page-header-sub {
+    max-width: 56ch;
+    color: rgba(237,232,221,0.75);
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.55;
+  }
+  .page-header-meta {
+    margin-top: var(--space-8);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line-on-ink);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-3);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.5);
+    font-weight: 700;
+  }
+  .page-header-meta strong {
+    color: var(--bone);
+    margin-right: 8px;
+  }
+
+  /* ============ LISTADO EXPANDIDO DE TRABAJO ============ */
+  .work-archive {
+    padding: var(--space-10) 0 var(--space-12);
+  }
+  .archive-list {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+  .archive-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 280px;
+    gap: var(--space-6);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+    position: relative;
+    transition: padding 0.3s;
+  }
+  .archive-item::before {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--clay);
+    transition: width 0.4s ease;
+  }
+  .archive-item:hover { padding-left: var(--space-3); }
+  .archive-item:hover::before { width: 100%; }
+  .archive-num {
+    font-size: clamp(38px, 4.5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--clay);
+    line-height: 1;
+  }
+  .archive-content {
+    padding-top: 8px;
+  }
+  .archive-name {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: var(--space-2);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .archive-tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    padding: 4px 10px;
+    border: 1px solid var(--clay);
+    align-self: center;
+  }
+  .archive-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin-bottom: var(--space-3);
+  }
+  .archive-deliverables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  .archive-deliverables span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .archive-deliverables span:not(:last-child)::after {
+    content: '·';
+    margin-left: 8px;
+    color: var(--clay);
+  }
+  .archive-meta {
+    text-align: right;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-end;
+  }
+  .archive-year {
+    font-size: 14px;
+    color: var(--mute);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+  .archive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    transition: gap 0.3s;
+  }
+  .archive-link:hover { gap: 16px; }
+
+  @media (max-width: 880px) {
+    .archive-item {
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-3);
+    }
+    .archive-meta {
+      grid-column: 1 / -1;
+      text-align: left;
+      align-items: flex-start;
+      padding-top: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+  /* ============ CIERRE CON CTA ============ */
+  .archive-cta {
+    background: var(--bone-soft);
+    padding: var(--space-12) var(--space-4);
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .archive-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+  .archive-cta-eyebrow::before, .archive-cta-eyebrow::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--clay);
+  }
+  .archive-cta h2 {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 22ch;
+    margin: 0 auto var(--space-4);
+  }
+  .archive-cta-row {
+    display: inline-flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
+
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="site-nav">
+  <a href="index.html" class="logo" aria-label="Sophē — inicio">
+    <svg width="80" height="22" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="130" font-family="Switzer, sans-serif" font-weight="500" font-size="160" fill="currentColor" letter-spacing="-7">sophē</text>
+      <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+    </svg>
+  </a>
+  <ul>
+    <li><a href="trabajo.html" class="active">Trabajo</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="estudio.html">Estudio</a></li>
+    <li><a href="cotizar.html">Cotizar</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Conversemos <span class="arr">→</span></a>
+</nav>
+
+<main>
+
+<!-- ============ HEADER ============ -->
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-eyebrow">— 01 / Trabajo</div>
+    <h1>El archivo, <em>completo</em>.</h1>
+    <p class="page-header-sub">Seis proyectos. Tres roles distintos. Lo que está acá es lo que hice — con el contexto real de cómo se hizo y dónde estaba parada cuando lo hice.</p>
+
+    <div class="page-header-meta">
+      <span><strong>06</strong> Proyectos</span>
+      <span><strong>2024—2026</strong> Período</span>
+      <span><strong>Branding · Packaging · Editorial</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Klik</span>
+    <span class="marquee-item">Conversa</span>
+    <span class="marquee-item">VitaMarket</span>
+    <span class="marquee-item">Ellaphant</span>
+    <span class="marquee-item">Kapta</span>
+    <span class="marquee-item">Instituto Supremo</span>
+    <span class="marquee-item">Sales System</span>
+    <span class="marquee-item">Klik</span>
+    <span class="marquee-item">Conversa</span>
+    <span class="marquee-item">VitaMarket</span>
+    <span class="marquee-item">Ellaphant</span>
+    <span class="marquee-item">Kapta</span>
+    <span class="marquee-item">Instituto Supremo</span>
+    <span class="marquee-item">Sales System</span>
+  </div>
+</div>
+
+<!-- ============ ARCHIVO ============ -->
+<section class="work-archive">
+  <div class="archive-list">
+
+    <!-- 001 — KLIK -->
+    <a href="https://www.behance.net/gallery/243457355/Branding-Linea-grafica-Klik-Agencia-Creativa" target="_blank" rel="noopener" class="archive-item">
+      <div class="archive-num">001</div>
+      <div class="archive-content">
+        <div class="archive-name">Klik Agencia <em>Creativa</em></div>
+        <p class="archive-desc">Rebranding y línea gráfica completa para una agencia con voz propia. La idea no era solo cambiar el logo — era ordenar cómo la marca se comunica en cada punto de contacto.</p>
+        <div class="archive-deliverables">
+          <span>Rebranding</span>
+          <span>Línea gráfica</span>
+          <span>Manual</span>
+          <span>Aplicaciones</span>
+        </div>
+      </div>
+      <div class="archive-meta">
+        <span class="archive-year">Agencia · CDE / 2024</span>
+        <span class="archive-link">Ver en Behance <span class="arr">→</span></span>
+      </div>
+    </a>
+
+    <!-- 002 — CONVERSA -->
+    <a href="https://www.behance.net/gallery/231858263/Creacion-de-identidad" target="_blank" rel="noopener" class="archive-item" id="conversa">
+      <div class="archive-num">002</div>
+      <div class="archive-content">
+        <div class="archive-name">Conversa <span class="archive-tag">Práctica propia</span></div>
+        <p class="archive-desc">El estudio que dirijo con mi esposo desde 2023. Naming de él, estrategia digital, línea gráfica, branding y manual de marca míos. Lo incluyo porque diseñar para uno mismo es la prueba más honesta del criterio — cuando la marca es tuya, no podés esconderte detrás de "es lo que pidió el cliente".</p>
+        <div class="archive-deliverables">
+          <span>Naming</span>
+          <span>Branding</span>
+          <span>Identidad</span>
+          <span>Línea gráfica</span>
+          <span>Manual</span>
+        </div>
+      </div>
+      <div class="archive-meta">
+        <span class="archive-year">Estudio paralelo / 2025</span>
+        <span class="archive-link">Ver en Behance <span class="arr">→</span></span>
+      </div>
+    </a>
+
+    <!-- 003 — VITAMARKET -->
+    <a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener" class="archive-item" id="vitamarket">
+      <div class="archive-num">003</div>
+      <div class="archive-content">
+        <div class="archive-name">VitaMarket</div>
+        <p class="archive-desc">Sistema completo de etiquetas para línea de Whey Protein, shaker con tríptico y exhibidor POP. Cliente directo que volvió por más después de la primera entrega — la prueba más útil de que el sistema funciona en góndola.</p>
+        <div class="archive-deliverables">
+          <span>Etiquetas (6 sabores)</span>
+          <span>Packaging</span>
+          <span>Exhibidor POP</span>
+          <span>Tríptico</span>
+        </div>
+      </div>
+      <div class="archive-meta">
+        <span class="archive-year">Suplementos / 2025</span>
+        <span class="archive-link">Ver en Behance <span class="arr">→</span></span>
+      </div>
+    </a>
+
+    <!-- 004 — ELLAPHANT -->
+    <a href="https://www.behance.net/gallery/243456857/Actualizacion-de-linea-grafica-Ellaphant-PY" target="_blank" rel="noopener" class="archive-item">
+      <div class="archive-num">004</div>
+      <div class="archive-content">
+        <div class="archive-name">Ellaphant <em>PY</em></div>
+        <p class="archive-desc">Línea gráfica y dirección visual. Empecé como diseñadora in-house más de un año, después seguí trabajando con ellos como Sophē. Buena parte de lo que ves se gestó cuando todavía éramos la misma cosa — y se sostuvo después porque el sistema era sólido.</p>
+        <div class="archive-deliverables">
+          <span>Línea gráfica</span>
+          <span>Dirección visual</span>
+          <span>Web</span>
+        </div>
+      </div>
+      <div class="archive-meta">
+        <span class="archive-year">In-house / freelance · 2024—25</span>
+        <span class="archive-link">Ver en Behance <span class="arr">→</span></span>
+      </div>
+    </a>
+
+    <!-- 005 — KAPTA -->
+    <a href="https://www.behance.net/gallery/243456701/Linea-grafica-Kapta-by-Ellaphant" target="_blank" rel="noopener" class="archive-item">
+      <div class="archive-num">005</div>
+      <div class="archive-content">
+        <div class="archive-name">Kapta <span class="archive-tag">Sub-marca de Ellaphant</span></div>
+        <p class="archive-desc">Branding y línea gráfica para una sub-marca con identidad propia. El reto era que se sintiera parte del mismo universo sin perder voz propia.</p>
+        <div class="archive-deliverables">
+          <span>Branding</span>
+          <span>Línea gráfica</span>
+        </div>
+      </div>
+      <div class="archive-meta">
+        <span class="archive-year">Sub-marca / 2024</span>
+        <span class="archive-link">Ver en Behance <span class="arr">→</span></span>
+      </div>
+    </a>
+
+    <!-- 006 — INSTITUTO SUPREMO + SALES SYSTEM -->
+    <a href="https://www.behance.net/gallery/243456563/Linea-grafica-Instituto-Supremo" target="_blank" rel="noopener" class="archive-item">
+      <div class="archive-num">006</div>
+      <div class="archive-content">
+        <div class="archive-name">Instituto Supremo <em>·</em> Sales System</div>
+        <p class="archive-desc">Líneas gráficas institucionales. Dos clientes distintos en el mismo año, registro similar pero adaptado a cada audiencia — uno educativo, otro B2B comercial.</p>
+        <div class="archive-deliverables">
+          <span>Línea gráfica institucional</span>
+          <span>Aplicaciones</span>
+          <span>B2B / Educación</span>
+        </div>
+      </div>
+      <div class="archive-meta">
+        <span class="archive-year">Educación · Servicios / 2024</span>
+        <span class="archive-link">Ver en Behance <span class="arr">→</span></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="archive-cta" id="contacto">
+  <div class="archive-cta-eyebrow">— Conversemos</div>
+  <h2>¿Tenés un proyecto <em>parecido</em>?</h2>
+  <p style="max-width: 50ch; margin: 0 auto var(--space-6); color: var(--ink-soft); font-size: 15px; line-height: 1.6;">
+    Si algo de lo que viste resuena con lo que necesitás, escribime. Empezamos por una llamada de 30 minutos — sin compromiso, sin presupuesto todavía.
+  </p>
+  <div class="archive-cta-row">
+    <a href="https://wa.me/595992391964?text=Hola%20Soph%C4%93%2C%20vi%20tu%20trabajo%20y%20me%20gustar%C3%ADa%20conversar%20un%20proyecto." target="_blank" rel="noopener" class="btn btn-primary">Conversemos por WhatsApp <span class="arr">→</span></a>
+    <a href="cotizar.html" class="btn btn-ghost">Calcular presupuesto <span class="arr">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-statement">Marcas que <em>envejecen bien</em>.</div>
+        <p class="footer-sub">Estudio de branding y diseño editorial en Ciudad del Este, Paraguay. Desde 2024.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Sitio</h5>
+        <ul>
+          <li><a href="trabajo.html">Trabajo</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="estudio.html">Estudio</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
+          <li><a href="https://wa.me/595992391964" target="_blank" rel="noopener">+595 992 391 964</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Seguir</h5>
+        <ul>
+          <li><a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://instagram.com/sophe.studio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="sophe-tarjeta-digital.html">Tarjeta digital</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Sophē Design Studio</span>
+      <span>CDE · Paraguay</span>
+      <span>Vol. 02 — 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/595992391964" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // Nav: scroll detection (en este caso siempre on-light porque header es ink pero contenido es bone)
+  (function() {
+    const nav = document.querySelector('nav.site-nav');
+    if (!nav) return;
+    const lightStart = document.querySelector('.work-archive');
+    function update() {
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      const rect = lightStart.getBoundingClientRect();
+      nav.classList.toggle('on-light', rect.top <= 60);
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

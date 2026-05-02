@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio — Sophē Design Studio</title>
+<meta name="description" content="Sophē es Sofía Cabañas. Diseñadora gráfica con +3 años de experiencia, dos como Senior In-House antes de armar estudio propio. Ciudad del Este, Paraguay.">
+<meta property="og:title" content="Estudio — Sophē Design Studio">
+<meta property="og:description" content="Soy Sofía. Vengo de dirigir desde adentro antes de armar el mío.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#1A1A1A">
+
+<link rel="stylesheet" href="sophe.css">
+
+<style>
+  /* ============ HEADER DE PÁGINA ============ */
+  .page-header {
+    background: var(--ink);
+    color: var(--bone);
+    padding: var(--space-16) var(--space-4) var(--space-10);
+  }
+  .page-header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .page-header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-header-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--clay);
+  }
+  .page-header h1 {
+    max-width: 14ch;
+    margin-bottom: var(--space-3);
+  }
+  .page-header h1 .small {
+    display: block;
+    font-size: 0.55em;
+    color: rgba(237,232,221,0.5);
+    font-weight: 500;
+    margin-top: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============ SOFÍA — sección personal ============ */
+  .sofia-section {
+    padding: var(--space-12) 0;
+  }
+  .sofia-grid {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .sofia-portrait {
+    position: sticky;
+    top: 100px;
+  }
+  .portrait-frame {
+    aspect-ratio: 4/5;
+    background: var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .portrait-frame.no-image .portrait-fallback {
+    display: flex;
+  }
+  .portrait-fallback {
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .portrait-frame .portrait-fallback {
+    display: flex;
+  }
+  .fallback-letter {
+    color: var(--bone);
+    font-size: 220px;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    position: relative;
+    padding-top: 22px;
+  }
+  .fallback-letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 36px;
+    width: 60px;
+    height: 7px;
+    background: var(--clay);
+  }
+  .portrait-meta {
+    margin-top: var(--space-3);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+  }
+  .portrait-meta .name {
+    display: block;
+    color: var(--ink);
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .sofia-text {
+    max-width: 64ch;
+  }
+  .sofia-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sofia-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--clay);
+  }
+  .sofia-text h2 {
+    margin-bottom: var(--space-4);
+    max-width: 18ch;
+  }
+  .sofia-text p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: var(--space-3);
+  }
+
+  @media (max-width: 880px) {
+    .sofia-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .sofia-portrait { position: static; max-width: 360px; }
+    .fallback-letter { font-size: 180px; }
+  }
+
+  /* ============ CONVERSA — práctica propia ============ */
+  .conversa-section {
+    background: var(--bone-soft);
+    padding: var(--space-12) var(--space-4);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .conversa-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .conversa-num {
+    font-size: clamp(38px, 4.5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--clay);
+    line-height: 1;
+    padding-top: 8px;
+  }
+  .conversa-title h2 {
+    margin-bottom: var(--space-3);
+    line-height: 1.05;
+  }
+  .conversa-title .conversa-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 1px solid var(--clay);
+    margin-bottom: var(--space-3);
+  }
+  .conversa-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: var(--space-3);
+    max-width: 56ch;
+  }
+  .conversa-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-top: var(--space-2);
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--clay);
+    transition: gap 0.3s;
+  }
+  .conversa-link:hover { gap: 16px; }
+
+  @media (max-width: 880px) {
+    .conversa-inner {
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-3);
+    }
+    .conversa-text {
+      grid-column: 1 / -1;
+      margin-top: var(--space-3);
+    }
+  }
+
+  /* ============ MANIFIESTO LARGO ============ */
+  .manifesto-long {
+    background: var(--clay);
+    color: var(--bone);
+    padding: var(--space-16) var(--space-4);
+    position: relative;
+    text-align: center;
+  }
+  .manifesto-long::before {
+    content: '';
+    position: absolute;
+    top: var(--space-3); left: var(--space-3);
+    width: 18px; height: 18px;
+    border-top: 1px solid rgba(237,232,221,0.4);
+    border-left: 1px solid rgba(237,232,221,0.4);
+  }
+  .manifesto-long::after {
+    content: '';
+    position: absolute;
+    bottom: var(--space-3); right: var(--space-3);
+    width: 18px; height: 18px;
+    border-bottom: 1px solid rgba(237,232,221,0.4);
+    border-right: 1px solid rgba(237,232,221,0.4);
+  }
+  .manifesto-long-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.8);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+  }
+  .manifesto-long-eyebrow::before, .manifesto-long-eyebrow::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: rgba(237,232,221,0.6);
+  }
+  .manifesto-long p {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 22ch;
+    margin: 0 auto;
+  }
+  .manifesto-long .underline {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 0 0.2em;
+  }
+
+  /* ============ STATS / EN NÚMEROS ============ */
+  .stats-section {
+    padding: var(--space-12) var(--space-4);
+  }
+  .stats-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .stats-header {
+    margin-bottom: var(--space-8);
+    display: grid;
+    grid-template-columns: 80px 220px 1fr 80px;
+    gap: var(--space-4);
+    align-items: end;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line-strong);
+    border: 1px solid var(--line-strong);
+  }
+  .stat {
+    background: var(--bone);
+    padding: var(--space-6) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .stat-num {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--clay);
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+    margin-top: var(--space-2);
+  }
+  .stat-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 880px) {
+    .stats-header { grid-template-columns: 1fr; gap: var(--space-2); }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ============ CÓMO TRABAJO ============ */
+  .approach-section {
+    background: var(--ink);
+    color: var(--bone);
+    padding: var(--space-12) var(--space-4);
+  }
+  .approach-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .approach-header {
+    margin-bottom: var(--space-8);
+    display: grid;
+    grid-template-columns: 80px 220px 1fr 80px;
+    gap: var(--space-4);
+    align-items: end;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--line-on-ink);
+  }
+  .approach-header .index-num { color: var(--clay); }
+  .approach-header .index-label { color: rgba(237,232,221,0.6); }
+  .approach-header h2 { color: var(--bone); }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-on-ink);
+    border: 1px solid var(--line-on-ink);
+  }
+  .approach-item {
+    background: var(--ink);
+    padding: var(--space-6);
+  }
+  .approach-num {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+  .approach-item h3 {
+    color: var(--bone);
+    margin-bottom: var(--space-2);
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .approach-item h3 em { color: var(--clay); }
+  .approach-item p {
+    font-size: 14px;
+    color: rgba(237,232,221,0.7);
+    line-height: 1.65;
+    max-width: 38ch;
+  }
+
+  @media (max-width: 880px) {
+    .approach-header { grid-template-columns: 1fr; gap: var(--space-2); }
+    .approach-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============ CONTACTO DIRECTO ============ */
+  .contact-direct {
+    padding: var(--space-12) var(--space-4);
+    background: var(--bone-soft);
+  }
+  .contact-direct-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .contact-direct h2 {
+    margin-bottom: var(--space-4);
+    line-height: 1.05;
+  }
+  .contact-direct-text p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 50ch;
+    margin-bottom: var(--space-3);
+  }
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line-strong);
+    border: 1px solid var(--line-strong);
+  }
+  .contact-channel {
+    background: var(--bone);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.3s;
+  }
+  .contact-channel:hover { background: var(--bone-soft); }
+  .contact-channel-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .contact-channel-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+  }
+  .contact-channel-value {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .contact-channel-arr {
+    color: var(--clay);
+    font-size: 18px;
+    transition: transform 0.3s;
+  }
+  .contact-channel:hover .contact-channel-arr { transform: translateX(4px); }
+
+  @media (max-width: 760px) {
+    .contact-direct-inner { grid-template-columns: 1fr; gap: var(--space-4); }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="site-nav">
+  <a href="index.html" class="logo" aria-label="Sophē — inicio">
+    <svg width="80" height="22" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="130" font-family="Switzer, sans-serif" font-weight="500" font-size="160" fill="currentColor" letter-spacing="-7">sophē</text>
+      <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+    </svg>
+  </a>
+  <ul>
+    <li><a href="trabajo.html">Trabajo</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="estudio.html" class="active">Estudio</a></li>
+    <li><a href="cotizar.html">Cotizar</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Conversemos <span class="arr">→</span></a>
+</nav>
+
+<main>
+
+<!-- ============ HEADER ============ -->
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-eyebrow">— 01 / Estudio</div>
+    <h1>
+      Diseño desde <em>2021</em>.
+      <span class="small">Estudio propio desde 2024.</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Sofía Cabañas</span>
+    <span class="marquee-item">Dirección creativa</span>
+    <span class="marquee-item">Ciudad del Este</span>
+    <span class="marquee-item">Paraguay</span>
+    <span class="marquee-item">Senior in-house</span>
+    <span class="marquee-item">Sofía Cabañas</span>
+    <span class="marquee-item">Dirección creativa</span>
+    <span class="marquee-item">Ciudad del Este</span>
+    <span class="marquee-item">Paraguay</span>
+    <span class="marquee-item">Senior in-house</span>
+    <span class="marquee-item">Sofía Cabañas</span>
+    <span class="marquee-item">Dirección creativa</span>
+  </div>
+</div>
+
+<!-- ============ SOFÍA ============ -->
+<section class="sofia-section">
+  <div class="sofia-grid">
+    <div class="sofia-portrait">
+      <div class="portrait-frame" id="portrait-frame">
+        <img src="sofia-portrait.jpg" alt="Sofía Cabañas" onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
+        <div class="portrait-fallback">
+          <span class="fallback-letter">s</span>
+        </div>
+      </div>
+      <div class="portrait-meta">
+        <span class="name">Sofía Cabañas</span>
+        — Founder · Creative Director
+      </div>
+    </div>
+
+    <div class="sofia-text">
+      <div class="sofia-eyebrow">— 02 / Sobre Sofía</div>
+      <h2>Soy Sofía. Vivo y diseño en <em>Ciudad del Este</em>.</h2>
+
+      <p>Antes de Sophē, trabajé tres años entre dos agencias como <em>Senior In-House</em>. Aprendí a dirigir identidades desde adentro de los proyectos — viendo qué decisiones se sostienen cuando una marca tiene que vivir cinco años en góndola, en pantalla y en boca de un cliente.</p>
+
+      <p>En 2024 armé Sophē. Trabajo con quienes entienden que la identidad no se decora — se construye. Y que las decisiones de diseño que más importan son las que nadie nota, pero todos perciben.</p>
+
+      <p>Diseño desde Paraguay, pero los sistemas que armo viven en cualquier parte. Cliente directo, sin intermediarios — vos hablás conmigo en cada decisión, no con un account manager.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONVERSA — práctica propia ============ -->
+<section class="conversa-section">
+  <div class="conversa-inner">
+    <div class="conversa-num">02</div>
+
+    <div class="conversa-title">
+      <span class="conversa-tag">— Práctica propia</span>
+      <h2>Conversa, mi <em>estudio hermano</em>.</h2>
+    </div>
+
+    <div class="conversa-text">
+      <p>En paralelo, dirijo <em>Conversa</em> con mi esposo desde 2023. Naming y estrategia de él, línea gráfica, branding y manual de marca míos.</p>
+
+      <p>Lo menciono acá porque diseñar para uno mismo es la prueba más honesta del criterio. Cuando la marca es tuya, no podés esconderte detrás de "es lo que pidió el cliente" — cada decisión queda expuesta.</p>
+
+      <a href="trabajo.html#conversa" class="conversa-link">Ver el caso <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFIESTO ============ -->
+<section class="manifesto-long">
+  <div class="manifesto-long-eyebrow">— 03 / Manifiesto</div>
+  <p>
+    Hay marcas que necesitan explicarse en cada post.<br>
+    Y hay marcas que entran a un lugar y se sienten.<br><br>
+    La diferencia no está en el logo —<br>
+    está en las <span class="underline">decisiones de diseño</span><br>
+    que nadie nota, pero todos perciben.
+  </p>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stats-header">
+      <div class="index-num">04</div>
+      <div class="index-label">En números<br>· Trayectoria</div>
+      <h2 class="h2">Lo que <em>respalda</em>.</h2>
+      <div class="index-label right">2021<br>—2026</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat">
+        <span class="stat-num">+3</span>
+        <span class="stat-label">— Años</span>
+        <span class="stat-desc">De experiencia profesional, en agencias y como estudio propio.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">— Proyectos</span>
+        <span class="stat-desc">Identidades, sistemas y piezas entregadas.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">— In-house</span>
+        <span class="stat-desc">Agencias donde fui Senior antes de armar el mío.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">— Cliente directo</span>
+        <span class="stat-desc">Hablás conmigo, no con un equipo de cuentas.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO TRABAJO ============ -->
+<section class="approach-section">
+  <div class="approach-inner">
+    <div class="approach-header">
+      <div class="index-num">05</div>
+      <div class="index-label">Cómo trabajo<br>· Forma de hacer</div>
+      <h2 class="h2">Sin <em>atajos</em>.</h2>
+      <div class="index-label right">04<br>principios</div>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-item">
+        <div class="approach-num">— 01</div>
+        <h3>Cliente <em>directo</em>.</h3>
+        <p>Sin intermediarios ni capas innecesarias. Hablás conmigo en cada decisión, desde el primer brief hasta el manual final.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">— 02</div>
+        <h3>Pocos proyectos a <em>la vez</em>.</h3>
+        <p>No tomo más de los que puedo dirigir bien. Cada proyecto recibe la atención que merece — eso es parte de cómo cobro premium.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">— 03</div>
+        <h3>Sin <em>templates</em>.</h3>
+        <p>No uso plantillas descargadas ni IA generativa para entregables finales. Cada sistema se diseña desde cero, para tu proyecto.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">— 04</div>
+        <h3>Sin tendencias <em>prestadas</em>.</h3>
+        <p>El sistema visual se diseña para vos, no para el feed. Lo que está de moda este año va a estar fuera de moda en dos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO DIRECTO ============ -->
+<section class="contact-direct" id="contacto">
+  <div class="contact-direct-inner">
+    <div class="contact-direct-text">
+      <div class="page-header-eyebrow" style="color: var(--clay); margin-bottom: var(--space-3);">— 06 / Conversemos</div>
+      <h2>¿Empezamos por una <em>llamada</em>?</h2>
+      <p>30 minutos, sin compromiso. Me contás qué necesitás, te cuento si encaja con lo que hago, y desde ahí decidimos si seguir.</p>
+      <p>Si preferís escribir primero, también funciona. Lo que sea más cómodo para vos.</p>
+    </div>
+
+    <div class="contact-channels">
+      <a href="https://wa.me/595992391964?text=Hola%20Soph%C4%93%2C%20me%20gustar%C3%ADa%20conversar%20un%20proyecto." target="_blank" rel="noopener" class="contact-channel">
+        <div class="contact-channel-info">
+          <span class="contact-channel-label">— WhatsApp</span>
+          <span class="contact-channel-value">+595 992 391 964</span>
+        </div>
+        <span class="contact-channel-arr">→</span>
+      </a>
+      <a href="mailto:sophestudio@gmail.com" class="contact-channel">
+        <div class="contact-channel-info">
+          <span class="contact-channel-label">— Email</span>
+          <span class="contact-channel-value">sophestudio@gmail.com</span>
+        </div>
+        <span class="contact-channel-arr">→</span>
+      </a>
+      <a href="https://instagram.com/sophe.studio" target="_blank" rel="noopener" class="contact-channel">
+        <div class="contact-channel-info">
+          <span class="contact-channel-label">— Instagram</span>
+          <span class="contact-channel-value">@sophe.studio</span>
+        </div>
+        <span class="contact-channel-arr">→</span>
+      </a>
+      <a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener" class="contact-channel">
+        <div class="contact-channel-info">
+          <span class="contact-channel-label">— Behance</span>
+          <span class="contact-channel-value">@sophe_studio</span>
+        </div>
+        <span class="contact-channel-arr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-statement">Marcas que <em>envejecen bien</em>.</div>
+        <p class="footer-sub">Estudio de branding y diseño editorial en Ciudad del Este, Paraguay. Desde 2024.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Sitio</h5>
+        <ul>
+          <li><a href="trabajo.html">Trabajo</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="estudio.html">Estudio</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
+          <li><a href="https://wa.me/595992391964" target="_blank" rel="noopener">+595 992 391 964</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Seguir</h5>
+        <ul>
+          <li><a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://instagram.com/sophe.studio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="sophe-tarjeta-digital.html">Tarjeta digital</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Sophē Design Studio</span>
+      <span>CDE · Paraguay</span>
+      <span>Vol. 02 — 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/595992391964" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  (function() {
+    const nav = document.querySelector('nav.site-nav');
+    if (!nav) return;
+    const darkSections = document.querySelectorAll('.page-header, .approach-section, .manifesto-long');
+
+    function update() {
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+
+      let onDark = false;
+      darkSections.forEach(s => {
+        const r = s.getBoundingClientRect();
+        if (r.top <= 60 && r.bottom >= 60) onDark = true;
+      });
+      nav.classList.toggle('on-light', !onDark);
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+/* ============================================================
+   SOPHĒ DESIGN STUDIO — SISTEMA VISUAL UNIFICADO
+   Vol. 02 — 2026
+   Una sola hoja para todas las páginas.
+   Cualquier cambio acá se refleja en todo el sitio.
+   ============================================================ */
+
+/* ----- FUENTES ----- */
+@font-face {
+  font-family: 'Switzer';
+  src: url('Switzer-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('Switzer-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('Switzer-Italic.woff2') format('woff2');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('Switzer-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ----- TOKENS ----- */
+:root {
+  /* Color */
+  --ink: #1A1A1A;
+  --ink-soft: #2B2B2B;
+  --bone: #EDE8DD;
+  --bone-soft: #E5DFD2;
+  --clay: #C04A2B;
+  --clay-soft: #A53D22;
+  --mute: #7A7670;
+  --mute-soft: #9C988F;
+  --line: rgba(26,26,26,0.1);
+  --line-strong: rgba(26,26,26,0.2);
+  --line-on-ink: rgba(237,232,221,0.12);
+  --line-on-ink-strong: rgba(237,232,221,0.25);
+
+  /* Espacio (sistema modular basado en 8px) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  /* Tipografía */
+  --font: 'Switzer', system-ui, -apple-system, sans-serif;
+
+  /* Capa */
+  --z-nav: 100;
+  --z-intro: 1000;
+  --z-modal: 2000;
+}
+
+/* ----- RESET ----- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: var(--clay); color: var(--bone); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ----- WRAPPERS DE ANCHO ----- */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+.container-narrow {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* ============================================================
+   TIPOGRAFÍA EDITORIAL
+   ============================================================ */
+
+/* Eyebrow: pequeñito, mayúsculas, clay, letter-spacing generoso */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 700;
+}
+.eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--clay);
+}
+.eyebrow-mute {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 700;
+}
+
+/* Display titles */
+h1, .h1 {
+  font-weight: 500;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+h2, .h2 {
+  font-weight: 500;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+h3, .h3 {
+  font-weight: 500;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+h4 {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+}
+
+/* Énfasis: bold + clay, NO italic */
+em, .em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--clay);
+}
+
+/* Cuerpo de texto */
+.lead {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.caption {
+  font-size: 12px;
+  color: var(--mute);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   COMPONENTES — NAVEGACIÓN
+   ============================================================ */
+
+nav.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: var(--z-nav);
+  padding: 18px var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--bone);
+  background: transparent;
+  transition: background 0.3s, color 0.3s;
+}
+nav.site-nav.scrolled {
+  background: rgba(26,26,26,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+nav.site-nav.on-light {
+  color: var(--ink);
+}
+nav.site-nav.on-light.scrolled {
+  background: rgba(237,232,221,0.95);
+}
+nav.site-nav .logo {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+}
+nav.site-nav .logo svg { display: block; }
+nav.site-nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+nav.site-nav ul a {
+  color: inherit;
+  transition: color 0.2s;
+}
+nav.site-nav ul a:hover,
+nav.site-nav ul a.active {
+  color: var(--clay);
+}
+nav.site-nav .nav-cta {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--clay);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s;
+}
+nav.site-nav .nav-cta:hover { gap: 14px; }
+
+/* Menú móvil */
+.nav-burger { display: none; }
+@media (max-width: 760px) {
+  nav.site-nav ul { display: none; }
+  nav.site-nav .nav-cta span:not(.arr) { display: none; }
+}
+
+/* ============================================================
+   COMPONENTES — BOTONES
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, gap 0.3s;
+  background: transparent;
+}
+.btn .arr { transition: transform 0.3s; }
+.btn:hover .arr { transform: translateX(4px); }
+
+.btn-primary {
+  background: var(--clay);
+  color: var(--bone);
+  border-color: var(--clay);
+}
+.btn-primary:hover {
+  background: var(--clay-soft);
+  border-color: var(--clay-soft);
+}
+.btn-ink {
+  background: var(--ink);
+  color: var(--bone);
+  border-color: var(--ink);
+}
+.btn-ink:hover { background: var(--ink-soft); }
+.btn-ghost {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--bone);
+}
+.btn-ghost-light {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+.btn-ghost-light:hover {
+  background: var(--bone);
+  color: var(--ink);
+}
+
+/* Botón sin caja (link textual con arrow) */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--clay);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: gap 0.3s, border-color 0.3s;
+}
+.btn-link:hover {
+  gap: 16px;
+  border-color: var(--clay);
+}
+
+/* ============================================================
+   COMPONENTES — ESQUINITAS TÉCNICAS
+   ============================================================ */
+
+.frame {
+  position: relative;
+}
+.frame::before, .frame::after,
+.frame > .corner-tr, .frame > .corner-bl {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+.frame::before {
+  top: var(--space-3); left: var(--space-3);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.frame::after {
+  bottom: var(--space-3); right: var(--space-3);
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+.frame.frame-on-ink::before,
+.frame.frame-on-ink::after {
+  border-color: var(--line-on-ink);
+}
+
+/* ============================================================
+   COMPONENTES — SECCIÓN INDEX HEADER
+   (numeración + label + título + label derecho)
+   ============================================================ */
+
+.index-header {
+  padding: var(--space-12) 0 var(--space-6);
+  border-bottom: 1px solid var(--line);
+}
+.index-header.on-ink { border-color: var(--line-on-ink); }
+.index-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 80px;
+  gap: var(--space-4);
+  align-items: end;
+  padding: 0 var(--space-4);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.index-num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--clay);
+}
+.index-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.index-label.right { text-align: right; }
+.index-header h2,
+.index-header .h2 {
+  grid-column: 1 / -1;
+  margin-top: var(--space-4);
+}
+@media (min-width: 880px) {
+  .index-row {
+    grid-template-columns: 80px 220px 1fr 80px;
+  }
+  .index-header h2,
+  .index-header .h2 {
+    grid-column: 3 / 4;
+    margin-top: 0;
+  }
+}
+
+/* ============================================================
+   COMPONENTES — MARQUEE
+   ============================================================ */
+
+.marquee {
+  background: var(--ink);
+  color: var(--bone);
+  overflow: hidden;
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--line-on-ink);
+  border-bottom: 1px solid var(--line-on-ink);
+}
+.marquee-track {
+  display: flex;
+  gap: var(--space-6);
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+.marquee-item {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
+.marquee-item::after {
+  content: '✦';
+  color: var(--clay);
+}
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   COMPONENTES — META CORNERS (decoración de página)
+   ============================================================ */
+
+.page-meta {
+  position: absolute;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 700;
+  z-index: 2;
+}
+.page-meta.tl { top: var(--space-3); left: var(--space-4); }
+.page-meta.tr { top: var(--space-3); right: var(--space-4); text-align: right; }
+.page-meta.bl { bottom: var(--space-3); left: var(--space-4); }
+.page-meta.br { bottom: var(--space-3); right: var(--space-4); text-align: right; }
+
+/* ============================================================
+   COMPONENTES — FOOTER
+   ============================================================ */
+
+footer.site-footer {
+  background: var(--ink);
+  color: var(--bone);
+  padding: var(--space-10) 0 var(--space-4);
+  margin-top: var(--space-10);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--line-on-ink);
+}
+@media (min-width: 768px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+.footer-brand .footer-statement {
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+}
+.footer-brand .footer-sub {
+  font-size: 13px;
+  color: rgba(237,232,221,0.6);
+  max-width: 380px;
+}
+.footer-col h5 {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-col a {
+  font-size: 13px;
+  color: rgba(237,232,221,0.75);
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--clay); }
+
+.footer-base {
+  padding-top: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(237,232,221,0.4);
+  font-weight: 700;
+}
+
+/* ============================================================
+   ANIMACIONES UTILIDAD
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

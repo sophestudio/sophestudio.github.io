@@ -3,204 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sophē — Diseño que envejece bien</title>
-<meta name="description" content="Estudio de diseño y branding en Ciudad del Este, Paraguay. Identidad visual, web, editorial y dirección creativa para marcas que quieren durar.">
-<meta property="og:title" content="Sophē — Diseño que envejece bien">
-<meta property="og:description" content="Estudio de diseño y branding en CDE. Marcas que duran.">
+<title>Sophē — Marcas que envejecen bien</title>
+<meta name="description" content="Estudio de branding y diseño editorial en Ciudad del Este, Paraguay. Identidades visuales, packaging y dirección creativa para proyectos que quieren durar.">
+<meta property="og:title" content="Sophē — Marcas que envejecen bien">
+<meta property="og:description" content="Estudio de branding y diseño editorial en Ciudad del Este. Trabajo con proyectos que entienden que la identidad no se decora — se construye.">
 <meta property="og:type" content="website">
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" href="favicon.ico">
 <meta name="theme-color" content="#1A1A1A">
 
+<link rel="stylesheet" href="sophe.css">
+
 <style>
-  @font-face {
-    font-family: 'Switzer';
-    src: url('Switzer-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  /* ============ INTRO ANIMACIÓN ============ */
+  body.intro-active {
+    overflow: hidden;
+    height: 100vh;
   }
-  @font-face {
-    font-family: 'Switzer';
-    src: url('Switzer-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Switzer';
-    src: url('Switzer-Italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Switzer';
-    src: url('Switzer-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  body.intro-active main,
+  body.intro-active footer,
+  body.intro-active nav.site-nav {
+    opacity: 0;
   }
 
-  :root {
-    --ink: #1A1A1A;
-    --ink-soft: #2B2B2B;
-    --bone: #EDE8DD;
-    --bone-soft: #E5DFD2;
-    --clay: #C04A2B;
-    --clay-soft: #A53D22;
-    --mute: #7A7670;
-    --mute-soft: #9C988F;
-    --line: rgba(26,26,26,0.1);
-    --line-on-ink: rgba(237,232,221,0.12);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bone);
-    color: var(--ink);
-    font-family: 'Switzer', sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    font-size: 16px;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  ::selection { background: var(--clay); color: var(--bone); }
-
-  /* ============ NAV ============ */
-  nav {
+  .intro-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 32px;
+    inset: 0;
+    background: var(--ink);
+    z-index: var(--z-intro);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    mix-blend-mode: difference;
-    color: var(--bone);
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
   }
-  nav .logo {
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: -0.04em;
-    text-transform: lowercase;
-    text-decoration: none;
-    color: var(--bone);
-    display: inline-flex;
-    align-items: center;
+  .intro-overlay.done {
+    opacity: 0;
+    visibility: hidden;
   }
-  nav .logo svg { display: block; }
-  nav ul {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    font-weight: 500;
+  .intro-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
-  nav ul a {
-    color: var(--bone);
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-  nav ul a:hover { opacity: 0.6; }
-  nav .nav-cta {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 10px 18px;
-    border: 1px solid var(--bone);
-    text-decoration: none;
-    color: var(--bone);
-    transition: background 0.3s, color 0.3s;
-  }
-  nav .nav-cta:hover { background: var(--bone); color: var(--ink); }
+  .intro-corner.tl { top: 32px; left: 32px;
+    border-top: 1px solid var(--line-on-ink-strong);
+    border-left: 1px solid var(--line-on-ink-strong); }
+  .intro-corner.tr { top: 32px; right: 32px;
+    border-top: 1px solid var(--line-on-ink-strong);
+    border-right: 1px solid var(--line-on-ink-strong); }
+  .intro-corner.bl { bottom: 32px; left: 32px;
+    border-bottom: 1px solid var(--line-on-ink-strong);
+    border-left: 1px solid var(--line-on-ink-strong); }
+  .intro-corner.br { bottom: 32px; right: 32px;
+    border-bottom: 1px solid var(--line-on-ink-strong);
+    border-right: 1px solid var(--line-on-ink-strong); }
+  .intro-corner.show { opacity: 1; }
 
-  @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    nav ul { display: none; }
+  .intro-meta {
+    position: absolute;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.5);
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
+  .intro-meta.tl { top: 38px; left: 70px; }
+  .intro-meta.br { bottom: 38px; right: 70px; }
+  .intro-meta.show { opacity: 1; }
+
+  .intro-eyebrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -120px);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.5s ease;
+  }
+  .intro-eyebrow.show { opacity: 1; }
+
+  .intro-wordmark {
+    font-weight: 500;
+    font-size: clamp(80px, 18vw, 200px);
+    letter-spacing: -0.05em;
+    color: var(--bone);
+    line-height: 1;
+    display: flex;
+    gap: 0;
+  }
+  .intro-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .intro-letter.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .intro-macron {
+    position: absolute;
+    top: 0.16em;
+    left: 50%;
+    width: 0;
+    height: 0.045em;
+    background: var(--clay);
+    transform: translateX(-50%);
+    transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .intro-macron.show { width: 0.7em; }
 
   /* ============ HERO ============ */
   .hero {
+    position: relative;
     min-height: 100vh;
     background: var(--ink);
     color: var(--bone);
-    padding: 120px 40px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 32px; left: 32px;
-    width: 24px; height: 24px;
-    border-top: 1px solid var(--line-on-ink);
-    border-left: 1px solid var(--line-on-ink);
-    pointer-events: none;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 32px; right: 32px;
-    width: 24px; height: 24px;
-    border-bottom: 1px solid var(--line-on-ink);
-    border-right: 1px solid var(--line-on-ink);
-    pointer-events: none;
-  }
-  .hero-frame {
-    position: absolute;
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: rgba(237,232,221,0.4);
-  }
-  .hero-frame.tl { top: 80px; left: 60px; }
-  .hero-frame.bl { bottom: 36px; left: 60px; }
-  .hero-frame.br { bottom: 110px; right: 60px; text-align: right; }
-
-  .hero-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(237,232,221,0.5);
-    font-weight: 500;
-    margin-top: auto;
-  }
-  .hero-meta-item strong { color: var(--bone); font-weight: 700; }
-
-  .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    flex: 1;
+    padding: var(--space-16) var(--space-4) var(--space-10);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 0;
+    overflow: hidden;
   }
   .hero-eyebrow {
     font-size: 11px;
     letter-spacing: 0.3em;
-    color: var(--clay);
     text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 32px;
-    display: flex;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: inline-flex;
     align-items: center;
     gap: 12px;
   }
@@ -209,1131 +150,511 @@
     width: 32px;
     height: 1px;
     background: var(--clay);
-    display: inline-block;
+  }
+  .hero-content {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
   }
   .hero h1 {
-    font-weight: 500;
-    font-size: clamp(48px, 9vw, 156px);
-    line-height: 0.95;
-    letter-spacing: -0.05em;
-    margin-bottom: 48px;
-  }
-  .hero h1 em {
-    font-style: normal;
-    font-weight: 700;
-    color: var(--clay);
+    max-width: 14ch;
+    margin-bottom: var(--space-3);
   }
   .hero-sub {
-    max-width: 540px;
-    font-size: 18px;
-    line-height: 1.5;
+    max-width: 52ch;
     color: rgba(237,232,221,0.75);
-    margin-bottom: 40px;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.55;
+    margin-bottom: var(--space-6);
   }
   .hero-cta-row {
     display: flex;
-    gap: 16px;
     flex-wrap: wrap;
-  }
-  .btn-primary, .btn-secondary {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 18px 32px;
-    text-decoration: none;
-    transition: all 0.3s;
-    display: inline-flex;
+    gap: var(--space-2);
     align-items: center;
-    gap: 12px;
   }
-  .btn-primary {
-    background: var(--clay);
-    color: var(--bone);
-  }
-  .btn-primary:hover { background: var(--clay-soft); }
-  .btn-secondary {
-    border: 1px solid rgba(237,232,221,0.3);
-    color: var(--bone);
-  }
-  .btn-secondary:hover { border-color: var(--bone); }
-  .arrow {
-    transition: transform 0.3s;
-  }
-  .btn-primary:hover .arrow,
-  .btn-secondary:hover .arrow { transform: translateX(4px); }
-
-  @media (max-width: 768px) {
-    .hero { padding: 100px 24px 32px; }
-    .hero::before, .hero::after,
-    .hero-frame { display: none; }
-    .hero h1 { font-size: 56px; margin-bottom: 32px; }
-    .hero-sub { font-size: 16px; }
-    .hero-meta { flex-direction: column; align-items: flex-start; gap: 16px; }
-  }
-
-  /* ============ MARQUEE ============ */
-  .marquee {
-    background: var(--bone);
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-    padding: 24px 0;
-  }
-  .marquee-track {
-    display: flex;
-    gap: 80px;
-    animation: scroll 40s linear infinite;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  .marquee-item {
-    font-size: 14px;
-    color: var(--ink);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 80px;
-  }
-  .marquee-item::after {
-    content: '✦';
-    color: var(--clay);
-    font-size: 12px;
-  }
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ============ INDEX / SECTION HEADER ============ */
-  .index-header {
-    padding: 100px 40px 40px;
-    max-width: 1200px;
+  .hero-meta-bar {
+    max-width: 1320px;
     margin: 0 auto;
-    border-bottom: 1px solid var(--line);
-  }
-  .index-row {
-    display: grid;
-    grid-template-columns: 80px 1fr 1fr 80px;
-    gap: 40px;
-    align-items: end;
-  }
-  .index-num {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--clay);
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  .index-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--mute);
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .index-title {
-    font-weight: 500;
-    font-size: clamp(36px, 5vw, 72px);
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .index-title em {
-    font-style: normal;
-    font-weight: 700;
-    color: var(--clay);
-  }
-
-  @media (max-width: 768px) {
-    .index-header { padding: 60px 24px 24px; }
-    .index-row { grid-template-columns: 1fr; gap: 16px; }
-  }
-
-  /* ============ ABOUT ============ */
-  .about {
-    padding: 100px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  /* PORTRAIT */
-  .about-portrait {
-    position: relative;
-  }
-  .portrait-frame {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    background: var(--ink);
-    overflow: hidden;
-  }
-  .portrait-frame::before {
-    content: '';
-    position: absolute;
-    top: 16px; left: 16px;
-    width: 16px; height: 16px;
-    border-top: 1px solid rgba(237,232,221,0.3);
-    border-left: 1px solid rgba(237,232,221,0.3);
-    z-index: 3;
-  }
-  .portrait-frame::after {
-    content: '';
-    position: absolute;
-    bottom: 16px; right: 16px;
-    width: 16px; height: 16px;
-    border-bottom: 1px solid rgba(237,232,221,0.3);
-    border-right: 1px solid rgba(237,232,221,0.3);
-    z-index: 3;
-  }
-  .portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: contrast(1.05) saturate(0.95);
-  }
-  .portrait-fallback {
-    position: absolute;
-    inset: 0;
-    background: var(--ink);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    color: var(--bone);
-  }
-  .portrait-frame.no-image img { display: none; }
-  .portrait-frame.no-image .portrait-fallback { display: flex; }
-  .fallback-letter {
-    font-weight: 500;
-    font-size: 200px;
-    letter-spacing: -0.05em;
-    line-height: 1;
-    position: relative;
-    color: var(--bone);
-  }
-  .fallback-letter::before {
-    content: '';
-    position: absolute;
-    top: 16%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 6px;
-    background: var(--clay);
-  }
-  .portrait-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 40px 24px 24px;
-    background: linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0) 100%);
-    color: var(--bone);
-    z-index: 2;
-  }
-  .portrait-name {
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-    margin-bottom: 4px;
-  }
-  .portrait-role {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--clay);
-    font-weight: 700;
-  }
-  .about-meta {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--mute);
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-  .about-statement {
-    font-weight: 400;
-    font-size: clamp(24px, 2.5vw, 36px);
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
-  }
-  .about-statement em {
-    font-style: normal;
-    font-weight: 700;
-    color: var(--clay);
-  }
-  .about-body {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    max-width: 540px;
-  }
-  .about-body p { margin-bottom: 20px; }
-  .about-credentials {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 40px;
-    padding-top: 32px;
-    border-top: 1px solid var(--line);
-  }
-  .credential-num {
-    font-weight: 700;
-    font-size: 40px;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .credential-label {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    color: var(--mute);
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  @media (max-width: 768px) {
-    .about { padding: 60px 24px; }
-    .about-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
-
-  /* ============ WORK ============ */
-  .work {
-    background: var(--bone);
-    padding: 60px 40px 0;
-  }
-  .work-list {
-    max-width: 1200px;
-    margin: 0 auto;
-    border-top: 1px solid var(--line);
-  }
-  .work-item {
-    display: grid;
-    grid-template-columns: 80px 1fr 1.2fr 200px 80px;
-    gap: 40px;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    text-decoration: none;
-    color: var(--ink);
-    transition: padding 0.4s ease, background 0.4s ease;
-    position: relative;
-  }
-  .work-item:hover {
-    padding-left: 24px;
-    padding-right: 24px;
-    background: var(--bone-soft);
-  }
-  .work-num {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--mute);
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  .work-name {
-    font-weight: 500;
-    font-size: clamp(28px, 3vw, 44px);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-  .work-name em {
-    font-style: normal;
-    font-weight: 700;
-    color: var(--clay);
-  }
-  .work-desc {
-    font-size: 14px;
-    color: var(--mute);
-    line-height: 1.5;
-  }
-  .work-tag {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 6px 12px;
-    border: 1px solid var(--line);
-    border-radius: 100px;
-    color: var(--ink);
-  }
-  .work-arrow {
-    text-align: right;
-    font-size: 18px;
-    color: var(--clay);
-    transition: transform 0.3s ease;
-  }
-  .work-item:hover .work-arrow { transform: translateX(8px); }
-
-  @media (max-width: 900px) {
-    .work-item {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding: 32px 0;
-    }
-    .work-item:hover { padding-left: 0; padding-right: 0; }
-    .work-arrow { display: none; }
-  }
-
-  /* ============ SERVICES ============ */
-  .services {
-    background: var(--ink);
-    color: var(--bone);
-    padding: 100px 40px;
-  }
-  .services-inner { max-width: 1200px; margin: 0 auto; }
-  .services-header {
-    display: grid;
-    grid-template-columns: 80px 1fr 1fr 80px;
-    gap: 40px;
-    align-items: end;
-    padding-bottom: 60px;
-    margin-bottom: 60px;
-    border-bottom: 1px solid var(--line-on-ink);
-  }
-  .services-header .index-num { color: var(--clay); }
-  .services-header .index-label { color: rgba(237,232,221,0.5); }
-  .services-header .index-title { color: var(--bone); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--line-on-ink);
-    border: 1px solid var(--line-on-ink);
-  }
-  .service {
-    background: var(--ink);
-    padding: 48px 40px;
-    transition: background 0.3s;
-    cursor: default;
-  }
-  .service:hover { background: var(--ink-soft); }
-  .service-num {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--clay);
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .service-name {
-    font-weight: 500;
-    font-size: 28px;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    line-height: 1.1;
-  }
-  .service-desc {
-    font-size: 14px;
-    color: rgba(237,232,221,0.6);
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-  .service-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding-top: 24px;
+    padding-top: var(--space-6);
+    margin-top: var(--space-10);
     border-top: 1px solid var(--line-on-ink);
-  }
-  .service-from {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: rgba(237,232,221,0.5);
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .service-price {
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-    color: var(--bone);
-  }
-  .service-includes {
-    font-size: 12px;
-    color: rgba(237,232,221,0.55);
-    line-height: 1.6;
-    margin-bottom: 16px;
-    padding-left: 16px;
-    border-left: 1px solid var(--clay);
-  }
-
-  @media (max-width: 768px) {
-    .services { padding: 60px 24px; }
-    .services-header { grid-template-columns: 1fr; gap: 16px; padding-bottom: 32px; margin-bottom: 32px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service { padding: 32px 24px; }
-    .service-name { font-size: 24px; }
-  }
-
-  /* ============ PROCESS ============ */
-  .process {
-    padding: 100px 40px;
-    background: var(--bone);
-  }
-  .process-inner { max-width: 1200px; margin: 0 auto; }
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    margin-top: 40px;
-  }
-  .step {
-    padding-top: 24px;
-    border-top: 1px solid var(--ink);
-    position: relative;
-  }
-  .step-num {
-    font-weight: 700;
-    font-size: 64px;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    color: var(--clay);
-    margin-bottom: 16px;
-    font-style: normal;
-  }
-  .step-title {
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: -0.02em;
-    margin-bottom: 12px;
-  }
-  .step-desc {
-    font-size: 14px;
-    color: var(--mute);
-    line-height: 1.6;
-  }
-  .step-time {
-    display: inline-block;
-    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-4);
     font-size: 10px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--mute-soft);
-    font-weight: 500;
+    color: rgba(237,232,221,0.5);
+    font-weight: 700;
+  }
+  .hero-meta-bar .meta-item strong {
+    color: var(--bone);
+    font-weight: 700;
+    margin-right: 8px;
   }
 
-  @media (max-width: 900px) {
-    .process { padding: 60px 24px; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
-    .step-num { font-size: 48px; }
-  }
-  @media (max-width: 480px) {
-    .process-steps { grid-template-columns: 1fr; }
-  }
-
-  /* ============ MANIFESTO ============ */
+  /* ============ MANIFIESTO (sobre clay) ============ */
   .manifesto {
     background: var(--clay);
     color: var(--bone);
-    padding: 140px 40px;
+    padding: var(--space-16) var(--space-4);
     position: relative;
     overflow: hidden;
   }
   .manifesto::before {
     content: '';
     position: absolute;
-    top: 32px; left: 32px;
-    width: 24px; height: 24px;
-    border-top: 1px solid rgba(237,232,221,0.3);
-    border-left: 1px solid rgba(237,232,221,0.3);
+    top: var(--space-3); left: var(--space-3);
+    width: 18px; height: 18px;
+    border-top: 1px solid rgba(237,232,221,0.4);
+    border-left: 1px solid rgba(237,232,221,0.4);
   }
   .manifesto::after {
     content: '';
     position: absolute;
-    bottom: 32px; right: 32px;
-    width: 24px; height: 24px;
-    border-bottom: 1px solid rgba(237,232,221,0.3);
-    border-right: 1px solid rgba(237,232,221,0.3);
+    bottom: var(--space-3); right: var(--space-3);
+    width: 18px; height: 18px;
+    border-bottom: 1px solid rgba(237,232,221,0.4);
+    border-right: 1px solid rgba(237,232,221,0.4);
   }
   .manifesto-inner {
-    max-width: 1000px;
+    max-width: 1320px;
     margin: 0 auto;
-    text-align: center;
   }
   .manifesto-eyebrow {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 40px;
     color: rgba(237,232,221,0.7);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
   }
   .manifesto-text {
+    font-size: clamp(28px, 4.2vw, 56px);
     font-weight: 500;
-    font-size: clamp(32px, 5vw, 64px);
-    line-height: 1.15;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    max-width: 22ch;
   }
-  .manifesto-text em {
-    font-style: normal;
+  .manifesto-text .underline {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 0 0.25em;
+  }
+  .manifesto-page-num {
+    position: absolute;
+    bottom: var(--space-3); left: var(--space-4);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: rgba(237,232,221,0.6);
     font-weight: 700;
   }
-  .manifesto-sig {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 60px;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: rgba(237,232,221,0.7);
-  }
-  .manifesto-sig::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: rgba(237,232,221,0.5);
-  }
 
-  @media (max-width: 768px) {
-    .manifesto { padding: 80px 24px; }
+  /* ============ TRABAJO SELECCIONADO ============ */
+  .work-section {
+    padding: var(--space-10) 0;
   }
-
-  /* ============ FAQ ============ */
-  .faq {
-    padding: 100px 40px;
-    background: var(--bone);
+  .work-list {
+    max-width: 1320px;
+    margin: var(--space-8) auto 0;
+    padding: 0 var(--space-4);
   }
-  .faq-inner { max-width: 1200px; margin: 0 auto; }
-  .faq-list {
-    margin-top: 40px;
-    border-top: 1px solid var(--line);
-  }
-  .faq-item {
+  .work-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 200px 60px;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
     border-bottom: 1px solid var(--line);
-  }
-  .faq-q {
-    width: 100%;
-    background: none;
-    border: 0;
-    padding: 28px 0;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    font-family: inherit;
-    text-align: left;
-    color: var(--ink);
-    transition: padding 0.3s;
+    transition: padding 0.3s, background 0.3s;
+    position: relative;
   }
-  .faq-q:hover { padding-left: 12px; }
-  .faq-q-text {
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    flex: 1;
-    padding-right: 24px;
+  .work-item::before {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--clay);
+    transition: width 0.4s ease;
   }
-  .faq-q-icon {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .work-item:hover {
+    padding-left: var(--space-3);
+  }
+  .work-item:hover::before { width: 100%; }
+  .work-num {
+    font-size: 11px;
     color: var(--clay);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+  .work-name {
+    font-size: clamp(22px, 2.8vw, 32px);
     font-weight: 500;
-    flex-shrink: 0;
-    transition: transform 0.3s, background 0.3s, color 0.3s;
-  }
-  .faq-item.open .faq-q-icon {
-    transform: rotate(45deg);
-    background: var(--clay);
-    color: var(--bone);
-  }
-  .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-  }
-  .faq-item.open .faq-a {
-    max-height: 400px;
-  }
-  .faq-a-inner {
-    padding: 0 60px 32px 0;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    max-width: 720px;
-  }
-
-  @media (max-width: 768px) {
-    .faq { padding: 60px 24px; }
-    .faq-q-text { font-size: 16px; }
-  }
-
-  /* ============ CONTACT ============ */
-  .contact {
-    background: var(--ink);
-    color: var(--bone);
-    padding: 100px 40px;
-  }
-  .contact-inner { max-width: 1200px; margin: 0 auto; }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    margin-top: 60px;
-  }
-  .contact-statement {
-    font-weight: 500;
-    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: -0.02em;
     line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 32px;
+    margin-bottom: 4px;
   }
-  .contact-statement em { font-style: normal; font-weight: 700; color: var(--clay); }
-  .contact-info {
-    margin-top: 40px;
-    padding-top: 32px;
-    border-top: 1px solid var(--line-on-ink);
+  .work-tag {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-left: 12px;
+    display: inline-block;
   }
-  .contact-info-item {
+  .work-desc {
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+  .work-meta {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-align: right;
+  }
+  .work-arrow {
+    font-size: 22px;
+    color: var(--clay);
+    text-align: right;
+    transition: transform 0.3s;
+  }
+  .work-item:hover .work-arrow { transform: translateX(8px); }
+
+  .work-cta-row {
+    margin-top: var(--space-8);
+    padding-top: var(--space-4);
     display: flex;
     justify-content: space-between;
-    padding: 16px 0;
-    font-size: 14px;
-    border-bottom: 1px solid var(--line-on-ink);
-  }
-  .contact-info-item:last-child { border-bottom: 0; }
-  .contact-info-label {
-    color: rgba(237,232,221,0.5);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .contact-info-value a {
-    color: var(--bone);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .contact-info-value a:hover { border-color: var(--clay); }
-
-  .form-field {
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--line-on-ink);
-    transition: border-color 0.2s;
-  }
-  .form-field:focus-within { border-color: var(--clay); }
-  .form-label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(237,232,221,0.5);
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  .form-field input,
-  .form-field textarea,
-  .form-field select {
-    width: 100%;
-    background: transparent;
-    border: 0;
-    color: var(--bone);
-    font-family: inherit;
-    font-size: 16px;
-    padding: 8px 0 16px;
-    outline: none;
-    resize: none;
-  }
-  .form-field input::placeholder,
-  .form-field textarea::placeholder {
-    color: rgba(237,232,221,0.3);
-  }
-  .form-field select {
-    appearance: none;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23EDE8DD' stroke-opacity='0.5' fill='none'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-  }
-  .form-field select option { background: var(--ink); color: var(--bone); }
-
-  .form-submit {
-    background: var(--clay);
-    color: var(--bone);
-    border: 0;
-    padding: 20px 40px;
-    font-family: inherit;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: inline-flex;
     align-items: center;
-    gap: 12px;
-    margin-top: 16px;
-  }
-  .form-submit:hover { background: var(--clay-soft); }
-
-  @media (max-width: 900px) {
-    .contact { padding: 60px 24px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    flex-wrap: wrap;
+    gap: var(--space-3);
   }
 
-  /* ============ FOOTER ============ */
-  footer {
-    background: var(--ink);
-    color: var(--bone);
-    padding: 60px 40px 32px;
-    border-top: 1px solid var(--line-on-ink);
+  @media (max-width: 760px) {
+    .work-item {
+      grid-template-columns: 40px 1fr 30px;
+      gap: var(--space-2);
+      padding: var(--space-3) 0;
+    }
+    .work-desc, .work-meta { display: none; }
   }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+
+  /* ============ SERVICIOS ============ */
+  .services-section {
+    background: var(--bone-soft);
+    padding: var(--space-10) 0 var(--space-12);
   }
-  .footer-top {
+  .services-grid {
+    max-width: 1320px;
+    margin: var(--space-8) auto 0;
+    padding: 0 var(--space-4);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid var(--line-on-ink);
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
   }
-  .footer-brand {
-    grid-column: span 2;
+  .service-main {
+    border: 1px solid var(--line-strong);
+    padding: var(--space-6);
+    background: var(--bone);
+    position: relative;
   }
-  .footer-logo {
-    font-weight: 500;
-    font-size: 48px;
-    letter-spacing: -0.04em;
-    text-transform: lowercase;
-    line-height: 1;
-    margin-bottom: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .footer-tag {
-    font-size: 14px;
-    color: rgba(237,232,221,0.6);
-    line-height: 1.6;
-    max-width: 320px;
-  }
-  .footer-col h4 {
-    font-size: 11px;
+  .service-main::before {
+    content: '— Servicio principal';
+    position: absolute;
+    top: -10px; left: var(--space-4);
+    background: var(--bone-soft);
+    padding: 0 12px;
+    font-size: 10px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--clay);
-    margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 700;
   }
-  .footer-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .service-main h3 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.05;
+    margin-bottom: var(--space-3);
   }
-  .footer-col a {
-    color: rgba(237,232,221,0.7);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
+  .service-main p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: var(--space-3);
+    max-width: 38ch;
   }
-  .footer-col a:hover { color: var(--bone); }
-  .footer-bottom {
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
+  .service-main .service-meta {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--line);
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(237,232,221,0.4);
-    font-weight: 500;
+    color: var(--mute);
+    font-weight: 700;
   }
 
-  @media (max-width: 768px) {
-    footer { padding: 40px 24px 24px; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .footer-brand { grid-column: span 2; }
-    .footer-logo { font-size: 36px; }
-    .footer-bottom { flex-direction: column; gap: 12px; }
+  .services-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .services-secondary-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+  }
+  .service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    gap: var(--space-3);
+  }
+  .service-row:last-child { border-bottom: 0; }
+  .service-row .s-name {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .service-row .s-from {
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  .services-foot {
+    max-width: 1320px;
+    margin: var(--space-8) auto 0;
+    padding: var(--space-6) var(--space-4) 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .services-foot p {
+    max-width: 56ch;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 760px) {
+    .services-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+
+  /* ============ ESTUDIO ============ */
+  .studio-section {
+    padding: var(--space-10) 0;
+  }
+  .studio-grid {
+    max-width: 1320px;
+    margin: var(--space-8) auto 0;
+    padding: 0 var(--space-4);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .studio-portrait {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .studio-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .studio-portrait .portrait-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+  }
+  .studio-portrait img[src=""] + .portrait-fallback,
+  .studio-portrait.no-image .portrait-fallback {
+    display: flex;
+  }
+  .fallback-letter {
+    color: var(--bone);
+    font-size: 180px;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    position: relative;
+    padding-top: 18px;
+  }
+  .fallback-letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 50px;
+    height: 6px;
+    background: var(--clay);
+  }
+  .studio-portrait .portrait-meta {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.5);
+    font-weight: 700;
+  }
+
+  .studio-text h2 {
+    margin-bottom: var(--space-4);
+    max-width: 16ch;
+  }
+  .studio-text p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: var(--space-3);
+    max-width: 56ch;
+  }
+  .studio-text .btn-link {
+    margin-top: var(--space-3);
+  }
+
+  @media (max-width: 760px) {
+    .studio-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .studio-portrait { max-width: 280px; }
+  }
+
+  /* ============ CIERRE / CTA ============ */
+  .closing {
+    background: var(--ink);
+    color: var(--bone);
+    padding: var(--space-16) var(--space-4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .closing-eyebrow::before, .closing-eyebrow::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--clay);
+  }
+  .closing h2 {
+    font-size: clamp(40px, 6.5vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    max-width: 18ch;
+    margin: 0 auto var(--space-6);
   }
 
   /* ============ WHATSAPP FLOAT ============ */
   .wa-float {
     position: fixed;
-    bottom: 32px;
-    right: 32px;
+    bottom: 24px; right: 24px;
+    z-index: 50;
     width: 56px;
     height: 56px;
-    border-radius: 50%;
     background: var(--clay);
     color: var(--bone);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    z-index: 99;
+    box-shadow: 0 6px 24px rgba(192,74,43,0.35);
     transition: transform 0.3s, background 0.3s;
-    box-shadow: 0 4px 20px rgba(192, 74, 43, 0.3);
   }
   .wa-float:hover {
-    transform: scale(1.08);
     background: var(--clay-soft);
+    transform: scale(1.05);
   }
-  .wa-float svg { width: 24px; height: 24px; }
-
-  /* ============ FADE IN ON SCROLL ============ */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .fade-up.in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* WORDMARK helper para SVG inline */
-  .wm-text {
-    font-family: 'Switzer', sans-serif;
-    font-weight: 500;
-    letter-spacing: -0.04em;
-  }
-  /* ============ INTRO ANIMATION ============ */
-  .intro-overlay {
-    position: fixed;
-    inset: 0;
-    background: var(--ink);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .intro-overlay.gone {
-    transform: translateY(-100%);
-    transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1);
-  }
-  /* Esquinitas que se dibujan */
-  .intro-corner {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.1s;
-  }
-  .intro-corner.show { opacity: 1; }
-  .intro-corner.tl { top: 32px; left: 32px; border-top: 1px solid var(--line-on-ink); border-left: 1px solid var(--line-on-ink); }
-  .intro-corner.tr { top: 32px; right: 32px; border-top: 1px solid var(--line-on-ink); border-right: 1px solid var(--line-on-ink); }
-  .intro-corner.bl { bottom: 32px; left: 32px; border-bottom: 1px solid var(--line-on-ink); border-left: 1px solid var(--line-on-ink); }
-  .intro-corner.br { bottom: 32px; right: 32px; border-bottom: 1px solid var(--line-on-ink); border-right: 1px solid var(--line-on-ink); }
-
-  .intro-meta {
-    position: absolute;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(237,232,221,0.4);
-    font-weight: 700;
-    opacity: 0;
-    transition: opacity 0.6s ease 0.3s;
-  }
-  .intro-meta.show { opacity: 1; }
-  .intro-meta.tl { top: 56px; left: 70px; }
-  .intro-meta.br { bottom: 56px; right: 70px; text-align: right; }
-
-  .intro-mark {
-    text-align: center;
-    position: relative;
-  }
-  .intro-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--clay);
-    font-weight: 700;
-    margin-bottom: 32px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
-  }
-  .intro-eyebrow.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .intro-wordmark {
-    font-weight: 500;
-    font-size: clamp(64px, 12vw, 160px);
-    letter-spacing: -0.05em;
-    line-height: 1;
-    color: var(--bone);
-    display: inline-block;
-    position: relative;
-  }
-  .intro-letter {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
-  }
-  .intro-letter.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  /* Macron sobre la e con animación de "escritura" */
-  .intro-macron {
-    position: absolute;
-    background: var(--clay);
-    height: 5px;
-    width: 0;
-    transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1);
-  }
-  .intro-macron.show { width: var(--macron-width, 60px); }
-
-  .intro-tag {
-    margin-top: 24px;
-    font-size: 12px;
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    color: rgba(237,232,221,0.4);
-    font-weight: 500;
-    opacity: 0;
-    transition: opacity 0.6s ease 0.2s;
-  }
-  .intro-tag.show { opacity: 1; }
-
-  /* Body lock during intro */
-  body.intro-active {
-    overflow: hidden;
-  }
-  body.intro-active main,
-  body.intro-active nav,
-  body.intro-active section,
-  body.intro-active footer,
-  body.intro-active .wa-float {
-    opacity: 0;
-  }
-  body.intro-done main,
-  body.intro-done nav,
-  body.intro-done section,
-  body.intro-done footer,
-  body.intro-done .wa-float {
-    opacity: 1;
-    transition: opacity 0.6s ease 0.4s;
-  }
-
-  @media (max-width: 600px) {
-    .intro-corner { width: 20px; height: 20px; top: 20px; left: 20px; }
-    .intro-corner.tr { right: 20px; left: auto; top: 20px; }
-    .intro-corner.bl { bottom: 20px; left: 20px; top: auto; }
-    .intro-corner.br { bottom: 20px; right: 20px; top: auto; left: auto; }
-    .intro-meta { display: none; }
-  }
-
-  /* Si el user prefiere reducir movimiento */
-  @media (prefers-reduced-motion: reduce) {
-    .intro-overlay,
-    .intro-corner,
-    .intro-meta,
-    .intro-letter,
-    .intro-eyebrow,
-    .intro-tag,
-    .intro-macron {
-      transition: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-      width: var(--macron-width, 60px) !important;
-    }
-    .intro-overlay { display: none; }
-  }
-
+  .wa-float svg { width: 26px; height: 26px; }
 </style>
+
 </head>
 <body class="intro-active">
 
 <!-- ============ INTRO ANIMATION ============ -->
-<div class="intro-overlay" id="intro">
+<div class="intro-overlay" id="intro" aria-hidden="true">
   <div class="intro-corner tl" id="ic-tl"></div>
   <div class="intro-corner tr" id="ic-tr"></div>
   <div class="intro-corner bl" id="ic-bl"></div>
   <div class="intro-corner br" id="ic-br"></div>
 
-  <div class="intro-meta tl" id="im-tl">SOPHĒ ✦ DESIGN STUDIO</div>
-  <div class="intro-meta br" id="im-br">CDE · 2026</div>
+  <div class="intro-meta tl" id="im-tl">VOL. 02 — 2026</div>
+  <div class="intro-meta br" id="im-br">CDE · PARAGUAY</div>
 
-  <div class="intro-mark">
-    <div class="intro-eyebrow" id="ie-1">— Estudio de diseño —</div>
-    <div class="intro-wordmark" id="iw">
-      <span class="intro-letter" id="il-1">s</span><span class="intro-letter" id="il-2">o</span><span class="intro-letter" id="il-3">p</span><span class="intro-letter" id="il-4">h</span><span class="intro-letter" id="il-5" style="position: relative;">e<span class="intro-macron" id="im-macron"></span></span>
-    </div>
-    <div class="intro-tag" id="it-1">Marcas que envejecen bien</div>
+  <div class="intro-eyebrow" id="ie-1">— Estudio independiente —</div>
+
+  <div class="intro-wordmark" id="iw" style="position: relative;">
+    <span class="intro-letter" id="il-1">s</span><span class="intro-letter" id="il-2">o</span><span class="intro-letter" id="il-3">p</span><span class="intro-letter" id="il-4">h</span><span class="intro-letter" id="il-5" style="position: relative;">e<span class="intro-macron" id="im-macron"></span></span>
   </div>
 </div>
 
 <!-- ============ NAV ============ -->
-<nav>
-  <a href="#" class="logo" aria-label="Sophē — inicio">
+<nav class="site-nav">
+  <a href="index.html" class="logo" aria-label="Sophē — inicio">
     <svg width="80" height="22" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="130" class="wm-text" font-size="160" fill="currentColor" letter-spacing="-7">sophē</text>
+      <text x="0" y="130" font-family="Switzer, sans-serif" font-weight="500" font-size="160" fill="currentColor" letter-spacing="-7">sophē</text>
       <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
     </svg>
   </a>
   <ul>
-    <li><a href="#work">Trabajo</a></li>
-    <li><a href="#services">Servicios</a></li>
-    <li><a href="#process">Proceso</a></li>
-    <li><a href="#about">Estudio</a></li>
+    <li><a href="trabajo.html">Trabajo</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="estudio.html">Estudio</a></li>
+    <li><a href="cotizar.html">Cotizar</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Iniciar proyecto</a>
+  <a href="#contacto" class="nav-cta">Conversemos <span class="arr">→</span></a>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-frame bl">SOFÍA CABAÑAS<br>FOUNDER · CREATIVE DIR.</div>
-  <div class="hero-frame br">PARAGUAY · LATAM<br>WORLDWIDE REMOTE</div>
+<main>
 
+<!-- ============ 01 — HERO / APERTURA ============ -->
+<section class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">Estudio de diseño · Branding · Editorial</div>
+    <div class="hero-eyebrow">Vol. 02 / 2026 — Ciudad del Este</div>
     <h1>Marcas que <em>envejecen bien</em>.</h1>
-    <p class="hero-sub">Estudio independiente de identidad visual. Trabajamos con marcas que entienden que el diseño es decisión de negocio.</p>
+    <p class="hero-sub">Estudio de branding y diseño editorial. Trabajo con proyectos que entienden que la identidad no se decora — se construye.</p>
     <div class="hero-cta-row">
-      <a href="#contact" class="btn-primary">
-        Iniciar proyecto <span class="arrow">→</span>
-      </a>
-      <a href="#work" class="btn-secondary">
-        Ver portfolio <span class="arrow">↓</span>
-      </a>
+      <a href="trabajo.html" class="btn btn-primary">Ver el trabajo <span class="arr">→</span></a>
+      <a href="#contacto" class="btn-link">Conversemos <span class="arr">→</span></a>
     </div>
   </div>
 
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <strong>+ 3 años</strong> · Experiencia
-    </div>
-    <div class="hero-meta-item">
-      <strong>15+ marcas</strong> · Construidas
-    </div>
-    <div class="hero-meta-item">
-      <strong>2 agencias</strong> · Senior in-house
-    </div>
-    <div class="hero-meta-item">
-      <strong>Disponible</strong> · Q2 2026
-    </div>
+  <div class="hero-meta-bar">
+    <div class="meta-item"><strong>Sofía Cabañas</strong> Dirección creativa</div>
+    <div class="meta-item"><strong>Branding · Editorial · Packaging</strong></div>
+    <div class="meta-item"><strong>Q2 2026</strong> Disponible</div>
   </div>
 </section>
 
 <!-- ============ MARQUEE ============ -->
-<div class="marquee">
+<div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span class="marquee-item">Branding</span>
     <span class="marquee-item">Identidad visual</span>
@@ -1352,468 +673,199 @@
   </div>
 </div>
 
-<!-- ============ ABOUT ============ -->
-<section class="index-header" id="about">
-  <div class="index-row">
-    <div class="index-num">01</div>
-    <div class="index-label">Estudio<br>· Sobre Sophē</div>
-    <h2 class="index-title">No diseñamos para <em>impresionar</em>.<br>Diseñamos para <em>sostener</em>.</h2>
-    <div class="index-label" style="text-align: right;">VOL.02<br>2026</div>
+<!-- ============ 02 — MANIFIESTO ============ -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-eyebrow">— 02 / Manifiesto</div>
+    <p class="manifesto-text">
+      Hay marcas que necesitan explicarse en cada post. Y hay marcas que entran a un lugar y se sienten.<br><br>
+      La diferencia no está en el logo — está en las <span class="underline">decisiones de diseño</span> que nadie nota, pero todos perciben.
+    </p>
   </div>
+  <div class="manifesto-page-num">002</div>
 </section>
 
-<section class="about">
-  <div class="about-grid">
-    <div class="about-portrait">
-      <div class="portrait-frame">
-        <img src="sofia-portrait.jpg" alt="Sofía Cabañas — Founder y Creative Director de Sophē Design Studio" onerror="this.parentElement.classList.add('no-image')">
-        <div class="portrait-fallback">
-          <span class="fallback-letter">s</span>
-        </div>
-        <div class="portrait-overlay">
-          <div class="portrait-name">Sofía Cabañas</div>
-          <div class="portrait-role">Founder · Creative Director</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="about-meta">El estudio</div>
-      <p class="about-statement">Sophē es <em>Sofía Cabañas</em>. Diseñadora gráfica con base en Ciudad del Este. +3 años, 2 agencias como Senior In-House.</p>
-
-      <div class="about-body" style="margin-bottom: 32px;">
-        <p>Hay marcas que se explican. Y hay marcas que se sienten.</p>
-        <p>Trabajamos con criterio editorial. Sistemas que funcionan en góndola, en pantalla y en cinco años. Sin atajos, sin templates, sin tendencias prestadas.</p>
-      </div>
-
-      <div class="about-credentials">
-        <div>
-          <div class="credential-num">+3</div>
-          <div class="credential-label">Años de experiencia</div>
-        </div>
-        <div>
-          <div class="credential-num">15+</div>
-          <div class="credential-label">Proyectos entregados</div>
-        </div>
-        <div>
-          <div class="credential-num">2</div>
-          <div class="credential-label">Senior In-House</div>
-        </div>
-        <div>
-          <div class="credential-num">100%</div>
-          <div class="credential-label">Cliente directo</div>
-        </div>
-      </div>
+<!-- ============ 03 — TRABAJO SELECCIONADO ============ -->
+<section class="work-section">
+  <div class="index-header">
+    <div class="index-row">
+      <div class="index-num">03</div>
+      <div class="index-label">Trabajo<br>· Selección</div>
+      <h2 class="h2">Tres proyectos. <em>Una dirección.</em></h2>
+      <div class="index-label right">2024<br>—2026</div>
     </div>
   </div>
-</section>
 
-<!-- ============ WORK ============ -->
-<section class="index-header" id="work">
-  <div class="index-row">
-    <div class="index-num">02</div>
-    <div class="index-label">Portfolio<br>· Trabajos seleccionados</div>
-    <h2 class="index-title">Proyectos <em>recientes</em></h2>
-    <div class="index-label" style="text-align: right;">2024<br>—2026</div>
-  </div>
-</section>
-
-<section class="work">
   <div class="work-list">
     <a href="https://www.behance.net/gallery/243457355/Branding-Linea-grafica-Klik-Agencia-Creativa" target="_blank" rel="noopener" class="work-item">
-      <div class="work-num">— 001</div>
+      <div class="work-num">001</div>
       <div>
         <div class="work-name">Klik Agencia <em>Creativa</em></div>
+        <div class="work-desc">Rebranding y línea gráfica completa para una agencia con voz propia.</div>
       </div>
-      <div class="work-desc">Rebranding y línea gráfica completa para una agencia creativa con visión propia.</div>
-      <div><span class="work-tag">Rebranding · Línea gráfica</span></div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <a href="https://www.behance.net/gallery/243456857/Actualizacion-de-linea-grafica-Ellaphant-PY" target="_blank" rel="noopener" class="work-item">
-      <div class="work-num">— 002</div>
-      <div>
-        <div class="work-name">Ellaphant <em>PY</em></div>
-      </div>
-      <div class="work-desc">Línea gráfica que ordena y consolida la presencia visual de la marca.</div>
-      <div><span class="work-tag">Línea gráfica</span></div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <a href="https://www.behance.net/gallery/243456701/Linea-grafica-Kapta-by-Ellaphant" target="_blank" rel="noopener" class="work-item">
-      <div class="work-num">— 003</div>
-      <div>
-        <div class="work-name">Kapta <em>by Ellaphant</em></div>
-      </div>
-      <div class="work-desc">Branding y línea gráfica para una sub-marca con identidad propia.</div>
-      <div><span class="work-tag">Branding · Línea gráfica</span></div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <a href="https://www.behance.net/gallery/243456563/Linea-grafica-Instituto-Supremo" target="_blank" rel="noopener" class="work-item">
-      <div class="work-num">— 004</div>
-      <div>
-        <div class="work-name">Instituto <em>Supremo</em></div>
-      </div>
-      <div class="work-desc">Línea gráfica para una institución educativa con autoridad y calidez.</div>
-      <div><span class="work-tag">Línea gráfica</span></div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <a href="https://www.behance.net/gallery/243456069/Linea-grafica-Sales-System" target="_blank" rel="noopener" class="work-item">
-      <div class="work-num">— 005</div>
-      <div>
-        <div class="work-name">Sales <em>System</em></div>
-      </div>
-      <div class="work-desc">Línea gráfica B2B aplicada a múltiples canales y formatos comerciales.</div>
-      <div><span class="work-tag">Línea gráfica</span></div>
+      <div class="work-meta">Agencia · CDE<br>2024</div>
       <div class="work-arrow">→</div>
     </a>
 
     <a href="https://www.behance.net/gallery/231858263/Creacion-de-identidad" target="_blank" rel="noopener" class="work-item">
-      <div class="work-num">— 006</div>
+      <div class="work-num">002</div>
       <div>
-        <div class="work-name">Conversa</div>
+        <div class="work-name">Conversa <span class="work-tag">Práctica propia</span></div>
+        <div class="work-desc">Branding, naming e identidad. El estudio que dirijo con mi esposo desde 2023.</div>
       </div>
-      <div class="work-desc">Branding, naming, identidad y línea gráfica desde cero.</div>
-      <div><span class="work-tag">Branding · Naming · Identidad</span></div>
+      <div class="work-meta">Estudio paralelo<br>2025</div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <a href="trabajo.html#vitamarket" class="work-item">
+      <div class="work-num">003</div>
+      <div>
+        <div class="work-name">VitaMarket</div>
+        <div class="work-desc">Sistema completo de etiquetas, packaging y exhibidor POP.</div>
+      </div>
+      <div class="work-meta">Suplementos<br>2025</div>
       <div class="work-arrow">→</div>
     </a>
   </div>
-  <div style="max-width: 1200px; margin: 60px auto 0; padding-bottom: 60px; text-align: center;">
-    <a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener" class="btn-primary" style="background: var(--ink); color: var(--bone);">
-      Ver todos los proyectos en Behance <span class="arrow">→</span>
-    </a>
-  </div>
-</section>
 
-<!-- ============ SERVICES ============ -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="services-header">
-      <div class="index-num">03</div>
-      <div class="index-label">Servicios<br>· Áreas de práctica</div>
-      <h2 class="index-title">Cuatro <em>territorios</em>.<br>Una sola <em>obsesión</em>.</h2>
-      <div class="index-label" style="text-align: right;">DESDE<br>GS</div>
-    </div>
-
-    <div class="services-grid">
-      <div class="service">
-        <div class="service-num">— 01</div>
-        <h3 class="service-name">Branding & <em style="font-style: normal; font-weight: 700; color: var(--clay);">identidad visual</em></h3>
-        <p class="service-desc">Construcción de marca desde cero o rediseño profundo.</p>
-        <div class="service-includes">Logo + variantes · Paleta · Tipografía · Manual · Papelería</div>
-        <div class="service-meta">
-          <span class="service-from">Desde</span>
-          <span class="service-price">Gs 2.200.000</span>
-        </div>
-      </div>
-
-      <div class="service">
-        <div class="service-num">— 02</div>
-        <h3 class="service-name">Producto & <em style="font-style: normal; font-weight: 700; color: var(--clay);">packaging</em></h3>
-        <p class="service-desc">Diseño que funciona en góndola.</p>
-        <div class="service-includes">Etiquetas · Packaging · Exhibidores POP · Punto de venta</div>
-        <div class="service-meta">
-          <span class="service-from">Desde</span>
-          <span class="service-price">Gs 800.000</span>
-        </div>
-      </div>
-
-      <div class="service">
-        <div class="service-num">— 03</div>
-        <h3 class="service-name">Editorial & <em style="font-style: normal; font-weight: 700; color: var(--clay);">corporativo</em></h3>
-        <p class="service-desc">Diagramación con criterio.</p>
-        <div class="service-includes">Menú · Catálogo · Tríptico · Presentación · Manual</div>
-        <div class="service-meta">
-          <span class="service-from">Desde</span>
-          <span class="service-price">Gs 400.000</span>
-        </div>
-      </div>
-
-      <div class="service">
-        <div class="service-num">— 04</div>
-        <h3 class="service-name">Contenido <em style="font-style: normal; font-weight: 700; color: var(--clay);">digital</em></h3>
-        <p class="service-desc">Planes mensuales para redes.</p>
-        <div class="service-includes">Pieza individual · Plan 8 / 12 / 16 · Templates · Stories</div>
-        <div class="service-meta">
-          <span class="service-from">Desde</span>
-          <span class="service-price">Gs 80.000</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--line-on-ink); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
-      <div style="font-size: 13px; color: rgba(237,232,221,0.7); max-width: 600px; line-height: 1.6;">
-        Cotizamos como sistema, no como suma de partes. Para proyectos que combinan varios servicios, <span style="color: var(--clay); font-weight: 700;">armamos una propuesta integral</span>.
-      </div>
-      <a href="sophe-simulador-presupuesto.html" class="btn-primary">
-        Calcular tu presupuesto <span class="arrow">→</span>
-      </a>
+  <div class="work-list" style="margin-top: 0;">
+    <div class="work-cta-row">
+      <p style="font-size: 13px; color: var(--mute); max-width: 48ch; line-height: 1.55;">Hay tres proyectos más en el archivo. Cada uno con su contexto.</p>
+      <a href="trabajo.html" class="btn btn-ghost">Ver los seis <span class="arr">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
-<section class="process" id="process">
-  <div class="process-inner">
-    <div class="index-row" style="grid-template-columns: 80px 1fr 1fr 80px; gap: 40px; align-items: end; padding-bottom: 40px;">
+<!-- ============ 04 — SERVICIOS ============ -->
+<section class="services-section">
+  <div class="index-header" style="border-bottom: 0; padding-bottom: 0;">
+    <div class="index-row">
       <div class="index-num">04</div>
-      <div class="index-label">Proceso<br>· Cómo trabajamos</div>
-      <h2 class="index-title">De brief <em>a entrega</em>.</h2>
-      <div class="index-label" style="text-align: right;">04<br>FASES</div>
+      <div class="index-label">Servicios<br>· Áreas</div>
+      <h2 class="h2">Cuatro <em>territorios</em>.</h2>
+      <div class="index-label right">Desde<br>Gs</div>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-main">
+      <h3>Branding <em>completo</em>.</h3>
+      <p>Estrategia, identidad y sistema visual. Una identidad como sistema, no como logo. Pensado para sostenerse cinco años.</p>
+      <p style="font-size: 13px; color: var(--mute);">Logo · paleta · tipografía · manual · papelería · aplicaciones</p>
+      <div class="service-meta">5—6 semanas · Desde Gs 2.200.000</div>
     </div>
 
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3 class="step-title">Descubrimiento</h3>
-        <p class="step-desc">Brief profundo. Antes de diseñar — entender.</p>
-        <span class="step-time">Sem 1</span>
+    <div class="services-secondary">
+      <div class="services-secondary-label">— También</div>
+      <div class="service-row">
+        <span class="s-name">Producto y packaging</span>
+        <span class="s-from">Desde 800.000</span>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3 class="step-title">Estrategia</h3>
-        <p class="step-desc">Investigación, moodboards, dirección creativa.</p>
-        <span class="step-time">Sem 1—2</span>
+      <div class="service-row">
+        <span class="s-name">Editorial corporativo</span>
+        <span class="s-from">Desde 400.000</span>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3 class="step-title">Diseño</h3>
-        <p class="step-desc">Sistema completo. Dos rondas de revisión.</p>
-        <span class="step-time">Sem 2—4</span>
+      <div class="service-row">
+        <span class="s-name">Contenido digital</span>
+        <span class="s-from">Desde 80.000</span>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3 class="step-title">Entrega</h3>
-        <p class="step-desc">Archivos finales, manual y soporte.</p>
-        <span class="step-time">Sem 4—5</span>
+      <div class="service-row">
+        <span class="s-name">Sub-branding</span>
+        <span class="s-from">Desde 1.000.000</span>
       </div>
     </div>
+  </div>
 
-    <div style="margin-top: 60px; padding: 32px; background: var(--ink); color: var(--bone); display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
-      <div>
-        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Pago</div>
-        <div style="font-size: 14px; line-height: 1.5;">50% adelanto<br>50% contra entrega</div>
-      </div>
-      <div>
-        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Revisiones</div>
-        <div style="font-size: 14px; line-height: 1.5;">2 rondas<br>incluidas</div>
-      </div>
-      <div>
-        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Derechos</div>
-        <div style="font-size: 14px; line-height: 1.5;">Transferidos al<br>completar pago</div>
-      </div>
-      <div>
-        <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); font-weight: 500; margin-bottom: 8px;">Propuesta</div>
-        <div style="font-size: 14px; line-height: 1.5;">Válida por<br>15 días</div>
-      </div>
+  <div class="services-foot">
+    <p>Cotizo como sistema, no como suma de partes. Para proyectos que combinan varios servicios, <em>armo una propuesta integral</em>.</p>
+    <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+      <a href="cotizar.html" class="btn btn-ink">Calcular presupuesto <span class="arr">→</span></a>
+      <a href="servicios.html" class="btn-link">Ver detalle de servicios <span class="arr">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ MANIFESTO ============ -->
-<section class="manifesto">
-  <div class="manifesto-inner">
-    <div class="manifesto-eyebrow">Manifiesto · 01</div>
-    <p class="manifesto-text">No diseñamos marcas que estén <em>de moda</em>.<br>Diseñamos marcas que <em>envejezcan bien</em>.</p>
-    <div class="manifesto-sig">Sophē — desde CDE, 2024</div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section class="faq">
-  <div class="faq-inner">
-    <div class="index-row" style="grid-template-columns: 80px 1fr 1fr 80px; gap: 40px; align-items: end; padding-bottom: 0;">
+<!-- ============ 05 — ESTUDIO ============ -->
+<section class="studio-section">
+  <div class="index-header" style="border-bottom: 0; padding-bottom: 0;">
+    <div class="index-row">
       <div class="index-num">05</div>
-      <div class="index-label">FAQ<br>· Preguntas frecuentes</div>
-      <h2 class="index-title">Antes de <em>escribirnos</em>.</h2>
-      <div class="index-label" style="text-align: right;">06<br>QS</div>
+      <div class="index-label">Estudio<br>· Sobre Sofía</div>
+      <h2 class="h2">Soy Sofía. Vengo de dirigir <em>desde adentro</em>.</h2>
+      <div class="index-label right">Desde<br>2024</div>
+    </div>
+  </div>
+
+  <div class="studio-grid">
+    <div class="studio-portrait" id="portrait">
+      <img src="sofia-portrait.jpg" alt="Sofía Cabañas" onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
+      <div class="portrait-fallback">
+        <span class="fallback-letter">s</span>
+      </div>
+      <div class="portrait-meta">— Sofía Cabañas, dirección</div>
     </div>
 
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span class="faq-q-text">¿Cuánto tarda un proyecto de branding completo?</span>
-          <span class="faq-q-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Branding completo: 5—6 semanas. Rebranding: 3—4 semanas. Sub-marca: 2—3 semanas. Plazos confirmados al firmar el adelanto.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span class="faq-q-text">¿Trabajan con clientes fuera de Paraguay?</span>
-          <span class="faq-q-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Sí. Trabajo 100% remoto con clientes en distintos países. Cobramos en guaraníes con conversión al USD del día.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span class="faq-q-text">¿Qué formatos finales entregan?</span>
-          <span class="faq-q-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Vectoriales editables (AI, SVG), web (PNG, JPG), impresión (PDF CMYK), favicon, avatares y manual de uso.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span class="faq-q-text">¿Hacen también el contenido de las redes después del branding?</span>
-          <span class="faq-q-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Sí. Planes mensuales: 8, 12 o 16 piezas/mes. La mayoría de clientes de branding después contrata contenido — el resultado es 10x más coherente.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span class="faq-q-text">¿Qué pasa si no me convencen las primeras propuestas?</span>
-          <span class="faq-q-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Tenés dos rondas de revisión. La primera ajusta rumbo, la segunda refina detalles. Si seguimos sin alinear, hablamos con honestidad.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span class="faq-q-text">¿Por qué los precios son "Desde"?</span>
-          <span class="faq-q-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Es el piso para un proyecto estándar. Naming, investigación o aplicaciones especiales se cotizan aparte. Sin sorpresas.</div>
-        </div>
-      </div>
+    <div class="studio-text">
+      <p>Tres años entre dos agencias como Senior In-House. Aprendí a dirigir identidades desde adentro antes de armar la mía.</p>
+      <p>En 2024 armé Sophē para trabajar con proyectos que entienden la diferencia entre <em>decorar y construir</em>.</p>
+      <p>Diseño desde Ciudad del Este — pero los sistemas que sostengo viven en cualquier parte.</p>
+      <a href="estudio.html" class="btn-link">Conocer el estudio <span class="arr">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="index-row" style="grid-template-columns: 80px 1fr 1fr 80px; gap: 40px; align-items: end; padding-bottom: 0; border-bottom: 1px solid var(--line-on-ink); padding-bottom: 40px;">
-      <div class="index-num" style="color: var(--clay);">06</div>
-      <div class="index-label" style="color: rgba(237,232,221,0.5);">Contacto<br>· Iniciar proyecto</div>
-      <h2 class="index-title" style="color: var(--bone);">Hablemos del <em>tuyo</em>.</h2>
-      <div class="index-label" style="text-align: right; color: rgba(237,232,221,0.5);">RESP.<br>≤ 24H</div>
-    </div>
-
-    <div class="contact-grid">
-      <div>
-        <p class="contact-statement">Si llegaste hasta acá, hay buenas chances de que tengamos algo en <em>común</em>.</p>
-        <p style="font-size: 16px; line-height: 1.7; color: rgba(237,232,221,0.7); max-width: 480px;">Contame qué estás construyendo. Respondemos en menos de 24 horas hábiles.</p>
-
-        <div class="contact-info">
-          <div class="contact-info-item">
-            <span class="contact-info-label">Email</span>
-            <span class="contact-info-value"><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">WhatsApp</span>
-            <span class="contact-info-value"><a href="https://wa.me/595992391964">+595 992 391 964</a></span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">Behance</span>
-            <span class="contact-info-value"><a href="https://www.behance.net/sophe_studio" target="_blank">@sophe_studio</a></span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">Instagram</span>
-            <span class="contact-info-value"><a href="https://instagram.com/sophe.studio" target="_blank">@sophe.studio</a></span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">Ubicación</span>
-            <span class="contact-info-value">Ciudad del Este, PY</span>
-          </div>
-        </div>
-      </div>
-
-      <form action="https://formspree.io/f/meelbrdz" method="POST">
-        <div class="form-field">
-          <label class="form-label" for="name">Nombre</label>
-          <input type="text" id="name" name="name" placeholder="Cómo te llamás" required>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="service">Servicio</label>
-          <select id="service" name="service" required>
-            <option value="">Seleccionar servicio</option>
-            <option>Branding completo</option>
-            <option>Rebranding</option>
-            <option>Sub-branding</option>
-            <option>Etiqueta / Packaging</option>
-            <option>Catálogo / Editorial</option>
-            <option>Plan de contenido digital</option>
-            <option>Otro / Quiero conversarlo</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="message">Sobre tu proyecto</label>
-          <textarea id="message" name="message" rows="4" placeholder="Contame brevemente qué necesitás y cuándo querés arrancar" required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          Enviar mensaje <span class="arrow">→</span>
-        </button>
-      </form>
-    </div>
-  </div>
+<!-- ============ 06 — CIERRE ============ -->
+<section class="closing" id="contacto">
+  <div class="closing-eyebrow">— 06 / Conversemos</div>
+  <h2>¿Tu proyecto está listo para <em>envejecer bien</em>?</h2>
+  <a href="https://wa.me/595992391964?text=Hola%20Soph%C4%93%2C%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: var(--space-2);">Conversemos <span class="arr">→</span></a>
 </section>
+
+</main>
 
 <!-- ============ FOOTER ============ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo">
-          <svg width="180" height="50" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="130" class="wm-text" font-size="160" fill="#EDE8DD" letter-spacing="-7">sophē</text>
-            <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
-          </svg>
-        </div>
-        <p class="footer-tag">Marcas que envejecen bien.<br>Desde Ciudad del Este.</p>
+        <div class="footer-statement">Marcas que <em>envejecen bien</em>.</div>
+        <p class="footer-sub">Estudio de branding y diseño editorial en Ciudad del Este, Paraguay. Desde 2024.</p>
       </div>
-
       <div class="footer-col">
-        <h4>Navegación</h4>
+        <h5>Sitio</h5>
         <ul>
-          <li><a href="#about">Estudio</a></li>
-          <li><a href="#work">Trabajo</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#process">Proceso</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><a href="trabajo.html">Trabajo</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="estudio.html">Estudio</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4>Conectar</h4>
+        <h5>Contacto</h5>
         <ul>
-          <li><a href="https://instagram.com/sophe.studio" target="_blank">Instagram</a></li>
-          <li><a href="https://www.behance.net/sophe_studio" target="_blank">Behance</a></li>
-          <li><a href="https://wa.me/595992391964">WhatsApp</a></li>
-          <li><a href="mailto:sophestudio@gmail.com">Email</a></li>
-          <li><a href="sophe-simulador-presupuesto.html">Simulador</a></li>
+          <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
+          <li><a href="https://wa.me/595992391964" target="_blank" rel="noopener">+595 992 391 964</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Seguir</h5>
+        <ul>
+          <li><a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://instagram.com/sophe.studio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="sophe-tarjeta-digital.html">Tarjeta digital</a></li>
         </ul>
       </div>
     </div>
-
-    <div class="footer-bottom">
+    <div class="footer-base">
       <span>© 2026 Sophē Design Studio</span>
       <span>CDE · Paraguay</span>
-      <span>Marcas que envejecen bien</span>
+      <span>Vol. 02 — 2026</span>
     </div>
   </div>
 </footer>
 
 <!-- ============ WHATSAPP FLOAT ============ -->
-<a href="https://wa.me/595992391964?text=Hola%20Sophē%2C%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto." class="wa-float" target="_blank" aria-label="WhatsApp">
+<a href="https://wa.me/595992391964" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
@@ -1821,82 +873,77 @@
 
 <script>
   // ============ INTRO ANIMATION ============
-  (function intro() {
-    const overlay = document.getElementById('intro');
-    if (!overlay) return;
+  // Si ya se vio en esta sesión, saltar
+  (function() {
+    const introSeen = sessionStorage.getItem('sophe_intro_seen');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const intro = document.getElementById('intro');
 
-    // Skip animation on subsequent visits within session
-    if (sessionStorage.getItem('sophe_intro_seen')) {
-      overlay.style.display = 'none';
+    if (introSeen || reduced) {
+      intro.classList.add('done');
       document.body.classList.remove('intro-active');
-      document.body.classList.add('intro-done');
       return;
     }
 
-    // Calculate macron width based on the "e" letter
-    setTimeout(() => {
-      const eLetter = document.getElementById('il-5');
-      const macron = document.getElementById('im-macron');
-      if (eLetter && macron) {
-        const width = eLetter.offsetWidth * 0.7;
-        macron.style.setProperty('--macron-width', width + 'px');
-        macron.style.left = ((eLetter.offsetWidth - width) / 2) + 'px';
-        macron.style.top = '0.14em';
-      }
-    }, 50);
+    sessionStorage.setItem('sophe_intro_seen', '1');
 
-    const steps = [
-      // 1. Esquinitas técnicas
-      [100, () => {
-        document.getElementById('ic-tl').classList.add('show');
-        document.getElementById('ic-tr').classList.add('show');
-        document.getElementById('ic-bl').classList.add('show');
-        document.getElementById('ic-br').classList.add('show');
-      }],
-      // 2. Metadata corners
-      [300, () => {
-        document.getElementById('im-tl').classList.add('show');
-        document.getElementById('im-br').classList.add('show');
-      }],
-      // 3. Eyebrow
-      [400, () => document.getElementById('ie-1').classList.add('show')],
-      // 4. Letras del wordmark, una por una
-      [600, () => document.getElementById('il-1').classList.add('show')],
-      [700, () => document.getElementById('il-2').classList.add('show')],
-      [800, () => document.getElementById('il-3').classList.add('show')],
-      [900, () => document.getElementById('il-4').classList.add('show')],
-      [1000, () => document.getElementById('il-5').classList.add('show')],
-      // 5. Macron en clay (el momento clave)
-      [1300, () => document.getElementById('im-macron').classList.add('show')],
-      // 6. Tagline
-      [1700, () => document.getElementById('it-1').classList.add('show')],
-      // 7. Salida
-      [2400, () => {
-        overlay.classList.add('gone');
-        document.body.classList.remove('intro-active');
-        document.body.classList.add('intro-done');
-        sessionStorage.setItem('sophe_intro_seen', '1');
-      }],
-      // 8. Cleanup
-      [3500, () => {
-        overlay.style.display = 'none';
-      }]
+    // Secuencia de animación
+    const seq = [
+      { el: ['ic-tl', 'ic-tr', 'ic-bl', 'ic-br'], delay: 100, cls: 'show' },
+      { el: ['im-tl', 'im-br'], delay: 350, cls: 'show' },
+      { el: ['ie-1'], delay: 600, cls: 'show' },
+      { el: ['il-1'], delay: 900, cls: 'show' },
+      { el: ['il-2'], delay: 1000, cls: 'show' },
+      { el: ['il-3'], delay: 1100, cls: 'show' },
+      { el: ['il-4'], delay: 1200, cls: 'show' },
+      { el: ['il-5'], delay: 1300, cls: 'show' },
+      { el: ['im-macron'], delay: 1700, cls: 'show' }
     ];
 
-    steps.forEach(([delay, fn]) => setTimeout(fn, delay));
+    seq.forEach(step => {
+      setTimeout(() => {
+        step.el.forEach(id => {
+          const node = document.getElementById(id);
+          if (node) node.classList.add(step.cls);
+        });
+      }, step.delay);
+    });
+
+    // Salir
+    setTimeout(() => {
+      intro.classList.add('done');
+      document.body.classList.remove('intro-active');
+    }, 2400);
   })();
 
-  // ============ FADE IN ON SCROLL ============
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  // ============ NAV: scroll & light/dark detection ============
+  (function() {
+    const nav = document.querySelector('nav.site-nav');
+    if (!nav) return;
+    const lightSections = ['.work-section', '.services-section', '.studio-section'];
+    const lightEls = lightSections.flatMap(s => Array.from(document.querySelectorAll(s)));
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    function update() {
+      // Estado scroll
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+
+      // Detectar sección clara debajo del nav
+      const navBottom = 60;
+      let onLight = false;
+      for (const el of lightEls) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= navBottom && rect.bottom >= navBottom) {
+          onLight = true;
+          break;
+        }
+      }
+      nav.classList.toggle('on-light', onLight);
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
 </script>
 
 </body>

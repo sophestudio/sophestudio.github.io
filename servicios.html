@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Sophē Design Studio</title>
+<meta name="description" content="Cuatro territorios de diseño: branding completo, packaging, editorial corporativo y contenido digital. Tiempos, entregables y precios desde.">
+<meta property="og:title" content="Servicios — Sophē Design Studio">
+<meta property="og:description" content="Cuatro territorios. Una sola obsesión: que dure.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#1A1A1A">
+
+<link rel="stylesheet" href="sophe.css">
+
+<style>
+  /* ============ HEADER DE PÁGINA ============ */
+  .page-header {
+    background: var(--ink);
+    color: var(--bone);
+    padding: var(--space-16) var(--space-4) var(--space-10);
+  }
+  .page-header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .page-header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-header-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--clay);
+  }
+  .page-header h1 {
+    max-width: 14ch;
+    margin-bottom: var(--space-3);
+  }
+  .page-header-sub {
+    max-width: 56ch;
+    color: rgba(237,232,221,0.75);
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.55;
+  }
+
+  /* ============ TERRITORIO (cada servicio expandido) ============ */
+  .territory {
+    padding: var(--space-12) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .territory:last-of-type { border-bottom: 0; }
+  .territory-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .territory-num {
+    font-size: clamp(38px, 4.5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--clay);
+    line-height: 1;
+    padding-top: 8px;
+  }
+  .territory-main h2 {
+    margin-bottom: var(--space-3);
+    line-height: 1.05;
+  }
+  .territory-tagline {
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: var(--space-4);
+    max-width: 36ch;
+  }
+  .territory-for {
+    padding: var(--space-3);
+    background: var(--bone-soft);
+    border-left: 2px solid var(--clay);
+    margin-top: var(--space-3);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .territory-for strong {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .territory-detail h4 {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+  .territory-includes {
+    list-style: none;
+    margin-bottom: var(--space-4);
+  }
+  .territory-includes li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .territory-includes li::before {
+    content: '—';
+    color: var(--clay);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .territory-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--line-strong);
+  }
+  .territory-meta-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .territory-meta-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+  }
+  .territory-meta-value {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .territory-meta-value em {
+    color: var(--clay);
+    font-weight: 700;
+  }
+
+  @media (max-width: 880px) {
+    .territory-inner {
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-3);
+    }
+    .territory-detail {
+      grid-column: 1 / -1;
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--line);
+    }
+  }
+
+  /* ============ PROCESO ============ */
+  .process-section {
+    background: var(--ink);
+    color: var(--bone);
+    padding: var(--space-12) var(--space-4);
+    position: relative;
+  }
+  .process-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .process-header {
+    margin-bottom: var(--space-10);
+    display: grid;
+    grid-template-columns: 80px 220px 1fr 80px;
+    gap: var(--space-4);
+    align-items: end;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--line-on-ink);
+  }
+  .process-header .index-num { color: var(--clay); }
+  .process-header .index-label { color: rgba(237,232,221,0.6); }
+  .process-header h2 { color: var(--bone); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+  .process-step {
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--clay);
+  }
+  .process-step-num {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+  .process-step h3 {
+    color: var(--bone);
+    margin-bottom: var(--space-2);
+    font-size: 24px;
+  }
+  .process-step p {
+    font-size: 14px;
+    color: rgba(237,232,221,0.7);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 880px) {
+    .process-header { grid-template-columns: 1fr; gap: var(--space-2); }
+    .process-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  }
+  @media (max-width: 480px) {
+    .process-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============ CONDICIONES ============ */
+  .conditions-section {
+    padding: var(--space-12) var(--space-4);
+    background: var(--bone-soft);
+  }
+  .conditions-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .conditions-title h2 {
+    margin-bottom: var(--space-3);
+    line-height: 1.05;
+  }
+  .conditions-title p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 36ch;
+  }
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line-strong);
+    border: 1px solid var(--line-strong);
+  }
+  .condition {
+    background: var(--bone);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .condition-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+  }
+  .condition-value {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .condition-value em {
+    color: var(--clay);
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .conditions-inner { grid-template-columns: 1fr; gap: var(--space-4); }
+    .conditions-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============ CIERRE ============ */
+  .services-cta {
+    background: var(--clay);
+    color: var(--bone);
+    padding: var(--space-16) var(--space-4);
+    text-align: center;
+    position: relative;
+  }
+  .services-cta::before {
+    content: '';
+    position: absolute;
+    top: var(--space-3); left: var(--space-3);
+    width: 18px; height: 18px;
+    border-top: 1px solid rgba(237,232,221,0.4);
+    border-left: 1px solid rgba(237,232,221,0.4);
+  }
+  .services-cta::after {
+    content: '';
+    position: absolute;
+    bottom: var(--space-3); right: var(--space-3);
+    width: 18px; height: 18px;
+    border-bottom: 1px solid rgba(237,232,221,0.4);
+    border-right: 1px solid rgba(237,232,221,0.4);
+  }
+  .services-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(237,232,221,0.8);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+  .services-cta-eyebrow::before, .services-cta-eyebrow::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: rgba(237,232,221,0.6);
+  }
+  .services-cta h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 22ch;
+    margin: 0 auto var(--space-4);
+  }
+  .services-cta h2 em {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .services-cta p {
+    max-width: 50ch;
+    margin: 0 auto var(--space-6);
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(237,232,221,0.85);
+  }
+  .services-cta-row {
+    display: inline-flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-on-clay {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 28px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--ink);
+    color: var(--bone);
+    border: 1px solid var(--ink);
+    transition: background 0.3s;
+  }
+  .btn-on-clay:hover { background: var(--ink-soft); }
+  .btn-on-clay-ghost {
+    background: transparent;
+    color: var(--bone);
+    border: 1px solid var(--bone);
+  }
+  .btn-on-clay-ghost:hover { background: var(--bone); color: var(--clay); }
+</style>
+
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="site-nav">
+  <a href="index.html" class="logo" aria-label="Sophē — inicio">
+    <svg width="80" height="22" viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="130" font-family="Switzer, sans-serif" font-weight="500" font-size="160" fill="currentColor" letter-spacing="-7">sophē</text>
+      <rect x="430" y="32" width="78" height="6" fill="#C04A2B"/>
+    </svg>
+  </a>
+  <ul>
+    <li><a href="trabajo.html">Trabajo</a></li>
+    <li><a href="servicios.html" class="active">Servicios</a></li>
+    <li><a href="estudio.html">Estudio</a></li>
+    <li><a href="cotizar.html">Cotizar</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Conversemos <span class="arr">→</span></a>
+</nav>
+
+<main>
+
+<!-- ============ HEADER ============ -->
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-eyebrow">— 01 / Servicios</div>
+    <h1>Cuatro <em>territorios</em>.</h1>
+    <p class="page-header-sub">Una sola obsesión: que dure. Lo que hago, qué incluye, en qué tiempo, cuánto cuesta. Sin letra chica.</p>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Packaging</span>
+    <span class="marquee-item">Editorial</span>
+    <span class="marquee-item">Contenido digital</span>
+    <span class="marquee-item">Sub-branding</span>
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Packaging</span>
+    <span class="marquee-item">Editorial</span>
+    <span class="marquee-item">Contenido digital</span>
+    <span class="marquee-item">Sub-branding</span>
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Packaging</span>
+  </div>
+</div>
+
+<!-- ============ TERRITORIO 01 — BRANDING ============ -->
+<section class="territory">
+  <div class="territory-inner">
+    <div class="territory-num">01</div>
+
+    <div class="territory-main">
+      <h2>Branding <em>completo</em>.</h2>
+      <p class="territory-tagline">Estrategia, identidad y sistema visual. Una identidad como sistema, no como logo. Pensado para sostenerse cinco años.</p>
+
+      <div class="territory-for">
+        <strong>Para vos si:</strong>
+        Estás abriendo un proyecto, relanzándolo, o tu identidad actual ya no representa lo que sos hoy. Querés algo que se sostenga, no algo que esté de moda este año.
+      </div>
+    </div>
+
+    <div class="territory-detail">
+      <h4>— Qué incluye</h4>
+      <ul class="territory-includes">
+        <li>Estrategia de marca e investigación de territorio</li>
+        <li>Logo principal + variantes + isotipo</li>
+        <li>Sistema de paleta y tipografía</li>
+        <li>Sistema de aplicaciones y papelería</li>
+        <li>Manual de marca completo</li>
+        <li>Sesión de entrega + soporte post-entrega</li>
+      </ul>
+
+      <div class="territory-meta-grid">
+        <div>
+          <span class="territory-meta-label">Tiempo</span>
+          <span class="territory-meta-value">5—6 semanas</span>
+        </div>
+        <div>
+          <span class="territory-meta-label">Desde</span>
+          <span class="territory-meta-value"><em>Gs 2.200.000</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERRITORIO 02 — PRODUCTO Y PACKAGING ============ -->
+<section class="territory" style="background: var(--bone-soft);">
+  <div class="territory-inner">
+    <div class="territory-num">02</div>
+
+    <div class="territory-main">
+      <h2>Producto y <em>packaging</em>.</h2>
+      <p class="territory-tagline">Diseño que funciona en góndola. Pensado para ser visto en 3 segundos y elegido en 5.</p>
+
+      <div class="territory-for">
+        <strong>Para vos si:</strong>
+        Vendés producto físico y necesitás que la etiqueta, la caja o el exhibidor hagan el trabajo de venta cuando vos no estás ahí.
+      </div>
+    </div>
+
+    <div class="territory-detail">
+      <h4>— Qué incluye</h4>
+      <ul class="territory-includes">
+        <li>Etiquetas de producto (originales o adaptaciones)</li>
+        <li>Diseño de packaging completo</li>
+        <li>Exhibidores POP y punto de venta</li>
+        <li>Sistema escalable para línea completa</li>
+        <li>Archivos para imprenta + supervisión técnica</li>
+      </ul>
+
+      <div class="territory-meta-grid">
+        <div>
+          <span class="territory-meta-label">Tiempo</span>
+          <span class="territory-meta-value">2—4 semanas</span>
+        </div>
+        <div>
+          <span class="territory-meta-label">Desde</span>
+          <span class="territory-meta-value"><em>Gs 800.000</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERRITORIO 03 — EDITORIAL ============ -->
+<section class="territory">
+  <div class="territory-inner">
+    <div class="territory-num">03</div>
+
+    <div class="territory-main">
+      <h2>Editorial <em>corporativo</em>.</h2>
+      <p class="territory-tagline">Diagramación con criterio. Documentos que se leen, no que se sufren.</p>
+
+      <div class="territory-for">
+        <strong>Para vos si:</strong>
+        Necesitás un menú, catálogo, presentación o tríptico que comunique nivel — sin que parezca template descargado.
+      </div>
+    </div>
+
+    <div class="territory-detail">
+      <h4>— Qué incluye</h4>
+      <ul class="territory-includes">
+        <li>Menús (básico hasta 8 pág / premium 12+ pág)</li>
+        <li>Catálogo corporativo</li>
+        <li>Trípticos, flyers y piezas comerciales</li>
+        <li>Presentaciones y dossiers</li>
+        <li>Manual y documentación interna</li>
+      </ul>
+
+      <div class="territory-meta-grid">
+        <div>
+          <span class="territory-meta-label">Tiempo</span>
+          <span class="territory-meta-value">1—3 semanas</span>
+        </div>
+        <div>
+          <span class="territory-meta-label">Desde</span>
+          <span class="territory-meta-value"><em>Gs 400.000</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERRITORIO 04 — CONTENIDO ============ -->
+<section class="territory" style="background: var(--bone-soft);">
+  <div class="territory-inner">
+    <div class="territory-num">04</div>
+
+    <div class="territory-main">
+      <h2>Contenido <em>digital</em>.</h2>
+      <p class="territory-tagline">Planes mensuales para redes. Sistema visual coherente, no piezas sueltas.</p>
+
+      <div class="territory-for">
+        <strong>Para vos si:</strong>
+        Querés presencia constante en redes sin que cada post parezca diseñado por una persona distinta. La consistencia es lo que construye recordación.
+      </div>
+    </div>
+
+    <div class="territory-detail">
+      <h4>— Qué incluye</h4>
+      <ul class="territory-includes">
+        <li>Pieza individual (Gs 80.000)</li>
+        <li>Plan 8 piezas/mes — Gs 570.000</li>
+        <li>Plan 12 piezas/mes — Gs 850.000</li>
+        <li>Plan 16 piezas/mes — Gs 1.100.000</li>
+        <li>Templates editables + stories destacadas</li>
+      </ul>
+
+      <div class="territory-meta-grid">
+        <div>
+          <span class="territory-meta-label">Compromiso</span>
+          <span class="territory-meta-value">Mensual</span>
+        </div>
+        <div>
+          <span class="territory-meta-label">Desde</span>
+          <span class="territory-meta-value"><em>Gs 80.000</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="index-num">02</div>
+      <div class="index-label">Proceso<br>· Cómo trabajo</div>
+      <h2 class="h2">De brief <em>a entrega</em>.</h2>
+      <div class="index-label right">04<br>etapas</div>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-step-num">— 01</div>
+        <h3>Descubrimiento</h3>
+        <p>Brief profundo. Antes de diseñar, entender. Investigación del rubro, del público y de la competencia real.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">— 02</div>
+        <h3>Estrategia</h3>
+        <p>Territorio creativo, moodboards y dirección. Acá se decide el sistema antes de tocar pixel.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">— 03</div>
+        <h3>Diseño</h3>
+        <p>El sistema completo. Dos rondas de revisión incluidas. Iteramos hasta que funciona.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">— 04</div>
+        <h3>Entrega</h3>
+        <p>Archivos finales, manual y soporte post-entrega. Para que puedas usarlo sin volver a llamarme cada semana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONDICIONES ============ -->
+<section class="conditions-section">
+  <div class="conditions-inner">
+    <div class="conditions-title">
+      <div class="page-header-eyebrow" style="color: var(--clay); margin-bottom: var(--space-3);">— 03 / Condiciones</div>
+      <h2>Sin letra <em>chica</em>.</h2>
+      <p>Las reglas del juego, claras desde el principio. Ningún cliente se enteró de algo importante a último momento.</p>
+    </div>
+
+    <div class="conditions-grid">
+      <div class="condition">
+        <span class="condition-label">— Pago</span>
+        <span class="condition-value"><em>50%</em> adelanto<br>50% contra entrega</span>
+      </div>
+      <div class="condition">
+        <span class="condition-label">— Revisiones</span>
+        <span class="condition-value"><em>2 rondas</em><br>incluidas por proyecto</span>
+      </div>
+      <div class="condition">
+        <span class="condition-label">— Derechos</span>
+        <span class="condition-value"><em>Transferidos</em><br>al completar pago</span>
+      </div>
+      <div class="condition">
+        <span class="condition-label">— Propuesta</span>
+        <span class="condition-value"><em>15 días</em><br>de validez</span>
+      </div>
+      <div class="condition">
+        <span class="condition-label">— Descuento volumen</span>
+        <span class="condition-value">Solo en piezas individuales<br>(<em>5+: 5%</em> · 8+: 10%)</span>
+      </div>
+      <div class="condition">
+        <span class="condition-label">— Combinaciones</span>
+        <span class="condition-value">Cotizo como <em>sistema</em><br>no como suma de partes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIERRE ============ -->
+<section class="services-cta" id="contacto">
+  <div class="services-cta-eyebrow">— Conversemos</div>
+  <h2>¿Cuál de los cuatro <em>te suena</em>?</h2>
+  <p>Si ya sabés qué necesitás, calculá tu presupuesto. Si todavía no estás segura, escribime y conversamos qué encaja.</p>
+  <div class="services-cta-row">
+    <a href="cotizar.html" class="btn-on-clay">Calcular presupuesto <span class="arr">→</span></a>
+    <a href="https://wa.me/595992391964?text=Hola%20Soph%C4%93%2C%20vi%20los%20servicios%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="btn-on-clay btn-on-clay-ghost">Conversemos <span class="arr">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-statement">Marcas que <em>envejecen bien</em>.</div>
+        <p class="footer-sub">Estudio de branding y diseño editorial en Ciudad del Este, Paraguay. Desde 2024.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Sitio</h5>
+        <ul>
+          <li><a href="trabajo.html">Trabajo</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="estudio.html">Estudio</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:sophestudio@gmail.com">sophestudio@gmail.com</a></li>
+          <li><a href="https://wa.me/595992391964" target="_blank" rel="noopener">+595 992 391 964</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Seguir</h5>
+        <ul>
+          <li><a href="https://www.behance.net/sophe_studio" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://instagram.com/sophe.studio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="sophe-tarjeta-digital.html">Tarjeta digital</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Sophē Design Studio</span>
+      <span>CDE · Paraguay</span>
+      <span>Vol. 02 — 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/595992391964" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  (function() {
+    const nav = document.querySelector('nav.site-nav');
+    if (!nav) return;
+    const lightStart = document.querySelector('.territory');
+    function update() {
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      const rect = lightStart.getBoundingClientRect();
+      // Está sobre fondo claro entre territorios y conditions; sobre ink en process y cta clay
+      const processSection = document.querySelector('.process-section');
+      const ctaSection = document.querySelector('.services-cta');
+      const procRect = processSection.getBoundingClientRect();
+      const ctaRect = ctaSection.getBoundingClientRect();
+      const onDark =
+        (procRect.top <= 60 && procRect.bottom >= 60) ||
+        (ctaRect.top <= 60 && ctaRect.bottom >= 60) ||
+        rect.top > 60;
+      nav.classList.toggle('on-light', !onDark);
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
