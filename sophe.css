@@ -6,29 +6,33 @@
    ============================================================ */
 
 /* ----- FUENTES ----- */
-/* Switzer es la fuente oficial. Si por algún motivo no carga,
-   Inter funciona como fallback decente (proporciones similares). */
+/* Switzer en formato .otf (OpenType). Si no carga, Inter funciona como fallback. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 @font-face {
   font-family: 'Switzer';
-  src: url('Switzer-Regular.woff2') format('woff2');
+  src: url('Switzer-Regular.otf') format('opentype');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Switzer';
-  src: url('Switzer-Medium.woff2') format('woff2');
+  src: url('Switzer-Medium.otf') format('opentype');
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Switzer';
-  src: url('Switzer-Italic.woff2') format('woff2');
+  src: url('Switzer-Italic.otf') format('opentype');
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Switzer';
-  src: url('Switzer-Bold.woff2') format('woff2');
+  src: url('Switzer-Bold.otf') format('opentype');
   font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('Switzer-Light.otf') format('opentype');
+  font-weight: 300; font-style: normal; font-display: swap;
 }
 
 /* ----- TOKENS ----- */
@@ -515,6 +519,37 @@ footer.site-footer {
   text-transform: uppercase;
   color: rgba(237,232,221,0.4);
   font-weight: 700;
+}
+
+/* ============================================================
+   COMPONENTES — WHATSAPP FLOTANTE
+   ============================================================ */
+
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 56px;
+  height: 56px;
+  background: var(--clay);
+  color: var(--bone);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(192,74,43,0.35);
+  transition: transform 0.3s, background 0.3s;
+  overflow: hidden;
+}
+.wa-float:hover {
+  background: var(--clay-soft);
+  transform: scale(1.05);
+}
+.wa-float svg {
+  width: 26px !important;
+  height: 26px !important;
+  flex-shrink: 0;
 }
 
 /* ============================================================
